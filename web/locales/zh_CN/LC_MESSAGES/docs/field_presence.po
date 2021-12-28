@@ -27,10 +27,12 @@ msgid ""
 "for protobuf fields. It also explains the behaviour of explicit presence "
 "tracking for singular proto3 fields with basic types."
 msgstr ""
+"本应用说明解释了 protobuf 字段的各种存在跟踪规则。"
+"它还解释了具有基本类型的 singular proto3 字段的显式存在跟踪的行为。"
 
 #: ../../../docs/field_presence.md:5
 msgid "Background"
-msgstr ""
+msgstr "背景"
 
 #: ../../../docs/field_presence.md:7
 msgid ""
@@ -40,6 +42,10 @@ msgid ""
 "and _explicit presence_, where the API also stores whether or not a field"
 " has been set."
 msgstr ""
+"_Field presence_ 是指一个 protobuf 字段是否有一个值的概念。"
+"对于 protobufs 来说，有两种不同的存在表现形式。"
+"_no presence_，即生成的消息 API 存储字段值（仅），以及 _explicit presence_，"
+"即 API 也存储一个字段是否已被设置。"
 
 #: ../../../docs/field_presence.md:9
 msgid ""
@@ -49,10 +55,13 @@ msgid ""
 "the `optional` label have _explicit presence_, like proto2 (this feature "
 "is enabled by default as release 3.15)."
 msgstr ""
+"从历史上看，proto2 大多遵循 _explicit presence_，而 proto3 只暴露了 _no presence_ 语义。"
+"基本类型（数字、字符串、字节和枚举）的 singular proto3 字段，"
+"如果用 `optional` 标签定义，就会像 proto2 一样，具有 _explicit presence_ （这个功能在 3.15 版本中默认启用）。"
 
 #: ../../../docs/field_presence.md:11
 msgid "Presence disciplines"
-msgstr ""
+msgstr "存在法则"
 
 #: ../../../docs/field_presence.md:13
 msgid ""
@@ -62,10 +71,12 @@ msgid ""
 " at (de)serialization time, while the _explicit presence_ discipline "
 "relies upon the explicit tracking state instead."
 msgstr ""
+"_Presence disciplines_ 定义了在 _API 表示法_ 和 _序列化表示法_ 之间转换的语义。"
+"_no presence_ 法则依靠字段值本身在（去）序列化时做出决定，而 _explicit presence_ 法则则依靠明确的跟踪状态。
 
 #: ../../../docs/field_presence.md:15
 msgid "Presence in _tag-value stream_ (wire format) serialization"
-msgstr ""
+msgstr "存在于 _tag-value stream_ （wire 格式）的序列化中"
 
 #: ../../../docs/field_presence.md:17
 msgid ""

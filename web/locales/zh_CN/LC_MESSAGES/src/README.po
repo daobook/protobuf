@@ -148,7 +148,7 @@ msgstr ""
 
 #: ../../../src/README.md:77
 msgid "**Compiling dependent packages**"
-msgstr ""
+msgstr "**编译依赖的软件包**"
 
 #: ../../../src/README.md:79
 msgid ""
@@ -157,10 +157,13 @@ msgid ""
 "Buffers integrates with pkg-config to manage this.  If you have pkg-"
 "config installed, then you can invoke it to get a list of flags like so:"
 msgstr ""
+"为了编译一个使用 Protocol Buffers 的软件包，你需要向你的编译器和链接器传递各种 旗标。"
+"从 2.2.0 版本开始，Protocol Buffers 集成了 pkg-config 来管理这些。"
+"如果你安装了 pkg-config，那么你可以调用它来获得一个 旗标 列表，就像这样："
 
 #: ../../../src/README.md:91
 msgid "For example:"
-msgstr ""
+msgstr "示例："
 
 #: ../../../src/README.md:95
 msgid ""
@@ -170,10 +173,13 @@ msgid ""
 "package in question uses autoconf, you can often fix the problem by "
 "invoking its configure script like:"
 msgstr ""
+"请注意，在协议缓冲区 2.2.0 版本之前编写的软件包可能还没有与 pkg-config 集成以获得旗标，"
+"并且可能没有传递正确的旗标集以正确链接到 libprotobuf。"
+"如果有问题的软件包使用 autoconf，你通常可以通过调用其配置脚本来解决这个问题，比如："
 
 #: ../../../src/README.md:105
 msgid "This will force it to use the correct flags."
-msgstr ""
+msgstr "这将迫使它使用正确的 旗标。"
 
 #: ../../../src/README.md:107
 msgid ""
@@ -181,16 +187,19 @@ msgid ""
 "you should probably use the PKG_CHECK_MODULES macro in your configure "
 "script like:"
 msgstr ""
+"如果你正在编写一个基于 autoconf 的软件包，并使用协议缓冲区，"
+"你可能应该在你的配置脚本中使用 PKG_CHECK_MODULES 宏，比如："
 
 #: ../../../src/README.md:113
 msgid "See the pkg-config man page for more info."
-msgstr ""
+msgstr "更多信息请参见 pkg-config man 页。"
 
 #: ../../../src/README.md:115
 msgid ""
 "If you only want protobuf-lite, substitute \"protobuf-lite\" in place of "
 "\"protobuf\" in these examples."
 msgstr ""
+"如果你只想要 protobuf-lite，在这些例子中用 \"protobuf-lite\" 代替 \"protobuf\"。"
 
 #: ../../../src/README.md:118
 msgid "**Note for Mac users**"
@@ -216,7 +225,7 @@ msgstr ""
 
 #: ../../../src/README.md:134
 msgid "**Note for cross-compiling**"
-msgstr ""
+msgstr "**交叉编译的注意事项**"
 
 #: ../../../src/README.md:136
 msgid ""
@@ -226,6 +235,10 @@ msgid ""
 "copy of protoc for the host machine first, then use the --with-protoc "
 "option to tell configure to use it instead.  For example:"
 msgstr ""
+"makefiles 通常会调用他们刚刚构建的 protoc 可执行文件，以构建测试。"
+"当交叉编译时，protoc 的可执行文件在主机上可能无法执行。"
+"在这种情况下，你必须先为主机建立一个 protoc 副本，"
+"然后用 `--with-protoc` 选项告诉 configure 用它来代替。比如说："
 
 #: ../../../src/README.md:145
 msgid ""
@@ -234,12 +247,16 @@ msgid ""
 "use an executable that hasn't been installed.  For example, if you built "
 "the protobuf package for your host machine in ../host, you might do:"
 msgstr ""
+"这将使用已安装的 protoc（在你的 $PATH 中找到），而不是试图执行在构建过程中构建的那个。"
+"你也可以使用一个尚未安装的可执行文件。"
+"例如，如果你在 `../host` 中为你的主机构建了 protobuf 包，你可以这样做："
 
 #: ../../../src/README.md:153
 msgid ""
 "Either way, you must make sure that the protoc executable you use has the"
 " same version as the protobuf source code you are trying to use it with."
 msgstr ""
+"无论如何，你必须确保你使用的 protoc 可执行文件的版本与你要使用的 protobuf 源代码的版本相同。"
 
 #: ../../../src/README.md:157
 msgid "**Note for Solaris users**"
@@ -282,13 +299,14 @@ msgstr ""
 
 #: ../../../src/README.md:183
 msgid "C++ Installation - Windows"
-msgstr ""
+msgstr "C++ 安装 —— Windows"
 
 #: ../../../src/README.md:186
 msgid ""
 "If you only need the protoc binary, you can download it from the release "
 "page:"
 msgstr ""
+"如果你只需要 protoc 二进制文件，你可以从发布页面下载："
 
 #: ../../../src/README.md:191
 msgid ""
@@ -296,34 +314,38 @@ msgid ""
 "win32.zip. It contains the protoc binary as well as public proto files of"
 " protobuf library."
 msgstr ""
+"在下载部分，下载 zip 文件 `protoc-$VERSION-win32.zip`。"
+"它包含 protoc 二进制文件，以及 protobuf 库的公共 proto 文件。"
 
 #: ../../../src/README.md:195
 msgid "Protobuf and its dependencies can be installed directly by using `vcpkg`:"
-msgstr ""
+msgstr "Protobuf 和它的依赖项可以通过使用 `vcpkg` 直接安装："
 
 #: ../../../src/README.md:199
 msgid "If zlib support is desired, you'll also need to install the zlib feature:"
-msgstr ""
+msgstr "如果需要 zlib 支持，你还需要安装 zlib 功能："
 
 #: ../../../src/README.md:203
 msgid "See https://github.com/Microsoft/vcpkg for more information."
-msgstr ""
+msgstr "更多信息见 https://github.com/Microsoft/vcpkg。"
 
 #: ../../../src/README.md:205
 msgid ""
 "To build from source using Microsoft Visual C++, see "
 "[cmake/README.md](../cmake/README.md)."
 msgstr ""
+"要使用 Microsoft Visual C++ 从源码构建，请参见 [cmake/README.md](../cmake/README.md)。"
 
 #: ../../../src/README.md:207
 msgid ""
 "To build from source using Cygwin or MinGW, follow the Unix installation "
 "instructions, above."
 msgstr ""
+"要使用 Cygwin 或 MinGW 从源代码构建，请遵循上面的 Unix 安装说明。"
 
 #: ../../../src/README.md:210
 msgid "Binary Compatibility Warning"
-msgstr ""
+msgstr "二进制兼容警告"
 
 #: ../../../src/README.md:213
 msgid ""
@@ -335,14 +357,17 @@ msgid ""
 " of your app.  Still, you may want to consider using static linkage.  You"
 " can configure this package to install static libraries only using:"
 msgstr ""
+"由于 C++ 的特性，任何两个版本的协议缓冲区 C++ 运行库都不可能有兼容的 ABI。"
+"也就是说，如果你用旧版本的 libprotobuf 链接了一个可执行文件，那么在不重新编译的情况下，它不可能在新版本中工作。"
+"这个问题一旦发生，通常会在你的应用程序启动时立即被发现。不过，你可能要考虑使用静态链接。"
+"你可以配置这个包，使其只安装静态库，使用："
 
 #: ../../../src/README.md:224
 msgid "Usage"
-msgstr ""
+msgstr "用法"
 
 #: ../../../src/README.md:227
 msgid ""
 "The complete documentation for Protocol Buffers is available via the web "
 "at:"
-msgstr ""
-
+msgstr "协议缓冲区的完整文档可通过网络获得："
