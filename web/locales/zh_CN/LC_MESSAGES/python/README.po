@@ -1,0 +1,215 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2021, xinetzone
+# This file is distributed under the same license as the protobuf package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: protobuf \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-12-28 12:54+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.0\n"
+
+#: ../../../python/README.md:1
+msgid "Protocol Buffers - Google's data interchange format"
+msgstr "Python API"
+
+#: ../../../python/README.md:4
+msgid "Copyright 2008 Google Inc."
+msgstr ""
+
+#: ../../../python/README.md:6
+msgid "This directory contains the Python Protocol Buffers runtime library."
+msgstr "这个目录包含 Python 协议缓冲区运行库。"
+
+#: ../../../python/README.md:8
+msgid ""
+"Normally, this directory comes as part of the protobuf package, available"
+" from:"
+msgstr ""
+"通常情况下，这个目录是作为 protobuf 包的一部分，可以从："
+
+#: ../../../python/README.md:11 ../../../python/README.md:121
+msgid "https://developers.google.com/protocol-buffers/"
+msgstr ""
+
+#: ../../../python/README.md:13
+msgid ""
+"The complete package includes the C++ source code, which includes the "
+"Protocol Compiler (protoc).  If you downloaded this package from PyPI or "
+"some other Python-specific source, you may have received only the Python "
+"part of the code.  In this case, you will need to obtain the Protocol "
+"Compiler from some other source before you can use this package."
+msgstr ""
+"完整的软件包包括 C++ 源代码，其中包括协议编译器（protoc）。"
+"如果你从 PyPI 或其他一些特定于 Python 的来源下载这个包，你可能只收到了代码的 Python 部分。"
+"在这种情况下，你需要从其他来源获得协议编译器，才能使用这个包。"
+
+#: ../../../python/README.md:20
+msgid "Development Warning"
+msgstr "开发预警"
+
+#: ../../../python/README.md:23
+msgid ""
+"The pure python performance is slow. For better performance please use "
+"python c++ implementation."
+msgstr ""
+"纯 Python 的性能很慢。为了获得更好的性能，请使用 Python c++ 实现。"
+
+#: ../../../python/README.md:26
+msgid "Installation"
+msgstr "安装"
+
+#: ../../../python/README.md:29
+msgid "Make sure you have Python 3.5 or newer.  If in doubt, run:"
+msgstr "请确保你有 Python 3.5 或更新版本。 如果有疑问，请运行："
+
+#: ../../../python/README.md:33
+msgid ""
+"If you do not have setuptools installed, note that it will be downloaded "
+"and installed automatically as soon as you run `setup.py`. If you would "
+"rather install it manually, you may do so by following the instructions "
+"on [this page](https://packaging.python.org/en/latest/installing.html"
+"#setup-for-installing-packages)."
+msgstr ""
+"如果你没有安装 setuptools，请注意，只要你运行 `setup.py`，它就会自动下载和安装。"
+"如果你想手动安装它，你可以按照 [本页]"
+"(https://packaging.python.org/en/latest/installing.html#setup-for-installing-packages) 上的说明来做。"
+
+#: ../../../python/README.md:38
+msgid ""
+"Build the C++ code, or install a binary distribution of `protoc`.  If you"
+" install a binary distribution, make sure that it is the same version as "
+"this package.  If in doubt, run:"
+msgstr ""
+"构建 C++ 代码，或安装 `protoc` 的二进制分发。"
+"如果你安装的是二进制发行版，请确保它与本软件包的版本相同。如果有疑问，请运行："
+
+#: ../../../python/README.md:44
+msgid "Build and run the tests:"
+msgstr "建立并运行测试："
+
+#: ../../../python/README.md:49
+msgid ""
+"To build, test, and use the C++ implementation, you must first compile "
+"`libprotobuf.so`:"
+msgstr ""
+"要构建、测试和使用 C++ 实现，你必须首先编译 `libprotobuf.so`："
+
+#: ../../../python/README.md:54
+msgid "On OS X:"
+msgstr "在 X 系统"
+
+#: ../../../python/README.md:56
+msgid ""
+"If you are running a Homebrew-provided Python, you must make sure another"
+" version of protobuf is not already installed, as Homebrew's Python will "
+"search `/usr/local/lib` for `libprotobuf.so` before it searches "
+"`../src/.libs`."
+msgstr ""
+"如果你正在运行 Homebrew 提供的 Python，你必须确保另一个版本的 protobuf 尚未安装，"
+"因为 Homebrew 的 Python 会在搜索 `../src/.libs` 之前搜索 `/usr/local/lib` 的 `libprotobuf.so`。"
+
+#: ../../../python/README.md:61
+msgid ""
+"You can either unlink Homebrew's protobuf or install the `libprotobuf` "
+"you built earlier:"
+msgstr ""
+"你可以解除 Homebrew 的 protobuf 的链接，或者安装你之前建立的 `libprotobuf` ："
+
+#: ../../../python/README.md:66 ../../../python/README.md:77
+msgid "or"
+msgstr "或者"
+
+#: ../../../python/README.md:70
+msgid "On other *nix:"
+msgstr "在其他 *nix 平台："
+
+#: ../../../python/README.md:72
+msgid ""
+"You must make `libprotobuf.so` dynamically available. You can either  "
+"install libprotobuf you built earlier, or set `LD_LIBRARY_PATH`:"
+msgstr ""
+"你必须使 `libprotobuf.so` 动态可用。"
+"你可以安装你之前建立的 libprotobuf，或者设置 `LD_LIBRARY_PATH`："
+
+#: ../../../python/README.md:81
+msgid "To build the C++ implementation run:"
+msgstr "要建立C++实现，请运行："
+
+#: ../../../python/README.md:85
+msgid "Then run the tests like so:"
+msgstr "然后像这样运行测试："
+
+#: ../../../python/README.md:89
+msgid ""
+"If some tests fail, this library may not work correctly on your system.  "
+"Continue at your own risk."
+msgstr ""
+"如果某些测试失败，这个库可能无法在你的系统上正确工作。 "
+"继续下去，风险自负。"
+
+#: ../../../python/README.md:92
+msgid ""
+"Please note that there is a known problem with some versions of Python on"
+" Cygwin which causes the tests to fail after printing the error:  "
+"`sem_init: Resource temporarily unavailable`.  This appears to be a [bug "
+"either in Cygwin or in "
+"Python](http://www.cygwin.com/ml/cygwin/2005-07/msg01378.html)."
+msgstr ""
+
+#: ../../../python/README.md:98
+msgid ""
+"We do not know if or when it might be fixed.  We also do not know how "
+"likely it is that this bug will affect users in practice."
+msgstr ""
+
+#: ../../../python/README.md:101
+msgid "Install:"
+msgstr ""
+
+#: ../../../python/README.md:105
+msgid "or:"
+msgstr ""
+
+#: ../../../python/README.md:110
+msgid ""
+"This step may require superuser privileges. NOTE: To use C++ "
+"implementation, you need to export an environment variable before running"
+" your program.  See the \"C++ Implementation\" section below for more "
+"details."
+msgstr ""
+
+#: ../../../python/README.md:115
+msgid "Usage"
+msgstr ""
+
+#: ../../../python/README.md:118
+msgid ""
+"The complete documentation for Protocol Buffers is available via the web "
+"at:"
+msgstr ""
+
+#: ../../../python/README.md:123
+msgid "C++ Implementation"
+msgstr ""
+
+#: ../../../python/README.md:126
+msgid ""
+"The C++ implementation for Python messages is built as a Python extension"
+" to improve the overall protobuf Python performance."
+msgstr ""
+
+#: ../../../python/README.md:129
+msgid ""
+"To use the C++ implementation, you need to install the C++ protobuf "
+"runtime library, please see instructions in the parent directory."
+msgstr ""
+

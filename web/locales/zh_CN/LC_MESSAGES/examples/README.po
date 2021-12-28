@@ -1,0 +1,237 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2021, xinetzone
+# This file is distributed under the same license as the protobuf package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: protobuf \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-12-28 12:54+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.0\n"
+
+#: ../../../examples/README.md:1
+msgid "Protocol Buffers - Code Example"
+msgstr ""
+
+#: ../../../examples/README.md:3
+msgid ""
+"This directory contains example code that uses Protocol Buffers to manage"
+" an address book. Two programs are provided for each supported language. "
+"The add_person example adds a new person to an address book, prompting "
+"the user to input the person's information. The list_people example lists"
+" people already in the address book. The examples use the exact same "
+"format in all three languages, so you can, for example, use "
+"add_person_java to create an address book and then use list_people_python"
+" to read it."
+msgstr ""
+
+#: ../../../examples/README.md:11
+msgid ""
+"These examples are part of the Protocol Buffers tutorial, located at:   "
+"https://developers.google.com/protocol-buffers/docs/tutorials"
+msgstr ""
+
+#: ../../../examples/README.md:14
+msgid "Build the example using bazel"
+msgstr ""
+
+#: ../../../examples/README.md:16
+msgid ""
+"The example requires bazel 0.5.4 or newer to build. You can "
+"download/install the latest version of bazel from bazel's release page:"
+msgstr ""
+
+#: ../../../examples/README.md:21
+msgid ""
+"Once you have bazel installed, simply run the following command in this "
+"examples directory to build the code:"
+msgstr ""
+
+#: ../../../examples/README.md:26
+msgid "Then you can run the built binary:"
+msgstr ""
+
+#: ../../../examples/README.md:30
+msgid ""
+"To use protobuf in your own bazel project, please follow instructions in "
+"the [BUILD](BUILD) file and [WORKSPACE](WORKSPACE) file."
+msgstr ""
+"要在你自己的 bazel 项目中使用 protobuf，请遵循 "
+" {download}`BUILD <../../examples/BUILD>` 文件和 {download}`WORKSPACE <../../examples/WORKSPACE>` 文件中的说明。"
+
+#: ../../../examples/README.md:33
+msgid "Build the example using make"
+msgstr ""
+
+#: ../../../examples/README.md:35
+msgid ""
+"You must install the protobuf package before you can build it using make."
+" The minimum requirement is to install protocol compiler (i.e., the "
+"protoc binary) and the protobuf runtime for the language you want to "
+"build."
+msgstr ""
+
+#: ../../../examples/README.md:39
+msgid ""
+"You can simply run \"make\" to build the example for all languages "
+"(except for Go). However, since different language has different "
+"installation requirement, it will likely fail. It's better to follow "
+"individual instructions below to build only the language you are "
+"interested in."
+msgstr ""
+
+#: ../../../examples/README.md:44
+msgid "C++"
+msgstr ""
+
+#: ../../../examples/README.md:46
+msgid ""
+"You can follow instructions in [../src/README.md](../src/README.md) to "
+"install protoc and protobuf C++ runtime from source."
+msgstr ""
+
+#: ../../../examples/README.md:49
+msgid ""
+"Then run \"make cpp\" in this examples directory to build the C++ "
+"example. It will create two executables: add_person_cpp and "
+"list_people_cpp. These programs simply take an address book file as their"
+" parameter. The add_person_cpp programs will create the file if it "
+"doesn't already exist."
+msgstr ""
+
+#: ../../../examples/README.md:54 ../../../examples/README.md:131
+msgid "To run the examples:"
+msgstr ""
+
+#: ../../../examples/README.md:59
+msgid ""
+"Note that on some platforms you may have to edit the Makefile and remove "
+"\"-lpthread\" from the linker commands (perhaps replacing it with "
+"something else). We didn't do this automatically because we wanted to "
+"keep the example simple."
+msgstr ""
+
+#: ../../../examples/README.md:63
+msgid "Python"
+msgstr ""
+
+#: ../../../examples/README.md:65
+msgid ""
+"Follow instructions in [../README.md](../README.md) to install protoc and"
+" then follow [../python/README.md](../python/README.md) to install "
+"protobuf python runtime from source. You can also install python runtime "
+"using pip:"
+msgstr ""
+
+#: ../../../examples/README.md:71
+msgid ""
+"Make sure the runtime version is the same as protoc binary, or it may not"
+" work."
+msgstr ""
+
+#: ../../../examples/README.md:73
+msgid ""
+"After you have install both protoc and python runtime, run \"make "
+"python\" to build two executables (shell scripts actually): "
+"add_person_python and list_people_python. They work the same way as the "
+"C++ executables."
+msgstr ""
+
+#: ../../../examples/README.md:77
+msgid "Java"
+msgstr ""
+
+#: ../../../examples/README.md:79
+msgid ""
+"Follow instructions in [../README.md](../README.md) to install protoc and"
+" then download protobuf Java runtime .jar file from maven:"
+msgstr ""
+
+#: ../../../examples/README.md:84
+msgid "Then run the following:"
+msgstr ""
+
+#: ../../../examples/README.md:89
+msgid ""
+"This will create the add_person_java/list_people_java executables (shell "
+"scripts) and can be used to create/display an address book data file."
+msgstr ""
+
+#: ../../../examples/README.md:92
+msgid "Go"
+msgstr ""
+
+#: ../../../examples/README.md:94
+msgid ""
+"Follow instructions in [../README.md](../README.md) to install protoc. "
+"Then install the Go protoc plugin (protoc-gen-go):"
+msgstr ""
+
+#: ../../../examples/README.md:99
+msgid ""
+"The \"go install\" command will install protoc-gen-go into the GOBIN "
+"directory.  You can set the $GOBIN environment variable before running "
+"\"go install\" to change the install location.  Make sure the install "
+"directory is in your shell $PATH."
+msgstr ""
+
+#: ../../../examples/README.md:104
+msgid ""
+"Build the Go samples with \"make go\".  This creates the following "
+"executable files in the current directory:"
+msgstr ""
+
+#: ../../../examples/README.md:109
+msgid "To run the example:"
+msgstr ""
+
+#: ../../../examples/README.md:113
+msgid ""
+"to add a person to the protocol buffer encoded file addressbook.data.  "
+"The file is created if it does not exist.  To view the data, run:"
+msgstr ""
+
+#: ../../../examples/README.md:118
+msgid ""
+"Observe that the C++, Python, Java, and Dart examples in this directory "
+"run in a similar way and can view/modify files created by the Go example "
+"and vice versa."
+msgstr ""
+
+#: ../../../examples/README.md:122
+msgid "Dart"
+msgstr ""
+
+#: ../../../examples/README.md:124
+msgid ""
+"First, follow the instructions in [../README.md](../README.md) to install"
+" the Protocol Buffer Compiler (protoc)."
+msgstr ""
+
+#: ../../../examples/README.md:126
+msgid ""
+"Then, install the Dart Protocol Buffer plugin as described "
+"[here](https://github.com/dart-lang/dart-protoc-plugin#how-to-build-and-"
+"use). Note, the executable `bin/protoc-gen-dart` must be in your `PATH` "
+"for `protoc` to find it."
+msgstr ""
+
+#: ../../../examples/README.md:129
+msgid "Build the Dart samples in this directory with `make dart`."
+msgstr ""
+
+#: ../../../examples/README.md:138
+msgid ""
+"The two programs take a protocol buffer encoded file as their parameter. "
+"The first can be used to add a person to the file. The file is created if"
+" it does not exist. The second displays the data in the file."
+msgstr ""
+

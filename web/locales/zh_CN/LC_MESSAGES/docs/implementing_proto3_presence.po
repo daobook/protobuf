@@ -1,0 +1,485 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2021, xinetzone
+# This file is distributed under the same license as the protobuf package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: protobuf \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-12-28 13:36+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.0\n"
+
+#: ../../../docs/implementing_proto3_presence.md:1
+msgid "How To Implement Field Presence for Proto3"
+msgstr ""
+
+#: ../../../docs/implementing_proto3_presence.md:3
+msgid ""
+"Protobuf release 3.12 adds experimental support for `optional` fields in "
+"proto3. Proto3 optional fields track presence like in proto2. For "
+"background information about what presence tracking means, please see "
+"[docs/field_presence](field_presence.md)."
+msgstr ""
+
+#: ../../../docs/implementing_proto3_presence.md:8
+msgid "Document Summary"
+msgstr ""
+
+#: ../../../docs/implementing_proto3_presence.md:10
+msgid ""
+"This document is targeted at developers who own or maintain protobuf code"
+" generators. All code generators will need to be updated to support "
+"proto3 optional fields. First-party code generators developed by Google "
+"are being updated already. However third-party code generators will need "
+"to be updated independently by their authors. This includes:"
+msgstr ""
+
+#: ../../../docs/implementing_proto3_presence.md:16
+msgid "implementations of Protocol Buffers for other languages."
+msgstr ""
+
+#: ../../../docs/implementing_proto3_presence.md:17
+msgid ""
+"alternate implementations of Protocol Buffers that target specialized use"
+" cases."
+msgstr ""
+
+#: ../../../docs/implementing_proto3_presence.md:19
+msgid "RPC code generators that create generated APIs for service calls."
+msgstr ""
+
+#: ../../../docs/implementing_proto3_presence.md:20
+msgid ""
+"code generators that implement some utility code on top of protobuf "
+"generated classes."
+msgstr ""
+
+#: ../../../docs/implementing_proto3_presence.md:23
+msgid ""
+"While this document speaks in terms of \"code generators\", these same "
+"principles apply to implementations that dynamically generate a protocol "
+"buffer API \"on the fly\", directly from a descriptor, in languages that "
+"support this kind of usage."
+msgstr ""
+
+#: ../../../docs/implementing_proto3_presence.md:27
+msgid "Background"
+msgstr ""
+
+#: ../../../docs/implementing_proto3_presence.md:29
+msgid ""
+"Presence tracking was added to proto3 in response to user feedback, both "
+"from inside Google and [from open-source "
+"users](https://github.com/protocolbuffers/protobuf/issues/1606). The "
+"[proto3 wrapper "
+"types](https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/wrappers.proto)"
+" were previously the only supported presence mechanism for proto3. Users "
+"have pointed to both efficiency and usability issues with the wrapper "
+"types."
+msgstr ""
+
+#: ../../../docs/implementing_proto3_presence.md:37
+msgid ""
+"Presence in proto3 uses exactly the same syntax and semantics as in "
+"proto2. Proto3 Fields marked `optional` will track presence like proto2, "
+"while fields without any label (known as \"singular fields\"), will "
+"continue to omit presence information.  The `optional` keyword was chosen"
+" to minimize differences with proto2."
+msgstr ""
+
+#: ../../../docs/implementing_proto3_presence.md:43
+msgid ""
+"Unfortunately, for the current descriptor protos and `Descriptor` API (as"
+" of 3.11.4) it is not possible to use the same representation as proto2. "
+"Proto3 descriptors already use `LABEL_OPTIONAL` for proto3 singular "
+"fields, which do not track presence. There is a lot of existing code that"
+" reflects over proto3 protos and assumes that `LABEL_OPTIONAL` in proto3 "
+"means \"no presence.\" Changing the semantics now would be risky, since "
+"old software would likely drop proto3 presence information, which would "
+"be a data loss bug."
+msgstr ""
+
+#: ../../../docs/implementing_proto3_presence.md:51
+msgid ""
+"To minimize this risk we chose a descriptor representation that is "
+"semantically compatible with existing proto3 reflection. Every proto3 "
+"optional field is placed into a one-field `oneof`. We call this a "
+"\"synthetic\" oneof, as it was not present in the source `.proto` file."
+msgstr ""
+
+#: ../../../docs/implementing_proto3_presence.md:56
+msgid ""
+"Since oneof fields in proto3 already track presence, existing proto3 "
+"reflection-based algorithms should correctly preserve presence for proto3"
+" optional fields with no code changes. For example, the JSON and "
+"TextFormat parsers/serializers in C++ and Java did not require any "
+"changes to support proto3 presence. This is the major benefit of "
+"synthetic oneofs."
+msgstr ""
+
+#: ../../../docs/implementing_proto3_presence.md:62
+msgid ""
+"This design does leave some cruft in descriptors. Synthetic oneofs are a "
+"compatibility measure that we can hopefully clean up in the future. For "
+"now though, it is important to preserve them across different descriptor "
+"formats and APIs. It is never safe to drop synthetic oneofs from a proto "
+"schema. Code generators can (and should) skip synthetic oneofs when "
+"generating a user-facing API or user-facing documentation. But for any "
+"schema representation that is consumed programmatically, it is important "
+"to keep the synthetic oneofs around."
+msgstr ""
+
+#: ../../../docs/implementing_proto3_presence.md:70
+msgid ""
+"In APIs it can be helpful to offer separate accessors that refer to "
+"\"real\" oneofs (see [API Changes](#api-changes) below). This is a "
+"convenient way to omit synthetic oneofs in code generators."
+msgstr ""
+
+#: ../../../docs/implementing_proto3_presence.md:74
+msgid "Updating a Code Generator"
+msgstr ""
+
+#: ../../../docs/implementing_proto3_presence.md:76
+msgid ""
+"When a user adds an `optional` field to proto3, this is internally "
+"rewritten as a one-field oneof, for backward-compatibility with "
+"reflection-based algorithms:"
+msgstr ""
+
+#: ../../../docs/implementing_proto3_presence.md:95
+msgid "As a result, the main two goals when updating a code generator are:"
+msgstr ""
+
+#: ../../../docs/implementing_proto3_presence.md:97
+msgid ""
+"Give `optional` fields like `foo` normal field presence, as described in "
+"[docs/field_presence](field_presence.md) If your implementation already "
+"supports proto2, a proto3 `optional` field should use exactly the same "
+"API and internal implementation as proto2 `optional`."
+msgstr ""
+
+#: ../../../docs/implementing_proto3_presence.md:101
+msgid ""
+"Avoid generating any oneof-based accessors for the synthetic oneof. Its "
+"only purpose is to make reflection-based algorithms work properly if they"
+" are not aware of proto3 presence. The synthetic oneof should not appear "
+"anywhere in the generated API."
+msgstr ""
+
+#: ../../../docs/implementing_proto3_presence.md:106
+msgid "Satisfying the Experimental Check"
+msgstr ""
+
+#: ../../../docs/implementing_proto3_presence.md:108
+msgid ""
+"If you try to run `protoc` on a file with proto3 `optional` fields, you "
+"will get an error because the feature is still experimental:"
+msgstr ""
+
+#: ../../../docs/implementing_proto3_presence.md:123
+msgid "There are two options for getting around this error:"
+msgstr ""
+
+#: ../../../docs/implementing_proto3_presence.md:125
+msgid "Pass `--experimental_allow_proto3_optional` to protoc."
+msgstr ""
+
+#: ../../../docs/implementing_proto3_presence.md:126
+msgid ""
+"Make your filename (or a directory name) contain the string "
+"`test_proto3_optional`. This indicates that the proto file is "
+"specifically for testing proto3 optional support, so the check is "
+"suppressed."
+msgstr ""
+
+#: ../../../docs/implementing_proto3_presence.md:130
+msgid "These options are demonstrated below:"
+msgstr ""
+
+#: ../../../docs/implementing_proto3_presence.md:142
+msgid ""
+"The experimental check will be removed  in a future release, once we are "
+"ready to make this feature generally available. Ideally this will happen "
+"for the 3.13 release of protobuf, sometime in mid-2020, but there is not "
+"a specific date set for this yet. Some of the timing will depend on "
+"feedback we get from the community, so if you have questions or concerns "
+"please get in touch via a GitHub issue."
+msgstr ""
+
+#: ../../../docs/implementing_proto3_presence.md:149
+msgid "Signaling That Your Code Generator Supports Proto3 Optional"
+msgstr ""
+
+#: ../../../docs/implementing_proto3_presence.md:151
+msgid ""
+"If you now try to invoke your own code generator with the test proto, you"
+" will run into a different error:"
+msgstr ""
+
+#: ../../../docs/implementing_proto3_presence.md:161
+msgid ""
+"This check exists to make sure that code generators get a chance to "
+"update before they are used with proto3 `optional` fields. Without this "
+"check an old code generator might emit obsolete generated APIs (like "
+"accessors for a synthetic oneof) and users could start depending on "
+"these. That would create a legacy migration burden once a code generator "
+"actually implements the feature."
+msgstr ""
+
+#: ../../../docs/implementing_proto3_presence.md:167
+msgid ""
+"To signal that your code generator supports `optional` fields in proto3, "
+"you need to tell `protoc` what features you support. The method for doing"
+" this depends on whether you are using the C++ "
+"`google::protobuf::compiler::CodeGenerator` framework or not."
+msgstr ""
+
+#: ../../../docs/implementing_proto3_presence.md:173
+msgid "If you are using the CodeGenerator framework:"
+msgstr ""
+
+#: ../../../docs/implementing_proto3_presence.md:187
+msgid ""
+"If you are generating code using raw `CodeGeneratorRequest` and "
+"`CodeGeneratorResponse` messages from `plugin.proto`, the change will be "
+"very similar:"
+msgstr ""
+
+#: ../../../docs/implementing_proto3_presence.md:200
+msgid ""
+"Once you have added this, you should now be able to successfully use your"
+" code generator to generate a file containing proto3 optional fields:"
+msgstr ""
+
+#: ../../../docs/implementing_proto3_presence.md:207
+msgid "Updating Your Code Generator"
+msgstr ""
+
+#: ../../../docs/implementing_proto3_presence.md:209
+msgid ""
+"Now to actually add support for proto3 optional to your code generator. "
+"The goal is to recognize proto3 optional fields as optional, and suppress"
+" any output from synthetic oneofs."
+msgstr ""
+
+#: ../../../docs/implementing_proto3_presence.md:213
+msgid ""
+"If your code generator does not currently support proto2, you will need "
+"to design an API and implementation for supporting presence in scalar "
+"fields. Generally this means:"
+msgstr ""
+
+#: ../../../docs/implementing_proto3_presence.md:217
+msgid ""
+"allocating a bit inside the generated class to represent whether a given "
+"field is present or not."
+msgstr ""
+
+#: ../../../docs/implementing_proto3_presence.md:219
+msgid ""
+"exposing a `has_foo()` method for each field to return the value of this "
+"bit."
+msgstr ""
+
+#: ../../../docs/implementing_proto3_presence.md:220
+msgid "make the parser set this bit when a value is parsed from the wire."
+msgstr ""
+
+#: ../../../docs/implementing_proto3_presence.md:221
+msgid "make the serializer test this bit to decide whether to serialize."
+msgstr ""
+
+#: ../../../docs/implementing_proto3_presence.md:223
+msgid ""
+"If your code generator already supports proto2, then most of your work is"
+" already done. All you need to do is make sure that proto3 optional "
+"fields have exactly the same API and behave in exactly the same way as "
+"proto2 optional fields."
+msgstr ""
+
+#: ../../../docs/implementing_proto3_presence.md:228
+msgid ""
+"From experience updating several of Google's code generators, most of the"
+" updates that are required fall into one of several patterns. Here we "
+"will show the patterns in terms of the C++ CodeGenerator framework. If "
+"you are using `CodeGeneratorRequest` and `CodeGeneratorReply` directly, "
+"you can translate the C++ examples to your own language, referencing the "
+"C++ implementation of these methods where required."
+msgstr ""
+
+#: ../../../docs/implementing_proto3_presence.md:235
+msgid "To test whether a field should have presence"
+msgstr ""
+
+#: ../../../docs/implementing_proto3_presence.md:237
+#: ../../../docs/implementing_proto3_presence.md:261
+#: ../../../docs/implementing_proto3_presence.md:280
+msgid "Old:"
+msgstr ""
+
+#: ../../../docs/implementing_proto3_presence.md:246
+#: ../../../docs/implementing_proto3_presence.md:269
+#: ../../../docs/implementing_proto3_presence.md:291
+msgid "New:"
+msgstr ""
+
+#: ../../../docs/implementing_proto3_presence.md:259
+msgid "To test whether a field is a member of a oneof"
+msgstr ""
+
+#: ../../../docs/implementing_proto3_presence.md:278
+msgid "To iterate over all oneofs"
+msgstr ""
+
+#: ../../../docs/implementing_proto3_presence.md:304
+msgid "Updating Reflection"
+msgstr ""
+
+#: ../../../docs/implementing_proto3_presence.md:306
+msgid ""
+"If your implementation offers reflection, there are a few other changes "
+"to make:"
+msgstr ""
+
+#: ../../../docs/implementing_proto3_presence.md:308
+msgid "API Changes"
+msgstr ""
+
+#: ../../../docs/implementing_proto3_presence.md:310
+msgid ""
+"The API for reflecting over fields and oneofs should make the following "
+"changes. These match the changes implemented in C++ reflection."
+msgstr ""
+
+#: ../../../docs/implementing_proto3_presence.md:313
+msgid ""
+"Add a `FieldDescriptor::has_presence()` method returning `bool` (adjusted"
+" to your language's naming convention).  This should return true for all "
+"fields that have explicit presence, as documented in "
+"[docs/field_presence](field_presence.md).  In particular, this includes "
+"fields in a oneof, proto2 scalar fields, and proto3 `optional` fields. "
+"This accessor will allow users to query what fields have presence without"
+" thinking about the difference between proto2 and proto3."
+msgstr ""
+
+#: ../../../docs/implementing_proto3_presence.md:320
+msgid ""
+"As a corollary of (1), please do *not* expose an accessor for the "
+"`FieldDescriptorProto.proto3_optional` field. We want to avoid having "
+"users implement any proto2/proto3-specific logic. Users should use the "
+"`has_presence()` function instead."
+msgstr ""
+
+#: ../../../docs/implementing_proto3_presence.md:324
+msgid ""
+"You may also wish to add a `FieldDescriptor::has_optional_keyword()` "
+"method returning `bool`, which indicates whether the `optional` keyword "
+"is present. Message fields will always return `true` for "
+"`has_presence()`, so this method can allow a user to know whether the "
+"user wrote `optional` or not. It can occasionally be useful to have this "
+"information, even though it does not change the presence semantics of the"
+" field."
+msgstr ""
+
+#: ../../../docs/implementing_proto3_presence.md:330
+msgid ""
+"If your reflection API may be used for a code generator, you may wish to "
+"implement methods to help users tell the difference between real and "
+"synthetic oneofs.  In particular:"
+msgstr ""
+
+#: ../../../docs/implementing_proto3_presence.md:333
+msgid ""
+"`OneofDescriptor::is_synthetic()`: returns true if this is a synthetic "
+"oneof."
+msgstr ""
+
+#: ../../../docs/implementing_proto3_presence.md:335
+msgid ""
+"`FieldDescriptor::real_containing_oneof()`: like `containing_oneof()`, "
+"but returns `nullptr` if the oneof is synthetic."
+msgstr ""
+
+#: ../../../docs/implementing_proto3_presence.md:337
+msgid ""
+"`Descriptor::real_oneof_decl_count()`: like `oneof_decl_count()`, but "
+"returns the number of real oneofs only."
+msgstr ""
+
+#: ../../../docs/implementing_proto3_presence.md:340
+msgid "Implementation Changes"
+msgstr ""
+
+#: ../../../docs/implementing_proto3_presence.md:342
+msgid ""
+"Proto3 `optional` fields and synthetic oneofs must work correctly when "
+"reflected on. Specifically:"
+msgstr ""
+
+#: ../../../docs/implementing_proto3_presence.md:345
+msgid ""
+"Reflection for synthetic oneofs should work properly. Even though "
+"synthetic oneofs do not really exist in the message, you can still make "
+"reflection work as if they did. In particular, you can make a method like"
+" `Reflection::HasOneof()` or `Reflection::GetOneofFieldDescriptor()` look"
+" at the hasbit to determine if the oneof is present or not."
+msgstr ""
+
+#: ../../../docs/implementing_proto3_presence.md:350
+msgid ""
+"Reflection for proto3 optional fields should work properly. For example, "
+"a method like `Reflection::HasField()` should know to look for the hasbit"
+" for a proto3 `optional` field. It should not be fooled by the synthetic "
+"oneof into thinking that there is a `case` member for the oneof."
+msgstr ""
+
+#: ../../../docs/implementing_proto3_presence.md:355
+msgid ""
+"Once you have updated reflection to work properly with proto3 `optional` "
+"and synthetic oneofs, any code that *uses* your reflection interface "
+"should work properly with no changes. This is the benefit of using "
+"synthetic oneofs."
+msgstr ""
+
+#: ../../../docs/implementing_proto3_presence.md:359
+msgid ""
+"In particular, if you have a reflection-based implementation of protobuf "
+"text format or JSON, it should properly support proto3 optional fields "
+"without any changes to the code. The fields will look like they all "
+"belong to a one-field oneof, and existing proto3 reflection code should "
+"know how to test presence for fields in a oneof."
+msgstr ""
+
+#: ../../../docs/implementing_proto3_presence.md:365
+msgid ""
+"So the best way to test your reflection changes is to try round-tripping "
+"a message through text format, JSON, or some other reflection-based "
+"parser and serializer, if you have one."
+msgstr ""
+
+#: ../../../docs/implementing_proto3_presence.md:369
+msgid "Validating Descriptors"
+msgstr ""
+
+#: ../../../docs/implementing_proto3_presence.md:371
+msgid ""
+"If your reflection implementation supports loading descriptors at "
+"runtime, you must verify that all synthetic oneofs are ordered after all "
+"\"real\" oneofs."
+msgstr ""
+
+#: ../../../docs/implementing_proto3_presence.md:374
+msgid ""
+"Here is the code that implements this validation step in C++, for "
+"inspiration:"
+msgstr ""
+

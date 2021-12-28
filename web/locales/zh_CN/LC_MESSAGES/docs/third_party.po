@@ -1,0 +1,904 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2021, xinetzone
+# This file is distributed under the same license as the protobuf package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: protobuf \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-12-28 13:36+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.0\n"
+
+#: ../../../docs/third_party.md:1
+msgid "Third-Party Add-ons for Protocol Buffers"
+msgstr ""
+
+#: ../../../docs/third_party.md:3
+msgid ""
+"This page lists code related to Protocol Buffers which is developed and "
+"maintained by third parties.  You may find this code useful, but note "
+"that **these projects are not affiliated with or endorsed by Google "
+"(unless explicitly marked)**; try them at your own risk.  Also note that "
+"many projects here are in the early stages of development and not "
+"production-ready."
+msgstr ""
+
+#: ../../../docs/third_party.md:5
+msgid ""
+"If you have a project that should be listed here, please [send us a pull "
+"request](https://github.com/google/protobuf/pulls) to update this page."
+msgstr ""
+
+#: ../../../docs/third_party.md:7
+msgid "Programming Languages"
+msgstr ""
+
+#: ../../../docs/third_party.md:9
+msgid ""
+"These are projects we know about implementing Protocol Buffers for other "
+"programming languages:"
+msgstr ""
+
+#: ../../../docs/third_party.md:10
+msgid "Action Script: http://code.google.com/p/protobuf-actionscript3/"
+msgstr ""
+
+#: ../../../docs/third_party.md:11
+msgid "Action Script: https://code.google.com/p/protoc-gen-as3/"
+msgstr ""
+
+#: ../../../docs/third_party.md:12
+msgid "Action Script: https://github.com/matrix3d/JProtoc"
+msgstr ""
+
+#: ../../../docs/third_party.md:13
+msgid "Action Script: https://github.com/zhongfq/protobuf-as3/"
+msgstr ""
+
+#: ../../../docs/third_party.md:14
+msgid "Ada: https://github.com/reznikmm/protobuf"
+msgstr ""
+
+#: ../../../docs/third_party.md:15
+msgid "C: https://github.com/protobuf-c/protobuf-c"
+msgstr ""
+
+#: ../../../docs/third_party.md:16
+msgid "C: http://koti.kapsi.fi/jpa/nanopb/"
+msgstr ""
+
+#: ../../../docs/third_party.md:17
+msgid "C: https://github.com/cloudwu/pbc/"
+msgstr ""
+
+#: ../../../docs/third_party.md:18
+msgid "C: https://github.com/haberman/upb/wiki"
+msgstr ""
+
+#: ../../../docs/third_party.md:19
+msgid "C: https://github.com/squidfunk/protobluff"
+msgstr ""
+
+#: ../../../docs/third_party.md:20
+msgid "C: https://github.com/eerimoq/pbtools"
+msgstr ""
+
+#: ../../../docs/third_party.md:21
+msgid "C++: https://github.com/google/protobuf (Google-official implementation)"
+msgstr ""
+
+#: ../../../docs/third_party.md:22
+msgid "C++: https://EmbeddedProto.com"
+msgstr ""
+
+#: ../../../docs/third_party.md:23
+msgid "C/C++: http://spbc.sf.net/"
+msgstr ""
+
+#: ../../../docs/third_party.md:24
+msgid "C#: http://code.google.com/p/protobuf-csharp-port"
+msgstr ""
+
+#: ../../../docs/third_party.md:25
+msgid "C#: https://silentorbit.com/protobuf/"
+msgstr ""
+
+#: ../../../docs/third_party.md:26
+msgid "C#/.NET/WCF/VB: http://code.google.com/p/protobuf-net/"
+msgstr ""
+
+#: ../../../docs/third_party.md:27
+msgid "Clojure: http://github.com/ninjudd/clojure-protobuf"
+msgstr ""
+
+#: ../../../docs/third_party.md:28
+msgid "Clojure: https://github.com/clojusc/protobuf"
+msgstr ""
+
+#: ../../../docs/third_party.md:29
+msgid "Clojure: https://protojure.github.io"
+msgstr ""
+
+#: ../../../docs/third_party.md:30
+msgid "Common Lisp: http://github.com/brown/protobuf"
+msgstr ""
+
+#: ../../../docs/third_party.md:31
+msgid "Common Lisp: http://github.com/qitab/cl-protobuf"
+msgstr ""
+
+#: ../../../docs/third_party.md:32
+msgid "D: https://github.com/dcarp/protobuf-d"
+msgstr ""
+
+#: ../../../docs/third_party.md:33
+msgid "D: https://github.com/msoucy/dproto"
+msgstr ""
+
+#: ../../../docs/third_party.md:34
+msgid "D: https://github.com/opticron/ProtocolBuffer"
+msgstr ""
+
+#: ../../../docs/third_party.md:35
+msgid ""
+"Dart: https://github.com/dart-lang/dart-protobuf (runtime) "
+"https://github.com/dart-lang/dart-protoc-plugin (code generator)"
+msgstr ""
+
+#: ../../../docs/third_party.md:36
+msgid "Delphi: http://sourceforge.net/projects/protobuf-delphi/"
+msgstr ""
+
+#: ../../../docs/third_party.md:37
+msgid "Delphi: http://fundementals.sourceforge.net/dl.html"
+msgstr ""
+
+#: ../../../docs/third_party.md:38
+msgid "Elixir: https://github.com/jeremyong/exprotoc"
+msgstr ""
+
+#: ../../../docs/third_party.md:39
+msgid "Elixir: https://github.com/tony612/protobuf-elixir"
+msgstr ""
+
+#: ../../../docs/third_party.md:40
+msgid "Elixir: https://github.com/ahamez/protox"
+msgstr ""
+
+#: ../../../docs/third_party.md:41
+msgid "Elm: https://github.com/tiziano88/elm-protobuf"
+msgstr ""
+
+#: ../../../docs/third_party.md:42
+msgid "Erlang: https://github.com/tomas-abrahamsson/gpb"
+msgstr ""
+
+#: ../../../docs/third_party.md:43
+msgid "Erlang: http://piqi.org/"
+msgstr ""
+
+#: ../../../docs/third_party.md:44
+msgid ""
+"Erlang: https://github.com/basho/erlang_protobuffs (no longer maintained,"
+" use gpb instead)"
+msgstr ""
+
+#: ../../../docs/third_party.md:45
+msgid "Hacklang/HHVM: https://github.com/y3llowcake/proto-hack"
+msgstr ""
+
+#: ../../../docs/third_party.md:46
+msgid "GDScript: https://github.com/oniksan/godobuf (Godot v3 engine plugin)"
+msgstr ""
+
+#: ../../../docs/third_party.md:47
+msgid "Go: https://github.com/golang/protobuf (Google-official implementation)"
+msgstr ""
+
+#: ../../../docs/third_party.md:48
+msgid "Go: https://github.com/akunspy/gopbuf"
+msgstr ""
+
+#: ../../../docs/third_party.md:49
+msgid "Go: https://github.com/gogo/protobuf"
+msgstr ""
+
+#: ../../../docs/third_party.md:50
+msgid "GopherJS: https://github.com/johanbrandhorst/protobuf"
+msgstr ""
+
+#: ../../../docs/third_party.md:51
+msgid "Haskell: http://hackage.haskell.org/package/hprotoc"
+msgstr ""
+
+#: ../../../docs/third_party.md:52
+msgid ""
+"Haskell: https://github.com/google/proto-lens (Google-unofficial "
+"implementation)"
+msgstr ""
+
+#: ../../../docs/third_party.md:53
+msgid ""
+"Haskell: https://github.com/awakesecurity/proto3-suite (code generator) "
+"https://github.com/awakesecurity/proto3-wire (binary "
+"serializer/deserializer)"
+msgstr ""
+
+#: ../../../docs/third_party.md:54
+msgid "Haxe: https://github.com/Atry/protoc-gen-haxe"
+msgstr ""
+
+#: ../../../docs/third_party.md:55
+msgid "Java: https://github.com/google/protobuf (Google-official implementation)"
+msgstr ""
+
+#: ../../../docs/third_party.md:56
+msgid "Java/Android: https://github.com/square/wire"
+msgstr ""
+
+#: ../../../docs/third_party.md:57
+msgid "Java: https://github.com/HebiRobotics/QuickBuffers/"
+msgstr ""
+
+#: ../../../docs/third_party.md:58
+msgid "Java ME: http://code.google.com/p/protobuf-javame/"
+msgstr ""
+
+#: ../../../docs/third_party.md:59
+msgid "Java ME: http://swingme.sourceforge.net/encode.shtml"
+msgstr ""
+
+#: ../../../docs/third_party.md:60
+msgid "Java ME: http://code.google.com/p/protobuf-j2me/"
+msgstr ""
+
+#: ../../../docs/third_party.md:61
+msgid "Javascript: http://code.google.com/p/protobuf-js/"
+msgstr ""
+
+#: ../../../docs/third_party.md:62
+msgid "Javascript: http://github.com/sirikata/protojs"
+msgstr ""
+
+#: ../../../docs/third_party.md:63
+msgid "Javascript: https://github.com/dcodeIO/ProtoBuf.js"
+msgstr ""
+
+#: ../../../docs/third_party.md:64
+msgid "Javascript: http://code.google.com/p/protobuf-for-node/"
+msgstr ""
+
+#: ../../../docs/third_party.md:65
+msgid "Javascript: http://code.google.com/p/protostuff/"
+msgstr ""
+
+#: ../../../docs/third_party.md:66
+msgid ""
+"Javascript: https://github.com/seishun/node-protoc-plugin (Node.js port "
+"of plugin.h)"
+msgstr ""
+
+#: ../../../docs/third_party.md:67
+msgid ""
+"Javascript: https://github.com/seishun/node-protoc-gen-javascript "
+"(Node.js port of the Google-official implementation)"
+msgstr ""
+
+#: ../../../docs/third_party.md:68
+msgid "Javascript: https://github.com/ButterCam/sisyphus-js"
+msgstr ""
+
+#: ../../../docs/third_party.md:69
+msgid "Julia: https://github.com/tanmaykm/ProtoBuf.jl"
+msgstr ""
+
+#: ../../../docs/third_party.md:70
+msgid "Kotlin: https://github.com/marcoferrer/kroto-plus"
+msgstr ""
+
+#: ../../../docs/third_party.md:71
+msgid "Kotlin: https://github.com/Kotlin/kotlinx.serialization"
+msgstr ""
+
+#: ../../../docs/third_party.md:72
+msgid "Kotlin: https://github.com/ButterCam/sisyphus"
+msgstr ""
+
+#: ../../../docs/third_party.md:73
+msgid "Kotlin: https://github.com/open-toast/protokt"
+msgstr ""
+
+#: ../../../docs/third_party.md:74
+msgid "Lua: http://code.google.com/p/protoc-gen-lua/"
+msgstr ""
+
+#: ../../../docs/third_party.md:75
+msgid "Lua: http://github.com/indygreg/lua-protobuf"
+msgstr ""
+
+#: ../../../docs/third_party.md:76
+msgid "Lua: https://github.com/Neopallium/lua-pb"
+msgstr ""
+
+#: ../../../docs/third_party.md:77
+msgid "Matlab: http://code.google.com/p/protobuf-matlab/"
+msgstr ""
+
+#: ../../../docs/third_party.md:78
+msgid "Mercury: http://code.google.com/p/protobuf-mercury/"
+msgstr ""
+
+#: ../../../docs/third_party.md:79
+msgid "Objective C: http://code.google.com/p/protobuf-objc/"
+msgstr ""
+
+#: ../../../docs/third_party.md:80
+msgid "Objective C: https://github.com/alexeyxo/protobuf-objc"
+msgstr ""
+
+#: ../../../docs/third_party.md:81
+msgid "OCaml: http://piqi.org/"
+msgstr ""
+
+#: ../../../docs/third_party.md:82
+msgid "Perl: http://groups.google.com/group/protobuf-perl"
+msgstr ""
+
+#: ../../../docs/third_party.md:83
+msgid "Perl: http://search.cpan.org/perldoc?Google::ProtocolBuffers"
+msgstr ""
+
+#: ../../../docs/third_party.md:84
+msgid "Perl: https://metacpan.org/pod/Google::ProtocolBuffers::Dynamic"
+msgstr ""
+
+#: ../../../docs/third_party.md:85
+msgid "Perl/XS: http://code.google.com/p/protobuf-perlxs/"
+msgstr ""
+
+#: ../../../docs/third_party.md:86
+msgid "PHP: http://code.google.com/p/pb4php/"
+msgstr ""
+
+#: ../../../docs/third_party.md:87
+msgid "PHP: https://github.com/allegro/php-protobuf/"
+msgstr ""
+
+#: ../../../docs/third_party.md:88
+msgid "PHP: https://github.com/chobie/php-protocolbuffers"
+msgstr ""
+
+#: ../../../docs/third_party.md:89
+msgid "PHP: http://drslump.github.com/Protobuf-PHP"
+msgstr ""
+
+#: ../../../docs/third_party.md:90
+msgid "Prolog: http://www.swi-prolog.org/pldoc/package/protobufs.html"
+msgstr ""
+
+#: ../../../docs/third_party.md:91
+msgid "Purescript: https://github.com/xc-jp/purescript-protobuf"
+msgstr ""
+
+#: ../../../docs/third_party.md:92
+msgid ""
+"Python: https://github.com/google/protobuf (Google-official "
+"implementation)"
+msgstr ""
+
+#: ../../../docs/third_party.md:93
+msgid "Python: https://github.com/eigenein/protobuf"
+msgstr ""
+
+#: ../../../docs/third_party.md:94
+msgid "Python: https://github.com/danielgtaylor/python-betterproto"
+msgstr ""
+
+#: ../../../docs/third_party.md:95
+msgid "R: http://cran.r-project.org/package=RProtoBuf"
+msgstr ""
+
+#: ../../../docs/third_party.md:96
+msgid "Ruby: http://code.google.com/p/ruby-protobuf/"
+msgstr ""
+
+#: ../../../docs/third_party.md:97
+msgid "Ruby: http://github.com/mozy/ruby-protocol-buffers"
+msgstr ""
+
+#: ../../../docs/third_party.md:98
+msgid "Ruby: https://github.com/bmizerany/beefcake/tree/master/lib/beefcake"
+msgstr ""
+
+#: ../../../docs/third_party.md:99
+msgid "Ruby: https://github.com/localshred/protobuf"
+msgstr ""
+
+#: ../../../docs/third_party.md:100
+msgid "Rust: https://github.com/tokio-rs/prost"
+msgstr ""
+
+#: ../../../docs/third_party.md:101
+msgid "Rust: https://github.com/stepancheg/rust-protobuf/"
+msgstr ""
+
+#: ../../../docs/third_party.md:102
+msgid "Rust: https://github.com/tafia/quick-protobuf"
+msgstr ""
+
+#: ../../../docs/third_party.md:103
+msgid "Scala: http://github.com/jeffplaisance/scala-protobuf"
+msgstr ""
+
+#: ../../../docs/third_party.md:104
+msgid "Scala: http://code.google.com/p/protobuf-scala"
+msgstr ""
+
+#: ../../../docs/third_party.md:105
+msgid "Scala: https://github.com/SandroGrzicic/ScalaBuff"
+msgstr ""
+
+#: ../../../docs/third_party.md:106
+msgid "Scala: https://scalapb.github.io"
+msgstr ""
+
+#: ../../../docs/third_party.md:107
+msgid "Solidity: https://github.com/celer-network/pb3-gen-sol"
+msgstr ""
+
+#: ../../../docs/third_party.md:108
+msgid "Swift: https://github.com/alexeyxo/protobuf-swift"
+msgstr ""
+
+#: ../../../docs/third_party.md:109
+msgid "Swift: https://github.com/apple/swift-protobuf/"
+msgstr ""
+
+#: ../../../docs/third_party.md:110
+msgid "Typescript: https://github.com/thesayyn/protoc-gen-ts"
+msgstr ""
+
+#: ../../../docs/third_party.md:111
+msgid "Typescript: https://github.com/pbkit/pbkit"
+msgstr ""
+
+#: ../../../docs/third_party.md:112
+msgid "Vala: https://launchpad.net/protobuf-vala"
+msgstr ""
+
+#: ../../../docs/third_party.md:113
+msgid "Visual Basic: http://code.google.com/p/protobuf-net/"
+msgstr ""
+
+#: ../../../docs/third_party.md:115
+msgid "RPC Implementations"
+msgstr ""
+
+#: ../../../docs/third_party.md:117
+msgid ""
+"GRPC (http://www.grpc.io/) is Google's RPC implementation for Protocol "
+"Buffers. There are other third-party RPC implementations as well.  Some "
+"of these actually work with Protocol Buffers service definitions (defined"
+" using the `service` keyword in `.proto` files) while others just use "
+"Protocol Buffers message objects."
+msgstr ""
+
+#: ../../../docs/third_party.md:119
+msgid ""
+"https://github.com/grpc/grpc (C++, Node.js, Python, Ruby, Objective-C, "
+"PHP, C#, Google-official implementation)"
+msgstr ""
+
+#: ../../../docs/third_party.md:120
+msgid "https://zeroc.com/products/ice (Multiple languages)"
+msgstr ""
+
+#: ../../../docs/third_party.md:121
+msgid "https://github.com/protobuf-net/protobuf-net (C#/.NET/WCF/VB)"
+msgstr ""
+
+#: ../../../docs/third_party.md:122
+msgid "http://www.deltavsoft.com/doc/_external_serialization.html#Protobufs (C++)"
+msgstr ""
+
+#: ../../../docs/third_party.md:123
+msgid "https://protojure.github.io (Clojure)"
+msgstr ""
+
+#: ../../../docs/third_party.md:124
+msgid "https://code.google.com/p/protobuf-rpc-pro/ (Java)"
+msgstr ""
+
+#: ../../../docs/third_party.md:125
+msgid "https://github.com/baidu/sofa-pbrpc (C++)"
+msgstr ""
+
+#: ../../../docs/third_party.md:126
+msgid "https://github.com/madhon/protobuf-csharp-rpc (C#)"
+msgstr ""
+
+#: ../../../docs/third_party.md:127
+msgid "https://github.com/madwyn/libpbrpc (C++)"
+msgstr ""
+
+#: ../../../docs/third_party.md:128
+msgid "https://github.com/SeriousMa/grpc-protobuf-validation (Java)"
+msgstr ""
+
+#: ../../../docs/third_party.md:129
+msgid "https://github.com/elixir-grpc/grpc (Elixir)"
+msgstr ""
+
+#: ../../../docs/third_party.md:130
+msgid "https://github.com/johanbrandhorst/protobuf (GopherJS)"
+msgstr ""
+
+#: ../../../docs/third_party.md:131
+msgid "https://github.com/awakesecurity/gRPC-haskell (Haskell)"
+msgstr ""
+
+#: ../../../docs/third_party.md:132
+msgid "https://github.com/Yeolar/raster (C++)"
+msgstr ""
+
+#: ../../../docs/third_party.md:133
+msgid "https://github.com/jnordberg/wsrpc (JavaScript Node.js/Browser)"
+msgstr ""
+
+#: ../../../docs/third_party.md:134
+msgid ""
+"https://github.com/pbkit/npm-packages/blob/main/frpc-"
+"test/src/index.spec.ts (TypeScript Node.js/Browser)"
+msgstr ""
+
+#: ../../../docs/third_party.md:135
+msgid "https://github.com/ppissias/xsrpcj (Java)"
+msgstr ""
+
+#: ../../../docs/third_party.md:136
+msgid "https://github.com/twitchtv/twirp (Multiple languages)"
+msgstr ""
+
+#: ../../../docs/third_party.md:138
+msgid "Inactive:"
+msgstr ""
+
+#: ../../../docs/third_party.md:140
+msgid "https://launchpad.net/txprotobuf/ (Python)"
+msgstr ""
+
+#: ../../../docs/third_party.md:141
+msgid "https://github.com/modeswitch/protobuf-rpc (Python)"
+msgstr ""
+
+#: ../../../docs/third_party.md:142
+msgid "https://github.com/sdeo/protobuf-socket-rpc (Java, Python)"
+msgstr ""
+
+#: ../../../docs/third_party.md:143
+msgid "https://code.google.com/p/proto-streamer/ (Java)"
+msgstr ""
+
+#: ../../../docs/third_party.md:144
+msgid "https://code.google.com/p/server1/ (C++)"
+msgstr ""
+
+#: ../../../docs/third_party.md:145
+msgid "https://code.google.com/p/protobuf-mina-rpc/ (Python client, Java server)"
+msgstr ""
+
+#: ../../../docs/third_party.md:146
+msgid "https://code.google.com/p/casocklib/ (C++)"
+msgstr ""
+
+#: ../../../docs/third_party.md:147
+msgid "https://code.google.com/p/cxf-protobuf/ (Java)"
+msgstr ""
+
+#: ../../../docs/third_party.md:148
+msgid "https://code.google.com/p/protobuf-remote/ (C++/C#)"
+msgstr ""
+
+#: ../../../docs/third_party.md:149
+msgid "https://code.google.com/p/eneter-protobuf-serializer/ (Java/.NET)"
+msgstr ""
+
+#: ../../../docs/third_party.md:150
+msgid "https://github.com/robbinfan/claire/tree/master/protorpc (C++)"
+msgstr ""
+
+#: ../../../docs/third_party.md:151
+msgid "https://github.com/ebencheung/arab (C++)"
+msgstr ""
+
+#: ../../../docs/third_party.md:152
+msgid "https://code.google.com/p/protobuf-csharp-rpc/ (C#)"
+msgstr ""
+
+#: ../../../docs/third_party.md:153
+msgid "https://github.com/thesamet/rpcz (C++/Python, based on ZeroMQ)"
+msgstr ""
+
+#: ../../../docs/third_party.md:154
+msgid "https://github.com/w359405949/libmaid (C++, Python)"
+msgstr ""
+
+#: ../../../docs/third_party.md:156
+msgid "Other Utilities"
+msgstr ""
+
+#: ../../../docs/third_party.md:158
+msgid ""
+"There are miscellaneous other things you may find useful as a Protocol "
+"Buffers developer."
+msgstr ""
+
+#: ../../../docs/third_party.md:160
+msgid "[Bazel Build](https://bazel.build)"
+msgstr ""
+
+#: ../../../docs/third_party.md:161
+msgid "[rules_closure](https://github.com/bazelbuild/rules_closure) `js-closure`"
+msgstr ""
+
+#: ../../../docs/third_party.md:162
+msgid "[rules_go](https://github.com/bazelbuild/rules_go) `go`"
+msgstr ""
+
+#: ../../../docs/third_party.md:163
+msgid ""
+"[rules_protobuf](https://github.com/pubref/rules_protobuf) `java` `c++` "
+"`c#` `go` `js-closure` `js-node` `python` `ruby`"
+msgstr ""
+
+#: ../../../docs/third_party.md:164
+msgid "[NetBeans IDE plugin](http://code.google.com/p/protobuf-netbeans-plugin/)"
+msgstr ""
+
+#: ../../../docs/third_party.md:165
+msgid ""
+"[Wireshark/Ethereal packet sniffer plugin](http://code.google.com/p"
+"/protobuf-wireshark/)"
+msgstr ""
+
+#: ../../../docs/third_party.md:166
+msgid ""
+"[Alternate encodings (JSON, XML, HTML) for Java "
+"protobufs](http://code.google.com/p/protobuf-java-format/)"
+msgstr ""
+
+#: ../../../docs/third_party.md:167
+msgid ""
+"[Another JSON encoder/decoder for Java](https://github.com/sijuv"
+"/protobuf-codec)"
+msgstr ""
+
+#: ../../../docs/third_party.md:168
+msgid ""
+"[Editor for serialized "
+"protobufs](http://code.google.com/p/protobufeditor/)"
+msgstr ""
+
+#: ../../../docs/third_party.md:169
+msgid ""
+"[IntelliJ IDEA plugin](http://github.com/jvolkman/intellij-protobuf-"
+"editor)"
+msgstr ""
+
+#: ../../../docs/third_party.md:170
+msgid ""
+"[IntelliJ Protobuf Plugin](https://github.com/devkanro/intellij-protobuf-"
+"plugin)"
+msgstr ""
+
+#: ../../../docs/third_party.md:171
+msgid ""
+"[TextMate syntax highlighting](http://github.com/michaeledgar/protobuf-"
+"tmbundle)"
+msgstr ""
+
+#: ../../../docs/third_party.md:172
+msgid "[Oracle PL SQL plugin](http://code.google.com/p/protocol-buffer-plsql/)"
+msgstr ""
+
+#: ../../../docs/third_party.md:173
+msgid ""
+"[Eclipse editor for protobuf (from Google)](http://code.google.com/p"
+"/protobuf-dt/)"
+msgstr ""
+
+#: ../../../docs/third_party.md:174
+msgid ""
+"[C++ Builder compatible protobuf](https://github.com/saadware/protobuf-"
+"cppbuilder)"
+msgstr ""
+
+#: ../../../docs/third_party.md:175
+msgid "Maven Protobuf Compiler Plugin"
+msgstr ""
+
+#: ../../../docs/third_party.md:176
+msgid ""
+"By xolstice.org ([Documentation](https://www.xolstice.org/protobuf-maven-"
+"plugin/)) ([Source](https://github.com/xolstice/protobuf-maven-plugin/)) "
+"[![Maven Central](https://img.shields.io/maven-"
+"central/v/org.xolstice.maven.plugins/protobuf-maven-"
+"plugin.svg)](https://repo1.maven.org/maven2/org/xolstice/maven/plugins"
+"/protobuf-maven-plugin/)"
+msgstr ""
+
+#: ../../../docs/third_party.md:176
+msgid "Maven Central"
+msgstr ""
+
+#: ../../../docs/third_party.md:177
+msgid "http://igor-petruk.github.com/protobuf-maven-plugin/"
+msgstr ""
+
+#: ../../../docs/third_party.md:178
+msgid "http://code.google.com/p/maven-protoc-plugin/"
+msgstr ""
+
+#: ../../../docs/third_party.md:179
+msgid "https://github.com/os72/protoc-jar-maven-plugin"
+msgstr ""
+
+#: ../../../docs/third_party.md:180
+msgid ""
+"[Documentation generator plugin "
+"(Markdown/HTML/DocBook/...)](https://github.com/pseudomuto/protoc-gen-"
+"doc)"
+msgstr ""
+
+#: ../../../docs/third_party.md:181
+msgid ""
+"[DocBook generator for .proto files](http://code.google.com/p/protoc-gen-"
+"docbook/)"
+msgstr ""
+
+#: ../../../docs/third_party.md:182
+msgid "[Protobuf for nginx module](https://github.com/dbcode/protobuf-nginx/)"
+msgstr ""
+
+#: ../../../docs/third_party.md:183
+msgid ""
+"[RSpec matchers and Cucumber step defs for testing Protocol "
+"Buffers](https://github.com/connamara/protobuf_spec)"
+msgstr ""
+
+#: ../../../docs/third_party.md:184
+msgid "[Sbt plugin for Protocol Buffers](https://github.com/Atry/sbt-cppp)"
+msgstr ""
+
+#: ../../../docs/third_party.md:185
+msgid ""
+"[Gradle Protobuf Plugin](https://github.com/aantono/gradle-plugin-"
+"protobuf)"
+msgstr ""
+
+#: ../../../docs/third_party.md:186
+msgid ""
+"[Multi-platform executable JAR and Java API for "
+"protoc](https://github.com/os72/protoc-jar)"
+msgstr ""
+
+#: ../../../docs/third_party.md:187
+msgid ""
+"[Python scripts to convert between Protocol Buffers and "
+"JSON](https://github.com/NextTuesday/py-pb-converters)"
+msgstr ""
+
+#: ../../../docs/third_party.md:188
+msgid ""
+"[Visual Studio Language Service support for Protocol "
+"Buffers](http://visualstudiogallery.msdn.microsoft.com/4bc0f38c-b058-4e05-ae38-155e053c19c5)"
+msgstr ""
+
+#: ../../../docs/third_party.md:189
+msgid ""
+"[Visual Studio Code Support for Protocol "
+"Buffers](https://marketplace.visualstudio.com/items?itemName=zxh404"
+".vscode-proto3)"
+msgstr ""
+
+#: ../../../docs/third_party.md:190
+msgid ""
+"[C++ library for serialization/de-serialization between Protocol Buffers "
+"and JSON.](https://github.com/yinqiwen/pbjson)"
+msgstr ""
+
+#: ../../../docs/third_party.md:191
+msgid ""
+"[ProtoBuf with Java EE7 Expression Language 3.0; pure Java ProtoBuf "
+"Parser and Builder.](https://github.com/protobufel/protobuf-el)"
+msgstr ""
+
+#: ../../../docs/third_party.md:192
+msgid ""
+"[Notepad++ Syntax Highlighting for .proto "
+"files](https://github.com/chai2010/notepadplus-protobuf)"
+msgstr ""
+
+#: ../../../docs/third_party.md:193
+msgid "[Linter for .proto files](https://github.com/ckaznocha/protoc-gen-lint)"
+msgstr ""
+
+#: ../../../docs/third_party.md:194
+msgid ""
+"[Protocol Buffers Dynamic Schema - create protobuf schemas "
+"programmatically (Java)](https://github.com/os72/protobuf-dynamic)"
+msgstr ""
+
+#: ../../../docs/third_party.md:195
+msgid ""
+"[Make protoc plugins in NodeJS](https://github.com/konsumer/node-protoc-"
+"plugin)"
+msgstr ""
+
+#: ../../../docs/third_party.md:196
+msgid "[ProfaneDB - A Protocol Buffers database](https://profanedb.gitlab.io)"
+msgstr ""
+
+#: ../../../docs/third_party.md:197
+msgid ""
+"[Protocol Buffer property-based testing utility and example message "
+"generator (Python / Hypothesis)](https://github.com/CurataEng/hypothesis-"
+"protobuf)"
+msgstr ""
+
+#: ../../../docs/third_party.md:198
+msgid ""
+"[Protolock - CLI utility to prevent backward-incompatible changes to "
+".proto files](https://github.com/nilslice/protolock)"
+msgstr ""
+
+#: ../../../docs/third_party.md:199
+msgid ""
+"[Optional GRPC - GRPC for testable microservices "
+"(Python)](https://github.com/mattpaletta/optional-grpc.git)"
+msgstr ""
+
+#: ../../../docs/third_party.md:200
+msgid ""
+"[Protobuf Parser - Yet another Go package which parses a Protocol Buffer "
+"file (proto2+proto3)](https://github.com/yoheimuta/go-protoparser)"
+msgstr ""
+
+#: ../../../docs/third_party.md:201
+msgid ""
+"[Protolint - A tool to enforce Protocol Buffer style and "
+"conventions.](https://github.com/yoheimuta/protolint)"
+msgstr ""
+
+#: ../../../docs/third_party.md:202
+msgid ""
+"[vscode-protolint: A protobuf linter for visual studio "
+"code](https://github.com/plexsystems/vscode-protolint)"
+msgstr ""
+
+#: ../../../docs/third_party.md:203
+msgid ""
+"[intellij-protolint: A protobuf linter for JetBrains "
+"IDEs](https://github.com/yoheimuta/intellij-protolint)"
+msgstr ""
+
+#: ../../../docs/third_party.md:204
+msgid ""
+"[vim-protolint: A protobuf linter for Vim](https://github.com/yoheimuta"
+"/vim-protolint)"
+msgstr ""
+
+#: ../../../docs/third_party.md:205
+msgid ""
+"[super-linter: Protocol Buffer lint as GitHub "
+"Action](https://github.com/github/super-linter)"
+msgstr ""
+

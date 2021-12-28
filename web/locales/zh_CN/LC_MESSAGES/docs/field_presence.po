@@ -1,0 +1,674 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2021, xinetzone
+# This file is distributed under the same license as the protobuf package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: protobuf \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-12-28 13:36+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.0\n"
+
+#: ../../../docs/field_presence.md:1
+msgid "Application note: Field presence"
+msgstr ""
+
+#: ../../../docs/field_presence.md:3
+msgid ""
+"This application note explains the various presence tracking disciplines "
+"for protobuf fields. It also explains the behaviour of explicit presence "
+"tracking for singular proto3 fields with basic types."
+msgstr ""
+
+#: ../../../docs/field_presence.md:5
+msgid "Background"
+msgstr ""
+
+#: ../../../docs/field_presence.md:7
+msgid ""
+"_Field presence_ is the notion of whether a protobuf field has a value. "
+"There are two different manifestations of presence for protobufs: _no "
+"presence_, where the generated message API stores field values (only), "
+"and _explicit presence_, where the API also stores whether or not a field"
+" has been set."
+msgstr ""
+
+#: ../../../docs/field_presence.md:9
+msgid ""
+"Historically, proto2 has mostly followed _explicit presence_, while "
+"proto3 exposes only _no presence_ semantics. Singular proto3 fields of "
+"basic types (numeric, string, bytes, and enums) which are defined with "
+"the `optional` label have _explicit presence_, like proto2 (this feature "
+"is enabled by default as release 3.15)."
+msgstr ""
+
+#: ../../../docs/field_presence.md:11
+msgid "Presence disciplines"
+msgstr ""
+
+#: ../../../docs/field_presence.md:13
+msgid ""
+"_Presence disciplines_ define the semantics for translating between the "
+"_API representation_ and the _serialized representation_. The _no "
+"presence_ discipline relies upon the field value itself to make decisions"
+" at (de)serialization time, while the _explicit presence_ discipline "
+"relies upon the explicit tracking state instead."
+msgstr ""
+
+#: ../../../docs/field_presence.md:15
+msgid "Presence in _tag-value stream_ (wire format) serialization"
+msgstr ""
+
+#: ../../../docs/field_presence.md:17
+msgid ""
+"The wire format is a stream of tagged, _self-delimiting_ values. By "
+"definition, the wire format represents a sequence of _present_ values. In"
+" other words, every value found within a serialization represents a "
+"_present_ field; furthermore, the serialization contains no information "
+"about not-present values."
+msgstr ""
+
+#: ../../../docs/field_presence.md:19
+msgid ""
+"The generated API for a proto message includes (de)serialization "
+"definitions which translate between API types and a stream of "
+"definitionally _present_ (tag, value) pairs. This translation is designed"
+" to be forward- and backward-compatibile across changes to the message "
+"definition; however, this compatibility introduces some (perhaps "
+"surprising) considerations when deserializing wire-formatted messages:"
+msgstr ""
+
+#: ../../../docs/field_presence.md:21
+msgid ""
+"When serializing, fields with _no presence_ are not serialized if they "
+"contain their default value."
+msgstr ""
+
+#: ../../../docs/field_presence.md:22
+msgid "For numeric types, the default is 0."
+msgstr ""
+
+#: ../../../docs/field_presence.md:23
+msgid "For enums, the default is the zero-valued enumerator."
+msgstr ""
+
+#: ../../../docs/field_presence.md:24
+msgid ""
+"For strings, bytes, and repeated fields, the default is the zero-length "
+"value."
+msgstr ""
+
+#: ../../../docs/field_presence.md:25
+msgid "For messages, the default is the language-specific null value."
+msgstr ""
+
+#: ../../../docs/field_presence.md:26
+msgid ""
+"\"Empty\" length-delimited values (such as empty strings) can be validly "
+"represented in serialized values: the field is \"present,\" in the sense "
+"that it appears in the wire format. However, if the generated API does "
+"not track presence, then these values may not be re-serialized; i.e., the"
+" empty field may be \"not present\" after a serialization round-trip."
+msgstr ""
+
+#: ../../../docs/field_presence.md:27
+msgid ""
+"When deserializing, duplicate field values may be handled in different "
+"ways depending on the field definition."
+msgstr ""
+
+#: ../../../docs/field_presence.md:28
+msgid ""
+"Duplicate `repeated` fields are typically appended to the field's API "
+"representation. (Note that serializing a _packed_ repeated field produces"
+" only one, length-delimited value in the tag stream.)"
+msgstr ""
+
+#: ../../../docs/field_presence.md:29
+msgid ""
+"Duplicate `optional` field values follow the rule that \"the last one "
+"wins.\""
+msgstr ""
+
+#: ../../../docs/field_presence.md:30
+msgid ""
+"`oneof` fields expose the API-level invariant that only one field is set "
+"at a time. However, the wire format may include multiple (tag, value) "
+"pairs which notionally belong to the `oneof`. Similar to `optional` "
+"fields, the generated API follows the \"last one wins\" rule."
+msgstr ""
+
+#: ../../../docs/field_presence.md:31
+msgid ""
+"Out-of-range values are not returned for enum fields in generated proto2 "
+"APIs. However, out-of-range values may be stored as _unknown fields_ in "
+"the API, even though the wire-format tag was recognized."
+msgstr ""
+
+#: ../../../docs/field_presence.md:33
+msgid "Presence in _named-field mapping_ formats"
+msgstr ""
+
+#: ../../../docs/field_presence.md:35
+msgid ""
+"Protobufs can be represented in human-readable, textual forms. Two "
+"notable formats are TextFormat (the output format produced by generated "
+"message `DebugString` methods) and JSON."
+msgstr ""
+
+#: ../../../docs/field_presence.md:37
+msgid ""
+"These formats have correctness requirements of their own, and are "
+"generally stricter than _tagged-value stream_ formats. However, "
+"TextFormat more closely mimics the semantics of the wire format, and "
+"does, in certain cases, provide similar semantics (for example, appending"
+" repeated name-value mappings to a repeated field). In particular, "
+"similar to the wire format, TextFormat only includes fields which are "
+"present."
+msgstr ""
+
+#: ../../../docs/field_presence.md:39
+msgid ""
+"JSON is a much stricter format, however, and cannot validly represent "
+"some semantics of the wire format or TextFormat."
+msgstr ""
+
+#: ../../../docs/field_presence.md:41
+msgid ""
+"Notably, JSON _elements_ are semantically unordered, and each member must"
+" have a unique name. This is different from TextFormat rules for repeated"
+" fields."
+msgstr ""
+
+#: ../../../docs/field_presence.md:42
+msgid ""
+"JSON may include fields that are \"not present,\" unlike the _no "
+"presence_ discipline for other formats:"
+msgstr ""
+
+#: ../../../docs/field_presence.md:43
+msgid ""
+"JSON defines a `null` value, which may be used to represent a _defined "
+"but not-present field_."
+msgstr ""
+
+#: ../../../docs/field_presence.md:44
+msgid ""
+"Repeated field values may be included in the formatted output, even if "
+"they are equal to the default (an empty list)."
+msgstr ""
+
+#: ../../../docs/field_presence.md:45
+msgid ""
+"Because JSON elements are unordered, there is no way to unambiguously "
+"interpret the \"last one wins\" rule."
+msgstr ""
+
+#: ../../../docs/field_presence.md:46
+msgid ""
+"In most cases, this is fine: JSON elements must have unique names: "
+"repeated field values are not valid JSON, so they do not need to be "
+"resolved as they are for TextFormat."
+msgstr ""
+
+#: ../../../docs/field_presence.md:47
+msgid ""
+"However, this means that it may not be possible to interpret `oneof` "
+"fields unambiguously: if multiple cases are present, they are unordered."
+msgstr ""
+
+#: ../../../docs/field_presence.md:49
+msgid ""
+"In theory, JSON _can_ represent presence in a semantic-preserving "
+"fashion. In practice, however, presence correctness can vary depending "
+"upon implementation choices, especially if JSON was chosen as a means to "
+"interoperate with clients not using protobufs."
+msgstr ""
+
+#: ../../../docs/field_presence.md:51
+msgid "Presence in proto2 APIs"
+msgstr ""
+
+#: ../../../docs/field_presence.md:53
+msgid ""
+"This table outlines whether presence is tracked for fields in proto2 APIs"
+" (both for generated APIs and using dynamic reflection):"
+msgstr ""
+
+#: ../../docs/field_presence.md:1
+msgid "Field type"
+msgstr ""
+
+#: ../../docs/field_presence.md:1
+msgid "Explicit Presence"
+msgstr ""
+
+#: ../../docs/field_presence.md:1
+msgid "Singular numeric (integer or floating point)"
+msgstr ""
+
+#: ../../docs/field_presence.md:1
+msgid "✔️"
+msgstr ""
+
+#: ../../docs/field_presence.md:1
+msgid "Singular enum"
+msgstr ""
+
+#: ../../docs/field_presence.md:1
+msgid "Singular string or bytes"
+msgstr ""
+
+#: ../../docs/field_presence.md:1
+msgid "Singular message"
+msgstr ""
+
+#: ../../docs/field_presence.md:1
+msgid "Repeated"
+msgstr ""
+
+#: ../../docs/field_presence.md:1
+msgid "Oneofs"
+msgstr ""
+
+#: ../../docs/field_presence.md:1
+msgid "Maps"
+msgstr ""
+
+#: ../../../docs/field_presence.md:65
+msgid ""
+"Singular fields (of all types) track presence explicitly in the generated"
+" API. The generated message interface includes methods to query presence "
+"of fields. For example, the field `foo` has a corresponding `has_foo` "
+"method. (The specific name follows the same language-specific naming "
+"convention as the field accessors.) These methods are sometimes referred "
+"to as \"hazzers\" within the protobuf implementation."
+msgstr ""
+
+#: ../../../docs/field_presence.md:67
+msgid ""
+"Similar to singular fields, `oneof` fields explicitly track which one of "
+"the members, if any, contains a value. For example, consider this example"
+" `oneof`:"
+msgstr ""
+
+#: ../../../docs/field_presence.md:76
+msgid ""
+"Depending on the target language, the generated API would generally "
+"include several methods:"
+msgstr ""
+
+#: ../../../docs/field_presence.md:78
+msgid "A hazzer for the oneof: `has_foo`"
+msgstr ""
+
+#: ../../../docs/field_presence.md:79
+msgid "A _oneof case_ method: `foo`"
+msgstr ""
+
+#: ../../../docs/field_presence.md:80
+msgid "Hazzers for the members: `has_a`, `has_b`"
+msgstr ""
+
+#: ../../../docs/field_presence.md:81
+msgid "Getters for the members: `a`, `b`"
+msgstr ""
+
+#: ../../../docs/field_presence.md:83
+msgid ""
+"Repeated fields and maps do not track presence: there is no distinction "
+"between an _empty_ and a _not-present_ repeated field."
+msgstr ""
+
+#: ../../../docs/field_presence.md:85
+msgid "Presence in proto3 APIs"
+msgstr ""
+
+#: ../../../docs/field_presence.md:87
+msgid ""
+"This table outlines whether presence is tracked for fields in proto3 APIs"
+" (both for generated APIs and using dynamic reflection):"
+msgstr ""
+
+#: ../../docs/field_presence.md:1
+msgid "`optional`"
+msgstr ""
+
+#: ../../docs/field_presence.md:1
+msgid "No"
+msgstr ""
+
+#: ../../docs/field_presence.md:1
+msgid "Yes"
+msgstr ""
+
+#: ../../docs/field_presence.md:1
+msgid "N/A"
+msgstr ""
+
+#: ../../../docs/field_presence.md:103
+msgid ""
+"Similar to proto2 APIs, proto3 does not track presence explicitly for "
+"repeated fields. Without the `optional` label, proto3 APIs do not track "
+"presence for basic types (numeric, string, bytes, and enums), either. "
+"Oneof fields affirmatively expose presence, although the same set of "
+"hazzer methods may not generated as in proto2 APIs."
+msgstr ""
+
+#: ../../../docs/field_presence.md:105
+msgid ""
+"Under the _no presence_ discipline, the default value is synonymous with "
+"\"not present\" for purposes of serialization. To notionally \"clear\" a "
+"field (so it won't be serialized), an API user would set it to the "
+"default value."
+msgstr ""
+
+#: ../../../docs/field_presence.md:107
+msgid ""
+"The default value for enum-typed fields under _no presence_ is the "
+"corresponding 0-valued enumerator. Under proto3 syntax rules, all enum "
+"types are required to have an enumerator value which maps to 0. By "
+"convention, this is an `UNKNOWN` or similarly-named enumerator. If the "
+"zero value is notionally outside the domain of valid values for the "
+"application, this behavior can be thought of as tantamount to _explicit "
+"presence_."
+msgstr ""
+
+#: ../../../docs/field_presence.md:109
+msgid "Semantic differences"
+msgstr ""
+
+#: ../../../docs/field_presence.md:111
+msgid ""
+"The _no presence_ serialization discipline results in visible differences"
+" from the _explicit presence_ tracking discipline, when the default value"
+" is set. For a singular field with numeric, enum, or string type:"
+msgstr ""
+
+#: ../../../docs/field_presence.md:113
+msgid "_No presence_ discipline:"
+msgstr ""
+
+#: ../../../docs/field_presence.md:114
+msgid "Default values are not serialized."
+msgstr ""
+
+#: ../../../docs/field_presence.md:115
+msgid "Default values are _not_ merged-from."
+msgstr ""
+
+#: ../../../docs/field_presence.md:116
+msgid "To \"clear\" a field, it is set to its default value."
+msgstr ""
+
+#: ../../../docs/field_presence.md:117
+msgid "The default value may mean:"
+msgstr ""
+
+#: ../../../docs/field_presence.md:118
+msgid ""
+"the field was explicitly set to its default value, which is valid in the "
+"application-specific domain of values;"
+msgstr ""
+
+#: ../../../docs/field_presence.md:119
+msgid "the field was notionally \"cleared\" by setting its default; or"
+msgstr ""
+
+#: ../../../docs/field_presence.md:120
+msgid "the field was never set."
+msgstr ""
+
+#: ../../../docs/field_presence.md:121
+msgid "_Explicit presence_ discipline:"
+msgstr ""
+
+#: ../../../docs/field_presence.md:122
+msgid "Explicitly set values are always serialized, including default values."
+msgstr ""
+
+#: ../../../docs/field_presence.md:123
+msgid "Un-set fields are never merged-from."
+msgstr ""
+
+#: ../../../docs/field_presence.md:124
+msgid "Explicitly set fields -- including default values -- _are_ merged-from."
+msgstr ""
+
+#: ../../../docs/field_presence.md:125
+msgid ""
+"A generated `has_foo` method indicates whether or not the field `foo` has"
+" been set (and not cleared)."
+msgstr ""
+
+#: ../../../docs/field_presence.md:126
+msgid ""
+"A generated `clear_foo` method must be used to clear (i.e., un-set) the "
+"value."
+msgstr ""
+
+#: ../../../docs/field_presence.md:128
+msgid "Considerations for merging"
+msgstr ""
+
+#: ../../../docs/field_presence.md:130
+msgid ""
+"Under the _no presence_ rules, it is effectively impossible for a target "
+"field to merge-from its default value (using the protobuf's API merging "
+"functions). This is because default values are skipped, similar to the "
+"_no presence_ serialization discipline. Merging only updates the target "
+"(merged-to) message using the non-skipped values from the update (merged-"
+"from) message."
+msgstr ""
+
+#: ../../../docs/field_presence.md:132
+msgid ""
+"The difference in merging behavior has further implications for protocols"
+" which rely on partial \"patch\" updates. If field presence is not "
+"tracked, then an update patch alone cannot represent an update to the "
+"default value, because only non-default values are merged-from."
+msgstr ""
+
+#: ../../../docs/field_presence.md:134
+msgid ""
+"Updating to set a default value in this case requires some external "
+"mechanism, such as `FieldMask`. However, if presence _is_ tracked, then "
+"all explicitly-set values -- even default values -- will be merged into "
+"the target."
+msgstr ""
+
+#: ../../../docs/field_presence.md:136
+msgid "Considerations for change-compatibility"
+msgstr ""
+
+#: ../../../docs/field_presence.md:138
+msgid ""
+"Changing a field between _explicit presence_ and _no presence_ is a "
+"binary-compatible change for serialized values in wire format. However, "
+"the serialized representation of the message may differ, depending on "
+"which version of the message definition was used for serialization. "
+"Specifically, when a \"sender\" explicitly sets a field to its default "
+"value:"
+msgstr ""
+
+#: ../../../docs/field_presence.md:140
+msgid ""
+"The serialized value following _no presence_ discipline does not contain "
+"the default value, even though it was explicitly set."
+msgstr ""
+
+#: ../../../docs/field_presence.md:141
+msgid ""
+"The serialized value following _explicit presence_ discipline contains "
+"every \"present\" field, even if it contains the default value."
+msgstr ""
+
+#: ../../../docs/field_presence.md:143
+msgid ""
+"This change may or may not be safe, depending on the application's "
+"semantics. For example, consider two clients with different versions of a"
+" message definition."
+msgstr ""
+
+#: ../../../docs/field_presence.md:145
+msgid ""
+"Client A uses this definition of the message, which follows the _explicit"
+" presence_ serialization discipline for field `foo`:"
+msgstr ""
+
+#: ../../../docs/field_presence.md:154
+msgid ""
+"Client B uses a definition of the same message, except that it follows "
+"the _no presence_ discipline:"
+msgstr ""
+
+#: ../../../docs/field_presence.md:163
+msgid ""
+"Now, consider a scenario where client A observes `foo`'s presence as the "
+"clients repeatedly exchange the \"same\" message by deserializing and "
+"reserializing:"
+msgstr ""
+
+#: ../../../docs/field_presence.md:197
+msgid ""
+"If client A depends on _explicit presence_ for `foo`, then a \"round "
+"trip\" through client B will be lossy from the perspective of client A. "
+"In the example, this is not a safe change: client A requires (by "
+"`assert`) that the field is present; even without any modifications "
+"through the API, that requirement fails in a value- and peer-dependent "
+"case."
+msgstr ""
+
+#: ../../../docs/field_presence.md:199
+msgid "How to enable _explicit presence_ in proto3"
+msgstr ""
+
+#: ../../../docs/field_presence.md:201
+msgid "These are the general steps to use field tracking support for proto3:"
+msgstr ""
+
+#: ../../../docs/field_presence.md:203
+msgid "Add an `optional` field to a `.proto` file."
+msgstr ""
+
+#: ../../../docs/field_presence.md:204
+msgid ""
+"Run `protoc` (at least v3.15, or v3.12 using "
+"`--experimental_allow_proto3_optional` flag)."
+msgstr ""
+
+#: ../../../docs/field_presence.md:205
+msgid ""
+"Use the generated \"hazzer\" methods and \"clear\" methods in application"
+" code, instead of comparing or setting default values."
+msgstr ""
+
+#: ../../../docs/field_presence.md:207
+msgid "`.proto` file changes"
+msgstr ""
+
+#: ../../../docs/field_presence.md:209
+msgid ""
+"This is an example of a proto3 message with fields which follow both _no "
+"presence_ and _explicit presence_ semantics:"
+msgstr ""
+
+#: ../../../docs/field_presence.md:224
+msgid "`protoc` invocation"
+msgstr ""
+
+#: ../../../docs/field_presence.md:226
+msgid ""
+"Presence tracking for proto3 messages is enabled by default [since "
+"v3.15.0](https://github.com/protocolbuffers/protobuf/releases/tag/v3.15.0)"
+" release, formerly up until "
+"[v3.12.0](https://github.com/protocolbuffers/protobuf/releases/tag/v3.12.0)"
+" the `--experimental_allow_proto3_optional` flag was required when using "
+"presence tracking with protoc."
+msgstr ""
+
+#: ../../../docs/field_presence.md:228
+msgid "Using the generated code"
+msgstr ""
+
+#: ../../../docs/field_presence.md:230
+msgid ""
+"The generated code for proto3 fields with _explicit presence_ (the "
+"`optional` label) will be the same as it would be in a proto2 file."
+msgstr ""
+
+#: ../../../docs/field_presence.md:232
+msgid "This is the definition used in the \"no presence\" examples below:"
+msgstr ""
+
+#: ../../../docs/field_presence.md:242
+msgid "This is the definition used in the \"explicit presence\" examples below:"
+msgstr ""
+
+#: ../../../docs/field_presence.md:252
+msgid ""
+"In the examples, a function `GetProto` constructs and returns a message "
+"of type `Msg` with unspecified contents."
+msgstr ""
+
+#: ../../../docs/field_presence.md:254
+msgid "C++ example"
+msgstr ""
+
+#: ../../../docs/field_presence.md:256 ../../../docs/field_presence.md:284
+#: ../../../docs/field_presence.md:312 ../../../docs/field_presence.md:342
+#: ../../../docs/field_presence.md:370 ../../../docs/field_presence.md:396
+#: ../../../docs/field_presence.md:424 ../../../docs/field_presence.md:452
+msgid "No presence:"
+msgstr ""
+
+#: ../../../docs/field_presence.md:269 ../../../docs/field_presence.md:297
+#: ../../../docs/field_presence.md:325 ../../../docs/field_presence.md:355
+#: ../../../docs/field_presence.md:382 ../../../docs/field_presence.md:409
+#: ../../../docs/field_presence.md:437 ../../../docs/field_presence.md:465
+msgid "Explicit presence:"
+msgstr ""
+
+#: ../../../docs/field_presence.md:282
+msgid "C# example"
+msgstr ""
+
+#: ../../../docs/field_presence.md:310
+msgid "Go example"
+msgstr ""
+
+#: ../../../docs/field_presence.md:338
+msgid "Java example"
+msgstr ""
+
+#: ../../../docs/field_presence.md:340
+msgid ""
+"These examples use a `Builder` to demonstrate clearing. Simply checking "
+"presence and getting values from a `Builder` follows the same API as the "
+"message type."
+msgstr ""
+
+#: ../../../docs/field_presence.md:368
+msgid "Python example"
+msgstr ""
+
+#: ../../../docs/field_presence.md:394
+msgid "Ruby example"
+msgstr ""
+
+#: ../../../docs/field_presence.md:422
+msgid "Javascript example"
+msgstr ""
+
+#: ../../../docs/field_presence.md:450
+msgid "Objective C example"
+msgstr ""
+

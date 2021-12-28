@@ -1,0 +1,348 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2021, xinetzone
+# This file is distributed under the same license as the protobuf package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: protobuf \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-12-28 12:31+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.0\n"
+
+#: ../../../src/README.md:1
+msgid "Protocol Buffers - Google's data interchange format"
+msgstr "安装"
+
+#: ../../../src/README.md:4
+msgid "Copyright 2008 Google Inc."
+msgstr ""
+
+#: ../../../src/README.md:6 ../../../src/README.md:230
+msgid "https://developers.google.com/protocol-buffers/"
+msgstr ""
+
+#: ../../../src/README.md:8
+msgid "C++ Installation - Unix"
+msgstr "Unix"
+
+#: ../../../src/README.md:11
+msgid "To build protobuf from source, the following tools are needed:"
+msgstr "要从源代码构建 protobuf，需要以下工具："
+
+#: ../../../src/README.md:13
+msgid "autoconf"
+msgstr ""
+
+#: ../../../src/README.md:14
+msgid "automake"
+msgstr ""
+
+#: ../../../src/README.md:15
+msgid "libtool"
+msgstr ""
+
+#: ../../../src/README.md:16
+msgid "make"
+msgstr ""
+
+#: ../../../src/README.md:17
+msgid "g++"
+msgstr ""
+
+#: ../../../src/README.md:18
+msgid "unzip"
+msgstr ""
+
+#: ../../../src/README.md:20
+msgid "On Ubuntu/Debian, you can install them with:"
+msgstr "在 Ubuntu/Debian 上，你可以用以下方法安装它们："
+
+#: ../../../src/README.md:24
+msgid ""
+"On other platforms, please use the corresponding package managing tool to"
+" install them before proceeding."
+msgstr ""
+"在其他平台上，请使用相应的软件包管理工具进行安装，然后再继续。"
+
+#: ../../../src/README.md:27
+msgid ""
+"To get the source, download one of the release .tar.gz or .zip packages "
+"in the release page:"
+msgstr ""
+"要获得源代码，请下载发布页中的一个 .tar.gz 或 .zip 包："
+
+#: ../../../src/README.md:32
+msgid ""
+"For example: if you only need C++, download `protobuf-"
+"cpp-[VERSION].tar.gz`; if you need C++ and Java, download `protobuf-"
+"java-[VERSION].tar.gz` (every package contains C++ source already); if "
+"you need C++ and multiple other languages, download `protobuf-"
+"all-[VERSION].tar.gz`."
+msgstr ""
+"例如：如果你只需要 C++，请下载 `protobuf-cpp-[VERSION].tar.gz`；"
+"如果你需要 C++ 和 Java，请下载 `protobuf-java-[VERSION].tar.gz`（每个包都已经包含 C++ 的源代码）；"
+"如果你需要 C++ 和多种其他语言，请下载 `protobuf-all-[VERSION].tar.gz`。"
+
+#: ../../../src/README.md:37
+msgid ""
+"You can also get the source by \"git clone\" our git repository. Make "
+"sure you have also cloned the submodules and generated the configure "
+"script (skip this if you are using a release .tar.gz or .zip package):"
+msgstr ""
+"你也可以通过 \"git clone\" 我们的 git 存储库来获得源代码。"
+"确保你也克隆了子模块并生成了配置脚本（如果你使用的是发布版的 .tar.gz 或 .zip 包，则跳过这一步）："
+
+#: ../../../src/README.md:46
+msgid ""
+"To build and install the C++ Protocol Buffer runtime and the Protocol "
+"Buffer compiler (protoc) execute the following:"
+msgstr ""
+"要建立和安装 C++ 协议缓冲区运行时间和协议缓冲区编译器（protoc），请执行以下内容："
+
+#: ../../../src/README.md:56
+msgid ""
+"If \"make check\" fails, you can still install, but it is likely that "
+"some features of this library will not work correctly on your system. "
+"Proceed at your own risk."
+msgstr ""
+"如果 \"make check\" 失败，你仍然可以安装，但这个库的某些功能很可能无法在你的系统上正确工作。"
+"请自行承担风险。"
+
+#: ../../../src/README.md:60
+msgid ""
+"For advanced usage information on configure and make, please refer to the"
+" autoconf documentation:"
+msgstr ""
+"关于 configure 和 make 的高级使用信息，请参考 autoconf 文档："
+
+#: ../../../src/README.md:65
+msgid "**Hint on install location**"
+msgstr "**关于安装位置的提示**"
+
+#: ../../../src/README.md:67
+msgid ""
+"By default, the package will be installed to /usr/local.  However, on "
+"many platforms, /usr/local/lib is not part of LD_LIBRARY_PATH. You can "
+"add it, but it may be easier to just install to /usr instead.  To do "
+"this, invoke configure as follows:"
+msgstr ""
+"默认情况下，该软件包将被安装到/usr/local。"
+"然而，在许多平台上，/usr/local/lib 并不是 LD_LIBRARY_PATH 的一部分。"
+"你可以添加它，但直接安装到/usr可能更容易。"
+"要做到这一点，请按如下方式调用 configure："
+
+#: ../../../src/README.md:74
+msgid ""
+"If you already built the package with a different prefix, make sure to "
+"run \"make clean\" before building again."
+msgstr ""
+"如果你已经用不同的前缀构建了软件包，请确保在再次构建之前运行 \"make clean\" 。"
+
+#: ../../../src/README.md:77
+msgid "**Compiling dependent packages**"
+msgstr ""
+
+#: ../../../src/README.md:79
+msgid ""
+"To compile a package that uses Protocol Buffers, you need to pass various"
+" flags to your compiler and linker.  As of version 2.2.0, Protocol "
+"Buffers integrates with pkg-config to manage this.  If you have pkg-"
+"config installed, then you can invoke it to get a list of flags like so:"
+msgstr ""
+
+#: ../../../src/README.md:91
+msgid "For example:"
+msgstr ""
+
+#: ../../../src/README.md:95
+msgid ""
+"Note that packages written prior to the 2.2.0 release of Protocol Buffers"
+" may not yet integrate with pkg-config to get flags, and may not pass the"
+" correct set of flags to correctly link against libprotobuf.  If the "
+"package in question uses autoconf, you can often fix the problem by "
+"invoking its configure script like:"
+msgstr ""
+
+#: ../../../src/README.md:105
+msgid "This will force it to use the correct flags."
+msgstr ""
+
+#: ../../../src/README.md:107
+msgid ""
+"If you are writing an autoconf-based package that uses Protocol Buffers, "
+"you should probably use the PKG_CHECK_MODULES macro in your configure "
+"script like:"
+msgstr ""
+
+#: ../../../src/README.md:113
+msgid "See the pkg-config man page for more info."
+msgstr ""
+
+#: ../../../src/README.md:115
+msgid ""
+"If you only want protobuf-lite, substitute \"protobuf-lite\" in place of "
+"\"protobuf\" in these examples."
+msgstr ""
+
+#: ../../../src/README.md:118
+msgid "**Note for Mac users**"
+msgstr ""
+
+#: ../../../src/README.md:120
+msgid ""
+"For a Mac system, Unix tools are not available by default. You will first"
+" need to install Xcode from the Mac AppStore and then run the following "
+"command from a terminal:"
+msgstr ""
+
+#: ../../../src/README.md:126
+msgid ""
+"To install Unix tools, you can install \"port\" following the "
+"instructions at https://www.macports.org . This will reside in "
+"/opt/local/bin/port for most Mac installations."
+msgstr ""
+
+#: ../../../src/README.md:132
+msgid "Then follow the Unix instructions above."
+msgstr ""
+
+#: ../../../src/README.md:134
+msgid "**Note for cross-compiling**"
+msgstr ""
+
+#: ../../../src/README.md:136
+msgid ""
+"The makefiles normally invoke the protoc executable that they just built "
+"in order to build tests.  When cross-compiling, the protoc executable may"
+" not be executable on the host machine.  In this case, you must build a "
+"copy of protoc for the host machine first, then use the --with-protoc "
+"option to tell configure to use it instead.  For example:"
+msgstr ""
+
+#: ../../../src/README.md:145
+msgid ""
+"This will use the installed protoc (found in your $PATH) instead of "
+"trying to execute the one built during the build process.  You can also "
+"use an executable that hasn't been installed.  For example, if you built "
+"the protobuf package for your host machine in ../host, you might do:"
+msgstr ""
+
+#: ../../../src/README.md:153
+msgid ""
+"Either way, you must make sure that the protoc executable you use has the"
+" same version as the protobuf source code you are trying to use it with."
+msgstr ""
+
+#: ../../../src/README.md:157
+msgid "**Note for Solaris users**"
+msgstr ""
+
+#: ../../../src/README.md:159
+msgid ""
+"Solaris 10 x86 has a bug that will make linking fail, complaining about "
+"libstdc++.la being invalid.  We have included a work-around in this "
+"package.  To use the work-around, run configure as follows:"
+msgstr ""
+
+#: ../../../src/README.md:165
+msgid "See src/solaris/libstdc++.la for more info on this bug."
+msgstr ""
+
+#: ../../../src/README.md:167
+msgid "**Note for HP C++ Tru64 users**"
+msgstr ""
+
+#: ../../../src/README.md:169
+msgid "To compile invoke configure as follows:"
+msgstr ""
+
+#: ../../../src/README.md:173
+msgid "Also, you will need to use gmake instead of make."
+msgstr ""
+
+#: ../../../src/README.md:175
+msgid "**Note for AIX users**"
+msgstr ""
+
+#: ../../../src/README.md:177
+msgid "Compile using the IBM xlC C++ compiler as follows:"
+msgstr ""
+
+#: ../../../src/README.md:181
+msgid "Also, you will need to use GNU `make` (`gmake`) instead of AIX `make`."
+msgstr ""
+
+#: ../../../src/README.md:183
+msgid "C++ Installation - Windows"
+msgstr ""
+
+#: ../../../src/README.md:186
+msgid ""
+"If you only need the protoc binary, you can download it from the release "
+"page:"
+msgstr ""
+
+#: ../../../src/README.md:191
+msgid ""
+"In the downloads section, download the zip file protoc-$VERSION-"
+"win32.zip. It contains the protoc binary as well as public proto files of"
+" protobuf library."
+msgstr ""
+
+#: ../../../src/README.md:195
+msgid "Protobuf and its dependencies can be installed directly by using `vcpkg`:"
+msgstr ""
+
+#: ../../../src/README.md:199
+msgid "If zlib support is desired, you'll also need to install the zlib feature:"
+msgstr ""
+
+#: ../../../src/README.md:203
+msgid "See https://github.com/Microsoft/vcpkg for more information."
+msgstr ""
+
+#: ../../../src/README.md:205
+msgid ""
+"To build from source using Microsoft Visual C++, see "
+"[cmake/README.md](../cmake/README.md)."
+msgstr ""
+
+#: ../../../src/README.md:207
+msgid ""
+"To build from source using Cygwin or MinGW, follow the Unix installation "
+"instructions, above."
+msgstr ""
+
+#: ../../../src/README.md:210
+msgid "Binary Compatibility Warning"
+msgstr ""
+
+#: ../../../src/README.md:213
+msgid ""
+"Due to the nature of C++, it is unlikely that any two versions of the "
+"Protocol Buffers C++ runtime libraries will have compatible ABIs. That "
+"is, if you linked an executable against an older version of libprotobuf, "
+"it is unlikely to work with a newer version without re-compiling.  This "
+"problem, when it occurs, will normally be detected immediately on startup"
+" of your app.  Still, you may want to consider using static linkage.  You"
+" can configure this package to install static libraries only using:"
+msgstr ""
+
+#: ../../../src/README.md:224
+msgid "Usage"
+msgstr ""
+
+#: ../../../src/README.md:227
+msgid ""
+"The complete documentation for Protocol Buffers is available via the web "
+"at:"
+msgstr ""
+

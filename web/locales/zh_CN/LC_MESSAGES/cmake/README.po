@@ -1,0 +1,524 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2021, xinetzone
+# This file is distributed under the same license as the protobuf package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: protobuf \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-12-28 13:31+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.0\n"
+
+#: ../../../cmake/README.md:1
+msgid "CMake"
+msgstr ""
+
+#: ../../../cmake/README.md:3
+msgid ""
+"This directory contains *CMake* files that can be used to build protobuf "
+"with *MSVC* on *Windows*. You can build the project from *Command Prompt*"
+" and using an *Visual Studio* IDE."
+msgstr ""
+
+#: ../../../cmake/README.md:7
+msgid ""
+"You need to have [CMake](http://www.cmake.org), [Visual "
+"Studio](https://www.visualstudio.com) and optionally [Git](http://git-"
+"scm.com) installed on your computer before proceeding."
+msgstr ""
+
+#: ../../../cmake/README.md:10
+msgid ""
+"Most of the instructions will be given to the *Сommand Prompt*, but the "
+"same actions can be performed using appropriate GUI tools."
+msgstr ""
+
+#: ../../../cmake/README.md:13
+msgid "Environment Setup"
+msgstr ""
+
+#: ../../../cmake/README.md:16
+msgid "Open the appropriate *Command Prompt* from the *Start* menu."
+msgstr ""
+
+#: ../../../cmake/README.md:18
+msgid "For example *x86 Native Tools Command Prompt for VS 2019*:"
+msgstr ""
+
+#: ../../../cmake/README.md:22
+msgid "Change to your working directory:"
+msgstr ""
+
+#: ../../../cmake/README.md:27
+msgid "Where *C:\\Path\\to* is path to your real working directory."
+msgstr ""
+
+#: ../../../cmake/README.md:29
+msgid ""
+"Create a folder where protobuf headers/libraries/binaries will be "
+"installed after built:"
+msgstr ""
+
+#: ../../../cmake/README.md:33
+msgid ""
+"If *cmake* command is not available from *Command Prompt*, add it to "
+"system *PATH* variable:"
+msgstr ""
+
+#: ../../../cmake/README.md:37
+msgid ""
+"If *git* command is not available from *Command Prompt*, add it to system"
+" *PATH* variable:"
+msgstr ""
+
+#: ../../../cmake/README.md:41
+msgid "Good. Now you are ready to continue."
+msgstr ""
+
+#: ../../../cmake/README.md:43
+msgid "Getting Sources"
+msgstr ""
+
+#: ../../../cmake/README.md:46
+msgid "You can get the latest stable source packages from the release page:"
+msgstr ""
+
+#: ../../../cmake/README.md:50
+msgid ""
+"For example: if you only need C++, download `protobuf-"
+"cpp-[VERSION].tar.gz`; if you need C++ and Java, download `protobuf-"
+"java-[VERSION].tar.gz` (every package contains C++ source already); if "
+"you need C++ and multiple other languages, download `protobuf-"
+"all-[VERSION].tar.gz`."
+msgstr ""
+
+#: ../../../cmake/README.md:55
+msgid "Or you can use git to clone from protobuf git repository."
+msgstr ""
+
+#: ../../../cmake/README.md:59
+msgid ""
+"Where *[release_tag]* is a git tag like *v3.0.0-beta-1* or a branch name "
+"like *master* if you want to get the latest code."
+msgstr ""
+
+#: ../../../cmake/README.md:62
+msgid "Go to the project folder:"
+msgstr ""
+
+#: ../../../cmake/README.md:67
+msgid ""
+"Remember to update any submodules if you are using git clone (you can "
+"skip this step if you are using a release .tar.gz or .zip package):"
+msgstr ""
+
+#: ../../../cmake/README.md:74
+msgid "Now go to *cmake* folder in protobuf sources:"
+msgstr ""
+
+#: ../../../cmake/README.md:79
+msgid "Good. Now you are ready to *CMake* configuration."
+msgstr ""
+
+#: ../../../cmake/README.md:81
+msgid "CMake Configuration"
+msgstr ""
+
+#: ../../../cmake/README.md:84
+msgid ""
+"*CMake* supports a lot of different "
+"[generators](http://www.cmake.org/cmake/help/latest/manual/cmake-"
+"generators.7.html) for various native build systems. We are only "
+"interested in [Makefile](http://www.cmake.org/cmake/help/latest/manual"
+"/cmake-generators.7.html#makefile-generators) and [Visual "
+"Studio](http://www.cmake.org/cmake/help/latest/manual/cmake-"
+"generators.7.html#visual-studio-generators) generators."
+msgstr ""
+
+#: ../../../cmake/README.md:93
+msgid ""
+"We will use shadow building to separate the temporary files from the "
+"protobuf source code."
+msgstr ""
+
+#: ../../../cmake/README.md:95
+msgid "Create a temporary *build* folder and change your working directory to it:"
+msgstr ""
+
+#: ../../../cmake/README.md:100
+msgid ""
+"The *Makefile* generator can build the project in only one configuration,"
+" so you need to build a separate folder for each configuration."
+msgstr ""
+
+#: ../../../cmake/README.md:103
+msgid "To start using a *Release* configuration:"
+msgstr ""
+
+#: ../../../cmake/README.md:111 ../../../cmake/README.md:121
+msgid "It will generate *nmake* *Makefile* in current directory."
+msgstr ""
+
+#: ../../../cmake/README.md:113
+msgid "To use *Debug* configuration:"
+msgstr ""
+
+#: ../../../cmake/README.md:123
+msgid "To create *Visual Studio* solution file:"
+msgstr ""
+
+#: ../../../cmake/README.md:130
+msgid ""
+"It will generate *Visual Studio* solution file *protobuf.sln* in current "
+"directory."
+msgstr ""
+
+#: ../../../cmake/README.md:132
+msgid ""
+"If the *gmock* directory does not exist, and you do not want to build "
+"protobuf unit tests, you need to add *cmake* command argument "
+"`-Dprotobuf_BUILD_TESTS=OFF` to disable testing."
+msgstr ""
+
+#: ../../../cmake/README.md:135
+msgid ""
+"To make a *Visual Studio* file for Visual Studio 16 2019, create the "
+"*Visual Studio* solution file above and edit the CMakeCache file."
+msgstr ""
+
+#: ../../../cmake/README.md:140
+msgid "Then create the *Visual Studio* solution file again"
+msgstr ""
+
+#: ../../../cmake/README.md:142
+msgid "Compiling"
+msgstr ""
+
+#: ../../../cmake/README.md:145
+msgid "To compile protobuf:"
+msgstr ""
+
+#: ../../../cmake/README.md:149 ../../../cmake/README.md:171
+#: ../../../cmake/README.md:219
+msgid "or"
+msgstr ""
+
+#: ../../../cmake/README.md:153 ../../../cmake/README.md:161
+msgid "And wait for the compilation to finish."
+msgstr ""
+
+#: ../../../cmake/README.md:155
+msgid "If you prefer to use the IDE:"
+msgstr ""
+
+#: ../../../cmake/README.md:157
+msgid "Open the generated protobuf.sln file in Microsoft Visual Studio."
+msgstr ""
+
+#: ../../../cmake/README.md:158
+msgid "Choose \"Debug\" or \"Release\" configuration as desired."
+msgstr ""
+
+#: ../../../cmake/README.md:159
+msgid "From the Build menu, choose \"Build Solution\"."
+msgstr ""
+
+#: ../../../cmake/README.md:163
+msgid "Testing"
+msgstr ""
+
+#: ../../../cmake/README.md:166
+msgid ""
+"To run unit-tests, first you must compile protobuf as described above. "
+"Then run:"
+msgstr ""
+
+#: ../../../cmake/README.md:175
+msgid ""
+"You can also build project *check* from Visual Studio solution. Yes, it "
+"may sound strange, but it works."
+msgstr ""
+
+#: ../../../cmake/README.md:178
+msgid "You should see output similar to:"
+msgstr ""
+
+#: ../../../cmake/README.md:188
+msgid "To run specific tests:"
+msgstr ""
+
+#: ../../../cmake/README.md:208
+msgid "Note that the tests must be run from the source folder."
+msgstr ""
+
+#: ../../../cmake/README.md:210
+msgid "If all tests are passed, safely continue."
+msgstr ""
+
+#: ../../../cmake/README.md:212
+msgid "Installing"
+msgstr ""
+
+#: ../../../cmake/README.md:215
+msgid "To install protobuf to the specified *install* folder:"
+msgstr ""
+
+#: ../../../cmake/README.md:223
+msgid ""
+"You can also build project *INSTALL* from Visual Studio solution. It "
+"sounds not so strange and it works."
+msgstr ""
+
+#: ../../../cmake/README.md:226
+msgid "This will create the following folders under the *install* location:"
+msgstr ""
+
+#: ../../../cmake/README.md:227
+msgid "bin - that contains protobuf *protoc.exe* compiler;"
+msgstr ""
+
+#: ../../../cmake/README.md:228
+msgid "include - that contains C++ headers and protobuf *.proto files;"
+msgstr ""
+
+#: ../../../cmake/README.md:229
+msgid ""
+"lib - that contains linking libraries and *CMake* configuration files for"
+" *protobuf* package."
+msgstr ""
+
+#: ../../../cmake/README.md:231
+msgid "Now you can if needed:"
+msgstr ""
+
+#: ../../../cmake/README.md:232
+msgid ""
+"Copy the contents of the include directory to wherever you want to put "
+"headers."
+msgstr ""
+
+#: ../../../cmake/README.md:233
+msgid ""
+"Copy protoc.exe wherever you put build tools (probably somewhere in your "
+"PATH)."
+msgstr ""
+
+#: ../../../cmake/README.md:234
+msgid ""
+"Copy linking libraries libprotobuf[d].lib, libprotobuf-lite[d].lib, and "
+"libprotoc[d].lib wherever you put libraries."
+msgstr ""
+
+#: ../../../cmake/README.md:236
+msgid ""
+"To avoid conflicts between the MSVC debug and release runtime libraries, "
+"when compiling a debug build of your application, you may need to link "
+"against a debug build of libprotobufd.lib with \"d\" postfix.  Similarly,"
+" release builds should link against release libprotobuf.lib library."
+msgstr ""
+
+#: ../../../cmake/README.md:241
+msgid "DLLs vs. static linking"
+msgstr ""
+
+#: ../../../cmake/README.md:244
+msgid ""
+"Static linking is now the default for the Protocol Buffer libraries.  Due"
+" to issues with Win32's use of a separate heap for each DLL, as well as "
+"binary compatibility issues between different versions of MSVC's STL "
+"library, it is recommended that you use static linkage only.  However, it"
+" is possible to build libprotobuf and libprotoc as DLLs if you really "
+"want.  To do this, do the following:"
+msgstr ""
+
+#: ../../../cmake/README.md:251
+msgid ""
+"Add an additional flag `-Dprotobuf_BUILD_SHARED_LIBS=ON` when invoking "
+"cmake"
+msgstr ""
+
+#: ../../../cmake/README.md:252
+msgid "Follow the same steps as described in the above section."
+msgstr ""
+
+#: ../../../cmake/README.md:253
+msgid "When compiling your project, make sure to `#define PROTOBUF_USE_DLLS`."
+msgstr ""
+
+#: ../../../cmake/README.md:255
+msgid ""
+"When distributing your software to end users, we strongly recommend that "
+"you do NOT install libprotobuf.dll or libprotoc.dll to any shared "
+"location. Instead, keep these libraries next to your binaries, in your "
+"application's own install directory.  C++ makes it very difficult to "
+"maintain binary compatibility between releases, so it is likely that "
+"future versions of these libraries will *not* be usable as drop-in "
+"replacements."
+msgstr ""
+
+#: ../../../cmake/README.md:262
+msgid ""
+"If your project is itself a DLL intended for use by third-party software,"
+" we recommend that you do NOT expose protocol buffer objects in your "
+"library's public interface, and that you statically link protocol buffers"
+" into your library."
+msgstr ""
+
+#: ../../../cmake/README.md:267
+msgid "ZLib support"
+msgstr ""
+
+#: ../../../cmake/README.md:270
+msgid ""
+"If you want to include GzipInputStream and GzipOutputStream "
+"(google/protobuf/io/gzip_stream.h) in libprotobuf, you will need to do a "
+"few additional steps."
+msgstr ""
+
+#: ../../../cmake/README.md:274
+msgid ""
+"Obtain a copy of the zlib library.  The pre-compiled DLL at zlib.net "
+"works. You need prepare it:"
+msgstr ""
+
+#: ../../../cmake/README.md:277
+msgid ""
+"Make sure zlib's two headers are in your `C:\\Path\\to\\install\\include`"
+" path"
+msgstr ""
+
+#: ../../../cmake/README.md:278
+msgid ""
+"Make sure zlib's linking libraries (*.lib file) is in your "
+"`C:\\Path\\to\\install\\lib` library path."
+msgstr ""
+
+#: ../../../cmake/README.md:281
+msgid "You can also compile it from source by yourself."
+msgstr ""
+
+#: ../../../cmake/README.md:283
+msgid "Getting sources:"
+msgstr ""
+
+#: ../../../cmake/README.md:288
+msgid "Compiling and Installing:"
+msgstr ""
+
+#: ../../../cmake/README.md:296
+msgid ""
+"You can make *debug* version or use *Visual Studio* generator also as "
+"before for the protobuf project."
+msgstr ""
+
+#: ../../../cmake/README.md:299
+msgid "Now add *bin* folder from *install* to system *PATH*:"
+msgstr ""
+
+#: ../../../cmake/README.md:303
+msgid ""
+"You need reconfigure protobuf with flag `-Dprotobuf_WITH_ZLIB=ON` when "
+"invoking cmake."
+msgstr ""
+
+#: ../../../cmake/README.md:305
+msgid ""
+"Note that if you have compiled ZLIB yourself, as stated above, further "
+"disable the option `-Dprotobuf_MSVC_STATIC_RUNTIME=OFF`."
+msgstr ""
+
+#: ../../../cmake/README.md:308
+msgid ""
+"If it reports NOTFOUND for zlib_include or zlib_lib, you might haven't "
+"put the headers or the .lib file in the right directory."
+msgstr ""
+
+#: ../../../cmake/README.md:311
+msgid ""
+"If you already have ZLIB library and headers at some other location on "
+"your system then alternatively you can define following configuration "
+"flags to locate them:"
+msgstr ""
+
+#: ../../../cmake/README.md:316
+msgid "Build and testing protobuf as usual."
+msgstr ""
+
+#: ../../../cmake/README.md:318
+msgid "Notes on Compiler Warnings"
+msgstr ""
+
+#: ../../../cmake/README.md:321
+msgid ""
+"The following warnings have been disabled while building the protobuf "
+"libraries and compiler.  You may have to disable some of them in your own"
+" project as well, or live with them."
+msgstr ""
+
+#: ../../../cmake/README.md:325
+msgid "C4018 - 'expression' : signed/unsigned mismatch"
+msgstr ""
+
+#: ../../../cmake/README.md:326
+msgid ""
+"C4146 - unary minus operator applied to unsigned type, result still "
+"unsigned"
+msgstr ""
+
+#: ../../../cmake/README.md:327
+msgid "C4244 - Conversion from 'type1' to 'type2', possible loss of data."
+msgstr ""
+
+#: ../../../cmake/README.md:328
+msgid ""
+"C4251 - 'identifier' : class 'type' needs to have dll-interface to be "
+"used by clients of class 'type2'"
+msgstr ""
+
+#: ../../../cmake/README.md:330
+msgid "C4267 - Conversion from 'size_t' to 'type', possible loss of data."
+msgstr ""
+
+#: ../../../cmake/README.md:331
+msgid "C4305 - 'identifier' : truncation from 'type1' to 'type2'"
+msgstr ""
+
+#: ../../../cmake/README.md:332
+msgid "C4355 - 'this' : used in base member initializer list"
+msgstr ""
+
+#: ../../../cmake/README.md:333
+msgid ""
+"C4800 - 'type' : forcing value to bool 'true' or 'false' (performance "
+"warning)"
+msgstr ""
+
+#: ../../../cmake/README.md:334
+msgid "C4996 - 'function': was declared deprecated"
+msgstr ""
+
+#: ../../../cmake/README.md:336
+msgid ""
+"C4251 is of particular note, if you are compiling the Protocol Buffer "
+"library as a DLL (see previous section).  The protocol buffer library "
+"uses templates in its public interfaces.  MSVC does not provide any "
+"reasonable way to export template classes from a DLL.  However, in "
+"practice, it appears that exporting templates is not necessary anyway.  "
+"Since the complete definition of any template is available in the header "
+"files, anyone importing the DLL will just end up compiling instances of "
+"the templates into their own binary.  The Protocol Buffer implementation "
+"does not rely on static template members being unique, so there should be"
+" no problem with this, but MSVC prints warning nevertheless.  So, we "
+"disable it.  Unfortunately, this warning will also be produced when "
+"compiling code which merely uses protocol buffers, meaning you may have "
+"to disable it in your code too."
+msgstr ""
+

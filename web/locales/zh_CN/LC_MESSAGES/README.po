@@ -1,0 +1,255 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2021, xinetzone
+# This file is distributed under the same license as the protobuf package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: protobuf \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-12-28 12:31+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.0\n"
+
+#: ../../../README.md:1
+msgid "Protocol Buffers - Google's data interchange format"
+msgstr "Protocol Buffers - 谷歌的数据交换格式"
+
+#: ../../../README.md:4
+msgid "Copyright 2008 Google Inc."
+msgstr "2008 年谷歌公司版权所有。"
+
+#: ../../../README.md:6 ../../../README.md:85
+msgid "https://developers.google.com/protocol-buffers/"
+msgstr ""
+
+#: ../../../README.md:8
+msgid "Overview"
+msgstr "概述"
+
+#: ../../../README.md:11
+msgid ""
+"Protocol Buffers (a.k.a., protobuf) are Google's language-neutral, "
+"platform-neutral, extensible mechanism for serializing structured data. "
+"You can find [protobuf's documentation on the Google Developers "
+"site](https://developers.google.com/protocol-buffers/)."
+msgstr ""
+"协议缓冲区（Protocol Buffers，又称 protobuf）是谷歌的语言中立、平台中立、可扩展的机制，用于序列化结构化数据。"
+"你可以在谷歌开发者网站上找到 [protobuf 的文档]（https://developers.google.com/protocol-buffers/）。"
+
+#: ../../../README.md:15
+msgid ""
+"This README file contains protobuf installation instructions. To install "
+"protobuf, you need to install the protocol compiler (used to compile "
+".proto files) and the protobuf runtime for your chosen programming "
+"language."
+msgstr ""
+"这个 README 文件包含 protobuf 的安装说明。"
+"要安装 protobuf，你需要安装 protocol 编译器（用于编译 .proto 文件）和你选择的编程语言的 protobuf 运行时。"
+
+#: ../../../README.md:19
+msgid "Protocol Compiler Installation"
+msgstr "Protocol 编译器安装"
+
+#: ../../../README.md:22
+msgid ""
+"The protocol compiler is written in C++. If you are using C++, please "
+"follow the [C++ Installation Instructions](src/README.md) to install "
+"protoc along with the C++ runtime."
+msgstr ""
+"协议编译器是用 C++ 编写的。"
+"如果你使用的是 C++，请按照 [C++ 安装说明](src/README.md) 来安装 protoc 和 C++ 运行时。"
+
+#: ../../../README.md:26
+msgid ""
+"For non-C++ users, the simplest way to install the protocol compiler is "
+"to download a pre-built binary from our release page:"
+msgstr ""
+"对于非 C++ 用户，安装协议编译器的最简单方法是从我们的发布页面下载一个预构建的二进制文件："
+
+#: ../../../README.md:29
+msgid "[https://github.com/protocolbuffers/protobuf/releases](https://github.com/protocolbuffers/protobuf/releases)"
+msgstr ""
+
+#: ../../../README.md:31
+msgid ""
+"In the downloads section of each release, you can find pre-built binaries"
+" in zip packages: protoc-$VERSION-$PLATFORM.zip. It contains the protoc "
+"binary as well as a set of standard .proto files distributed along with "
+"protobuf."
+msgstr ""
+"在每个版本的下载部分，你可以找到预先建立的二进制文件的压缩包："
+"protoc-$VERSION-$PLATFORM.zip。"
+"它包含 protoc 二进制文件以及一组与 protobuf 一起分发的标准 .proto 文件。"
+
+#: ../../../README.md:35
+msgid ""
+"If you are looking for an old version that is not available in the "
+"release page, check out the maven repo here:"
+msgstr ""
+"如果您正在寻找发布页中没有的旧版本，请查看这里的 maven repo："
+
+#: ../../../README.md:38
+msgid "[https://repo1.maven.org/maven2/com/google/protobuf/protoc/](https://repo1.maven.org/maven2/com/google/protobuf/protoc/)"
+msgstr ""
+
+#: ../../../README.md:40
+msgid ""
+"These pre-built binaries are only provided for released versions. If you "
+"want to use the github master version at HEAD, or you need to modify "
+"protobuf code, or you are using C++, it's recommended to build your own "
+"protoc binary from source."
+msgstr ""
+"这些预建的二进制文件只提供给已发布的版本。"
+"如果你想在 HEAD 使用 github 的主版本，或者你需要修改 protobuf 代码，或者你使用的是 C++，"
+"建议从源代码构建你自己的 protoc 二进制文件。"
+
+#: ../../../README.md:45
+msgid ""
+"If you would like to build protoc binary from source, see the [C++ "
+"Installation Instructions](src/README.md)."
+msgstr ""
+"如果你想从源代码构建 protoc 二进制文件，请参见 [C++ 安装说明](src/README.md)。"
+
+#: ../../../README.md:48
+msgid "Protobuf Runtime Installation"
+msgstr "Protobuf 运行时的安装"
+
+#: ../../../README.md:51
+msgid ""
+"Protobuf supports several different programming languages. For each "
+"programming language, you can find instructions in the corresponding "
+"source directory about how to install protobuf runtime for that specific "
+"language:"
+msgstr ""
+"Protobuf 支持几种不同的编程语言。"
+"对于每一种编程语言，你可以在相应的源代码目录中找到关于如何为该特定语言安装 protobuf 运行时间的说明："
+
+#: ../../README.md:1
+msgid "Language"
+msgstr "语言"
+
+#: ../../README.md:1
+msgid "Source"
+msgstr "源码"
+
+#: ../../README.md:1
+msgid "C++ (include C++ runtime and protoc)"
+msgstr "C++（包括 C++ 运行时和 protoc）。"
+
+#: ../../README.md:1
+msgid "[src](src)"
+msgstr "[src](src/README.md)"
+
+#: ../../README.md:1
+msgid "Java"
+msgstr ""
+
+#: ../../README.md:1
+msgid "[java](java)"
+msgstr "[java](java/README.md)"
+
+#: ../../README.md:1
+msgid "Python"
+msgstr ""
+
+#: ../../README.md:1
+msgid "[python](python)"
+msgstr "[python](python/README.md)"
+
+#: ../../README.md:1
+msgid "Objective-C"
+msgstr ""
+
+#: ../../README.md:1
+msgid "[objectivec](objectivec)"
+msgstr "[objectivec](objectivec/README.md)"
+
+#: ../../README.md:1
+msgid "C#"
+msgstr ""
+
+#: ../../README.md:1
+msgid "[csharp](csharp)"
+msgstr "[csharp](csharp/README.md)"
+
+#: ../../README.md:1
+msgid "JavaScript"
+msgstr ""
+
+#: ../../README.md:1
+msgid "[js](js)"
+msgstr "[js](js/README.md)"
+
+#: ../../README.md:1
+msgid "Ruby"
+msgstr ""
+
+#: ../../README.md:1
+msgid "[ruby](ruby)"
+msgstr "[ruby](ruby/README.md)"
+
+#: ../../README.md:1
+msgid "Go"
+msgstr ""
+
+#: ../../README.md:1
+msgid ""
+"[protocolbuffers/protobuf-go](https://github.com/protocolbuffers"
+"/protobuf-go)"
+msgstr ""
+
+#: ../../README.md:1
+msgid "PHP"
+msgstr ""
+
+#: ../../README.md:1
+msgid "[php](php)"
+msgstr "[php](php/README.md)"
+
+#: ../../README.md:1
+msgid "Dart"
+msgstr ""
+
+#: ../../README.md:1
+msgid "[dart-lang/protobuf](https://github.com/dart-lang/protobuf)"
+msgstr ""
+
+#: ../../../README.md:68
+msgid "Quick Start"
+msgstr "快速上手"
+
+#: ../../../README.md:71
+msgid ""
+"The best way to learn how to use protobuf is to follow the tutorials in "
+"our developer guide:"
+msgstr ""
+"学习如何使用 protobuf 的最好方法是遵循我们的开发者指南中的教程："
+
+#: ../../../README.md:74
+msgid "https://developers.google.com/protocol-buffers/docs/tutorials"
+msgstr ""
+
+#: ../../../README.md:76
+msgid ""
+"If you want to learn from code examples, take a look at the examples in "
+"the [examples](examples) directory."
+msgstr ""
+"如果你想从代码实例中学习，请看一下 [examples](examples/README) 目录中的实例。"
+
+#: ../../../README.md:79
+msgid "Documentation"
+msgstr "文档"
+
+#: ../../../README.md:82
+msgid ""
+"The complete documentation for Protocol Buffers is available via the web "
+"at:"
+msgstr ""
+"协议缓冲区的完整文档可通过网络获得："

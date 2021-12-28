@@ -1,0 +1,113 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2021, xinetzone
+# This file is distributed under the same license as the protobuf package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: protobuf \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-12-28 13:36+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.0\n"
+
+#: ../../../docs/performance.md:1
+msgid "Protobuf Performance"
+msgstr ""
+
+#: ../../../docs/performance.md:2
+msgid ""
+"The following benchmark test results were produced on a workstation "
+"utilizing an Intel® Xeon® Processor E5-2630 with 32GB of RAM."
+msgstr ""
+
+#: ../../../docs/performance.md:4
+msgid "This table contains the results of three separate languages:"
+msgstr ""
+
+#: ../../../docs/performance.md:6
+msgid "**C++** - For C++, there are three parsing methods:"
+msgstr ""
+
+#: ../../../docs/performance.md:7
+msgid ""
+"**new** - This is for using a new operator for creating a message "
+"instance."
+msgstr ""
+
+#: ../../../docs/performance.md:8
+msgid ""
+"**new arena** - This is for using arena for creating a new message "
+"instance."
+msgstr ""
+
+#: ../../../docs/performance.md:9
+msgid "**reuse** - This is for reusing the same message instance for parsing."
+msgstr ""
+
+#: ../../../docs/performance.md:10
+msgid "**Java** - For Java, there are three parsing/serialization methods:"
+msgstr ""
+
+#: ../../../docs/performance.md:11
+msgid "**byte[]** - This is for parsing from a Byte Array."
+msgstr ""
+
+#: ../../../docs/performance.md:12
+msgid ""
+"**ByteString** - This is for parsing from a   "
+"com.google.protobuf.ByteString."
+msgstr ""
+
+#: ../../../docs/performance.md:14
+msgid "**InputStream** - This is for parsing from an InputStream."
+msgstr ""
+
+#: ../../../docs/performance.md:15
+msgid ""
+"**Python** - For Python, there are three types of Python protobuf for "
+"testing:"
+msgstr ""
+
+#: ../../../docs/performance.md:16
+msgid ""
+"**C++-generated-code** - This is for using C++ generated code of the   "
+"proto file as a dynamic linked library."
+msgstr ""
+
+#: ../../../docs/performance.md:18
+msgid ""
+"**C++-reflection** - This is for using C++ reflection, for which there's "
+"no   generated code, but still using C++ protobuf library as a dynamic "
+"linked   library."
+msgstr ""
+
+#: ../../../docs/performance.md:21
+msgid ""
+"**pure-Python** - This is for the pure version of Python, which does not "
+"link with   any C++ protobuf library."
+msgstr ""
+
+#: ../../../docs/performance.md:24
+msgid "Parsing performance"
+msgstr ""
+
+#: ../../../docs/performance.md:185
+msgid "Serialization performance"
+msgstr ""
+
+#: ../../../docs/performance.md:304
+msgid ""
+"\\* The cpp performance can be improved by using "
+"[tcmalloc](https://gperftools.github.io/gperftools/tcmalloc.html), please"
+" follow the "
+"(instruction)[https://github.com/protocolbuffers/protobuf/blob/master/benchmarks/README.md]"
+" to link with tcmalloc to get the faster result."
+msgstr ""
+

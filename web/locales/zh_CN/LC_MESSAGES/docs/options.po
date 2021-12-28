@@ -1,0 +1,892 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2021, xinetzone
+# This file is distributed under the same license as the protobuf package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: protobuf \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-12-28 13:36+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.0\n"
+
+#: ../../../docs/options.md:1
+msgid "Protobuf Global Extension Registry"
+msgstr ""
+
+#: ../../../docs/options.md:3
+msgid ""
+"This file contains a global registry of known extensions for "
+"descriptor.proto, so that any developer who wishes to use multiple 3rd "
+"party projects, each with their own extensions, can be confident that "
+"there won't be collisions in extension numbers."
+msgstr ""
+
+#: ../../../docs/options.md:8
+msgid ""
+"If you need an extension number for your custom option (see [custom "
+"options]( https://developers.google.com/protocol-"
+"buffers/docs/proto#customoptions)), please [send us a pull "
+"request](https://github.com/protocolbuffers/protobuf/pulls) to add an "
+"entry to this doc, or [create an "
+"issue](https://github.com/protocolbuffers/protobuf/issues) with info "
+"about your project (name and website) so we can add an entry for you."
+msgstr ""
+
+#: ../../../docs/options.md:14
+msgid "Existing Registered Extensions"
+msgstr ""
+
+#: ../../../docs/options.md:16
+msgid "C# port of protocol buffers"
+msgstr ""
+
+#: ../../../docs/options.md:17
+msgid "Website: https://github.com/jskeet/protobuf-csharp-port"
+msgstr ""
+
+#: ../../../docs/options.md:18
+msgid "Extensions: 1000"
+msgstr ""
+
+#: ../../../docs/options.md:20
+msgid "Perl/XS port of protocol buffers"
+msgstr ""
+
+#: ../../../docs/options.md:21
+msgid "Website: http://code.google.com/p/protobuf-perlxs"
+msgstr ""
+
+#: ../../../docs/options.md:22
+msgid "Extensions: 1001"
+msgstr ""
+
+#: ../../../docs/options.md:24
+msgid "Objective-C port of protocol buffers"
+msgstr ""
+
+#: ../../../docs/options.md:25
+msgid "Website: http://code.google.com/p/protobuf-objc"
+msgstr ""
+
+#: ../../../docs/options.md:26
+msgid "Extensions: 1002"
+msgstr ""
+
+#: ../../../docs/options.md:28
+msgid "Google Wave Federation Protocol open-source release (FedOne)"
+msgstr ""
+
+#: ../../../docs/options.md:29
+msgid "Website: http://code.google.com/p/wave-protocol"
+msgstr ""
+
+#: ../../../docs/options.md:30
+msgid "Extensions: 1003"
+msgstr ""
+
+#: ../../../docs/options.md:32
+msgid "PHP code generator plugin"
+msgstr ""
+
+#: ../../../docs/options.md:33 ../../../docs/options.md:49
+#: ../../../docs/options.md:121 ../../../docs/options.md:125
+#: ../../../docs/options.md:129 ../../../docs/options.md:185
+msgid "Website: ???"
+msgstr ""
+
+#: ../../../docs/options.md:34
+msgid "Extensions: 1004"
+msgstr ""
+
+#: ../../../docs/options.md:36
+msgid "GWT code generator plugin (third-party!)"
+msgstr ""
+
+#: ../../../docs/options.md:37
+msgid "Website: http://code.google.com/p/protobuf-gwt/"
+msgstr ""
+
+#: ../../../docs/options.md:38
+msgid "Extensions: 1005"
+msgstr ""
+
+#: ../../../docs/options.md:40
+msgid "Unix Domain RPC code generator plugin"
+msgstr ""
+
+#: ../../../docs/options.md:41
+msgid "Website: http://go/udrpc"
+msgstr ""
+
+#: ../../../docs/options.md:42
+msgid "Extensions: 1006"
+msgstr ""
+
+#: ../../../docs/options.md:44
+msgid "Object-C generator plugin (Plausible Labs)"
+msgstr ""
+
+#: ../../../docs/options.md:45
+msgid "Website: http://www.plausible.coop"
+msgstr ""
+
+#: ../../../docs/options.md:46
+msgid "Extensions: 1007"
+msgstr ""
+
+#: ../../../docs/options.md:48
+msgid "TBD (code42.com)"
+msgstr ""
+
+#: ../../../docs/options.md:50
+msgid "Extensions: 1008"
+msgstr ""
+
+#: ../../../docs/options.md:52
+msgid "Goby Underwater Autonomy Project"
+msgstr ""
+
+#: ../../../docs/options.md:53
+msgid "Website: https://github.com/GobySoft/goby"
+msgstr ""
+
+#: ../../../docs/options.md:54
+msgid "Extensions: 1009"
+msgstr ""
+
+#: ../../../docs/options.md:56
+msgid "Nanopb"
+msgstr ""
+
+#: ../../../docs/options.md:57
+msgid "Website: http://kapsi.fi/~jpa/nanopb"
+msgstr ""
+
+#: ../../../docs/options.md:58
+msgid "Extensions: 1010"
+msgstr ""
+
+#: ../../../docs/options.md:60
+msgid "Bluefin AUV Communication Extensions"
+msgstr ""
+
+#: ../../../docs/options.md:61
+msgid "Website: http://www.bluefinrobotics.com"
+msgstr ""
+
+#: ../../../docs/options.md:62
+msgid "Extensions: 1011"
+msgstr ""
+
+#: ../../../docs/options.md:64
+msgid "Dynamic Compact Control Language"
+msgstr ""
+
+#: ../../../docs/options.md:65
+msgid "Website: http://github.com/GobySoft/dccl"
+msgstr ""
+
+#: ../../../docs/options.md:66
+msgid "Extensions: 1012"
+msgstr ""
+
+#: ../../../docs/options.md:68
+msgid "ScaleOut StateServer® Native C++ API"
+msgstr ""
+
+#: ../../../docs/options.md:69
+msgid "Website: http://www.scaleoutsoftware.com"
+msgstr ""
+
+#: ../../../docs/options.md:70
+msgid "Extensions: 1013"
+msgstr ""
+
+#: ../../../docs/options.md:72
+msgid "FoundationDB SQL Layer"
+msgstr ""
+
+#: ../../../docs/options.md:73
+msgid "Website: https://github.com/FoundationDB/sql-layer"
+msgstr ""
+
+#: ../../../docs/options.md:74
+msgid "Extensions: 1014"
+msgstr ""
+
+#: ../../../docs/options.md:76
+msgid "Fender"
+msgstr ""
+
+#: ../../../docs/options.md:77
+msgid "Website: https://github.com/hassox/fender"
+msgstr ""
+
+#: ../../../docs/options.md:78
+msgid "Extensions: 1015"
+msgstr ""
+
+#: ../../../docs/options.md:80
+msgid "Vortex"
+msgstr ""
+
+#: ../../../docs/options.md:81
+msgid "Website: http://www.prismtech.com/vortex"
+msgstr ""
+
+#: ../../../docs/options.md:82
+msgid "Extensions: 1016"
+msgstr ""
+
+#: ../../../docs/options.md:84
+msgid "tresorit"
+msgstr ""
+
+#: ../../../docs/options.md:85
+msgid "Website: https://tresorit.com/"
+msgstr ""
+
+#: ../../../docs/options.md:86
+msgid "Extensions: 1017"
+msgstr ""
+
+#: ../../../docs/options.md:88
+msgid "CRIU (Checkpoint Restore In Userspace)"
+msgstr ""
+
+#: ../../../docs/options.md:89
+msgid "Website: http://criu.org/Main_Page"
+msgstr ""
+
+#: ../../../docs/options.md:90
+msgid "Extensions: 1018"
+msgstr ""
+
+#: ../../../docs/options.md:92
+msgid "protobuf-c"
+msgstr ""
+
+#: ../../../docs/options.md:93
+msgid "Website: https://github.com/protobuf-c/protobuf-c"
+msgstr ""
+
+#: ../../../docs/options.md:94
+msgid "Extensions: 1019"
+msgstr ""
+
+#: ../../../docs/options.md:96
+msgid "ScalaPB"
+msgstr ""
+
+#: ../../../docs/options.md:97
+msgid "Website: https://scalapb.github.io/"
+msgstr ""
+
+#: ../../../docs/options.md:98
+msgid "Extensions: 1020"
+msgstr ""
+
+#: ../../../docs/options.md:100
+msgid "protoc-gen-bq-schema"
+msgstr ""
+
+#: ../../../docs/options.md:101
+msgid "Website: https://github.com/GoogleCloudPlatform/protoc-gen-bq-schema"
+msgstr ""
+
+#: ../../../docs/options.md:102
+msgid "Extensions: 1021"
+msgstr ""
+
+#: ../../../docs/options.md:104
+msgid "grpc-gateway"
+msgstr ""
+
+#: ../../../docs/options.md:105
+msgid "Website: https://github.com/gengo/grpc-gateway"
+msgstr ""
+
+#: ../../../docs/options.md:106
+msgid "Extensions: 1022"
+msgstr ""
+
+#: ../../../docs/options.md:108
+msgid "Certificate Transparency"
+msgstr ""
+
+#: ../../../docs/options.md:109
+msgid "Website: https://github.com/google/certificate-transparency"
+msgstr ""
+
+#: ../../../docs/options.md:110
+msgid "Extensions: 1023"
+msgstr ""
+
+#: ../../../docs/options.md:112
+msgid "JUNOS Router Telemetry"
+msgstr ""
+
+#: ../../../docs/options.md:113
+msgid "Website: http://www.juniper.net"
+msgstr ""
+
+#: ../../../docs/options.md:114
+msgid "Extensions: 1024"
+msgstr ""
+
+#: ../../../docs/options.md:116
+msgid "Spine Event Engine"
+msgstr ""
+
+#: ../../../docs/options.md:117
+msgid "Website: https://github.com/SpineEventEngine/core-java"
+msgstr ""
+
+#: ../../../docs/options.md:118
+msgid "Extensions: 1025"
+msgstr ""
+
+#: ../../../docs/options.md:120
+msgid "Aruba cloud platform"
+msgstr ""
+
+#: ../../../docs/options.md:122
+msgid "Extensions: 1026 -> 1030"
+msgstr ""
+
+#: ../../../docs/options.md:124
+msgid "Voltha"
+msgstr ""
+
+#: ../../../docs/options.md:126
+msgid "Extensions: 1031 -> 1033"
+msgstr ""
+
+#: ../../../docs/options.md:128
+msgid "gator"
+msgstr ""
+
+#: ../../../docs/options.md:130
+msgid "Extensions: 1034"
+msgstr ""
+
+#: ../../../docs/options.md:132
+msgid "protoc-gen-flowtypes"
+msgstr ""
+
+#: ../../../docs/options.md:133
+msgid "Website: https://github.com/tmc/grpcutil/tree/master/protoc-gen-flowtypes"
+msgstr ""
+
+#: ../../../docs/options.md:134
+msgid "Extensions: 1035"
+msgstr ""
+
+#: ../../../docs/options.md:136
+msgid "ProfaneDB"
+msgstr ""
+
+#: ../../../docs/options.md:137
+msgid "Website: https://gitlab.com/ProfaneDB/ProfaneDB"
+msgstr ""
+
+#: ../../../docs/options.md:138
+msgid "Extensions: 1036"
+msgstr ""
+
+#: ../../../docs/options.md:140
+msgid "protobuf-net"
+msgstr ""
+
+#: ../../../docs/options.md:141
+msgid "Website: https://github.com/mgravell/protobuf-net"
+msgstr ""
+
+#: ../../../docs/options.md:142
+msgid "Extensions: 1037"
+msgstr ""
+
+#: ../../../docs/options.md:144
+msgid "FICO / StreamEngine"
+msgstr ""
+
+#: ../../../docs/options.md:145
+msgid "Website: http://www.fico.com/"
+msgstr ""
+
+#: ../../../docs/options.md:146
+msgid "Extensions: 1038"
+msgstr ""
+
+#: ../../../docs/options.md:148
+msgid "GopherJS"
+msgstr ""
+
+#: ../../../docs/options.md:149
+msgid "Website: https://github.com/johanbrandhorst/protobuf"
+msgstr ""
+
+#: ../../../docs/options.md:150
+msgid "Extensions: 1039"
+msgstr ""
+
+#: ../../../docs/options.md:152
+msgid "ygot"
+msgstr ""
+
+#: ../../../docs/options.md:153
+msgid "Website: https://github.com/openconfig/ygot"
+msgstr ""
+
+#: ../../../docs/options.md:154
+msgid "Extensions: 1040"
+msgstr ""
+
+#: ../../../docs/options.md:156
+msgid "go-grpcmw"
+msgstr ""
+
+#: ../../../docs/options.md:157
+msgid "Website: https://github.com/MarquisIO/go-grpcmw"
+msgstr ""
+
+#: ../../../docs/options.md:158
+msgid "Extensions: 1041"
+msgstr ""
+
+#: ../../../docs/options.md:160
+msgid "grpc-gateway protoc-gen-swagger"
+msgstr ""
+
+#: ../../../docs/options.md:161
+msgid "Website: https://github.com/grpc-ecosystem/grpc-gateway"
+msgstr ""
+
+#: ../../../docs/options.md:162
+msgid "Extensions: 1042"
+msgstr ""
+
+#: ../../../docs/options.md:164
+msgid "AN Message"
+msgstr ""
+
+#: ../../../docs/options.md:165
+msgid "Website: TBD"
+msgstr ""
+
+#: ../../../docs/options.md:166
+msgid "Extensions: 1043"
+msgstr ""
+
+#: ../../../docs/options.md:168
+msgid "protofire"
+msgstr ""
+
+#: ../../../docs/options.md:169
+msgid "Website: https://github.com/ribrdb/protofire"
+msgstr ""
+
+#: ../../../docs/options.md:170
+msgid "Extensions: 1044"
+msgstr ""
+
+#: ../../../docs/options.md:172
+msgid "Gravity"
+msgstr ""
+
+#: ../../../docs/options.md:173
+msgid "Website: https://github.com/aphysci/gravity"
+msgstr ""
+
+#: ../../../docs/options.md:174
+msgid "Extensions: 1045"
+msgstr ""
+
+#: ../../../docs/options.md:176
+msgid "SEMI Standards – I&C Technical Committee"
+msgstr ""
+
+#: ../../../docs/options.md:177
+msgid ""
+"Website: "
+"http://downloads.semi.org/web/wstdsbal.nsf/9c2b317e76523cca88257641005a47f5/88a5863a580e323088256e7b00707489!OpenDocument"
+msgstr ""
+
+#: ../../../docs/options.md:178
+msgid "Extensions: 1046"
+msgstr ""
+
+#: ../../../docs/options.md:180
+msgid "Elixir plugin"
+msgstr ""
+
+#: ../../../docs/options.md:181
+msgid "Website: https://github.com/tony612/grpc-elixir"
+msgstr ""
+
+#: ../../../docs/options.md:182
+msgid "Extensions: 1047"
+msgstr ""
+
+#: ../../../docs/options.md:184
+msgid "API client generators"
+msgstr ""
+
+#: ../../../docs/options.md:186
+msgid "Extensions: 1048-1056"
+msgstr ""
+
+#: ../../../docs/options.md:188
+msgid "Netifi Proteus"
+msgstr ""
+
+#: ../../../docs/options.md:189
+msgid "Website: https://github.com/netifi-proteus"
+msgstr ""
+
+#: ../../../docs/options.md:190
+msgid "Extensions: 1057"
+msgstr ""
+
+#: ../../../docs/options.md:192
+msgid "CGSN Mooring Project"
+msgstr ""
+
+#: ../../../docs/options.md:193
+msgid "Website: https://bitbucket.org/ooicgsn/cgsn-mooring"
+msgstr ""
+
+#: ../../../docs/options.md:194
+msgid "Extensions: 1058"
+msgstr ""
+
+#: ../../../docs/options.md:196
+msgid "Container Storage Interface"
+msgstr ""
+
+#: ../../../docs/options.md:197
+msgid "Website: https://github.com/container-storage-interface/spec"
+msgstr ""
+
+#: ../../../docs/options.md:198
+msgid "Extensions: 1059-1069"
+msgstr ""
+
+#: ../../../docs/options.md:200
+msgid "TwirpQL Plugin"
+msgstr ""
+
+#: ../../../docs/options.md:201
+msgid "Website: https://twirpql.dev"
+msgstr ""
+
+#: ../../../docs/options.md:202
+msgid "Extensions: 1070"
+msgstr ""
+
+#: ../../../docs/options.md:204
+msgid "Protoc-gen-validate"
+msgstr ""
+
+#: ../../../docs/options.md:205
+msgid "Website: https://github.com/envoyproxy/protoc-gen-validate"
+msgstr ""
+
+#: ../../../docs/options.md:206
+msgid "Extensions: 1071"
+msgstr ""
+
+#: ../../../docs/options.md:208
+msgid "Protokt"
+msgstr ""
+
+#: ../../../docs/options.md:209
+msgid "Website: https://github.com/open-toast/protokt"
+msgstr ""
+
+#: ../../../docs/options.md:210
+msgid "Extensions: 1072"
+msgstr ""
+
+#: ../../../docs/options.md:212
+msgid "Dart port of protocol buffers"
+msgstr ""
+
+#: ../../../docs/options.md:213
+msgid "Website https://github.com/dart-lang/protobuf"
+msgstr ""
+
+#: ../../../docs/options.md:214
+msgid "Extensions: 1073"
+msgstr ""
+
+#: ../../../docs/options.md:216
+msgid "Ocaml-protoc-plugin"
+msgstr ""
+
+#: ../../../docs/options.md:217
+msgid "Website: https://github.com/issuu/ocaml-protoc-plugin"
+msgstr ""
+
+#: ../../../docs/options.md:218
+msgid "Extensions: 1074"
+msgstr ""
+
+#: ../../../docs/options.md:220
+msgid "Analyze Re Graphene"
+msgstr ""
+
+#: ../../../docs/options.md:221
+msgid "Website: https://analyzere.com"
+msgstr ""
+
+#: ../../../docs/options.md:222
+msgid "Extensions: 1075"
+msgstr ""
+
+#: ../../../docs/options.md:224
+msgid "Wire since and until"
+msgstr ""
+
+#: ../../../docs/options.md:225 ../../../docs/options.md:249
+msgid "Website: https://square.github.io/wire/"
+msgstr ""
+
+#: ../../../docs/options.md:226
+msgid "Extensions: 1076, 1077"
+msgstr ""
+
+#: ../../../docs/options.md:228
+msgid "Bazel, Failure Details"
+msgstr ""
+
+#: ../../../docs/options.md:229
+msgid "Website: https://github.com/bazelbuild/bazel"
+msgstr ""
+
+#: ../../../docs/options.md:230
+msgid "Extensions: 1078"
+msgstr ""
+
+#: ../../../docs/options.md:232
+msgid "grpc-graphql-gateway"
+msgstr ""
+
+#: ../../../docs/options.md:233
+msgid "Website: https://github.com/ysugimoto/grpc-graphql-gateway"
+msgstr ""
+
+#: ../../../docs/options.md:234
+msgid "Extensions: 1079"
+msgstr ""
+
+#: ../../../docs/options.md:236
+msgid "Cloudstate"
+msgstr ""
+
+#: ../../../docs/options.md:237
+msgid "Website: https://cloudstate.io"
+msgstr ""
+
+#: ../../../docs/options.md:238
+msgid "Extensions: 1080-1084"
+msgstr ""
+
+#: ../../../docs/options.md:240
+msgid "SummaFT protoc-plugins"
+msgstr ""
+
+#: ../../../docs/options.md:241
+msgid "Website: https://summaft.com/"
+msgstr ""
+
+#: ../../../docs/options.md:242
+msgid "Extensions: 1085"
+msgstr ""
+
+#: ../../../docs/options.md:244
+msgid "ADLINK EdgeSDK"
+msgstr ""
+
+#: ../../../docs/options.md:245
+msgid "Website: https://www.adlinktech.com/en/Edge-SDK-IoT"
+msgstr ""
+
+#: ../../../docs/options.md:246
+msgid "Extensions: 1086"
+msgstr ""
+
+#: ../../../docs/options.md:248
+msgid "Wire wire_package"
+msgstr ""
+
+#: ../../../docs/options.md:250
+msgid "Extensions: 1087"
+msgstr ""
+
+#: ../../../docs/options.md:252
+msgid "Confluent Schema Registry"
+msgstr ""
+
+#: ../../../docs/options.md:253
+msgid "Website: https://github.com/confluentinc/schema-registry"
+msgstr ""
+
+#: ../../../docs/options.md:254
+msgid "Extensions: 1088"
+msgstr ""
+
+#: ../../../docs/options.md:256
+msgid "ScalaPB Validate"
+msgstr ""
+
+#: ../../../docs/options.md:257
+msgid "Website: https://scalapb.github.io/docs/validation"
+msgstr ""
+
+#: ../../../docs/options.md:258
+msgid "Extension: 1089"
+msgstr ""
+
+#: ../../../docs/options.md:260
+msgid "Astounding (Currently Private)"
+msgstr ""
+
+#: ../../../docs/options.md:261
+msgid "Website: https://github.com/PbPipes/Astounding"
+msgstr ""
+
+#: ../../../docs/options.md:262
+msgid "Extension: 1090"
+msgstr ""
+
+#: ../../../docs/options.md:264
+msgid "Protoc-gen-psql"
+msgstr ""
+
+#: ../../../docs/options.md:265
+msgid "Website: https://github.com/Intrinsec/protoc-gen-psql"
+msgstr ""
+
+#: ../../../docs/options.md:266
+msgid "Extension: 1091-1101"
+msgstr ""
+
+#: ../../../docs/options.md:268
+msgid "Protoc-gen-sanitize"
+msgstr ""
+
+#: ../../../docs/options.md:269
+msgid "Website: https://github.com/Intrinsec/protoc-gen-sanitize"
+msgstr ""
+
+#: ../../../docs/options.md:270
+msgid "Extension: 1102-1106"
+msgstr ""
+
+#: ../../../docs/options.md:272
+msgid "Coach Client Connect (planned release in March 2021)"
+msgstr ""
+
+#: ../../../docs/options.md:273
+msgid "Website: https://www.coachclientconnect.com"
+msgstr ""
+
+#: ../../../docs/options.md:274
+msgid "Extension: 1107"
+msgstr ""
+
+#: ../../../docs/options.md:276
+msgid "Kratos API Errors"
+msgstr ""
+
+#: ../../../docs/options.md:277
+msgid "Website: https://go-kratos.dev"
+msgstr ""
+
+#: ../../../docs/options.md:278
+msgid "Extension: 1108"
+msgstr ""
+
+#: ../../../docs/options.md:280
+msgid "Glitchdot (Currently Private)"
+msgstr ""
+
+#: ../../../docs/options.md:281
+msgid "Website: https://go.glitchdot.com"
+msgstr ""
+
+#: ../../../docs/options.md:282
+msgid "Extension: 1109"
+msgstr ""
+
+#: ../../../docs/options.md:284
+msgid "eigr/protocol"
+msgstr ""
+
+#: ../../../docs/options.md:285
+msgid "Website: https://eigr.io"
+msgstr ""
+
+#: ../../../docs/options.md:286
+msgid "Extension: 1110-1114"
+msgstr ""
+
+#: ../../../docs/options.md:288
+msgid "Container Object Storage Interface (COSI)"
+msgstr ""
+
+#: ../../../docs/options.md:289
+msgid ""
+"Website: https://github.com/kubernetes-sigs/container-object-storage-"
+"interface-spec"
+msgstr ""
+
+#: ../../../docs/options.md:290
+msgid "Extension: 1115-1124"
+msgstr ""
+
+#: ../../../docs/options.md:292
+msgid "Protoc-gen-jsonschema"
+msgstr ""
+
+#: ../../../docs/options.md:293
+msgid "Website: https://github.com/chrusty/protoc-gen-jsonschema"
+msgstr ""
+
+#: ../../../docs/options.md:294
+msgid "Extension: 1125-1129"
+msgstr ""
+
+#: ../../../docs/options.md:296
+msgid "Protoc-gen-checker"
+msgstr ""
+
+#: ../../../docs/options.md:297
+msgid "Website: https://github.com/Intrinsec/protoc-gen-checker"
+msgstr ""
+
+#: ../../../docs/options.md:298
+msgid "Extension: 1130-1139"
+msgstr ""
+
+#: ../../../docs/options.md:300
+msgid "Protoc-gen-go-svc"
+msgstr ""
+
+#: ../../../docs/options.md:301
+msgid "Website: https://github.com/dane/protoc-gen-go-svc"
+msgstr ""
+
+#: ../../../docs/options.md:302
+msgid "Extension: 1140"
+msgstr ""
+
