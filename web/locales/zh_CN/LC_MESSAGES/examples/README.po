@@ -19,7 +19,7 @@ msgstr ""
 
 #: ../../../examples/README.md:1
 msgid "Protocol Buffers - Code Example"
-msgstr ""
+msgstr "代码样例"
 
 #: ../../../examples/README.md:3
 msgid ""
@@ -32,32 +32,43 @@ msgid ""
 "add_person_java to create an address book and then use list_people_python"
 " to read it."
 msgstr ""
+"这个目录包含了使用协议缓冲区来管理地址簿的示例代码。"
+"每种支持的语言都提供了两个程序。"
+"add_person 示例将一个新的人添加到地址簿中，提示用户输入该人的信息。"
+"list_people 的例子是列出已经在地址簿中的人。"
+"这些例子在三种语言中使用完全相同的格式，因此你可以，例如，"
+"使用 add_person_java 来创建一个地址簿，然后使用 list_people_python 来读取它。"
 
 #: ../../../examples/README.md:11
 msgid ""
 "These examples are part of the Protocol Buffers tutorial, located at:   "
 "https://developers.google.com/protocol-buffers/docs/tutorials"
 msgstr ""
+"这些例子是协议缓冲区教程的一部分，位于："
+"https://developers.google.com/protocol-buffers/docs/tutorials"
 
 #: ../../../examples/README.md:14
 msgid "Build the example using bazel"
-msgstr ""
+msgstr "使用 bazel 构建例子"
 
 #: ../../../examples/README.md:16
 msgid ""
 "The example requires bazel 0.5.4 or newer to build. You can "
 "download/install the latest version of bazel from bazel's release page:"
 msgstr ""
+"这个例子需要 bazel 0.5.4 或更新的版本来构建。"
+"你可以从 bazel 的发布页面下载/安装最新版本的 bazel："
 
 #: ../../../examples/README.md:21
 msgid ""
 "Once you have bazel installed, simply run the following command in this "
 "examples directory to build the code:"
 msgstr ""
+"一旦你安装了 bazel，只需在这个 examples 目录下运行以下命令即可构建代码："
 
 #: ../../../examples/README.md:26
 msgid "Then you can run the built binary:"
-msgstr ""
+msgstr "然后你就可以运行建立的二进制文件了:"
 
 #: ../../../examples/README.md:30
 msgid ""
@@ -69,7 +80,7 @@ msgstr ""
 
 #: ../../../examples/README.md:33
 msgid "Build the example using make"
-msgstr ""
+msgstr "使用 make 构建示例"
 
 #: ../../../examples/README.md:35
 msgid ""
@@ -78,6 +89,8 @@ msgid ""
 "protoc binary) and the protobuf runtime for the language you want to "
 "build."
 msgstr ""
+"你必须先安装 protobuf 包，然后才能用 make 构建它。"
+"最低要求是安装协议编译器（即 protoc 二进制）和你要构建的语言的 protobuf 运行时。"
 
 #: ../../../examples/README.md:39
 msgid ""
@@ -87,6 +100,9 @@ msgid ""
 "individual instructions below to build only the language you are "
 "interested in."
 msgstr ""
+"你可以简单地运行 \"make\" 来构建所有语言的例子（Go 除外）。"
+"然而，由于不同的语言有不同的安装要求，它很可能会失败。"
+"最好是按照下面的个别说明，只构建你感兴趣的语言。"
 
 #: ../../../examples/README.md:44
 msgid "C++"
@@ -97,6 +113,8 @@ msgid ""
 "You can follow instructions in [../src/README.md](../src/README.md) to "
 "install protoc and protobuf C++ runtime from source."
 msgstr ""
+"你可以按照 [../src/README.md](../src/README.md) 中的说明，"
+"从源代码中安装 protoc 和 protobuf C++ 运行时。"
 
 #: ../../../examples/README.md:49
 msgid ""
@@ -106,10 +124,14 @@ msgid ""
 " parameter. The add_person_cpp programs will create the file if it "
 "doesn't already exist."
 msgstr ""
+"然后在这个例子目录下运行 \"make cpp\" 来构建 C++ 例子。"
+"它将创建两个可执行文件：add_person_cpp 和 list_people_cpp。"
+"这些程序只是接受一个地址簿文件作为参数。"
+"add_person_cpp 程序将创建该文件，如果它还不存在的话。"
 
 #: ../../../examples/README.md:54 ../../../examples/README.md:131
 msgid "To run the examples:"
-msgstr ""
+msgstr "要运行这些例子："
 
 #: ../../../examples/README.md:59
 msgid ""
@@ -118,6 +140,9 @@ msgid ""
 "something else). We didn't do this automatically because we wanted to "
 "keep the example simple."
 msgstr ""
+"注意，在某些平台上，你可能必须编辑 Makefile，"
+"并从链接器命令中删除 \"-lpthread\" （也许用其他东西代替）。"
+"我们没有自动这样做，因为我们想让这个例子保持简单。"
 
 #: ../../../examples/README.md:63
 msgid "Python"
@@ -130,12 +155,16 @@ msgid ""
 "protobuf python runtime from source. You can also install python runtime "
 "using pip:"
 msgstr ""
+"按照 [../README.md](../README.md) 中的说明安装 protoc，"
+"然后按照 [../python/README.md](../python/README.md) 从源代码安装 protobuf python runtime。"
+"你也可以用 pip 安装 python 运行时："
 
 #: ../../../examples/README.md:71
 msgid ""
 "Make sure the runtime version is the same as protoc binary, or it may not"
 " work."
 msgstr ""
+"确保运行时的版本与 protoc 二进制相同，否则可能无法工作。"
 
 #: ../../../examples/README.md:73
 msgid ""
@@ -144,6 +173,9 @@ msgid ""
 "add_person_python and list_people_python. They work the same way as the "
 "C++ executables."
 msgstr ""
+"在你安装了 protoc 和 python 运行时之后，运行 \"make python\" "
+"来建立两个可执行文件（实际上是 shell 脚本）：add_person_python 和 list_people_python。"
+"它们的工作方式与 C++ 的可执行文件相同。"
 
 #: ../../../examples/README.md:77
 msgid "Java"
@@ -154,16 +186,20 @@ msgid ""
 "Follow instructions in [../README.md](../README.md) to install protoc and"
 " then download protobuf Java runtime .jar file from maven:"
 msgstr ""
+"按照 [../README.md](../README.md) 中的说明安装 protoc，"
+"然后从 maven 下载 protobuf Java 运行时 .jar 文件："
 
 #: ../../../examples/README.md:84
 msgid "Then run the following:"
-msgstr ""
+msgstr "然后运行以下内容："
 
 #: ../../../examples/README.md:89
 msgid ""
 "This will create the add_person_java/list_people_java executables (shell "
 "scripts) and can be used to create/display an address book data file."
 msgstr ""
+"这将创建 add_person_java/list_people_java 可执行文件（shell 脚本），"
+"可用于创建/显示地址簿数据文件。"
 
 #: ../../../examples/README.md:92
 msgid "Go"
