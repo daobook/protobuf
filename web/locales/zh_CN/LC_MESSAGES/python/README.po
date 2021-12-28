@@ -142,7 +142,7 @@ msgstr ""
 
 #: ../../../python/README.md:81
 msgid "To build the C++ implementation run:"
-msgstr "要建立C++实现，请运行："
+msgstr "要建立 C++ 实现，请运行："
 
 #: ../../../python/README.md:85
 msgid "Then run the tests like so:"
@@ -164,20 +164,24 @@ msgid ""
 "either in Cygwin or in "
 "Python](http://www.cygwin.com/ml/cygwin/2005-07/msg01378.html)."
 msgstr ""
+"请注意，Cygwin 上某些版本的 Python 有一个已知的问题，导致测试在打印错误： "
+"`sem_init: Resource temporarily unavailable`。"
+"这似乎是一个 [Cygwin 或 Python 的错误](http://www.cygwin.com/ml/cygwin/2005-07/msg01378.html)。"
 
 #: ../../../python/README.md:98
 msgid ""
 "We do not know if or when it might be fixed.  We also do not know how "
 "likely it is that this bug will affect users in practice."
 msgstr ""
+"我们不知道它是否或何时可能被修复。我们也不知道这个错误在实践中影响用户的可能性有多大"。
 
 #: ../../../python/README.md:101
 msgid "Install:"
-msgstr ""
+msgstr "安装"
 
 #: ../../../python/README.md:105
 msgid "or:"
-msgstr ""
+msgstr "或者"
 
 #: ../../../python/README.md:110
 msgid ""
@@ -186,30 +190,35 @@ msgid ""
 " your program.  See the \"C++ Implementation\" section below for more "
 "details."
 msgstr ""
+"这个步骤可能需要超级用户的权限。"
+"注意：要使用 C++ 实现，你需要在运行你的程序之前导出一个环境变量。"
+"更多细节见下面的 \"C++ 实现\" 部分。"
 
 #: ../../../python/README.md:115
 msgid "Usage"
-msgstr ""
+msgstr "用法"
 
 #: ../../../python/README.md:118
 msgid ""
 "The complete documentation for Protocol Buffers is available via the web "
 "at:"
 msgstr ""
+"协议缓冲区的完整文档可通过网络获得："
 
 #: ../../../python/README.md:123
 msgid "C++ Implementation"
-msgstr ""
+msgstr "C++ 实现"
 
 #: ../../../python/README.md:126
 msgid ""
 "The C++ implementation for Python messages is built as a Python extension"
 " to improve the overall protobuf Python performance."
 msgstr ""
+"Python 消息的 C++ 实现是作为 Python 扩展而建立的，以提高 protobuf Python 的整体性能。"
 
 #: ../../../python/README.md:129
 msgid ""
 "To use the C++ implementation, you need to install the C++ protobuf "
 "runtime library, please see instructions in the parent directory."
 msgstr ""
-
+"要使用 C++ 实现，你需要安装 C++ protobuf 运行时库，请看父目录中的说明。"
