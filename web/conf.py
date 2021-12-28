@@ -38,11 +38,11 @@ extensions = [
     "myst_nb",
     "sphinx.ext.extlinks",
     "sphinx.ext.intersphinx",
-    "sphinx_thebe",
+    # "sphinx_thebe",
     "sphinx_copybutton",
     # "sphinxcontrib.mermaid",
-    "sphinx_panels",
-    "sphinx_inline_tabs",
+    # "sphinx_panels",
+    # "sphinx_inline_tabs",
     # 'breathe'
     # "sphinx.ext.todo",
     # "sphinxcontrib.bibtex",
@@ -184,7 +184,7 @@ html_theme_options = {
         "colab_url": "https://colab.research.google.com/",
         # 你可以控制有人点击启动按钮时打开的界面。
         "notebook_interface": "jupyterlab",
-        "thebe": True,  # Thebe 实时代码单元格
+        # "thebe": True,  # Thebe 实时代码单元格
     },
 }
 # -- 自定义网站的标志 --------------

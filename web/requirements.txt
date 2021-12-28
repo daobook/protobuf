@@ -3,7 +3,7 @@ myst-nb
 sphinx-thebe
 sphinx-copybutton
 sphinx-comments
-sphinx-book-theme>=0.1.6
-Sphinx>=4.2
+sphinx-book-theme>=0.1.7
+Sphinx>=4.3
 # docutils==0.17
 # sphinxcontrib-mermaid
