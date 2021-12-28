@@ -19,7 +19,7 @@ msgstr ""
 
 #: ../../../docs/field_presence.md:1
 msgid "Application note: Field presence"
-msgstr ""
+msgstr "应用说明：Field 存在"
 
 #: ../../../docs/field_presence.md:3
 msgid ""
