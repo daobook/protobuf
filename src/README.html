@@ -273,17 +273,17 @@
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#c-installation-windows">
-   C++ Installation - Windows
+   C++ 安装 —— Windows
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#binary-compatibility-warning">
-   Binary Compatibility Warning
+   二进制兼容警告
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#usage">
-   Usage
+   用法
   </a>
  </li>
 </ul>
@@ -348,40 +348,29 @@ git submodule update --init --recursive
 </pre></div>
 </div>
 <p>如果你已经用不同的前缀构建了软件包，请确保在再次构建之前运行 “make clean” 。</p>
-<p><strong>Compiling dependent packages</strong></p>
-<p>To compile a package that uses Protocol Buffers, you need to pass
-various flags to your compiler and linker.  As of version 2.2.0,
-Protocol Buffers integrates with pkg-config to manage this.  If you
-have pkg-config installed, then you can invoke it to get a list of
-flags like so:</p>
+<p><strong>编译依赖的软件包</strong></p>
+<p>为了编译一个使用 Protocol Buffers 的软件包，你需要向你的编译器和链接器传递各种 旗标。从 2.2.0 版本开始，Protocol Buffers 集成了 pkg-config 来管理这些。如果你安装了 pkg-config，那么你可以调用它来获得一个 旗标 列表，就像这样：</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>pkg-config --cflags protobuf         # print compiler flags
 pkg-config --libs protobuf           # print linker flags
 pkg-config --cflags --libs protobuf  # print both
 </pre></div>
 </div>
-<p>For example:</p>
+<p>示例：</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>c++ my_program.cc my_proto.pb.cc `pkg-config --cflags --libs protobuf`
 </pre></div>
 </div>
-<p>Note that packages written prior to the 2.2.0 release of Protocol
-Buffers may not yet integrate with pkg-config to get flags, and may
-not pass the correct set of flags to correctly link against
-libprotobuf.  If the package in question uses autoconf, you can
-often fix the problem by invoking its configure script like:</p>
+<p>请注意，在协议缓冲区 2.2.0 版本之前编写的软件包可能还没有与 pkg-config 集成以获得旗标，并且可能没有传递正确的旗标集以正确链接到 libprotobuf。如果有问题的软件包使用 autoconf，你通常可以通过调用其配置脚本来解决这个问题，比如：</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>configure CXXFLAGS=&quot;$(pkg-config --cflags protobuf)&quot; \
           LIBS=&quot;$(pkg-config --libs protobuf)&quot;
 </pre></div>
 </div>
-<p>This will force it to use the correct flags.</p>
-<p>If you are writing an autoconf-based package that uses Protocol
-Buffers, you should probably use the PKG_CHECK_MODULES macro in your
-configure script like:</p>
+<p>这将迫使它使用正确的 旗标。</p>
+<p>如果你正在编写一个基于 autoconf 的软件包，并使用协议缓冲区，你可能应该在你的配置脚本中使用 PKG_CHECK_MODULES 宏，比如：</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>PKG_CHECK_MODULES([protobuf], [protobuf])
 </pre></div>
 </div>
-<p>See the pkg-config man page for more info.</p>
-<p>If you only want protobuf-lite, substitute “protobuf-lite” in place
-of “protobuf” in these examples.</p>
+<p>更多信息请参见 pkg-config man 页。</p>
+<p>如果你只想要 protobuf-lite，在这些例子中用 “protobuf-lite” 代替 “protobuf”。</p>
 <p><strong>Note for Mac users</strong></p>
 <p>For a Mac system, Unix tools are not available by default. You will first need
 to install Xcode from the Mac AppStore and then run the following command from
@@ -396,27 +385,16 @@ Mac installations.</p>
 </pre></div>
 </div>
 <p>Then follow the Unix instructions above.</p>
-<p><strong>Note for cross-compiling</strong></p>
-<p>The makefiles normally invoke the protoc executable that they just
-built in order to build tests.  When cross-compiling, the protoc
-executable may not be executable on the host machine.  In this case,
-you must build a copy of protoc for the host machine first, then use
-the –with-protoc option to tell configure to use it instead.  For
-example:</p>
+<p><strong>交叉编译的注意事项</strong></p>
+<p>makefiles 通常会调用他们刚刚构建的 protoc 可执行文件，以构建测试。当交叉编译时，protoc 的可执行文件在主机上可能无法执行。在这种情况下，你必须先为主机建立一个 protoc 副本，然后用 <code class="docutils literal notranslate"><span class="pre">--with-protoc</span></code> 选项告诉 configure 用它来代替。比如说：</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>./configure --with-protoc=protoc
 </pre></div>
 </div>
-<p>This will use the installed protoc (found in your $PATH) instead of
-trying to execute the one built during the build process.  You can
-also use an executable that hasn’t been installed.  For example, if
-you built the protobuf package for your host machine in …/host,
-you might do:</p>
+<p>这将使用已安装的 protoc（在你的 $PATH 中找到），而不是试图执行在构建过程中构建的那个。你也可以使用一个尚未安装的可执行文件。例如，如果你在 <code class="docutils literal notranslate"><span class="pre">../host</span></code> 中为你的主机构建了 protobuf 包，你可以这样做：</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>./configure --with-protoc=../host/src/protoc
 </pre></div>
 </div>
-<p>Either way, you must make sure that the protoc executable you use
-has the same version as the protobuf source code you are trying to
-use it with.</p>
+<p>无论如何，你必须确保你使用的 protoc 可执行文件的版本与你要使用的 protobuf 源代码的版本相同。</p>
 <p><strong>Note for Solaris users</strong></p>
 <p>Solaris 10 x86 has a bug that will make linking fail, complaining
 about libstdc++.la being invalid.  We have included a work-around
@@ -439,46 +417,34 @@ in this package.  To use the work-around, run configure as follows:</p>
 <p>Also, you will need to use GNU <code class="docutils literal notranslate"><span class="pre">make</span></code> (<code class="docutils literal notranslate"><span class="pre">gmake</span></code>) instead of AIX <code class="docutils literal notranslate"><span class="pre">make</span></code>.</p>
 </div>
 <div class="section" id="c-installation-windows">
-<h2>C++ Installation - Windows<a class="headerlink" href="#c-installation-windows" title="永久链接至标题">¶</a></h2>
-<p>If you only need the protoc binary, you can download it from the release
-page:</p>
+<h2>C++ 安装 —— Windows<a class="headerlink" href="#c-installation-windows" title="永久链接至标题">¶</a></h2>
+<p>如果你只需要 protoc 二进制文件，你可以从发布页面下载：</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>https://github.com/protocolbuffers/protobuf/releases/latest
 </pre></div>
 </div>
-<p>In the downloads section, download the zip file protoc-$VERSION-win32.zip.
-It contains the protoc binary as well as public proto files of protobuf
-library.</p>
-<p>Protobuf and its dependencies can be installed directly by using <code class="docutils literal notranslate"><span class="pre">vcpkg</span></code>:</p>
+<p>在下载部分，下载 zip 文件 <code class="docutils literal notranslate"><span class="pre">protoc-$VERSION-win32.zip</span></code>。它包含 protoc 二进制文件，以及 protobuf 库的公共 proto 文件。</p>
+<p>Protobuf 和它的依赖项可以通过使用 <code class="docutils literal notranslate"><span class="pre">vcpkg</span></code> 直接安装：</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&gt;vcpkg install protobuf protobuf:x64-windows
 </pre></div>
 </div>
-<p>If zlib support is desired, you’ll also need to install the zlib feature:</p>
+<p>如果需要 zlib 支持，你还需要安装 zlib 功能：</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&gt;vcpkg install protobuf[zlib] protobuf[zlib]:x64-windows
 </pre></div>
 </div>
-<p>See https://github.com/Microsoft/vcpkg for more information.</p>
-<p>To build from source using Microsoft Visual C++, see <a class="reference internal" href="../cmake/README.html"><span class="doc std std-doc">cmake/README.md</span></a>.</p>
-<p>To build from source using Cygwin or MinGW, follow the Unix installation
-instructions, above.</p>
+<p>更多信息见 https://github.com/Microsoft/vcpkg。</p>
+<p>要使用 Microsoft Visual C++ 从源码构建，请参见 <a class="reference internal" href="../cmake/README.html"><span class="doc std std-doc">cmake/README.md</span></a>。</p>
+<p>要使用 Cygwin 或 MinGW 从源代码构建，请遵循上面的 Unix 安装说明。</p>
 </div>
 <div class="section" id="binary-compatibility-warning">
-<h2>Binary Compatibility Warning<a class="headerlink" href="#binary-compatibility-warning" title="永久链接至标题">¶</a></h2>
-<p>Due to the nature of C++, it is unlikely that any two versions of the
-Protocol Buffers C++ runtime libraries will have compatible ABIs.
-That is, if you linked an executable against an older version of
-libprotobuf, it is unlikely to work with a newer version without
-re-compiling.  This problem, when it occurs, will normally be detected
-immediately on startup of your app.  Still, you may want to consider
-using static linkage.  You can configure this package to install
-static libraries only using:</p>
+<h2>二进制兼容警告<a class="headerlink" href="#binary-compatibility-warning" title="永久链接至标题">¶</a></h2>
+<p>由于 C++ 的特性，任何两个版本的协议缓冲区 C++ 运行库都不可能有兼容的 ABI。也就是说，如果你用旧版本的 libprotobuf 链接了一个可执行文件，那么在不重新编译的情况下，它不可能在新版本中工作。这个问题一旦发生，通常会在你的应用程序启动时立即被发现。不过，你可能要考虑使用静态链接。你可以配置这个包，使其只安装静态库，使用：</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>./configure --disable-shared
 </pre></div>
 </div>
 </div>
 <div class="section" id="usage">
-<h2>Usage<a class="headerlink" href="#usage" title="永久链接至标题">¶</a></h2>
-<p>The complete documentation for Protocol Buffers is available via the
-web at:</p>
+<h2>用法<a class="headerlink" href="#usage" title="永久链接至标题">¶</a></h2>
+<p>协议缓冲区的完整文档可通过网络获得：</p>
 <p>https://developers.google.com/protocol-buffers/</p>
 </div>
 </div>

@@ -268,21 +268,21 @@
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#background">
-   Background
+   背景
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#presence-disciplines">
-     Presence disciplines
+     存在法则
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#presence-in-tag-value-stream-wire-format-serialization">
-     Presence in
+     存在于
      <em>
       tag-value stream
      </em>
-     (wire format) serialization
+     （wire 格式）的序列化中
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
@@ -414,17 +414,17 @@
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="application-note-field-presence">
 <h1>应用说明：Field 存在<a class="headerlink" href="#application-note-field-presence" title="永久链接至标题">¶</a></h1>
-<p>This application note explains the various presence tracking disciplines for protobuf fields. It also explains the behaviour of explicit presence tracking for singular proto3 fields with basic types.</p>
+<p>本应用说明解释了 protobuf 字段的各种存在跟踪规则。它还解释了具有基本类型的 singular proto3 字段的显式存在跟踪的行为。</p>
 <div class="section" id="background">
-<h2>Background<a class="headerlink" href="#background" title="永久链接至标题">¶</a></h2>
-<p><em>Field presence</em> is the notion of whether a protobuf field has a value. There are two different manifestations of presence for protobufs: <em>no presence</em>, where the generated message API stores field values (only), and <em>explicit presence</em>, where the API also stores whether or not a field has been set.</p>
-<p>Historically, proto2 has mostly followed <em>explicit presence</em>, while proto3 exposes only <em>no presence</em> semantics. Singular proto3 fields of basic types (numeric, string, bytes, and enums) which are defined with the <code class="docutils literal notranslate"><span class="pre">optional</span></code> label have <em>explicit presence</em>, like proto2 (this feature is enabled by default as release 3.15).</p>
+<h2>背景<a class="headerlink" href="#background" title="永久链接至标题">¶</a></h2>
+<p><em>Field presence</em> 是指一个 protobuf 字段是否有一个值的概念。对于 protobufs 来说，有两种不同的存在表现形式。<em>no presence</em>，即生成的消息 API 存储字段值（仅），以及 <em>explicit presence</em>，即 API 也存储一个字段是否已被设置。</p>
+<p>从历史上看，proto2 大多遵循 <em>explicit presence</em>，而 proto3 只暴露了 <em>no presence</em> 语义。基本类型（数字、字符串、字节和枚举）的 singular proto3 字段，如果用 <code class="docutils literal notranslate"><span class="pre">optional</span></code> 标签定义，就会像 proto2 一样，具有 <em>explicit presence</em> （这个功能在 3.15 版本中默认启用）。</p>
 <div class="section" id="presence-disciplines">
-<h3>Presence disciplines<a class="headerlink" href="#presence-disciplines" title="永久链接至标题">¶</a></h3>
-<p><em>Presence disciplines</em> define the semantics for translating between the <em>API representation</em> and the <em>serialized representation</em>. The <em>no presence</em> discipline relies upon the field value itself to make decisions at (de)serialization time, while the <em>explicit presence</em> discipline relies upon the explicit tracking state instead.</p>
+<h3>存在法则<a class="headerlink" href="#presence-disciplines" title="永久链接至标题">¶</a></h3>
+<p><em>Presence disciplines</em> 定义了在 <em>API 表示法</em> 和 <em>序列化表示法</em> 之间转换的语义。<em>no presence</em> 法则依靠字段值本身在（去）序列化时做出决定，而 <em>explicit presence</em> 法则则依靠明确的跟踪状态</p>
 </div>
 <div class="section" id="presence-in-tag-value-stream-wire-format-serialization">
-<h3>Presence in <em>tag-value stream</em> (wire format) serialization<a class="headerlink" href="#presence-in-tag-value-stream-wire-format-serialization" title="永久链接至标题">¶</a></h3>
+<h3>存在于 <em>tag-value stream</em> （wire 格式）的序列化中<a class="headerlink" href="#presence-in-tag-value-stream-wire-format-serialization" title="永久链接至标题">¶</a></h3>
 <p>The wire format is a stream of tagged, <em>self-delimiting</em> values. By definition, the wire format represents a sequence of <em>present</em> values. In other words, every value found within a serialization represents a <em>present</em> field; furthermore, the serialization contains no information about not-present values.</p>
 <p>The generated API for a proto message includes (de)serialization definitions which translate between API types and a stream of definitionally <em>present</em> (tag, value) pairs. This translation is designed to be forward- and backward-compatibile across changes to the message definition; however, this compatibility introduces some (perhaps surprising) considerations when deserializing wire-formatted messages:</p>
 <ul class="simple">
