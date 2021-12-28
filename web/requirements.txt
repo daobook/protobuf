@@ -1,6 +1,4 @@
-sphinx-intl
 myst-nb
-sphinx-thebe
 sphinx-copybutton
 sphinx-comments
 sphinx-book-theme>=0.1.7
