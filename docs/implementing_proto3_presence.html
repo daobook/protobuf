@@ -1,0 +1,765 @@
+
+<!DOCTYPE html>
+
+<html lang="zh_CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>How To Implement Field Presence for Proto3 &#8212; protobuf 0.1 文档</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/default.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/translations.js"></script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="Ahead Of Time (AOT) compilation for the Java Virtual Machine (JVM)”" href="jvm_aot.html" />
+    <link rel="prev" title="应用说明：Field 存在" href="field_presence.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="zh_CN">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">protobuf 0.1 文档</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../README.html">
+   Protocol Buffers - 谷歌的数据交换格式
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../src/README.html">
+   安装
+  </a>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="index.html">
+   开发者指南
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="field_presence.html">
+     应用说明：Field 存在
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     How To Implement Field Presence for Proto3
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="jvm_aot.html">
+     Ahead Of Time (AOT) compilation for the Java Virtual Machine (JVM)”
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="options.html">
+     Protobuf Global Extension Registry
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="performance.html">
+     Protobuf Performance
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="third_party.html">
+     Third-Party Add-ons for Protocol Buffers
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/README.html">
+   Python API
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../examples/README.html">
+   代码样例
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../cmake/README.html">
+   CMake
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../java/README.html">
+   java
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../objectivec/README.html">
+   objectivec
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../csharp/README.html">
+   csharp
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../js/README.html">
+   JavaScript
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ruby/README.html">
+   ruby
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../php/README.html">
+   PHP
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  <div>
+版权所有 © 2021 <a href="https://xinetzone.github.io/">xinetzone</a></div>
+<div>由 <a href="https://ebp.jupyterbook.org/">EBP</a> 提供技术支持</div>
+
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/docs/implementing_proto3_presence.md.txt"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/daobook/protobuf"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/daobook/protobuf/issues/new?title=Issue%20on%20page%20%2Fdocs/implementing_proto3_presence.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/daobook/protobuf/edit/xin/docs/implementing_proto3_presence.md"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> 导航
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#document-summary">
+   Document Summary
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#background">
+   Background
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#updating-a-code-generator">
+   Updating a Code Generator
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#satisfying-the-experimental-check">
+     Satisfying the Experimental Check
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#signaling-that-your-code-generator-supports-proto3-optional">
+     Signaling That Your Code Generator Supports Proto3 Optional
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#updating-your-code-generator">
+     Updating Your Code Generator
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#to-test-whether-a-field-should-have-presence">
+       To test whether a field should have presence
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#to-test-whether-a-field-is-a-member-of-a-oneof">
+       To test whether a field is a member of a oneof
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#to-iterate-over-all-oneofs">
+       To iterate over all oneofs
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#updating-reflection">
+   Updating Reflection
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#api-changes">
+     API Changes
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#implementation-changes">
+     Implementation Changes
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#validating-descriptors">
+     Validating Descriptors
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="how-to-implement-field-presence-for-proto3">
+<h1>How To Implement Field Presence for Proto3<a class="headerlink" href="#how-to-implement-field-presence-for-proto3" title="永久链接至标题">¶</a></h1>
+<p>Protobuf release 3.12 adds experimental support for <code class="docutils literal notranslate"><span class="pre">optional</span></code> fields in
+proto3. Proto3 optional fields track presence like in proto2. For background
+information about what presence tracking means, please see
+<a class="reference internal" href="field_presence.html"><span class="doc std std-doc">docs/field_presence</span></a>.</p>
+<div class="section" id="document-summary">
+<h2>Document Summary<a class="headerlink" href="#document-summary" title="永久链接至标题">¶</a></h2>
+<p>This document is targeted at developers who own or maintain protobuf code
+generators. All code generators will need to be updated to support proto3
+optional fields. First-party code generators developed by Google are being
+updated already. However third-party code generators will need to be updated
+independently by their authors. This includes:</p>
+<ul class="simple">
+<li><p>implementations of Protocol Buffers for other languages.</p></li>
+<li><p>alternate implementations of Protocol Buffers that target specialized use
+cases.</p></li>
+<li><p>RPC code generators that create generated APIs for service calls.</p></li>
+<li><p>code generators that implement some utility code on top of protobuf generated
+classes.</p></li>
+</ul>
+<p>While this document speaks in terms of “code generators”, these same principles
+apply to implementations that dynamically generate a protocol buffer API “on the
+fly”, directly from a descriptor, in languages that support this kind of usage.</p>
+</div>
+<div class="section" id="background">
+<h2>Background<a class="headerlink" href="#background" title="永久链接至标题">¶</a></h2>
+<p>Presence tracking was added to proto3 in response to user feedback, both from
+inside Google and <a class="reference external" href="https://github.com/protocolbuffers/protobuf/issues/1606">from open-source
+users</a>. The <a class="reference external" href="https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/wrappers.proto">proto3
+wrapper
+types</a>
+were previously the only supported presence mechanism for proto3. Users have
+pointed to both efficiency and usability issues with the wrapper types.</p>
+<p>Presence in proto3 uses exactly the same syntax and semantics as in proto2.
+Proto3 Fields marked <code class="docutils literal notranslate"><span class="pre">optional</span></code> will track presence like proto2, while fields
+without any label (known as “singular fields”), will continue to omit presence
+information.  The <code class="docutils literal notranslate"><span class="pre">optional</span></code> keyword was chosen to minimize differences with
+proto2.</p>
+<p>Unfortunately, for the current descriptor protos and <code class="docutils literal notranslate"><span class="pre">Descriptor</span></code> API (as of
+3.11.4) it is not possible to use the same representation as proto2. Proto3
+descriptors already use <code class="docutils literal notranslate"><span class="pre">LABEL_OPTIONAL</span></code> for proto3 singular fields, which do
+not track presence. There is a lot of existing code that reflects over proto3
+protos and assumes that <code class="docutils literal notranslate"><span class="pre">LABEL_OPTIONAL</span></code> in proto3 means “no presence.” Changing
+the semantics now would be risky, since old software would likely drop proto3
+presence information, which would be a data loss bug.</p>
+<p>To minimize this risk we chose a descriptor representation that is semantically
+compatible with existing proto3 reflection. Every proto3 optional field is
+placed into a one-field <code class="docutils literal notranslate"><span class="pre">oneof</span></code>. We call this a “synthetic” oneof, as it was not
+present in the source <code class="docutils literal notranslate"><span class="pre">.proto</span></code> file.</p>
+<p>Since oneof fields in proto3 already track presence, existing proto3
+reflection-based algorithms should correctly preserve presence for proto3
+optional fields with no code changes. For example, the JSON and TextFormat
+parsers/serializers in C++ and Java did not require any changes to support
+proto3 presence. This is the major benefit of synthetic oneofs.</p>
+<p>This design does leave some cruft in descriptors. Synthetic oneofs are a
+compatibility measure that we can hopefully clean up in the future. For now
+though, it is important to preserve them across different descriptor formats and
+APIs. It is never safe to drop synthetic oneofs from a proto schema. Code
+generators can (and should) skip synthetic oneofs when generating a user-facing
+API or user-facing documentation. But for any schema representation that is
+consumed programmatically, it is important to keep the synthetic oneofs around.</p>
+<p>In APIs it can be helpful to offer separate accessors that refer to “real”
+oneofs (see <a class="reference external" href="#api-changes">API Changes</a> below). This is a convenient way to omit
+synthetic oneofs in code generators.</p>
+</div>
+<div class="section" id="updating-a-code-generator">
+<h2>Updating a Code Generator<a class="headerlink" href="#updating-a-code-generator" title="永久链接至标题">¶</a></h2>
+<p>When a user adds an <code class="docutils literal notranslate"><span class="pre">optional</span></code> field to proto3, this is internally rewritten as
+a one-field oneof, for backward-compatibility with reflection-based algorithms:</p>
+<div class="highlight-protobuf notranslate"><div class="highlight"><pre><span></span><span class="k">syntax</span> <span class="o">=</span> <span class="s">&quot;proto3&quot;</span><span class="p">;</span>
+
+<span class="kd">message</span> <span class="nc">Foo</span> <span class="p">{</span>
+  <span class="c1">// Experimental feature, not generally supported yet!</span>
+  <span class="k">optional</span> <span class="kt">int32</span> <span class="na">foo</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+
+  <span class="c1">// Internally rewritten to:</span>
+  <span class="c1">// oneof _foo {</span>
+  <span class="c1">//   int32 foo = 1 [proto3_optional=true];</span>
+  <span class="c1">// }</span>
+  <span class="c1">//</span>
+  <span class="c1">// We call _foo a &quot;synthetic&quot; oneof, since it was not created by the user.</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>As a result, the main two goals when updating a code generator are:</p>
+<ol class="simple">
+<li><p>Give <code class="docutils literal notranslate"><span class="pre">optional</span></code> fields like <code class="docutils literal notranslate"><span class="pre">foo</span></code> normal field presence, as described in
+<a class="reference internal" href="field_presence.html"><span class="doc std std-doc">docs/field_presence</span></a> If your implementation already
+supports proto2, a proto3 <code class="docutils literal notranslate"><span class="pre">optional</span></code> field should use exactly the same API
+and internal implementation as proto2 <code class="docutils literal notranslate"><span class="pre">optional</span></code>.</p></li>
+<li><p>Avoid generating any oneof-based accessors for the synthetic oneof. Its only
+purpose is to make reflection-based algorithms work properly if they are
+not aware of proto3 presence. The synthetic oneof should not appear anywhere
+in the generated API.</p></li>
+</ol>
+<div class="section" id="satisfying-the-experimental-check">
+<h3>Satisfying the Experimental Check<a class="headerlink" href="#satisfying-the-experimental-check" title="永久链接至标题">¶</a></h3>
+<p>If you try to run <code class="docutils literal notranslate"><span class="pre">protoc</span></code> on a file with proto3 <code class="docutils literal notranslate"><span class="pre">optional</span></code> fields, you will get
+an error because the feature is still experimental:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ cat test.proto
+syntax = &quot;proto3&quot;;
+
+message Foo {
+  // Experimental feature, not generally supported yet!
+  optional int32 a = 1;
+}
+$ protoc --cpp_out=. test.proto
+test.proto: This file contains proto3 optional fields, but --experimental_allow_proto3_optional was not set.
+</pre></div>
+</div>
+<p>There are two options for getting around this error:</p>
+<ol class="simple">
+<li><p>Pass <code class="docutils literal notranslate"><span class="pre">--experimental_allow_proto3_optional</span></code> to protoc.</p></li>
+<li><p>Make your filename (or a directory name) contain the string
+<code class="docutils literal notranslate"><span class="pre">test_proto3_optional</span></code>. This indicates that the proto file is specifically
+for testing proto3 optional support, so the check is suppressed.</p></li>
+</ol>
+<p>These options are demonstrated below:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span># One option:
+$ ./src/protoc test.proto --cpp_out=. --experimental_allow_proto3_optional
+
+# Another option:
+$ cp test.proto test_proto3_optional.proto
+$ ./src/protoc test_proto3_optional.proto --cpp_out=.
+$
+</pre></div>
+</div>
+<p>The experimental check will be removed  in a future release, once we are ready
+to make this feature generally available. Ideally this will happen for the 3.13
+release of protobuf, sometime in mid-2020, but there is not a specific date set
+for this yet. Some of the timing will depend on feedback we get from the
+community, so if you have questions or concerns please get in touch via a
+GitHub issue.</p>
+</div>
+<div class="section" id="signaling-that-your-code-generator-supports-proto3-optional">
+<h3>Signaling That Your Code Generator Supports Proto3 Optional<a class="headerlink" href="#signaling-that-your-code-generator-supports-proto3-optional" title="永久链接至标题">¶</a></h3>
+<p>If you now try to invoke your own code generator with the test proto, you will
+run into a different error:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ ./src/protoc test_proto3_optional.proto --my_codegen_out=.
+test_proto3_optional.proto: is a proto3 file that contains optional fields, but
+code generator --my_codegen_out hasn&#39;t been updated to support optional fields in
+proto3. Please ask the owner of this code generator to support proto3 optional.
+</pre></div>
+</div>
+<p>This check exists to make sure that code generators get a chance to update
+before they are used with proto3 <code class="docutils literal notranslate"><span class="pre">optional</span></code> fields. Without this check an old
+code generator might emit obsolete generated APIs (like accessors for a
+synthetic oneof) and users could start depending on these. That would create
+a legacy migration burden once a code generator actually implements the feature.</p>
+<p>To signal that your code generator supports <code class="docutils literal notranslate"><span class="pre">optional</span></code> fields in proto3, you
+need to tell <code class="docutils literal notranslate"><span class="pre">protoc</span></code> what features you support. The method for doing this
+depends on whether you are using the C++
+<code class="docutils literal notranslate"><span class="pre">google::protobuf::compiler::CodeGenerator</span></code>
+framework or not.</p>
+<p>If you are using the CodeGenerator framework:</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">MyCodeGenerator</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">google</span><span class="o">::</span><span class="n">protobuf</span><span class="o">::</span><span class="n">compiler</span><span class="o">::</span><span class="n">CodeGenerator</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="c1">// Add this method.</span>
+<span class="w">  </span><span class="kt">uint64_t</span><span class="w"> </span><span class="nf">GetSupportedFeatures</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="k">override</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// Indicate that this code generator supports proto3 optional fields.</span>
+<span class="w">    </span><span class="c1">// (Note: don&#39;t release your code generator with this flag set until you</span>
+<span class="w">    </span><span class="c1">// have actually added and tested your proto3 support!)</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">FEATURE_PROTO3_OPTIONAL</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<p>If you are generating code using raw <code class="docutils literal notranslate"><span class="pre">CodeGeneratorRequest</span></code> and
+<code class="docutils literal notranslate"><span class="pre">CodeGeneratorResponse</span></code> messages from <code class="docutils literal notranslate"><span class="pre">plugin.proto</span></code>, the change will be very
+similar:</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">GenerateResponse</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="n">CodeGeneratorResponse</span><span class="w"> </span><span class="n">response</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">response</span><span class="p">.</span><span class="n">set_supported_features</span><span class="p">(</span><span class="n">CodeGeneratorResponse</span><span class="o">::</span><span class="n">FEATURE_PROTO3_OPTIONAL</span><span class="p">);</span><span class="w"></span>
+
+<span class="w">  </span><span class="c1">// Generate code...</span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<p>Once you have added this, you should now be able to successfully use your code
+generator to generate a file containing proto3 optional fields:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ ./src/protoc test_proto3_optional.proto --my_codegen_out=.
+</pre></div>
+</div>
+</div>
+<div class="section" id="updating-your-code-generator">
+<h3>Updating Your Code Generator<a class="headerlink" href="#updating-your-code-generator" title="永久链接至标题">¶</a></h3>
+<p>Now to actually add support for proto3 optional to your code generator. The goal
+is to recognize proto3 optional fields as optional, and suppress any output from
+synthetic oneofs.</p>
+<p>If your code generator does not currently support proto2, you will need to
+design an API and implementation for supporting presence in scalar fields.
+Generally this means:</p>
+<ul class="simple">
+<li><p>allocating a bit inside the generated class to represent whether a given field
+is present or not.</p></li>
+<li><p>exposing a <code class="docutils literal notranslate"><span class="pre">has_foo()</span></code> method for each field to return the value of this bit.</p></li>
+<li><p>make the parser set this bit when a value is parsed from the wire.</p></li>
+<li><p>make the serializer test this bit to decide whether to serialize.</p></li>
+</ul>
+<p>If your code generator already supports proto2, then most of your work is
+already done. All you need to do is make sure that proto3 optional fields have
+exactly the same API and behave in exactly the same way as proto2 optional
+fields.</p>
+<p>From experience updating several of Google’s code generators, most of the
+updates that are required fall into one of several patterns. Here we will show
+the patterns in terms of the C++ CodeGenerator framework. If you are using
+<code class="docutils literal notranslate"><span class="pre">CodeGeneratorRequest</span></code> and <code class="docutils literal notranslate"><span class="pre">CodeGeneratorReply</span></code> directly, you can translate the
+C++ examples to your own language, referencing the C++ implementation of these
+methods where required.</p>
+<div class="section" id="to-test-whether-a-field-should-have-presence">
+<h4>To test whether a field should have presence<a class="headerlink" href="#to-test-whether-a-field-should-have-presence" title="永久链接至标题">¶</a></h4>
+<p>Old:</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">bool</span><span class="w"> </span><span class="nf">MessageHasPresence</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">google</span><span class="o">::</span><span class="n">protobuf</span><span class="o">::</span><span class="n">Descriptor</span><span class="o">*</span><span class="w"> </span><span class="n">message</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">message</span><span class="o">-&gt;</span><span class="n">file</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">syntax</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"></span>
+<span class="w">         </span><span class="n">google</span><span class="o">::</span><span class="n">protobuf</span><span class="o">::</span><span class="n">FileDescriptor</span><span class="o">::</span><span class="n">SYNTAX_PROTO2</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<p>New:</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="c1">// Presence is no longer a property of a message, it&#39;s a property of individual</span>
+<span class="c1">// fields.</span>
+<span class="kt">bool</span><span class="w"> </span><span class="nf">FieldHasPresence</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">google</span><span class="o">::</span><span class="n">protobuf</span><span class="o">::</span><span class="n">FieldDescriptor</span><span class="o">*</span><span class="w"> </span><span class="n">field</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">field</span><span class="o">-&gt;</span><span class="n">has_presence</span><span class="p">();</span><span class="w"></span>
+<span class="w">  </span><span class="c1">// Note, the above will return true for fields in a oneof.</span>
+<span class="w">  </span><span class="c1">// If you want to filter out oneof fields, write this instead:</span>
+<span class="w">  </span><span class="c1">//   return field-&gt;has_presence &amp;&amp; !field-&gt;real_containing_oneof()</span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="to-test-whether-a-field-is-a-member-of-a-oneof">
+<h4>To test whether a field is a member of a oneof<a class="headerlink" href="#to-test-whether-a-field-is-a-member-of-a-oneof" title="永久链接至标题">¶</a></h4>
+<p>Old:</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">bool</span><span class="w"> </span><span class="nf">FieldIsInOneof</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">google</span><span class="o">::</span><span class="n">protobuf</span><span class="o">::</span><span class="n">FieldDescriptor</span><span class="o">*</span><span class="w"> </span><span class="n">field</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">field</span><span class="o">-&gt;</span><span class="n">containing_oneof</span><span class="p">()</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="k">nullptr</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<p>New:</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">bool</span><span class="w"> </span><span class="nf">FieldIsInOneof</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">google</span><span class="o">::</span><span class="n">protobuf</span><span class="o">::</span><span class="n">FieldDescriptor</span><span class="o">*</span><span class="w"> </span><span class="n">field</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="c1">// real_containing_oneof() returns nullptr for synthetic oneofs.</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">field</span><span class="o">-&gt;</span><span class="n">real_containing_oneof</span><span class="p">()</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="k">nullptr</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="to-iterate-over-all-oneofs">
+<h4>To iterate over all oneofs<a class="headerlink" href="#to-iterate-over-all-oneofs" title="永久链接至标题">¶</a></h4>
+<p>Old:</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">bool</span><span class="w"> </span><span class="nf">IterateOverOneofs</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">google</span><span class="o">::</span><span class="n">protobuf</span><span class="o">::</span><span class="n">Descriptor</span><span class="o">*</span><span class="w"> </span><span class="n">message</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">message</span><span class="o">-&gt;</span><span class="n">oneof_decl_count</span><span class="p">();</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">google</span><span class="o">::</span><span class="n">protobuf</span><span class="o">::</span><span class="n">OneofDescriptor</span><span class="o">*</span><span class="w"> </span><span class="n">oneof</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">message</span><span class="o">-&gt;</span><span class="n">oneof</span><span class="p">(</span><span class="n">i</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// ...</span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<p>New:</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">bool</span><span class="w"> </span><span class="nf">IterateOverOneofs</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">google</span><span class="o">::</span><span class="n">protobuf</span><span class="o">::</span><span class="n">Descriptor</span><span class="o">*</span><span class="w"> </span><span class="n">message</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="c1">// Real oneofs are always first, and real_oneof_decl_count() will return the</span>
+<span class="w">  </span><span class="c1">// total number of oneofs, excluding synthetic oneofs.</span>
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">message</span><span class="o">-&gt;</span><span class="n">real_oneof_decl_count</span><span class="p">();</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">google</span><span class="o">::</span><span class="n">protobuf</span><span class="o">::</span><span class="n">OneofDescriptor</span><span class="o">*</span><span class="w"> </span><span class="n">oneof</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">message</span><span class="o">-&gt;</span><span class="n">oneof</span><span class="p">(</span><span class="n">i</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// ...</span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="updating-reflection">
+<h2>Updating Reflection<a class="headerlink" href="#updating-reflection" title="永久链接至标题">¶</a></h2>
+<p>If your implementation offers reflection, there are a few other changes to make:</p>
+<div class="section" id="api-changes">
+<h3>API Changes<a class="headerlink" href="#api-changes" title="永久链接至标题">¶</a></h3>
+<p>The API for reflecting over fields and oneofs should make the following changes.
+These match the changes implemented in C++ reflection.</p>
+<ol class="simple">
+<li><p>Add a <code class="docutils literal notranslate"><span class="pre">FieldDescriptor::has_presence()</span></code> method returning <code class="docutils literal notranslate"><span class="pre">bool</span></code>
+(adjusted to your language’s naming convention).  This should return true
+for all fields that have explicit presence, as documented in
+<a class="reference internal" href="field_presence.html"><span class="doc std std-doc">docs/field_presence</span></a>.  In particular, this includes
+fields in a oneof, proto2 scalar fields, and proto3 <code class="docutils literal notranslate"><span class="pre">optional</span></code> fields.
+This accessor will allow users to query what fields have presence without
+thinking about the difference between proto2 and proto3.</p></li>
+<li><p>As a corollary of (1), please do <em>not</em> expose an accessor for the
+<code class="docutils literal notranslate"><span class="pre">FieldDescriptorProto.proto3_optional</span></code> field. We want to avoid having
+users implement any proto2/proto3-specific logic. Users should use the
+<code class="docutils literal notranslate"><span class="pre">has_presence()</span></code> function instead.</p></li>
+<li><p>You may also wish to add a <code class="docutils literal notranslate"><span class="pre">FieldDescriptor::has_optional_keyword()</span></code> method
+returning <code class="docutils literal notranslate"><span class="pre">bool</span></code>, which indicates whether the <code class="docutils literal notranslate"><span class="pre">optional</span></code> keyword is present.
+Message fields will always return <code class="docutils literal notranslate"><span class="pre">true</span></code> for <code class="docutils literal notranslate"><span class="pre">has_presence()</span></code>, so this method
+can allow a user to know whether the user wrote <code class="docutils literal notranslate"><span class="pre">optional</span></code> or not. It can
+occasionally be useful to have this information, even though it does not
+change the presence semantics of the field.</p></li>
+<li><p>If your reflection API may be used for a code generator, you may wish to
+implement methods to help users tell the difference between real and
+synthetic oneofs.  In particular:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">OneofDescriptor::is_synthetic()</span></code>: returns true if this is a synthetic
+oneof.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">FieldDescriptor::real_containing_oneof()</span></code>: like <code class="docutils literal notranslate"><span class="pre">containing_oneof()</span></code>,
+but returns <code class="docutils literal notranslate"><span class="pre">nullptr</span></code> if the oneof is synthetic.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Descriptor::real_oneof_decl_count()</span></code>: like <code class="docutils literal notranslate"><span class="pre">oneof_decl_count()</span></code>, but
+returns the number of real oneofs only.</p></li>
+</ul>
+</li>
+</ol>
+</div>
+<div class="section" id="implementation-changes">
+<h3>Implementation Changes<a class="headerlink" href="#implementation-changes" title="永久链接至标题">¶</a></h3>
+<p>Proto3 <code class="docutils literal notranslate"><span class="pre">optional</span></code> fields and synthetic oneofs must work correctly when
+reflected on. Specifically:</p>
+<ol class="simple">
+<li><p>Reflection for synthetic oneofs should work properly. Even though synthetic
+oneofs do not really exist in the message, you can still make reflection work
+as if they did. In particular, you can make a method like
+<code class="docutils literal notranslate"><span class="pre">Reflection::HasOneof()</span></code> or <code class="docutils literal notranslate"><span class="pre">Reflection::GetOneofFieldDescriptor()</span></code> look at
+the hasbit to determine if the oneof is present or not.</p></li>
+<li><p>Reflection for proto3 optional fields should work properly. For example, a
+method like <code class="docutils literal notranslate"><span class="pre">Reflection::HasField()</span></code> should know to look for the hasbit for a
+proto3 <code class="docutils literal notranslate"><span class="pre">optional</span></code> field. It should not be fooled by the synthetic oneof into
+thinking that there is a <code class="docutils literal notranslate"><span class="pre">case</span></code> member for the oneof.</p></li>
+</ol>
+<p>Once you have updated reflection to work properly with proto3 <code class="docutils literal notranslate"><span class="pre">optional</span></code> and
+synthetic oneofs, any code that <em>uses</em> your reflection interface should work
+properly with no changes. This is the benefit of using synthetic oneofs.</p>
+<p>In particular, if you have a reflection-based implementation of protobuf text
+format or JSON, it should properly support proto3 optional fields without any
+changes to the code. The fields will look like they all belong to a one-field
+oneof, and existing proto3 reflection code should know how to test presence for
+fields in a oneof.</p>
+<p>So the best way to test your reflection changes is to try round-tripping a
+message through text format, JSON, or some other reflection-based parser and
+serializer, if you have one.</p>
+</div>
+<div class="section" id="validating-descriptors">
+<h3>Validating Descriptors<a class="headerlink" href="#validating-descriptors" title="永久链接至标题">¶</a></h3>
+<p>If your reflection implementation supports loading descriptors at runtime,
+you must verify that all synthetic oneofs are ordered after all “real” oneofs.</p>
+<p>Here is the code that implements this validation step in C++, for inspiration:</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="w">  </span><span class="c1">// Validation that runs for each message.</span>
+<span class="w">  </span><span class="c1">// Synthetic oneofs must be last.</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">first_synthetic</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">-1</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">message</span><span class="o">-&gt;</span><span class="n">oneof_decl_count</span><span class="p">();</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">OneofDescriptor</span><span class="o">*</span><span class="w"> </span><span class="n">oneof</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">message</span><span class="o">-&gt;</span><span class="n">oneof_decl</span><span class="p">(</span><span class="n">i</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">oneof</span><span class="o">-&gt;</span><span class="n">is_synthetic</span><span class="p">())</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">first_synthetic</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">-1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">first_synthetic</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="p">;</span><span class="w"></span>
+<span class="w">      </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">first_synthetic</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">-1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">AddError</span><span class="p">(</span><span class="n">message</span><span class="o">-&gt;</span><span class="n">full_name</span><span class="p">(),</span><span class="w"> </span><span class="n">proto</span><span class="p">.</span><span class="n">oneof_decl</span><span class="p">(</span><span class="n">i</span><span class="p">),</span><span class="w"></span>
+<span class="w">                 </span><span class="n">DescriptorPool</span><span class="o">::</span><span class="n">ErrorCollector</span><span class="o">::</span><span class="n">OTHER</span><span class="p">,</span><span class="w"></span>
+<span class="w">                 </span><span class="s">&quot;Synthetic oneofs must be after all other oneofs&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">      </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">first_synthetic</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">-1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">message</span><span class="o">-&gt;</span><span class="n">real_oneof_decl_count_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">message</span><span class="o">-&gt;</span><span class="n">oneof_decl_count_</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">message</span><span class="o">-&gt;</span><span class="n">real_oneof_decl_count_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">first_synthetic</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+              </div>
+              
+        
+            <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="field_presence.html" title="上一页 页">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">上一页</p>
+            <p class="prev-next-title">应用说明：Field 存在</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="jvm_aot.html" title="下一页 页">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">下一页</p>
+        <p class="prev-next-title">Ahead Of Time (AOT) compilation for the Java Virtual Machine (JVM)”</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By xinetzone<br/>
+        
+            &copy; Copyright 2021, xinetzone.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

@@ -1,0 +1,689 @@
+
+<!DOCTYPE html>
+
+<html lang="zh_CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CMake &#8212; protobuf 0.1 文档</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/default.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/translations.js"></script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="java" href="../java/README.html" />
+    <link rel="prev" title="代码样例" href="../examples/README.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="zh_CN">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">protobuf 0.1 文档</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../README.html">
+   Protocol Buffers - 谷歌的数据交换格式
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../src/README.html">
+   安装
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../docs/index.html">
+   开发者指南
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../docs/field_presence.html">
+     应用说明：Field 存在
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../docs/implementing_proto3_presence.html">
+     How To Implement Field Presence for Proto3
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../docs/jvm_aot.html">
+     Ahead Of Time (AOT) compilation for the Java Virtual Machine (JVM)”
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../docs/options.html">
+     Protobuf Global Extension Registry
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../docs/performance.html">
+     Protobuf Performance
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../docs/third_party.html">
+     Third-Party Add-ons for Protocol Buffers
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/README.html">
+   Python API
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../examples/README.html">
+   代码样例
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   CMake
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../java/README.html">
+   java
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../objectivec/README.html">
+   objectivec
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../csharp/README.html">
+   csharp
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../js/README.html">
+   JavaScript
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ruby/README.html">
+   ruby
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../php/README.html">
+   PHP
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  <div>
+版权所有 © 2021 <a href="https://xinetzone.github.io/">xinetzone</a></div>
+<div>由 <a href="https://ebp.jupyterbook.org/">EBP</a> 提供技术支持</div>
+
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/cmake/README.md.txt"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/daobook/protobuf"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/daobook/protobuf/issues/new?title=Issue%20on%20page%20%2Fcmake/README.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/daobook/protobuf/edit/xin/cmake/README.md"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> 导航
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   CMake
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#environment-setup">
+   Environment Setup
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#getting-sources">
+   Getting Sources
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#cmake-configuration">
+   CMake Configuration
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#compiling">
+   Compiling
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#testing">
+   Testing
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#installing">
+   Installing
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#dlls-vs-static-linking">
+   DLLs vs. static linking
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#zlib-support">
+   ZLib support
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#notes-on-compiler-warnings">
+   Notes on Compiler Warnings
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="cmake">
+<h1>CMake<a class="headerlink" href="#cmake" title="永久链接至标题">¶</a></h1>
+<p>This directory contains <em>CMake</em> files that can be used to build protobuf
+with <em>MSVC</em> on <em>Windows</em>. You can build the project from <em>Command Prompt</em>
+and using an <em>Visual Studio</em> IDE.</p>
+<p>You need to have <a class="reference external" href="http://www.cmake.org">CMake</a>, <a class="reference external" href="https://www.visualstudio.com">Visual Studio</a>
+and optionally <a class="reference external" href="http://git-scm.com">Git</a> installed on your computer before proceeding.</p>
+<p>Most of the instructions will be given to the <em>Сommand Prompt</em>, but the same
+actions can be performed using appropriate GUI tools.</p>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="environment-setup">
+<h1>Environment Setup<a class="headerlink" href="#environment-setup" title="永久链接至标题">¶</a></h1>
+<p>Open the appropriate <em>Command Prompt</em> from the <em>Start</em> menu.</p>
+<p>For example <em>x86 Native Tools Command Prompt for VS 2019</em>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional&gt;
+</pre></div>
+</div>
+<p>Change to your working directory:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional&gt;cd C:\Path\to
+C:\Path\to&gt;
+</pre></div>
+</div>
+<p>Where <em>C:\Path\to</em> is path to your real working directory.</p>
+<p>Create a folder where protobuf headers/libraries/binaries will be installed after built:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>C:\Path\to&gt;mkdir install
+</pre></div>
+</div>
+<p>If <em>cmake</em> command is not available from <em>Command Prompt</em>, add it to system <em>PATH</em> variable:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>C:\Path\to&gt;set PATH=%PATH%;C:\Program Files (x86)\CMake\bin
+</pre></div>
+</div>
+<p>If <em>git</em> command is not available from <em>Command Prompt</em>, add it to system <em>PATH</em> variable:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>C:\Path\to&gt;set PATH=%PATH%;C:\Program Files\Git\cmd
+</pre></div>
+</div>
+<p>Good. Now you are ready to continue.</p>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="getting-sources">
+<h1>Getting Sources<a class="headerlink" href="#getting-sources" title="永久链接至标题">¶</a></h1>
+<p>You can get the latest stable source packages from the release page:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>https://github.com/protocolbuffers/protobuf/releases/latest
+</pre></div>
+</div>
+<p>For example: if you only need C++, download <code class="docutils literal notranslate"><span class="pre">protobuf-cpp-[VERSION].tar.gz</span></code>; if
+you need C++ and Java, download <code class="docutils literal notranslate"><span class="pre">protobuf-java-[VERSION].tar.gz</span></code> (every package
+contains C++ source already); if you need C++ and multiple other languages,
+download <code class="docutils literal notranslate"><span class="pre">protobuf-all-[VERSION].tar.gz</span></code>.</p>
+<p>Or you can use git to clone from protobuf git repository.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span> C:\Path\to&gt; git clone -b [release_tag] https://github.com/protocolbuffers/protobuf.git
+</pre></div>
+</div>
+<p>Where <em>[release_tag]</em> is a git tag like <em>v3.0.0-beta-1</em> or a branch name like <em>master</em>
+if you want to get the latest code.</p>
+<p>Go to the project folder:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span> C:\Path\to&gt;cd protobuf
+ C:\Path\to\protobuf&gt;
+</pre></div>
+</div>
+<p>Remember to update any submodules if you are using git clone (you can skip this
+step if you are using a release .tar.gz or .zip package):</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">C:\Path\to&gt; git submodule update --init --recursive</span>
+</pre></div>
+</div>
+<p>Now go to <em>cmake</em> folder in protobuf sources:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span> C:\Path\to\protobuf&gt;cd cmake
+ C:\Path\to\protobuf\cmake&gt;
+</pre></div>
+</div>
+<p>Good. Now you are ready to <em>CMake</em> configuration.</p>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="cmake-configuration">
+<h1>CMake Configuration<a class="headerlink" href="#cmake-configuration" title="永久链接至标题">¶</a></h1>
+<p><em>CMake</em> supports a lot of different
+<a class="reference external" href="http://www.cmake.org/cmake/help/latest/manual/cmake-generators.7.html">generators</a>
+for various native build systems.
+We are only interested in
+<a class="reference external" href="http://www.cmake.org/cmake/help/latest/manual/cmake-generators.7.html#makefile-generators">Makefile</a>
+and
+<a class="reference external" href="http://www.cmake.org/cmake/help/latest/manual/cmake-generators.7.html#visual-studio-generators">Visual Studio</a>
+generators.</p>
+<p>We will use shadow building to separate the temporary files from the protobuf source code.</p>
+<p>Create a temporary <em>build</em> folder and change your working directory to it:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span> C:\Path\to\protobuf\cmake&gt;mkdir build &amp; cd build
+ C:\Path\to\protobuf\cmake\build&gt;
+</pre></div>
+</div>
+<p>The <em>Makefile</em> generator can build the project in only one configuration, so you need to build
+a separate folder for each configuration.</p>
+<p>To start using a <em>Release</em> configuration:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span> C:\Path\to\protobuf\cmake\build&gt;mkdir release &amp; cd release
+ C:\Path\to\protobuf\cmake\build\release&gt;cmake -G &quot;NMake Makefiles&quot; ^
+ -DCMAKE_BUILD_TYPE=Release ^
+ -DCMAKE_INSTALL_PREFIX=../../../../install ^
+ ../..
+</pre></div>
+</div>
+<p>It will generate <em>nmake</em> <em>Makefile</em> in current directory.</p>
+<p>To use <em>Debug</em> configuration:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span> C:\Path\to\protobuf\cmake\build&gt;mkdir debug &amp; cd debug
+ C:\Path\to\protobuf\cmake\build\debug&gt;cmake -G &quot;NMake Makefiles&quot; ^
+ -DCMAKE_BUILD_TYPE=Debug ^
+ -DCMAKE_INSTALL_PREFIX=../../../../install ^
+ ../..
+</pre></div>
+</div>
+<p>It will generate <em>nmake</em> <em>Makefile</em> in current directory.</p>
+<p>To create <em>Visual Studio</em> solution file:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span> C:\Path\to\protobuf\cmake\build&gt;mkdir solution &amp; cd solution
+ C:\Path\to\protobuf\cmake\build\solution&gt;cmake -G &quot;Visual Studio 16 2019&quot; ^
+ -DCMAKE_INSTALL_PREFIX=../../../../install ^
+ ../..
+</pre></div>
+</div>
+<p>It will generate <em>Visual Studio</em> solution file <em>protobuf.sln</em> in current directory.</p>
+<p>If the <em>gmock</em> directory does not exist, and you do not want to build protobuf unit tests,
+you need to add <em>cmake</em> command argument <code class="docutils literal notranslate"><span class="pre">-Dprotobuf_BUILD_TESTS=OFF</span></code> to disable testing.</p>
+<p>To make a <em>Visual Studio</em> file for Visual Studio 16 2019, create the <em>Visual Studio</em>
+solution file above and edit the CMakeCache file.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>C:Path\to\protobuf\cmake\build\solution\CMakeCache
+</pre></div>
+</div>
+<p>Then create the <em>Visual Studio</em> solution file again</p>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="compiling">
+<h1>Compiling<a class="headerlink" href="#compiling" title="永久链接至标题">¶</a></h1>
+<p>To compile protobuf:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span> C:\Path\to\protobuf\cmake\build\release&gt;nmake
+</pre></div>
+</div>
+<p>or</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span> C:\Path\to\protobuf\cmake\build\debug&gt;nmake
+</pre></div>
+</div>
+<p>And wait for the compilation to finish.</p>
+<p>If you prefer to use the IDE:</p>
+<ul class="simple">
+<li><p>Open the generated protobuf.sln file in Microsoft Visual Studio.</p></li>
+<li><p>Choose “Debug” or “Release” configuration as desired.</p></li>
+<li><p>From the Build menu, choose “Build Solution”.</p></li>
+</ul>
+<p>And wait for the compilation to finish.</p>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="testing">
+<h1>Testing<a class="headerlink" href="#testing" title="永久链接至标题">¶</a></h1>
+<p>To run unit-tests, first you must compile protobuf as described above.
+Then run:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span> C:\Path\to\protobuf\cmake\build\release&gt;nmake check
+</pre></div>
+</div>
+<p>or</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span> C:\Path\to\protobuf\cmake\build\debug&gt;nmake check
+</pre></div>
+</div>
+<p>You can also build project <em>check</em> from Visual Studio solution.
+Yes, it may sound strange, but it works.</p>
+<p>You should see output similar to:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span> Running main() from gmock_main.cc
+ [==========] Running 1546 tests from 165 test cases.
+
+ ...
+
+ [==========] 1546 tests from 165 test cases ran. (2529 ms total)
+ [  PASSED  ] 1546 tests.
+</pre></div>
+</div>
+<p>To run specific tests:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span> C:\Path\to\protobuf&gt;cmake\build\release\tests.exe --gtest_filter=AnyTest*
+ Running main() from gmock_main.cc
+ Note: Google Test filter = AnyTest*
+ [==========] Running 3 tests from 1 test case.
+ [----------] Global test environment set-up.
+ [----------] 3 tests from AnyTest
+ [ RUN      ] AnyTest.TestPackAndUnpack
+ [       OK ] AnyTest.TestPackAndUnpack (0 ms)
+ [ RUN      ] AnyTest.TestPackAndUnpackAny
+ [       OK ] AnyTest.TestPackAndUnpackAny (0 ms)
+ [ RUN      ] AnyTest.TestIs
+ [       OK ] AnyTest.TestIs (0 ms)
+ [----------] 3 tests from AnyTest (1 ms total)
+
+ [----------] Global test environment tear-down
+ [==========] 3 tests from 1 test case ran. (2 ms total)
+ [  PASSED  ] 3 tests.
+</pre></div>
+</div>
+<p>Note that the tests must be run from the source folder.</p>
+<p>If all tests are passed, safely continue.</p>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="installing">
+<h1>Installing<a class="headerlink" href="#installing" title="永久链接至标题">¶</a></h1>
+<p>To install protobuf to the specified <em>install</em> folder:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span> C:\Path\to\protobuf\cmake\build\release&gt;nmake install
+</pre></div>
+</div>
+<p>or</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span> C:\Path\to\protobuf\cmake\build\debug&gt;nmake install
+</pre></div>
+</div>
+<p>You can also build project <em>INSTALL</em> from Visual Studio solution.
+It sounds not so strange and it works.</p>
+<p>This will create the following folders under the <em>install</em> location:</p>
+<ul class="simple">
+<li><p>bin - that contains protobuf <em>protoc.exe</em> compiler;</p></li>
+<li><p>include - that contains C++ headers and protobuf *.proto files;</p></li>
+<li><p>lib - that contains linking libraries and <em>CMake</em> configuration files for <em>protobuf</em> package.</p></li>
+</ul>
+<p>Now you can if needed:</p>
+<ul class="simple">
+<li><p>Copy the contents of the include directory to wherever you want to put headers.</p></li>
+<li><p>Copy protoc.exe wherever you put build tools (probably somewhere in your PATH).</p></li>
+<li><p>Copy linking libraries libprotobuf[d].lib, libprotobuf-lite[d].lib, and libprotoc[d].lib wherever you put libraries.</p></li>
+</ul>
+<p>To avoid conflicts between the MSVC debug and release runtime libraries, when
+compiling a debug build of your application, you may need to link against a
+debug build of libprotobufd.lib with “d” postfix.  Similarly, release builds should link against
+release libprotobuf.lib library.</p>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="dlls-vs-static-linking">
+<h1>DLLs vs. static linking<a class="headerlink" href="#dlls-vs-static-linking" title="永久链接至标题">¶</a></h1>
+<p>Static linking is now the default for the Protocol Buffer libraries.  Due to
+issues with Win32’s use of a separate heap for each DLL, as well as binary
+compatibility issues between different versions of MSVC’s STL library, it is
+recommended that you use static linkage only.  However, it is possible to
+build libprotobuf and libprotoc as DLLs if you really want.  To do this,
+do the following:</p>
+<ul class="simple">
+<li><p>Add an additional flag <code class="docutils literal notranslate"><span class="pre">-Dprotobuf_BUILD_SHARED_LIBS=ON</span></code> when invoking cmake</p></li>
+<li><p>Follow the same steps as described in the above section.</p></li>
+<li><p>When compiling your project, make sure to <code class="docutils literal notranslate"><span class="pre">#define</span> <span class="pre">PROTOBUF_USE_DLLS</span></code>.</p></li>
+</ul>
+<p>When distributing your software to end users, we strongly recommend that you
+do NOT install libprotobuf.dll or libprotoc.dll to any shared location.
+Instead, keep these libraries next to your binaries, in your application’s
+own install directory.  C++ makes it very difficult to maintain binary
+compatibility between releases, so it is likely that future versions of these
+libraries will <em>not</em> be usable as drop-in replacements.</p>
+<p>If your project is itself a DLL intended for use by third-party software, we
+recommend that you do NOT expose protocol buffer objects in your library’s
+public interface, and that you statically link protocol buffers into your
+library.</p>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="zlib-support">
+<h1>ZLib support<a class="headerlink" href="#zlib-support" title="永久链接至标题">¶</a></h1>
+<p>If you want to include GzipInputStream and GzipOutputStream
+(google/protobuf/io/gzip_stream.h) in libprotobuf, you will need to do a few
+additional steps.</p>
+<p>Obtain a copy of the zlib library.  The pre-compiled DLL at zlib.net works.
+You need prepare it:</p>
+<ul class="simple">
+<li><p>Make sure zlib’s two headers are in your <code class="docutils literal notranslate"><span class="pre">C:\Path\to\install\include</span></code> path</p></li>
+<li><p>Make sure zlib’s linking libraries (*.lib file) is in your
+<code class="docutils literal notranslate"><span class="pre">C:\Path\to\install\lib</span></code> library path.</p></li>
+</ul>
+<p>You can also compile it from source by yourself.</p>
+<p>Getting sources:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span> C:\Path\to&gt;git clone -b v1.2.8 https://github.com/madler/zlib.git
+ C:\Path\to&gt;cd zlib
+</pre></div>
+</div>
+<p>Compiling and Installing:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span> C:\Path\to\zlib&gt;mkdir build &amp; cd build
+ C:\Path\to\zlib\build&gt;mkdir release &amp; cd release
+ C:\Path\to\zlib\build\release&gt;cmake -G &quot;NMake Makefiles&quot; -DCMAKE_BUILD_TYPE=Release ^
+ -DCMAKE_INSTALL_PREFIX=../../../install ../..
+ C:\Path\to\zlib\build\release&gt;nmake &amp; nmake install
+</pre></div>
+</div>
+<p>You can make <em>debug</em> version or use <em>Visual Studio</em> generator also as before for the
+protobuf project.</p>
+<p>Now add <em>bin</em> folder from <em>install</em> to system <em>PATH</em>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span> C:\Path\to&gt;set PATH=%PATH%;C:\Path\to\install\bin
+</pre></div>
+</div>
+<p>You need reconfigure protobuf with flag <code class="docutils literal notranslate"><span class="pre">-Dprotobuf_WITH_ZLIB=ON</span></code> when invoking cmake.</p>
+<p>Note that if you have compiled ZLIB yourself, as stated above,
+further disable the option <code class="docutils literal notranslate"><span class="pre">-Dprotobuf_MSVC_STATIC_RUNTIME=OFF</span></code>.</p>
+<p>If it reports NOTFOUND for zlib_include or zlib_lib, you might haven’t put
+the headers or the .lib file in the right directory.</p>
+<p>If you already have ZLIB library and headers at some other location on your system then alternatively you can define following configuration flags to locate them:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>-DZLIB_INCLUDE_DIR=&lt;path to dir containing zlib headers&gt;
+-DZLIB_LIB=&lt;path to dir containing zlib&gt;
+</pre></div>
+</div>
+<p>Build and testing protobuf as usual.</p>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="notes-on-compiler-warnings">
+<h1>Notes on Compiler Warnings<a class="headerlink" href="#notes-on-compiler-warnings" title="永久链接至标题">¶</a></h1>
+<p>The following warnings have been disabled while building the protobuf libraries
+and compiler.  You may have to disable some of them in your own project as
+well, or live with them.</p>
+<ul class="simple">
+<li><p>C4018 - ‘expression’ : signed/unsigned mismatch</p></li>
+<li><p>C4146 - unary minus operator applied to unsigned type, result still unsigned</p></li>
+<li><p>C4244 - Conversion from ‘type1’ to ‘type2’, possible loss of data.</p></li>
+<li><p>C4251 - ‘identifier’ : class ‘type’ needs to have dll-interface to be used by
+clients of class ‘type2’</p></li>
+<li><p>C4267 - Conversion from ‘size_t’ to ‘type’, possible loss of data.</p></li>
+<li><p>C4305 - ‘identifier’ : truncation from ‘type1’ to ‘type2’</p></li>
+<li><p>C4355 - ‘this’ : used in base member initializer list</p></li>
+<li><p>C4800 - ‘type’ : forcing value to bool ‘true’ or ‘false’ (performance warning)</p></li>
+<li><p>C4996 - ‘function’: was declared deprecated</p></li>
+</ul>
+<p>C4251 is of particular note, if you are compiling the Protocol Buffer library
+as a DLL (see previous section).  The protocol buffer library uses templates in
+its public interfaces.  MSVC does not provide any reasonable way to export
+template classes from a DLL.  However, in practice, it appears that exporting
+templates is not necessary anyway.  Since the complete definition of any
+template is available in the header files, anyone importing the DLL will just
+end up compiling instances of the templates into their own binary.  The
+Protocol Buffer implementation does not rely on static template members being
+unique, so there should be no problem with this, but MSVC prints warning
+nevertheless.  So, we disable it.  Unfortunately, this warning will also be
+produced when compiling code which merely uses protocol buffers, meaning you
+may have to disable it in your code too.</p>
+</div>
+
+
+              </div>
+              
+        
+            <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="../examples/README.html" title="上一页 页">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">上一页</p>
+            <p class="prev-next-title">代码样例</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../java/README.html" title="下一页 页">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">下一页</p>
+        <p class="prev-next-title">java</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By xinetzone<br/>
+        
+            &copy; Copyright 2021, xinetzone.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

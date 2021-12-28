@@ -1,0 +1,438 @@
+
+<!DOCTYPE html>
+
+<html lang="zh_CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Python API &#8212; protobuf 0.1 文档</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/default.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/translations.js"></script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="代码样例" href="../examples/README.html" />
+    <link rel="prev" title="Third-Party Add-ons for Protocol Buffers" href="../docs/third_party.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="zh_CN">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">protobuf 0.1 文档</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../README.html">
+   Protocol Buffers - 谷歌的数据交换格式
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../src/README.html">
+   安装
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../docs/index.html">
+   开发者指南
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../docs/field_presence.html">
+     应用说明：Field 存在
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../docs/implementing_proto3_presence.html">
+     How To Implement Field Presence for Proto3
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../docs/jvm_aot.html">
+     Ahead Of Time (AOT) compilation for the Java Virtual Machine (JVM)”
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../docs/options.html">
+     Protobuf Global Extension Registry
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../docs/performance.html">
+     Protobuf Performance
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../docs/third_party.html">
+     Third-Party Add-ons for Protocol Buffers
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Python API
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../examples/README.html">
+   代码样例
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../cmake/README.html">
+   CMake
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../java/README.html">
+   java
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../objectivec/README.html">
+   objectivec
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../csharp/README.html">
+   csharp
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../js/README.html">
+   JavaScript
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ruby/README.html">
+   ruby
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../php/README.html">
+   PHP
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  <div>
+版权所有 © 2021 <a href="https://xinetzone.github.io/">xinetzone</a></div>
+<div>由 <a href="https://ebp.jupyterbook.org/">EBP</a> 提供技术支持</div>
+
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/python/README.md.txt"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/daobook/protobuf"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/daobook/protobuf/issues/new?title=Issue%20on%20page%20%2Fpython/README.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/daobook/protobuf/edit/xin/python/README.md"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> 导航
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Python API
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#development-warning">
+   开发预警
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#installation">
+   安装
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#usage">
+   用法
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#c-implementation">
+   C++ 实现
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="protocol-buffers-googles-data-interchange-format">
+<h1>Python API<a class="headerlink" href="#protocol-buffers-googles-data-interchange-format" title="永久链接至标题">¶</a></h1>
+<p>Copyright 2008 Google Inc.</p>
+<p>这个目录包含 Python 协议缓冲区运行库。</p>
+<p>通常情况下，这个目录是作为 protobuf 包的一部分，可以从：</p>
+<p>https://developers.google.com/protocol-buffers/</p>
+<p>完整的软件包包括 C++ 源代码，其中包括协议编译器（protoc）。如果你从 PyPI 或其他一些特定于 Python 的来源下载这个包，你可能只收到了代码的 Python 部分。在这种情况下，你需要从其他来源获得协议编译器，才能使用这个包。</p>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="development-warning">
+<h1>开发预警<a class="headerlink" href="#development-warning" title="永久链接至标题">¶</a></h1>
+<p>纯 Python 的性能很慢。为了获得更好的性能，请使用 Python c++ 实现。</p>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="installation">
+<h1>安装<a class="headerlink" href="#installation" title="永久链接至标题">¶</a></h1>
+<ol>
+<li><p>请确保你有 Python 3.5 或更新版本。 如果有疑问，请运行：</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ python -V
+</pre></div>
+</div>
+</li>
+<li><p>如果你没有安装 setuptools，请注意，只要你运行 <code class="docutils literal notranslate"><span class="pre">setup.py</span></code>，它就会自动下载和安装。如果你想手动安装它，你可以按照 <a class="reference external" href="https://packaging.python.org/en/latest/installing.html#setup-for-installing-packages">本页</a> 上的说明来做。</p></li>
+<li><p>构建 C++ 代码，或安装 <code class="docutils literal notranslate"><span class="pre">protoc</span></code> 的二进制分发。如果你安装的是二进制发行版，请确保它与本软件包的版本相同。如果有疑问，请运行：</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ protoc --version
+</pre></div>
+</div>
+</li>
+<li><p>建立并运行测试：</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ python setup.py build
+$ python setup.py test
+</pre></div>
+</div>
+<p>要构建、测试和使用 C++ 实现，你必须首先编译 <code class="docutils literal notranslate"><span class="pre">libprotobuf.so</span></code>：</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ (cd .. &amp;&amp; make)
+</pre></div>
+</div>
+<p>在 X 系统</p>
+<p>如果你正在运行 Homebrew 提供的 Python，你必须确保另一个版本的 protobuf 尚未安装，因为 Homebrew 的 Python 会在搜索 <code class="docutils literal notranslate"><span class="pre">../src/.libs</span></code> 之前搜索 <code class="docutils literal notranslate"><span class="pre">/usr/local/lib</span></code> 的 <code class="docutils literal notranslate"><span class="pre">libprotobuf.so</span></code>。</p>
+<p>你可以解除 Homebrew 的 protobuf 的链接，或者安装你之前建立的 <code class="docutils literal notranslate"><span class="pre">libprotobuf</span></code> ：</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ brew unlink protobuf
+</pre></div>
+</div>
+<p>或者</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ (cd .. &amp;&amp; make install)
+</pre></div>
+</div>
+<p>在其他 *nix 平台：</p>
+<p>你必须使 <code class="docutils literal notranslate"><span class="pre">libprotobuf.so</span></code> 动态可用。你可以安装你之前建立的 libprotobuf，或者设置 <code class="docutils literal notranslate"><span class="pre">LD_LIBRARY_PATH</span></code>：</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ export LD_LIBRARY_PATH=../src/.libs
+</pre></div>
+</div>
+<p>或者</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ (cd .. &amp;&amp; make install)
+</pre></div>
+</div>
+<p>要建立 C++ 实现，请运行：</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ python setup.py build --cpp_implementation
+</pre></div>
+</div>
+<p>然后像这样运行测试：</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ python setup.py test --cpp_implementation
+</pre></div>
+</div>
+<p>如果某些测试失败，这个库可能无法在你的系统上正确工作。 继续下去，风险自负。</p>
+<p>请注意，Cygwin 上某些版本的 Python 有一个已知的问题，导致测试在打印错误： <code class="docutils literal notranslate"><span class="pre">sem_init:</span> <span class="pre">Resource</span> <span class="pre">temporarily</span> <span class="pre">unavailable</span></code>。这似乎是一个 <a class="reference external" href="http://www.cygwin.com/ml/cygwin/2005-07/msg01378.html">Cygwin 或 Python 的错误</a>。</p>
+<p>我们不知道它是否或何时可能被修复。我们也不知道这个错误在实践中影响用户的可能性有多大”</p>
+</li>
+<li><p>安装</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ python setup.py install
+</pre></div>
+</div>
+<p>或者</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ (cd .. &amp;&amp; make install)
+$ python setup.py install --cpp_implementation
+</pre></div>
+</div>
+<p>这个步骤可能需要超级用户的权限。注意：要使用 C++ 实现，你需要在运行你的程序之前导出一个环境变量。更多细节见下面的 “C++ 实现” 部分。</p>
+</li>
+</ol>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="usage">
+<h1>用法<a class="headerlink" href="#usage" title="永久链接至标题">¶</a></h1>
+<p>协议缓冲区的完整文档可通过网络获得：</p>
+<p>https://developers.google.com/protocol-buffers/</p>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="c-implementation">
+<h1>C++ 实现<a class="headerlink" href="#c-implementation" title="永久链接至标题">¶</a></h1>
+<p>Python 消息的 C++ 实现是作为 Python 扩展而建立的，以提高 protobuf Python 的整体性能。</p>
+<p>要使用 C++ 实现，你需要安装 C++ protobuf 运行时库，请看父目录中的说明。</p>
+</div>
+
+
+              </div>
+              
+        
+            <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="../docs/third_party.html" title="上一页 页">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">上一页</p>
+            <p class="prev-next-title">Third-Party Add-ons for Protocol Buffers</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../examples/README.html" title="下一页 页">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">下一页</p>
+        <p class="prev-next-title">代码样例</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By xinetzone<br/>
+        
+            &copy; Copyright 2021, xinetzone.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

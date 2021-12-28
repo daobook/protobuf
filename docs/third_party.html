@@ -1,0 +1,557 @@
+
+<!DOCTYPE html>
+
+<html lang="zh_CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Third-Party Add-ons for Protocol Buffers &#8212; protobuf 0.1 文档</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/default.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/translations.js"></script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="Python API" href="../python/README.html" />
+    <link rel="prev" title="Protobuf Performance" href="performance.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="zh_CN">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">protobuf 0.1 文档</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../README.html">
+   Protocol Buffers - 谷歌的数据交换格式
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../src/README.html">
+   安装
+  </a>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="index.html">
+   开发者指南
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="field_presence.html">
+     应用说明：Field 存在
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="implementing_proto3_presence.html">
+     How To Implement Field Presence for Proto3
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="jvm_aot.html">
+     Ahead Of Time (AOT) compilation for the Java Virtual Machine (JVM)”
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="options.html">
+     Protobuf Global Extension Registry
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="performance.html">
+     Protobuf Performance
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Third-Party Add-ons for Protocol Buffers
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/README.html">
+   Python API
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../examples/README.html">
+   代码样例
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../cmake/README.html">
+   CMake
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../java/README.html">
+   java
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../objectivec/README.html">
+   objectivec
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../csharp/README.html">
+   csharp
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../js/README.html">
+   JavaScript
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ruby/README.html">
+   ruby
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../php/README.html">
+   PHP
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  <div>
+版权所有 © 2021 <a href="https://xinetzone.github.io/">xinetzone</a></div>
+<div>由 <a href="https://ebp.jupyterbook.org/">EBP</a> 提供技术支持</div>
+
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/docs/third_party.md.txt"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/daobook/protobuf"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/daobook/protobuf/issues/new?title=Issue%20on%20page%20%2Fdocs/third_party.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/daobook/protobuf/edit/xin/docs/third_party.md"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> 导航
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#programming-languages">
+   Programming Languages
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#rpc-implementations">
+   RPC Implementations
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#other-utilities">
+   Other Utilities
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="third-party-add-ons-for-protocol-buffers">
+<h1>Third-Party Add-ons for Protocol Buffers<a class="headerlink" href="#third-party-add-ons-for-protocol-buffers" title="永久链接至标题">¶</a></h1>
+<p>This page lists code related to Protocol Buffers which is developed and maintained by third parties.  You may find this code useful, but note that <strong>these projects are not affiliated with or endorsed by Google (unless explicitly marked)</strong>; try them at your own risk.  Also note that many projects here are in the early stages of development and not production-ready.</p>
+<p>If you have a project that should be listed here, please <a class="reference external" href="https://github.com/google/protobuf/pulls">send us a pull request</a> to update this page.</p>
+<div class="section" id="programming-languages">
+<h2>Programming Languages<a class="headerlink" href="#programming-languages" title="永久链接至标题">¶</a></h2>
+<p>These are projects we know about implementing Protocol Buffers for other programming languages:</p>
+<ul class="simple">
+<li><p>Action Script: http://code.google.com/p/protobuf-actionscript3/</p></li>
+<li><p>Action Script: https://code.google.com/p/protoc-gen-as3/</p></li>
+<li><p>Action Script: https://github.com/matrix3d/JProtoc</p></li>
+<li><p>Action Script: https://github.com/zhongfq/protobuf-as3/</p></li>
+<li><p>Ada: https://github.com/reznikmm/protobuf</p></li>
+<li><p>C: https://github.com/protobuf-c/protobuf-c</p></li>
+<li><p>C: http://koti.kapsi.fi/jpa/nanopb/</p></li>
+<li><p>C: https://github.com/cloudwu/pbc/</p></li>
+<li><p>C: https://github.com/haberman/upb/wiki</p></li>
+<li><p>C: https://github.com/squidfunk/protobluff</p></li>
+<li><p>C: https://github.com/eerimoq/pbtools</p></li>
+<li><p>C++: https://github.com/google/protobuf (Google-official implementation)</p></li>
+<li><p>C++: https://EmbeddedProto.com</p></li>
+<li><p>C/C++: http://spbc.sf.net/</p></li>
+<li><p>C#: http://code.google.com/p/protobuf-csharp-port</p></li>
+<li><p>C#: https://silentorbit.com/protobuf/</p></li>
+<li><p>C#/.NET/WCF/VB: http://code.google.com/p/protobuf-net/</p></li>
+<li><p>Clojure: http://github.com/ninjudd/clojure-protobuf</p></li>
+<li><p>Clojure: https://github.com/clojusc/protobuf</p></li>
+<li><p>Clojure: https://protojure.github.io</p></li>
+<li><p>Common Lisp: http://github.com/brown/protobuf</p></li>
+<li><p>Common Lisp: http://github.com/qitab/cl-protobuf</p></li>
+<li><p>D: https://github.com/dcarp/protobuf-d</p></li>
+<li><p>D: https://github.com/msoucy/dproto</p></li>
+<li><p>D: https://github.com/opticron/ProtocolBuffer</p></li>
+<li><p>Dart: https://github.com/dart-lang/dart-protobuf (runtime) https://github.com/dart-lang/dart-protoc-plugin (code generator)</p></li>
+<li><p>Delphi: http://sourceforge.net/projects/protobuf-delphi/</p></li>
+<li><p>Delphi: http://fundementals.sourceforge.net/dl.html</p></li>
+<li><p>Elixir: https://github.com/jeremyong/exprotoc</p></li>
+<li><p>Elixir: https://github.com/tony612/protobuf-elixir</p></li>
+<li><p>Elixir: https://github.com/ahamez/protox</p></li>
+<li><p>Elm: https://github.com/tiziano88/elm-protobuf</p></li>
+<li><p>Erlang: https://github.com/tomas-abrahamsson/gpb</p></li>
+<li><p>Erlang: http://piqi.org/</p></li>
+<li><p>Erlang: https://github.com/basho/erlang_protobuffs (no longer maintained, use gpb instead)</p></li>
+<li><p>Hacklang/HHVM: https://github.com/y3llowcake/proto-hack</p></li>
+<li><p>GDScript: https://github.com/oniksan/godobuf (Godot v3 engine plugin)</p></li>
+<li><p>Go: https://github.com/golang/protobuf (Google-official implementation)</p></li>
+<li><p>Go: https://github.com/akunspy/gopbuf</p></li>
+<li><p>Go: https://github.com/gogo/protobuf</p></li>
+<li><p>GopherJS: https://github.com/johanbrandhorst/protobuf</p></li>
+<li><p>Haskell: http://hackage.haskell.org/package/hprotoc</p></li>
+<li><p>Haskell: https://github.com/google/proto-lens (Google-unofficial implementation)</p></li>
+<li><p>Haskell: https://github.com/awakesecurity/proto3-suite (code generator) https://github.com/awakesecurity/proto3-wire (binary serializer/deserializer)</p></li>
+<li><p>Haxe: https://github.com/Atry/protoc-gen-haxe</p></li>
+<li><p>Java: https://github.com/google/protobuf (Google-official implementation)</p></li>
+<li><p>Java/Android: https://github.com/square/wire</p></li>
+<li><p>Java: https://github.com/HebiRobotics/QuickBuffers/</p></li>
+<li><p>Java ME: http://code.google.com/p/protobuf-javame/</p></li>
+<li><p>Java ME: http://swingme.sourceforge.net/encode.shtml</p></li>
+<li><p>Java ME: http://code.google.com/p/protobuf-j2me/</p></li>
+<li><p>Javascript: http://code.google.com/p/protobuf-js/</p></li>
+<li><p>Javascript: http://github.com/sirikata/protojs</p></li>
+<li><p>Javascript: https://github.com/dcodeIO/ProtoBuf.js</p></li>
+<li><p>Javascript: http://code.google.com/p/protobuf-for-node/</p></li>
+<li><p>Javascript: http://code.google.com/p/protostuff/</p></li>
+<li><p>Javascript: https://github.com/seishun/node-protoc-plugin (Node.js port of plugin.h)</p></li>
+<li><p>Javascript: https://github.com/seishun/node-protoc-gen-javascript (Node.js port of the Google-official implementation)</p></li>
+<li><p>Javascript: https://github.com/ButterCam/sisyphus-js</p></li>
+<li><p>Julia: https://github.com/tanmaykm/ProtoBuf.jl</p></li>
+<li><p>Kotlin: https://github.com/marcoferrer/kroto-plus</p></li>
+<li><p>Kotlin: https://github.com/Kotlin/kotlinx.serialization</p></li>
+<li><p>Kotlin: https://github.com/ButterCam/sisyphus</p></li>
+<li><p>Kotlin: https://github.com/open-toast/protokt</p></li>
+<li><p>Lua: http://code.google.com/p/protoc-gen-lua/</p></li>
+<li><p>Lua: http://github.com/indygreg/lua-protobuf</p></li>
+<li><p>Lua: https://github.com/Neopallium/lua-pb</p></li>
+<li><p>Matlab: http://code.google.com/p/protobuf-matlab/</p></li>
+<li><p>Mercury: http://code.google.com/p/protobuf-mercury/</p></li>
+<li><p>Objective C: http://code.google.com/p/protobuf-objc/</p></li>
+<li><p>Objective C: https://github.com/alexeyxo/protobuf-objc</p></li>
+<li><p>OCaml: http://piqi.org/</p></li>
+<li><p>Perl: http://groups.google.com/group/protobuf-perl</p></li>
+<li><p>Perl: http://search.cpan.org/perldoc?Google::ProtocolBuffers</p></li>
+<li><p>Perl: https://metacpan.org/pod/Google::ProtocolBuffers::Dynamic</p></li>
+<li><p>Perl/XS: http://code.google.com/p/protobuf-perlxs/</p></li>
+<li><p>PHP: http://code.google.com/p/pb4php/</p></li>
+<li><p>PHP: https://github.com/allegro/php-protobuf/</p></li>
+<li><p>PHP: https://github.com/chobie/php-protocolbuffers</p></li>
+<li><p>PHP: http://drslump.github.com/Protobuf-PHP</p></li>
+<li><p>Prolog: http://www.swi-prolog.org/pldoc/package/protobufs.html</p></li>
+<li><p>Purescript: https://github.com/xc-jp/purescript-protobuf</p></li>
+<li><p>Python: https://github.com/google/protobuf (Google-official implementation)</p></li>
+<li><p>Python: https://github.com/eigenein/protobuf</p></li>
+<li><p>Python: https://github.com/danielgtaylor/python-betterproto</p></li>
+<li><p>R: http://cran.r-project.org/package=RProtoBuf</p></li>
+<li><p>Ruby: http://code.google.com/p/ruby-protobuf/</p></li>
+<li><p>Ruby: http://github.com/mozy/ruby-protocol-buffers</p></li>
+<li><p>Ruby: https://github.com/bmizerany/beefcake/tree/master/lib/beefcake</p></li>
+<li><p>Ruby: https://github.com/localshred/protobuf</p></li>
+<li><p>Rust: https://github.com/tokio-rs/prost</p></li>
+<li><p>Rust: https://github.com/stepancheg/rust-protobuf/</p></li>
+<li><p>Rust: https://github.com/tafia/quick-protobuf</p></li>
+<li><p>Scala: http://github.com/jeffplaisance/scala-protobuf</p></li>
+<li><p>Scala: http://code.google.com/p/protobuf-scala</p></li>
+<li><p>Scala: https://github.com/SandroGrzicic/ScalaBuff</p></li>
+<li><p>Scala: https://scalapb.github.io</p></li>
+<li><p>Solidity: https://github.com/celer-network/pb3-gen-sol</p></li>
+<li><p>Swift: https://github.com/alexeyxo/protobuf-swift</p></li>
+<li><p>Swift: https://github.com/apple/swift-protobuf/</p></li>
+<li><p>Typescript: https://github.com/thesayyn/protoc-gen-ts</p></li>
+<li><p>Typescript: https://github.com/pbkit/pbkit</p></li>
+<li><p>Vala: https://launchpad.net/protobuf-vala</p></li>
+<li><p>Visual Basic: http://code.google.com/p/protobuf-net/</p></li>
+</ul>
+</div>
+<div class="section" id="rpc-implementations">
+<h2>RPC Implementations<a class="headerlink" href="#rpc-implementations" title="永久链接至标题">¶</a></h2>
+<p>GRPC (http://www.grpc.io/) is Google’s RPC implementation for Protocol Buffers. There are other third-party RPC implementations as well.  Some of these actually work with Protocol Buffers service definitions (defined using the <code class="docutils literal notranslate"><span class="pre">service</span></code> keyword in <code class="docutils literal notranslate"><span class="pre">.proto</span></code> files) while others just use Protocol Buffers message objects.</p>
+<ul class="simple">
+<li><p>https://github.com/grpc/grpc (C++, Node.js, Python, Ruby, Objective-C, PHP, C#, Google-official implementation)</p></li>
+<li><p>https://zeroc.com/products/ice (Multiple languages)</p></li>
+<li><p>https://github.com/protobuf-net/protobuf-net (C#/.NET/WCF/VB)</p></li>
+<li><p>http://www.deltavsoft.com/doc/_external_serialization.html#Protobufs (C++)</p></li>
+<li><p>https://protojure.github.io (Clojure)</p></li>
+<li><p>https://code.google.com/p/protobuf-rpc-pro/ (Java)</p></li>
+<li><p>https://github.com/baidu/sofa-pbrpc (C++)</p></li>
+<li><p>https://github.com/madhon/protobuf-csharp-rpc (C#)</p></li>
+<li><p>https://github.com/madwyn/libpbrpc (C++)</p></li>
+<li><p>https://github.com/SeriousMa/grpc-protobuf-validation (Java)</p></li>
+<li><p>https://github.com/elixir-grpc/grpc (Elixir)</p></li>
+<li><p>https://github.com/johanbrandhorst/protobuf (GopherJS)</p></li>
+<li><p>https://github.com/awakesecurity/gRPC-haskell (Haskell)</p></li>
+<li><p>https://github.com/Yeolar/raster (C++)</p></li>
+<li><p>https://github.com/jnordberg/wsrpc (JavaScript Node.js/Browser)</p></li>
+<li><p>https://github.com/pbkit/npm-packages/blob/main/frpc-test/src/index.spec.ts (TypeScript Node.js/Browser)</p></li>
+<li><p>https://github.com/ppissias/xsrpcj (Java)</p></li>
+<li><p>https://github.com/twitchtv/twirp (Multiple languages)</p></li>
+</ul>
+<p>Inactive:</p>
+<ul class="simple">
+<li><p>https://launchpad.net/txprotobuf/ (Python)</p></li>
+<li><p>https://github.com/modeswitch/protobuf-rpc (Python)</p></li>
+<li><p>https://github.com/sdeo/protobuf-socket-rpc (Java, Python)</p></li>
+<li><p>https://code.google.com/p/proto-streamer/ (Java)</p></li>
+<li><p>https://code.google.com/p/server1/ (C++)</p></li>
+<li><p>https://code.google.com/p/protobuf-mina-rpc/ (Python client, Java server)</p></li>
+<li><p>https://code.google.com/p/casocklib/ (C++)</p></li>
+<li><p>https://code.google.com/p/cxf-protobuf/ (Java)</p></li>
+<li><p>https://code.google.com/p/protobuf-remote/ (C++/C#)</p></li>
+<li><p>https://code.google.com/p/eneter-protobuf-serializer/ (Java/.NET)</p></li>
+<li><p>https://github.com/robbinfan/claire/tree/master/protorpc (C++)</p></li>
+<li><p>https://github.com/ebencheung/arab (C++)</p></li>
+<li><p>https://code.google.com/p/protobuf-csharp-rpc/ (C#)</p></li>
+<li><p>https://github.com/thesamet/rpcz (C++/Python, based on ZeroMQ)</p></li>
+<li><p>https://github.com/w359405949/libmaid (C++, Python)</p></li>
+</ul>
+</div>
+<div class="section" id="other-utilities">
+<h2>Other Utilities<a class="headerlink" href="#other-utilities" title="永久链接至标题">¶</a></h2>
+<p>There are miscellaneous other things you may find useful as a Protocol Buffers developer.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://bazel.build">Bazel Build</a></p>
+<ul>
+<li><p><a class="reference external" href="https://github.com/bazelbuild/rules_closure">rules_closure</a> <code class="docutils literal notranslate"><span class="pre">js-closure</span></code></p></li>
+<li><p><a class="reference external" href="https://github.com/bazelbuild/rules_go">rules_go</a> <code class="docutils literal notranslate"><span class="pre">go</span></code></p></li>
+<li><p><a class="reference external" href="https://github.com/pubref/rules_protobuf">rules_protobuf</a> <code class="docutils literal notranslate"><span class="pre">java</span></code> <code class="docutils literal notranslate"><span class="pre">c++</span></code> <code class="docutils literal notranslate"><span class="pre">c#</span></code> <code class="docutils literal notranslate"><span class="pre">go</span></code> <code class="docutils literal notranslate"><span class="pre">js-closure</span></code> <code class="docutils literal notranslate"><span class="pre">js-node</span></code> <code class="docutils literal notranslate"><span class="pre">python</span></code> <code class="docutils literal notranslate"><span class="pre">ruby</span></code></p></li>
+</ul>
+</li>
+<li><p><a class="reference external" href="http://code.google.com/p/protobuf-netbeans-plugin/">NetBeans IDE plugin</a></p></li>
+<li><p><a class="reference external" href="http://code.google.com/p/protobuf-wireshark/">Wireshark/Ethereal packet sniffer plugin</a></p></li>
+<li><p><a class="reference external" href="http://code.google.com/p/protobuf-java-format/">Alternate encodings (JSON, XML, HTML) for Java protobufs</a></p></li>
+<li><p><a class="reference external" href="https://github.com/sijuv/protobuf-codec">Another JSON encoder/decoder for Java</a></p></li>
+<li><p><a class="reference external" href="http://code.google.com/p/protobufeditor/">Editor for serialized protobufs</a></p></li>
+<li><p><a class="reference external" href="http://github.com/jvolkman/intellij-protobuf-editor">IntelliJ IDEA plugin</a></p></li>
+<li><p><a class="reference external" href="https://github.com/devkanro/intellij-protobuf-plugin">IntelliJ Protobuf Plugin</a></p></li>
+<li><p><a class="reference external" href="http://github.com/michaeledgar/protobuf-tmbundle">TextMate syntax highlighting</a></p></li>
+<li><p><a class="reference external" href="http://code.google.com/p/protocol-buffer-plsql/">Oracle PL SQL plugin</a></p></li>
+<li><p><a class="reference external" href="http://code.google.com/p/protobuf-dt/">Eclipse editor for protobuf (from Google)</a></p></li>
+<li><p><a class="reference external" href="https://github.com/saadware/protobuf-cppbuilder">C++ Builder compatible protobuf</a></p></li>
+<li><p>Maven Protobuf Compiler Plugin</p>
+<ul>
+<li><p>By xolstice.org (<a class="reference external" href="https://www.xolstice.org/protobuf-maven-plugin/">Documentation</a>) (<a class="reference external" href="https://github.com/xolstice/protobuf-maven-plugin/">Source</a>) <a class="reference external" href="https://repo1.maven.org/maven2/org/xolstice/maven/plugins/protobuf-maven-plugin/"><img alt="Maven Central" src="https://img.shields.io/maven-central/v/org.xolstice.maven.plugins/protobuf-maven-plugin.svg" /></a></p></li>
+<li><p>http://igor-petruk.github.com/protobuf-maven-plugin/</p></li>
+<li><p>http://code.google.com/p/maven-protoc-plugin/</p></li>
+<li><p>https://github.com/os72/protoc-jar-maven-plugin</p></li>
+</ul>
+</li>
+<li><p><a class="reference external" href="https://github.com/pseudomuto/protoc-gen-doc">Documentation generator plugin (Markdown/HTML/DocBook/…)</a></p></li>
+<li><p><a class="reference external" href="http://code.google.com/p/protoc-gen-docbook/">DocBook generator for .proto files</a></p></li>
+<li><p><a class="reference external" href="https://github.com/dbcode/protobuf-nginx/">Protobuf for nginx module</a></p></li>
+<li><p><a class="reference external" href="https://github.com/connamara/protobuf_spec">RSpec matchers and Cucumber step defs for testing Protocol Buffers</a></p></li>
+<li><p><a class="reference external" href="https://github.com/Atry/sbt-cppp">Sbt plugin for Protocol Buffers</a></p></li>
+<li><p><a class="reference external" href="https://github.com/aantono/gradle-plugin-protobuf">Gradle Protobuf Plugin</a></p></li>
+<li><p><a class="reference external" href="https://github.com/os72/protoc-jar">Multi-platform executable JAR and Java API for protoc</a></p></li>
+<li><p><a class="reference external" href="https://github.com/NextTuesday/py-pb-converters">Python scripts to convert between Protocol Buffers and JSON</a></p></li>
+<li><p><a class="reference external" href="http://visualstudiogallery.msdn.microsoft.com/4bc0f38c-b058-4e05-ae38-155e053c19c5">Visual Studio Language Service support for Protocol Buffers</a></p></li>
+<li><p><a class="reference external" href="https://marketplace.visualstudio.com/items?itemName=zxh404.vscode-proto3">Visual Studio Code Support for Protocol Buffers</a></p></li>
+<li><p><a class="reference external" href="https://github.com/yinqiwen/pbjson">C++ library for serialization/de-serialization between Protocol Buffers and JSON.</a></p></li>
+<li><p><a class="reference external" href="https://github.com/protobufel/protobuf-el">ProtoBuf with Java EE7 Expression Language 3.0; pure Java ProtoBuf Parser and Builder.</a></p></li>
+<li><p><a class="reference external" href="https://github.com/chai2010/notepadplus-protobuf">Notepad++ Syntax Highlighting for .proto files</a></p></li>
+<li><p><a class="reference external" href="https://github.com/ckaznocha/protoc-gen-lint">Linter for .proto files</a></p></li>
+<li><p><a class="reference external" href="https://github.com/os72/protobuf-dynamic">Protocol Buffers Dynamic Schema - create protobuf schemas programmatically (Java)</a></p></li>
+<li><p><a class="reference external" href="https://github.com/konsumer/node-protoc-plugin">Make protoc plugins in NodeJS</a></p></li>
+<li><p><a class="reference external" href="https://profanedb.gitlab.io">ProfaneDB - A Protocol Buffers database</a></p></li>
+<li><p><a class="reference external" href="https://github.com/CurataEng/hypothesis-protobuf">Protocol Buffer property-based testing utility and example message generator (Python / Hypothesis)</a></p></li>
+<li><p><a class="reference external" href="https://github.com/nilslice/protolock">Protolock - CLI utility to prevent backward-incompatible changes to .proto files</a></p></li>
+<li><p><a class="reference external" href="https://github.com/mattpaletta/optional-grpc.git">Optional GRPC - GRPC for testable microservices (Python)</a></p></li>
+<li><p><a class="reference external" href="https://github.com/yoheimuta/go-protoparser">Protobuf Parser - Yet another Go package which parses a Protocol Buffer file (proto2+proto3)</a></p></li>
+<li><p><a class="reference external" href="https://github.com/yoheimuta/protolint">Protolint - A tool to enforce Protocol Buffer style and conventions.</a></p>
+<ul>
+<li><p><a class="reference external" href="https://github.com/plexsystems/vscode-protolint">vscode-protolint: A protobuf linter for visual studio code</a></p></li>
+<li><p><a class="reference external" href="https://github.com/yoheimuta/intellij-protolint">intellij-protolint: A protobuf linter for JetBrains IDEs</a></p></li>
+<li><p><a class="reference external" href="https://github.com/yoheimuta/vim-protolint">vim-protolint: A protobuf linter for Vim</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference external" href="https://github.com/github/super-linter">super-linter: Protocol Buffer lint as GitHub Action</a></p></li>
+</ul>
+</div>
+</div>
+
+
+              </div>
+              
+        
+            <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="performance.html" title="上一页 页">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">上一页</p>
+            <p class="prev-next-title">Protobuf Performance</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../python/README.html" title="下一页 页">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">下一页</p>
+        <p class="prev-next-title">Python API</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By xinetzone<br/>
+        
+            &copy; Copyright 2021, xinetzone.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

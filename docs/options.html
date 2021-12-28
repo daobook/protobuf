@@ -1,0 +1,777 @@
+
+<!DOCTYPE html>
+
+<html lang="zh_CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Protobuf Global Extension Registry &#8212; protobuf 0.1 文档</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/default.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/translations.js"></script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="Protobuf Performance" href="performance.html" />
+    <link rel="prev" title="Ahead Of Time (AOT) compilation for the Java Virtual Machine (JVM)”" href="jvm_aot.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="zh_CN">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">protobuf 0.1 文档</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../README.html">
+   Protocol Buffers - 谷歌的数据交换格式
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../src/README.html">
+   安装
+  </a>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="index.html">
+   开发者指南
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="field_presence.html">
+     应用说明：Field 存在
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="implementing_proto3_presence.html">
+     How To Implement Field Presence for Proto3
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="jvm_aot.html">
+     Ahead Of Time (AOT) compilation for the Java Virtual Machine (JVM)”
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Protobuf Global Extension Registry
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="performance.html">
+     Protobuf Performance
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="third_party.html">
+     Third-Party Add-ons for Protocol Buffers
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/README.html">
+   Python API
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../examples/README.html">
+   代码样例
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../cmake/README.html">
+   CMake
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../java/README.html">
+   java
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../objectivec/README.html">
+   objectivec
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../csharp/README.html">
+   csharp
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../js/README.html">
+   JavaScript
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ruby/README.html">
+   ruby
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../php/README.html">
+   PHP
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  <div>
+版权所有 © 2021 <a href="https://xinetzone.github.io/">xinetzone</a></div>
+<div>由 <a href="https://ebp.jupyterbook.org/">EBP</a> 提供技术支持</div>
+
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/docs/options.md.txt"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/daobook/protobuf"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/daobook/protobuf/issues/new?title=Issue%20on%20page%20%2Fdocs/options.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/daobook/protobuf/edit/xin/docs/options.md"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> 导航
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#existing-registered-extensions">
+   Existing Registered Extensions
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="protobuf-global-extension-registry">
+<h1>Protobuf Global Extension Registry<a class="headerlink" href="#protobuf-global-extension-registry" title="永久链接至标题">¶</a></h1>
+<p>This file contains a global registry of known extensions for descriptor.proto,
+so that any developer who wishes to use multiple 3rd party projects, each with
+their own extensions, can be confident that there won’t be collisions in
+extension numbers.</p>
+<p>If you need an extension number for your custom option (see <a class="reference external" href="https://developers.google.com/protocol-buffers/docs/proto#customoptions">custom options</a>),
+please <a class="reference external" href="https://github.com/protocolbuffers/protobuf/pulls">send us a pull request</a> to
+add an entry to this doc, or <a class="reference external" href="https://github.com/protocolbuffers/protobuf/issues">create an issue</a>
+with info about your project (name and website) so we can add an entry for you.</p>
+<div class="section" id="existing-registered-extensions">
+<h2>Existing Registered Extensions<a class="headerlink" href="#existing-registered-extensions" title="永久链接至标题">¶</a></h2>
+<ol class="simple">
+<li><p>C# port of protocol buffers</p>
+<ul class="simple">
+<li><p>Website: https://github.com/jskeet/protobuf-csharp-port</p></li>
+<li><p>Extensions: 1000</p></li>
+</ul>
+</li>
+<li><p>Perl/XS port of protocol buffers</p>
+<ul class="simple">
+<li><p>Website: http://code.google.com/p/protobuf-perlxs</p></li>
+<li><p>Extensions: 1001</p></li>
+</ul>
+</li>
+<li><p>Objective-C port of protocol buffers</p>
+<ul class="simple">
+<li><p>Website: http://code.google.com/p/protobuf-objc</p></li>
+<li><p>Extensions: 1002</p></li>
+</ul>
+</li>
+<li><p>Google Wave Federation Protocol open-source release (FedOne)</p>
+<ul class="simple">
+<li><p>Website: http://code.google.com/p/wave-protocol</p></li>
+<li><p>Extensions: 1003</p></li>
+</ul>
+</li>
+<li><p>PHP code generator plugin</p>
+<ul class="simple">
+<li><p>Website: ???</p></li>
+<li><p>Extensions: 1004</p></li>
+</ul>
+</li>
+<li><p>GWT code generator plugin (third-party!)</p>
+<ul class="simple">
+<li><p>Website: http://code.google.com/p/protobuf-gwt/</p></li>
+<li><p>Extensions: 1005</p></li>
+</ul>
+</li>
+<li><p>Unix Domain RPC code generator plugin</p>
+<ul class="simple">
+<li><p>Website: http://go/udrpc</p></li>
+<li><p>Extensions: 1006</p></li>
+</ul>
+</li>
+<li><p>Object-C generator plugin (Plausible Labs)</p>
+<ul class="simple">
+<li><p>Website: http://www.plausible.coop</p></li>
+<li><p>Extensions: 1007</p></li>
+</ul>
+</li>
+<li><p>TBD (code42.com)</p>
+<ul class="simple">
+<li><p>Website: ???</p></li>
+<li><p>Extensions: 1008</p></li>
+</ul>
+</li>
+<li><p>Goby Underwater Autonomy Project</p>
+<ul class="simple">
+<li><p>Website: https://github.com/GobySoft/goby</p></li>
+<li><p>Extensions: 1009</p></li>
+</ul>
+</li>
+<li><p>Nanopb</p>
+<ul class="simple">
+<li><p>Website: http://kapsi.fi/~jpa/nanopb</p></li>
+<li><p>Extensions: 1010</p></li>
+</ul>
+</li>
+<li><p>Bluefin AUV Communication Extensions</p>
+<ul class="simple">
+<li><p>Website: http://www.bluefinrobotics.com</p></li>
+<li><p>Extensions: 1011</p></li>
+</ul>
+</li>
+<li><p>Dynamic Compact Control Language</p>
+<ul class="simple">
+<li><p>Website: http://github.com/GobySoft/dccl</p></li>
+<li><p>Extensions: 1012</p></li>
+</ul>
+</li>
+<li><p>ScaleOut StateServer® Native C++ API</p>
+<ul class="simple">
+<li><p>Website: http://www.scaleoutsoftware.com</p></li>
+<li><p>Extensions: 1013</p></li>
+</ul>
+</li>
+<li><p>FoundationDB SQL Layer</p>
+<ul class="simple">
+<li><p>Website: https://github.com/FoundationDB/sql-layer</p></li>
+<li><p>Extensions: 1014</p></li>
+</ul>
+</li>
+<li><p>Fender</p>
+<ul class="simple">
+<li><p>Website: https://github.com/hassox/fender</p></li>
+<li><p>Extensions: 1015</p></li>
+</ul>
+</li>
+<li><p>Vortex</p>
+<ul class="simple">
+<li><p>Website: http://www.prismtech.com/vortex</p></li>
+<li><p>Extensions: 1016</p></li>
+</ul>
+</li>
+<li><p>tresorit</p>
+<ul class="simple">
+<li><p>Website: https://tresorit.com/</p></li>
+<li><p>Extensions: 1017</p></li>
+</ul>
+</li>
+<li><p>CRIU (Checkpoint Restore In Userspace)</p>
+<ul class="simple">
+<li><p>Website: http://criu.org/Main_Page</p></li>
+<li><p>Extensions: 1018</p></li>
+</ul>
+</li>
+<li><p>protobuf-c</p>
+<ul class="simple">
+<li><p>Website: https://github.com/protobuf-c/protobuf-c</p></li>
+<li><p>Extensions: 1019</p></li>
+</ul>
+</li>
+<li><p>ScalaPB</p>
+<ul class="simple">
+<li><p>Website: https://scalapb.github.io/</p></li>
+<li><p>Extensions: 1020</p></li>
+</ul>
+</li>
+<li><p>protoc-gen-bq-schema</p>
+<ul class="simple">
+<li><p>Website: https://github.com/GoogleCloudPlatform/protoc-gen-bq-schema</p></li>
+<li><p>Extensions: 1021</p></li>
+</ul>
+</li>
+<li><p>grpc-gateway</p>
+<ul class="simple">
+<li><p>Website: https://github.com/gengo/grpc-gateway</p></li>
+<li><p>Extensions: 1022</p></li>
+</ul>
+</li>
+<li><p>Certificate Transparency</p>
+<ul class="simple">
+<li><p>Website: https://github.com/google/certificate-transparency</p></li>
+<li><p>Extensions: 1023</p></li>
+</ul>
+</li>
+<li><p>JUNOS Router Telemetry</p>
+<ul class="simple">
+<li><p>Website: http://www.juniper.net</p></li>
+<li><p>Extensions: 1024</p></li>
+</ul>
+</li>
+<li><p>Spine Event Engine</p>
+<ul class="simple">
+<li><p>Website: https://github.com/SpineEventEngine/core-java</p></li>
+<li><p>Extensions: 1025</p></li>
+</ul>
+</li>
+<li><p>Aruba cloud platform</p>
+<ul class="simple">
+<li><p>Website: ???</p></li>
+<li><p>Extensions: 1026 -&gt; 1030</p></li>
+</ul>
+</li>
+<li><p>Voltha</p>
+<ul class="simple">
+<li><p>Website: ???</p></li>
+<li><p>Extensions: 1031 -&gt; 1033</p></li>
+</ul>
+</li>
+<li><p>gator</p>
+<ul class="simple">
+<li><p>Website: ???</p></li>
+<li><p>Extensions: 1034</p></li>
+</ul>
+</li>
+<li><p>protoc-gen-flowtypes</p>
+<ul class="simple">
+<li><p>Website: https://github.com/tmc/grpcutil/tree/master/protoc-gen-flowtypes</p></li>
+<li><p>Extensions: 1035</p></li>
+</ul>
+</li>
+<li><p>ProfaneDB</p>
+<ul class="simple">
+<li><p>Website: https://gitlab.com/ProfaneDB/ProfaneDB</p></li>
+<li><p>Extensions: 1036</p></li>
+</ul>
+</li>
+<li><p>protobuf-net</p>
+<ul class="simple">
+<li><p>Website: https://github.com/mgravell/protobuf-net</p></li>
+<li><p>Extensions: 1037</p></li>
+</ul>
+</li>
+<li><p>FICO / StreamEngine</p>
+<ul class="simple">
+<li><p>Website: http://www.fico.com/</p></li>
+<li><p>Extensions: 1038</p></li>
+</ul>
+</li>
+<li><p>GopherJS</p>
+<ul class="simple">
+<li><p>Website: https://github.com/johanbrandhorst/protobuf</p></li>
+<li><p>Extensions: 1039</p></li>
+</ul>
+</li>
+<li><p>ygot</p>
+<ul class="simple">
+<li><p>Website: https://github.com/openconfig/ygot</p></li>
+<li><p>Extensions: 1040</p></li>
+</ul>
+</li>
+<li><p>go-grpcmw</p>
+<ul class="simple">
+<li><p>Website: https://github.com/MarquisIO/go-grpcmw</p></li>
+<li><p>Extensions: 1041</p></li>
+</ul>
+</li>
+<li><p>grpc-gateway protoc-gen-swagger</p>
+<ul class="simple">
+<li><p>Website: https://github.com/grpc-ecosystem/grpc-gateway</p></li>
+<li><p>Extensions: 1042</p></li>
+</ul>
+</li>
+<li><p>AN Message</p>
+<ul class="simple">
+<li><p>Website: TBD</p></li>
+<li><p>Extensions: 1043</p></li>
+</ul>
+</li>
+<li><p>protofire</p>
+<ul class="simple">
+<li><p>Website: https://github.com/ribrdb/protofire</p></li>
+<li><p>Extensions: 1044</p></li>
+</ul>
+</li>
+<li><p>Gravity</p>
+<ul class="simple">
+<li><p>Website: https://github.com/aphysci/gravity</p></li>
+<li><p>Extensions: 1045</p></li>
+</ul>
+</li>
+<li><p>SEMI Standards – I&amp;C Technical Committee</p>
+<ul class="simple">
+<li><p>Website: http://downloads.semi.org/web/wstdsbal.nsf/9c2b317e76523cca88257641005a47f5/88a5863a580e323088256e7b00707489!OpenDocument</p></li>
+<li><p>Extensions: 1046</p></li>
+</ul>
+</li>
+<li><p>Elixir plugin</p>
+<ul class="simple">
+<li><p>Website: https://github.com/tony612/grpc-elixir</p></li>
+<li><p>Extensions: 1047</p></li>
+</ul>
+</li>
+<li><p>API client generators</p>
+<ul class="simple">
+<li><p>Website: ???</p></li>
+<li><p>Extensions: 1048-1056</p></li>
+</ul>
+</li>
+<li><p>Netifi Proteus</p>
+<ul class="simple">
+<li><p>Website: https://github.com/netifi-proteus</p></li>
+<li><p>Extensions: 1057</p></li>
+</ul>
+</li>
+<li><p>CGSN Mooring Project</p>
+<ul class="simple">
+<li><p>Website: https://bitbucket.org/ooicgsn/cgsn-mooring</p></li>
+<li><p>Extensions: 1058</p></li>
+</ul>
+</li>
+<li><p>Container Storage Interface</p>
+<ul class="simple">
+<li><p>Website: https://github.com/container-storage-interface/spec</p></li>
+<li><p>Extensions: 1059-1069</p></li>
+</ul>
+</li>
+<li><p>TwirpQL Plugin</p>
+<ul class="simple">
+<li><p>Website: https://twirpql.dev</p></li>
+<li><p>Extensions: 1070</p></li>
+</ul>
+</li>
+<li><p>Protoc-gen-validate</p>
+<ul class="simple">
+<li><p>Website: https://github.com/envoyproxy/protoc-gen-validate</p></li>
+<li><p>Extensions: 1071</p></li>
+</ul>
+</li>
+<li><p>Protokt</p>
+<ul class="simple">
+<li><p>Website: https://github.com/open-toast/protokt</p></li>
+<li><p>Extensions: 1072</p></li>
+</ul>
+</li>
+<li><p>Dart port of protocol buffers</p>
+<ul class="simple">
+<li><p>Website https://github.com/dart-lang/protobuf</p></li>
+<li><p>Extensions: 1073</p></li>
+</ul>
+</li>
+<li><p>Ocaml-protoc-plugin</p>
+<ul class="simple">
+<li><p>Website: https://github.com/issuu/ocaml-protoc-plugin</p></li>
+<li><p>Extensions: 1074</p></li>
+</ul>
+</li>
+<li><p>Analyze Re Graphene</p>
+<ul class="simple">
+<li><p>Website: https://analyzere.com</p></li>
+<li><p>Extensions: 1075</p></li>
+</ul>
+</li>
+<li><p>Wire since and until</p>
+<ul class="simple">
+<li><p>Website: https://square.github.io/wire/</p></li>
+<li><p>Extensions: 1076, 1077</p></li>
+</ul>
+</li>
+<li><p>Bazel, Failure Details</p>
+<ul class="simple">
+<li><p>Website: https://github.com/bazelbuild/bazel</p></li>
+<li><p>Extensions: 1078</p></li>
+</ul>
+</li>
+<li><p>grpc-graphql-gateway</p>
+<ul class="simple">
+<li><p>Website: https://github.com/ysugimoto/grpc-graphql-gateway</p></li>
+<li><p>Extensions: 1079</p></li>
+</ul>
+</li>
+<li><p>Cloudstate</p>
+<ul class="simple">
+<li><p>Website: https://cloudstate.io</p></li>
+<li><p>Extensions: 1080-1084</p></li>
+</ul>
+</li>
+<li><p>SummaFT protoc-plugins</p>
+<ul class="simple">
+<li><p>Website: https://summaft.com/</p></li>
+<li><p>Extensions: 1085</p></li>
+</ul>
+</li>
+<li><p>ADLINK EdgeSDK</p>
+<ul class="simple">
+<li><p>Website: https://www.adlinktech.com/en/Edge-SDK-IoT</p></li>
+<li><p>Extensions: 1086</p></li>
+</ul>
+</li>
+<li><p>Wire wire_package</p>
+<ul class="simple">
+<li><p>Website: https://square.github.io/wire/</p></li>
+<li><p>Extensions: 1087</p></li>
+</ul>
+</li>
+<li><p>Confluent Schema Registry</p>
+<ul class="simple">
+<li><p>Website: https://github.com/confluentinc/schema-registry</p></li>
+<li><p>Extensions: 1088</p></li>
+</ul>
+</li>
+<li><p>ScalaPB Validate</p>
+<ul class="simple">
+<li><p>Website: https://scalapb.github.io/docs/validation</p></li>
+<li><p>Extension: 1089</p></li>
+</ul>
+</li>
+<li><p>Astounding (Currently Private)</p>
+<ul class="simple">
+<li><p>Website: https://github.com/PbPipes/Astounding</p></li>
+<li><p>Extension: 1090</p></li>
+</ul>
+</li>
+<li><p>Protoc-gen-psql</p>
+<ul class="simple">
+<li><p>Website: https://github.com/Intrinsec/protoc-gen-psql</p></li>
+<li><p>Extension: 1091-1101</p></li>
+</ul>
+</li>
+<li><p>Protoc-gen-sanitize</p>
+<ul class="simple">
+<li><p>Website: https://github.com/Intrinsec/protoc-gen-sanitize</p></li>
+<li><p>Extension: 1102-1106</p></li>
+</ul>
+</li>
+<li><p>Coach Client Connect (planned release in March 2021)</p>
+<ul class="simple">
+<li><p>Website: https://www.coachclientconnect.com</p></li>
+<li><p>Extension: 1107</p></li>
+</ul>
+</li>
+<li><p>Kratos API Errors</p>
+<ul class="simple">
+<li><p>Website: https://go-kratos.dev</p></li>
+<li><p>Extension: 1108</p></li>
+</ul>
+</li>
+<li><p>Glitchdot (Currently Private)</p>
+<ul class="simple">
+<li><p>Website: https://go.glitchdot.com</p></li>
+<li><p>Extension: 1109</p></li>
+</ul>
+</li>
+<li><p>eigr/protocol</p>
+<ul class="simple">
+<li><p>Website: https://eigr.io</p></li>
+<li><p>Extension: 1110-1114</p></li>
+</ul>
+</li>
+<li><p>Container Object Storage Interface (COSI)</p>
+<ul class="simple">
+<li><p>Website: https://github.com/kubernetes-sigs/container-object-storage-interface-spec</p></li>
+<li><p>Extension: 1115-1124</p></li>
+</ul>
+</li>
+<li><p>Protoc-gen-jsonschema</p>
+<ul class="simple">
+<li><p>Website: https://github.com/chrusty/protoc-gen-jsonschema</p></li>
+<li><p>Extension: 1125-1129</p></li>
+</ul>
+</li>
+<li><p>Protoc-gen-checker</p>
+<ul class="simple">
+<li><p>Website: https://github.com/Intrinsec/protoc-gen-checker</p></li>
+<li><p>Extension: 1130-1139</p></li>
+</ul>
+</li>
+<li><p>Protoc-gen-go-svc</p>
+<ul class="simple">
+<li><p>Website: https://github.com/dane/protoc-gen-go-svc</p></li>
+<li><p>Extension: 1140</p></li>
+</ul>
+</li>
+</ol>
+</div>
+</div>
+
+
+              </div>
+              
+        
+            <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="jvm_aot.html" title="上一页 页">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">上一页</p>
+            <p class="prev-next-title">Ahead Of Time (AOT) compilation for the Java Virtual Machine (JVM)”</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="performance.html" title="下一页 页">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">下一页</p>
+        <p class="prev-next-title">Protobuf Performance</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By xinetzone<br/>
+        
+            &copy; Copyright 2021, xinetzone.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

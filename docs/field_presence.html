@@ -1,0 +1,969 @@
+
+<!DOCTYPE html>
+
+<html lang="zh_CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>应用说明：Field 存在 &#8212; protobuf 0.1 文档</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/default.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/translations.js"></script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="How To Implement Field Presence for Proto3" href="implementing_proto3_presence.html" />
+    <link rel="prev" title="开发者指南" href="index.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="zh_CN">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">protobuf 0.1 文档</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../README.html">
+   Protocol Buffers - 谷歌的数据交换格式
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../src/README.html">
+   安装
+  </a>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="index.html">
+   开发者指南
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     应用说明：Field 存在
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="implementing_proto3_presence.html">
+     How To Implement Field Presence for Proto3
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="jvm_aot.html">
+     Ahead Of Time (AOT) compilation for the Java Virtual Machine (JVM)”
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="options.html">
+     Protobuf Global Extension Registry
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="performance.html">
+     Protobuf Performance
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="third_party.html">
+     Third-Party Add-ons for Protocol Buffers
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/README.html">
+   Python API
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../examples/README.html">
+   代码样例
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../cmake/README.html">
+   CMake
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../java/README.html">
+   java
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../objectivec/README.html">
+   objectivec
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../csharp/README.html">
+   csharp
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../js/README.html">
+   JavaScript
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ruby/README.html">
+   ruby
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../php/README.html">
+   PHP
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  <div>
+版权所有 © 2021 <a href="https://xinetzone.github.io/">xinetzone</a></div>
+<div>由 <a href="https://ebp.jupyterbook.org/">EBP</a> 提供技术支持</div>
+
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/docs/field_presence.md.txt"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/daobook/protobuf"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/daobook/protobuf/issues/new?title=Issue%20on%20page%20%2Fdocs/field_presence.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/daobook/protobuf/edit/xin/docs/field_presence.md"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> 导航
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#background">
+   Background
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#presence-disciplines">
+     Presence disciplines
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#presence-in-tag-value-stream-wire-format-serialization">
+     Presence in
+     <em>
+      tag-value stream
+     </em>
+     (wire format) serialization
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#presence-in-named-field-mapping-formats">
+     Presence in
+     <em>
+      named-field mapping
+     </em>
+     formats
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#presence-in-proto2-apis">
+     Presence in proto2 APIs
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#presence-in-proto3-apis">
+     Presence in proto3 APIs
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#semantic-differences">
+   Semantic differences
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#considerations-for-merging">
+     Considerations for merging
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#considerations-for-change-compatibility">
+     Considerations for change-compatibility
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#how-to-enable-explicit-presence-in-proto3">
+   How to enable
+   <em>
+    explicit presence
+   </em>
+   in proto3
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#proto-file-changes">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       .proto
+      </span>
+     </code>
+     file changes
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#protoc-invocation">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       protoc
+      </span>
+     </code>
+     invocation
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#using-the-generated-code">
+     Using the generated code
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#c-example">
+       C++ example
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id1">
+       C# example
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#go-example">
+       Go example
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#java-example">
+       Java example
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#python-example">
+       Python example
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#ruby-example">
+       Ruby example
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#javascript-example">
+       Javascript example
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#objective-c-example">
+       Objective C example
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="application-note-field-presence">
+<h1>应用说明：Field 存在<a class="headerlink" href="#application-note-field-presence" title="永久链接至标题">¶</a></h1>
+<p>This application note explains the various presence tracking disciplines for protobuf fields. It also explains the behaviour of explicit presence tracking for singular proto3 fields with basic types.</p>
+<div class="section" id="background">
+<h2>Background<a class="headerlink" href="#background" title="永久链接至标题">¶</a></h2>
+<p><em>Field presence</em> is the notion of whether a protobuf field has a value. There are two different manifestations of presence for protobufs: <em>no presence</em>, where the generated message API stores field values (only), and <em>explicit presence</em>, where the API also stores whether or not a field has been set.</p>
+<p>Historically, proto2 has mostly followed <em>explicit presence</em>, while proto3 exposes only <em>no presence</em> semantics. Singular proto3 fields of basic types (numeric, string, bytes, and enums) which are defined with the <code class="docutils literal notranslate"><span class="pre">optional</span></code> label have <em>explicit presence</em>, like proto2 (this feature is enabled by default as release 3.15).</p>
+<div class="section" id="presence-disciplines">
+<h3>Presence disciplines<a class="headerlink" href="#presence-disciplines" title="永久链接至标题">¶</a></h3>
+<p><em>Presence disciplines</em> define the semantics for translating between the <em>API representation</em> and the <em>serialized representation</em>. The <em>no presence</em> discipline relies upon the field value itself to make decisions at (de)serialization time, while the <em>explicit presence</em> discipline relies upon the explicit tracking state instead.</p>
+</div>
+<div class="section" id="presence-in-tag-value-stream-wire-format-serialization">
+<h3>Presence in <em>tag-value stream</em> (wire format) serialization<a class="headerlink" href="#presence-in-tag-value-stream-wire-format-serialization" title="永久链接至标题">¶</a></h3>
+<p>The wire format is a stream of tagged, <em>self-delimiting</em> values. By definition, the wire format represents a sequence of <em>present</em> values. In other words, every value found within a serialization represents a <em>present</em> field; furthermore, the serialization contains no information about not-present values.</p>
+<p>The generated API for a proto message includes (de)serialization definitions which translate between API types and a stream of definitionally <em>present</em> (tag, value) pairs. This translation is designed to be forward- and backward-compatibile across changes to the message definition; however, this compatibility introduces some (perhaps surprising) considerations when deserializing wire-formatted messages:</p>
+<ul class="simple">
+<li><p>When serializing, fields with <em>no presence</em> are not serialized if they contain their default value.</p>
+<ul>
+<li><p>For numeric types, the default is 0.</p></li>
+<li><p>For enums, the default is the zero-valued enumerator.</p></li>
+<li><p>For strings, bytes, and repeated fields, the default is the zero-length value.</p></li>
+<li><p>For messages, the default is the language-specific null value.</p></li>
+</ul>
+</li>
+<li><p>“Empty” length-delimited values (such as empty strings) can be validly represented in serialized values: the field is “present,” in the sense that it appears in the wire format. However, if the generated API does not track presence, then these values may not be re-serialized; i.e., the empty field may be “not present” after a serialization round-trip.</p></li>
+<li><p>When deserializing, duplicate field values may be handled in different ways depending on the field definition.</p>
+<ul>
+<li><p>Duplicate <code class="docutils literal notranslate"><span class="pre">repeated</span></code> fields are typically appended to the field’s API representation. (Note that serializing a <em>packed</em> repeated field produces only one, length-delimited value in the tag stream.)</p></li>
+<li><p>Duplicate <code class="docutils literal notranslate"><span class="pre">optional</span></code> field values follow the rule that “the last one wins.”</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">oneof</span></code> fields expose the API-level invariant that only one field is set at a time. However, the wire format may include multiple (tag, value) pairs which notionally belong to the <code class="docutils literal notranslate"><span class="pre">oneof</span></code>. Similar to <code class="docutils literal notranslate"><span class="pre">optional</span></code> fields, the generated API follows the “last one wins” rule.</p></li>
+<li><p>Out-of-range values are not returned for enum fields in generated proto2 APIs. However, out-of-range values may be stored as <em>unknown fields</em> in the API, even though the wire-format tag was recognized.</p></li>
+</ul>
+</div>
+<div class="section" id="presence-in-named-field-mapping-formats">
+<h3>Presence in <em>named-field mapping</em> formats<a class="headerlink" href="#presence-in-named-field-mapping-formats" title="永久链接至标题">¶</a></h3>
+<p>Protobufs can be represented in human-readable, textual forms. Two notable formats are TextFormat (the output format produced by generated message <code class="docutils literal notranslate"><span class="pre">DebugString</span></code> methods) and JSON.</p>
+<p>These formats have correctness requirements of their own, and are generally stricter than <em>tagged-value stream</em> formats. However, TextFormat more closely mimics the semantics of the wire format, and does, in certain cases, provide similar semantics (for example, appending repeated name-value mappings to a repeated field). In particular, similar to the wire format, TextFormat only includes fields which are present.</p>
+<p>JSON is a much stricter format, however, and cannot validly represent some semantics of the wire format or TextFormat.</p>
+<ul class="simple">
+<li><p>Notably, JSON <em>elements</em> are semantically unordered, and each member must have a unique name. This is different from TextFormat rules for repeated fields.</p></li>
+<li><p>JSON may include fields that are “not present,” unlike the <em>no presence</em> discipline for other formats:</p>
+<ul>
+<li><p>JSON defines a <code class="docutils literal notranslate"><span class="pre">null</span></code> value, which may be used to represent a <em>defined but not-present field</em>.</p></li>
+<li><p>Repeated field values may be included in the formatted output, even if they are equal to the default (an empty list).</p></li>
+</ul>
+</li>
+<li><p>Because JSON elements are unordered, there is no way to unambiguously interpret the “last one wins” rule.</p>
+<ul>
+<li><p>In most cases, this is fine: JSON elements must have unique names: repeated field values are not valid JSON, so they do not need to be resolved as they are for TextFormat.</p></li>
+<li><p>However, this means that it may not be possible to interpret <code class="docutils literal notranslate"><span class="pre">oneof</span></code> fields unambiguously: if multiple cases are present, they are unordered.</p></li>
+</ul>
+</li>
+</ul>
+<p>In theory, JSON <em>can</em> represent presence in a semantic-preserving fashion. In practice, however, presence correctness can vary depending upon implementation choices, especially if JSON was chosen as a means to interoperate with clients not using protobufs.</p>
+</div>
+<div class="section" id="presence-in-proto2-apis">
+<h3>Presence in proto2 APIs<a class="headerlink" href="#presence-in-proto2-apis" title="永久链接至标题">¶</a></h3>
+<p>This table outlines whether presence is tracked for fields in proto2 APIs (both for generated APIs and using dynamic reflection):</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Field type</p></th>
+<th class="head"><p>Explicit Presence</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Singular numeric (integer or floating point)</p></td>
+<td><p>✔️</p></td>
+</tr>
+<tr class="row-odd"><td><p>Singular enum</p></td>
+<td><p>✔️</p></td>
+</tr>
+<tr class="row-even"><td><p>Singular string or bytes</p></td>
+<td><p>✔️</p></td>
+</tr>
+<tr class="row-odd"><td><p>Singular message</p></td>
+<td><p>✔️</p></td>
+</tr>
+<tr class="row-even"><td><p>Repeated</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>Oneofs</p></td>
+<td><p>✔️</p></td>
+</tr>
+<tr class="row-even"><td><p>Maps</p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+<p>Singular fields (of all types) track presence explicitly in the generated API. The generated message interface includes methods to query presence of fields. For example, the field <code class="docutils literal notranslate"><span class="pre">foo</span></code> has a corresponding <code class="docutils literal notranslate"><span class="pre">has_foo</span></code> method. (The specific name follows the same language-specific naming convention as the field accessors.) These methods are sometimes referred to as “hazzers” within the protobuf implementation.</p>
+<p>Similar to singular fields, <code class="docutils literal notranslate"><span class="pre">oneof</span></code> fields explicitly track which one of the members, if any, contains a value. For example, consider this example <code class="docutils literal notranslate"><span class="pre">oneof</span></code>:</p>
+<div class="highlight-protobuf notranslate"><div class="highlight"><pre><span></span><span class="k">oneof</span> <span class="n">foo</span> <span class="p">{</span>
+  <span class="kt">int32</span> <span class="na">a</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+  <span class="kt">float</span> <span class="na">b</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Depending on the target language, the generated API would generally include several methods:</p>
+<ul class="simple">
+<li><p>A hazzer for the oneof: <code class="docutils literal notranslate"><span class="pre">has_foo</span></code></p></li>
+<li><p>A <em>oneof case</em> method: <code class="docutils literal notranslate"><span class="pre">foo</span></code></p></li>
+<li><p>Hazzers for the members: <code class="docutils literal notranslate"><span class="pre">has_a</span></code>, <code class="docutils literal notranslate"><span class="pre">has_b</span></code></p></li>
+<li><p>Getters for the members: <code class="docutils literal notranslate"><span class="pre">a</span></code>, <code class="docutils literal notranslate"><span class="pre">b</span></code></p></li>
+</ul>
+<p>Repeated fields and maps do not track presence: there is no distinction between an <em>empty</em> and a <em>not-present</em> repeated field.</p>
+</div>
+<div class="section" id="presence-in-proto3-apis">
+<h3>Presence in proto3 APIs<a class="headerlink" href="#presence-in-proto3-apis" title="永久链接至标题">¶</a></h3>
+<p>This table outlines whether presence is tracked for fields in proto3 APIs (both for generated APIs and using dynamic reflection):</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Field type</p></th>
+<th class="head"><p><code class="docutils literal notranslate"><span class="pre">optional</span></code></p></th>
+<th class="head"><p>Explicit Presence</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Singular numeric (integer or floating point)</p></td>
+<td><p>No</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>Singular enum</p></td>
+<td><p>No</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>Singular string or bytes</p></td>
+<td><p>No</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>Singular numeric (integer or floating point)</p></td>
+<td><p>Yes</p></td>
+<td><p>✔️</p></td>
+</tr>
+<tr class="row-even"><td><p>Singular enum</p></td>
+<td><p>Yes</p></td>
+<td><p>✔️</p></td>
+</tr>
+<tr class="row-odd"><td><p>Singular string or bytes</p></td>
+<td><p>Yes</p></td>
+<td><p>✔️</p></td>
+</tr>
+<tr class="row-even"><td><p>Singular message</p></td>
+<td><p>Yes</p></td>
+<td><p>✔️</p></td>
+</tr>
+<tr class="row-odd"><td><p>Singular message</p></td>
+<td><p>No</p></td>
+<td><p>✔️</p></td>
+</tr>
+<tr class="row-even"><td><p>Repeated</p></td>
+<td><p>N/A</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>Oneofs</p></td>
+<td><p>N/A</p></td>
+<td><p>✔️</p></td>
+</tr>
+<tr class="row-even"><td><p>Maps</p></td>
+<td><p>N/A</p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+<p>Similar to proto2 APIs, proto3 does not track presence explicitly for repeated fields. Without the <code class="docutils literal notranslate"><span class="pre">optional</span></code> label, proto3 APIs do not track presence for basic types (numeric, string, bytes, and enums), either. Oneof fields affirmatively expose presence, although the same set of hazzer methods may not generated as in proto2 APIs.</p>
+<p>Under the <em>no presence</em> discipline, the default value is synonymous with “not present” for purposes of serialization. To notionally “clear” a field (so it won’t be serialized), an API user would set it to the default value.</p>
+<p>The default value for enum-typed fields under <em>no presence</em> is the corresponding 0-valued enumerator. Under proto3 syntax rules, all enum types are required to have an enumerator value which maps to 0. By convention, this is an <code class="docutils literal notranslate"><span class="pre">UNKNOWN</span></code> or similarly-named enumerator. If the zero value is notionally outside the domain of valid values for the application, this behavior can be thought of as tantamount to <em>explicit presence</em>.</p>
+</div>
+</div>
+<div class="section" id="semantic-differences">
+<h2>Semantic differences<a class="headerlink" href="#semantic-differences" title="永久链接至标题">¶</a></h2>
+<p>The <em>no presence</em> serialization discipline results in visible differences from the <em>explicit presence</em> tracking discipline, when the default value is set. For a singular field with numeric, enum, or string type:</p>
+<ul class="simple">
+<li><p><em>No presence</em> discipline:</p>
+<ul>
+<li><p>Default values are not serialized.</p></li>
+<li><p>Default values are <em>not</em> merged-from.</p></li>
+<li><p>To “clear” a field, it is set to its default value.</p></li>
+<li><p>The default value may mean:</p>
+<ul>
+<li><p>the field was explicitly set to its default value, which is valid in the application-specific domain of values;</p></li>
+<li><p>the field was notionally “cleared” by setting its default; or</p></li>
+<li><p>the field was never set.</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><em>Explicit presence</em> discipline:</p>
+<ul>
+<li><p>Explicitly set values are always serialized, including default values.</p></li>
+<li><p>Un-set fields are never merged-from.</p></li>
+<li><p>Explicitly set fields – including default values – <em>are</em> merged-from.</p></li>
+<li><p>A generated <code class="docutils literal notranslate"><span class="pre">has_foo</span></code> method indicates whether or not the field <code class="docutils literal notranslate"><span class="pre">foo</span></code> has been set (and not cleared).</p></li>
+<li><p>A generated <code class="docutils literal notranslate"><span class="pre">clear_foo</span></code> method must be used to clear (i.e., un-set) the value.</p></li>
+</ul>
+</li>
+</ul>
+<div class="section" id="considerations-for-merging">
+<h3>Considerations for merging<a class="headerlink" href="#considerations-for-merging" title="永久链接至标题">¶</a></h3>
+<p>Under the <em>no presence</em> rules, it is effectively impossible for a target field to merge-from its default value (using the protobuf’s API merging functions). This is because default values are skipped, similar to the <em>no presence</em> serialization discipline. Merging only updates the target (merged-to) message using the non-skipped values from the update (merged-from) message.</p>
+<p>The difference in merging behavior has further implications for protocols which rely on partial “patch” updates. If field presence is not tracked, then an update patch alone cannot represent an update to the default value, because only non-default values are merged-from.</p>
+<p>Updating to set a default value in this case requires some external mechanism, such as <code class="docutils literal notranslate"><span class="pre">FieldMask</span></code>. However, if presence <em>is</em> tracked, then all explicitly-set values – even default values – will be merged into the target.</p>
+</div>
+<div class="section" id="considerations-for-change-compatibility">
+<h3>Considerations for change-compatibility<a class="headerlink" href="#considerations-for-change-compatibility" title="永久链接至标题">¶</a></h3>
+<p>Changing a field between <em>explicit presence</em> and <em>no presence</em> is a binary-compatible change for serialized values in wire format. However, the serialized representation of the message may differ, depending on which version of the message definition was used for serialization. Specifically, when a “sender” explicitly sets a field to its default value:</p>
+<ul class="simple">
+<li><p>The serialized value following <em>no presence</em> discipline does not contain the default value, even though it was explicitly set.</p></li>
+<li><p>The serialized value following <em>explicit presence</em> discipline contains every “present” field, even if it contains the default value.</p></li>
+</ul>
+<p>This change may or may not be safe, depending on the application’s semantics. For example, consider two clients with different versions of a message definition.</p>
+<p>Client A uses this definition of the message, which follows the <em>explicit presence</em> serialization discipline for field <code class="docutils literal notranslate"><span class="pre">foo</span></code>:</p>
+<div class="highlight-protobuf notranslate"><div class="highlight"><pre><span></span><span class="k">syntax</span> <span class="o">=</span> <span class="s">&quot;proto3&quot;</span><span class="p">;</span>
+<span class="kd">message</span> <span class="nc">Msg</span> <span class="p">{</span>
+  <span class="k">optional</span> <span class="kt">int32</span> <span class="na">foo</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Client B uses a definition of the same message, except that it follows the <em>no presence</em> discipline:</p>
+<div class="highlight-protobuf notranslate"><div class="highlight"><pre><span></span><span class="k">syntax</span> <span class="o">=</span> <span class="s">&quot;proto3&quot;</span><span class="p">;</span>
+<span class="kd">message</span> <span class="nc">Msg</span> <span class="p">{</span>
+  <span class="kt">int32</span> <span class="na">foo</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Now, consider a scenario where client A observes <code class="docutils literal notranslate"><span class="pre">foo</span></code>’s presence as the clients repeatedly exchange the “same” message by deserializing and reserializing:</p>
+<div class="highlight-protobuf notranslate"><div class="highlight"><pre><span></span><span class="c1">// Client A:</span>
+<span class="n">Msg</span> <span class="n">m_a</span><span class="p">;</span>
+<span class="n">m_a.set_foo</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>                  <span class="c1">// non-default value</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">m_a.has_foo</span><span class="p">());</span>           <span class="c1">// OK</span>
+<span class="n">Send</span><span class="p">(</span><span class="n">m_a.SerializeAsString</span><span class="p">());</span>   <span class="c1">// to client B</span>
+
+<span class="c1">// Client B:</span>
+<span class="n">Msg</span> <span class="n">m_b</span><span class="p">;</span>
+<span class="n">m_b.ParseFromString</span><span class="p">(</span><span class="n">Receive</span><span class="p">());</span>  <span class="c1">// from client A</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">m_b.foo</span><span class="p">()</span> <span class="o">==</span> <span class="mi">1</span><span class="p">);</span>          <span class="c1">// OK</span>
+<span class="n">Send</span><span class="p">(</span><span class="n">m_b.SerializeAsString</span><span class="p">());</span>   <span class="c1">// to client A</span>
+
+<span class="c1">// Client A:</span>
+<span class="n">m_a.ParseFromString</span><span class="p">(</span><span class="n">Receive</span><span class="p">());</span>  <span class="c1">// from client B</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">m_a.foo</span><span class="p">()</span> <span class="o">==</span> <span class="mi">1</span><span class="p">);</span>          <span class="c1">// OK</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">m_a.has_foo</span><span class="p">());</span>           <span class="c1">// OK</span>
+<span class="n">m_a.set_foo</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>                  <span class="c1">// default value</span>
+<span class="n">Send</span><span class="p">(</span><span class="n">m_a.SerializeAsString</span><span class="p">());</span>   <span class="c1">// to client B</span>
+
+<span class="c1">// Client B:</span>
+<span class="n">Msg</span> <span class="n">m_b</span><span class="p">;</span>
+<span class="n">m_b.ParseFromString</span><span class="p">(</span><span class="n">Receive</span><span class="p">());</span>  <span class="c1">// from client A</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">m_b.foo</span><span class="p">()</span> <span class="o">==</span> <span class="mi">0</span><span class="p">);</span>          <span class="c1">// OK</span>
+<span class="n">Send</span><span class="p">(</span><span class="n">m_b.SerializeAsString</span><span class="p">());</span>   <span class="c1">// to client A</span>
+
+<span class="c1">// Client A:</span>
+<span class="n">m_a.ParseFromString</span><span class="p">(</span><span class="n">Receive</span><span class="p">());</span>  <span class="c1">// from client B</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">m_a.foo</span><span class="p">()</span> <span class="o">==</span> <span class="mi">0</span><span class="p">);</span>          <span class="c1">// OK</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">m_a.has_foo</span><span class="p">());</span>           <span class="c1">// FAIL</span>
+</pre></div>
+</div>
+<p>If client A depends on <em>explicit presence</em> for <code class="docutils literal notranslate"><span class="pre">foo</span></code>, then a “round trip” through client B will be lossy from the perspective of client A. In the example, this is not a safe change: client A requires (by <code class="docutils literal notranslate"><span class="pre">assert</span></code>) that the field is present; even without any modifications through the API, that requirement fails in a value- and peer-dependent case.</p>
+</div>
+</div>
+<div class="section" id="how-to-enable-explicit-presence-in-proto3">
+<h2>How to enable <em>explicit presence</em> in proto3<a class="headerlink" href="#how-to-enable-explicit-presence-in-proto3" title="永久链接至标题">¶</a></h2>
+<p>These are the general steps to use field tracking support for proto3:</p>
+<ol class="simple">
+<li><p>Add an <code class="docutils literal notranslate"><span class="pre">optional</span></code> field to a <code class="docutils literal notranslate"><span class="pre">.proto</span></code> file.</p></li>
+<li><p>Run <code class="docutils literal notranslate"><span class="pre">protoc</span></code> (at least v3.15, or v3.12 using <code class="docutils literal notranslate"><span class="pre">--experimental_allow_proto3_optional</span></code> flag).</p></li>
+<li><p>Use the generated “hazzer” methods and “clear” methods in application code, instead of comparing or setting default values.</p></li>
+</ol>
+<div class="section" id="proto-file-changes">
+<h3><code class="docutils literal notranslate"><span class="pre">.proto</span></code> file changes<a class="headerlink" href="#proto-file-changes" title="永久链接至标题">¶</a></h3>
+<p>This is an example of a proto3 message with fields which follow both <em>no presence</em> and <em>explicit presence</em> semantics:</p>
+<div class="highlight-protobuf notranslate"><div class="highlight"><pre><span></span><span class="k">syntax</span> <span class="o">=</span> <span class="s">&quot;proto3&quot;</span><span class="p">;</span>
+<span class="kn">package</span> <span class="nn">example</span><span class="p">;</span>
+
+<span class="kd">message</span> <span class="nc">MyMessage</span> <span class="p">{</span>
+  <span class="c1">// No presence:</span>
+  <span class="kt">int32</span> <span class="na">not_tracked</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+
+  <span class="c1">// Explicit presence:</span>
+  <span class="k">optional</span> <span class="kt">int32</span> <span class="na">tracked</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="protoc-invocation">
+<h3><code class="docutils literal notranslate"><span class="pre">protoc</span></code> invocation<a class="headerlink" href="#protoc-invocation" title="永久链接至标题">¶</a></h3>
+<p>Presence tracking for proto3 messages is enabled by default <a class="reference external" href="https://github.com/protocolbuffers/protobuf/releases/tag/v3.15.0">since v3.15.0</a> release, formerly up until <a class="reference external" href="https://github.com/protocolbuffers/protobuf/releases/tag/v3.12.0">v3.12.0</a> the <code class="docutils literal notranslate"><span class="pre">--experimental_allow_proto3_optional</span></code> flag was required when using presence tracking with protoc.</p>
+</div>
+<div class="section" id="using-the-generated-code">
+<h3>Using the generated code<a class="headerlink" href="#using-the-generated-code" title="永久链接至标题">¶</a></h3>
+<p>The generated code for proto3 fields with <em>explicit presence</em> (the <code class="docutils literal notranslate"><span class="pre">optional</span></code> label) will be the same as it would be in a proto2 file.</p>
+<p>This is the definition used in the “no presence” examples below:</p>
+<div class="highlight-protobuf notranslate"><div class="highlight"><pre><span></span><span class="k">syntax</span> <span class="o">=</span> <span class="s">&quot;proto3&quot;</span><span class="p">;</span>
+<span class="kn">package</span> <span class="nn">example</span><span class="p">;</span>
+<span class="kd">message</span> <span class="nc">Msg</span> <span class="p">{</span>  
+  <span class="kt">int32</span> <span class="na">foo</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>This is the definition used in the “explicit presence” examples below:</p>
+<div class="highlight-protobuf notranslate"><div class="highlight"><pre><span></span><span class="k">syntax</span> <span class="o">=</span> <span class="s">&quot;proto3&quot;</span><span class="p">;</span>
+<span class="kn">package</span> <span class="nn">example</span><span class="p">;</span>
+<span class="kd">message</span> <span class="nc">Msg</span> <span class="p">{</span>
+  <span class="k">optional</span> <span class="kt">int32</span> <span class="na">foo</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>In the examples, a function <code class="docutils literal notranslate"><span class="pre">GetProto</span></code> constructs and returns a message of type <code class="docutils literal notranslate"><span class="pre">Msg</span></code> with unspecified contents.</p>
+<div class="section" id="c-example">
+<h4>C++ example<a class="headerlink" href="#c-example" title="永久链接至标题">¶</a></h4>
+<p>No presence:</p>
+<div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="n">Msg</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">GetProto</span><span class="p">();</span><span class="w"></span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">m</span><span class="p">.</span><span class="n">foo</span><span class="p">()</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="c1">// &quot;Clear&quot; the field:</span>
+<span class="w">  </span><span class="n">m</span><span class="p">.</span><span class="n">set_foo</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="c1">// Default value: field may not have been present.</span>
+<span class="w">  </span><span class="n">m</span><span class="p">.</span><span class="n">set_foo</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<p>Explicit presence:</p>
+<div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="n">Msg</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">GetProto</span><span class="p">();</span><span class="w"></span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">m</span><span class="p">.</span><span class="n">has_foo</span><span class="p">())</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="c1">// Clear the field:</span>
+<span class="w">  </span><span class="n">m</span><span class="p">.</span><span class="n">clear_foo</span><span class="p">();</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="c1">// Field is not present, so set it.</span>
+<span class="w">  </span><span class="n">m</span><span class="p">.</span><span class="n">set_foo</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id1">
+<h4>C# example<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h4>
+<p>No presence:</p>
+<div class="highlight-C# notranslate"><div class="highlight"><pre><span></span><span class="kt">var</span> <span class="n">m</span> <span class="p">=</span> <span class="n">GetProto</span><span class="p">();</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">m</span><span class="p">.</span><span class="n">Foo</span> <span class="p">!=</span> <span class="m">0</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// &quot;Clear&quot; the field:</span>
+  <span class="n">m</span><span class="p">.</span><span class="n">Foo</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+  <span class="c1">// Default value: field may not have been present.</span>
+  <span class="n">m</span><span class="p">.</span><span class="n">Foo</span> <span class="p">=</span> <span class="m">1</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Explicit presence:</p>
+<div class="highlight-C# notranslate"><div class="highlight"><pre><span></span><span class="kt">var</span> <span class="n">m</span> <span class="p">=</span> <span class="n">GetProto</span><span class="p">();</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">m</span><span class="p">.</span><span class="n">HasFoo</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Clear the field:</span>
+  <span class="n">m</span><span class="p">.</span><span class="n">ClearFoo</span><span class="p">();</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+  <span class="c1">// Field is not present, so set it.</span>
+  <span class="n">m</span><span class="p">.</span><span class="n">Foo</span> <span class="p">=</span> <span class="m">1</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="go-example">
+<h4>Go example<a class="headerlink" href="#go-example" title="永久链接至标题">¶</a></h4>
+<p>No presence:</p>
+<div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="nx">m</span> <span class="o">:=</span> <span class="nx">GetProto</span><span class="p">()</span>
+<span class="k">if</span> <span class="nx">m</span><span class="p">.</span><span class="nx">Foo</span> <span class="o">!=</span> <span class="mi">0</span> <span class="p">{</span>
+  <span class="c1">// &quot;Clear&quot; the field:</span>
+  <span class="nx">m</span><span class="p">.</span><span class="nx">Foo</span> <span class="p">=</span> <span class="mi">0</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+  <span class="c1">// Default value: field may not have been present.</span>
+  <span class="nx">m</span><span class="p">.</span><span class="nx">Foo</span> <span class="p">=</span> <span class="mi">1</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Explicit presence:</p>
+<div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="nx">m</span> <span class="o">:=</span> <span class="nx">GetProto</span><span class="p">()</span>
+<span class="k">if</span> <span class="nx">m</span><span class="p">.</span><span class="nx">Foo</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+  <span class="c1">// Clear the field:</span>
+  <span class="nx">m</span><span class="p">.</span><span class="nx">Foo</span> <span class="p">=</span> <span class="kc">nil</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+  <span class="c1">// Field is not present, so set it.</span>
+  <span class="nx">m</span><span class="p">.</span><span class="nx">Foo</span> <span class="p">=</span> <span class="nx">proto</span><span class="p">.</span><span class="nx">Int32</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="java-example">
+<h4>Java example<a class="headerlink" href="#java-example" title="永久链接至标题">¶</a></h4>
+<p>These examples use a <code class="docutils literal notranslate"><span class="pre">Builder</span></code> to demonstrate clearing. Simply checking presence and getting values from a <code class="docutils literal notranslate"><span class="pre">Builder</span></code> follows the same API as the message type.</p>
+<p>No presence:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">Msg</span><span class="p">.</span><span class="na">Builder</span> <span class="n">m</span> <span class="o">=</span> <span class="n">GetProto</span><span class="p">().</span><span class="na">toBuilder</span><span class="p">();</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">m</span><span class="p">.</span><span class="na">getFoo</span><span class="p">()</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// &quot;Clear&quot; the field:</span>
+  <span class="n">m</span><span class="p">.</span><span class="na">setFoo</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+  <span class="c1">// Default value: field may not have been present.</span>
+  <span class="n">m</span><span class="p">.</span><span class="na">setFoo</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Explicit presence:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">Msg</span><span class="p">.</span><span class="na">Builder</span> <span class="n">m</span> <span class="o">=</span> <span class="n">GetProto</span><span class="p">().</span><span class="na">toBuilder</span><span class="p">();</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">m</span><span class="p">.</span><span class="na">hasFoo</span><span class="p">())</span> <span class="p">{</span>
+  <span class="c1">// Clear the field:</span>
+  <span class="n">m</span><span class="p">.</span><span class="na">clearFoo</span><span class="p">()</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+  <span class="c1">// Field is not present, so set it.</span>
+  <span class="n">m</span><span class="p">.</span><span class="na">setFoo</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="python-example">
+<h4>Python example<a class="headerlink" href="#python-example" title="永久链接至标题">¶</a></h4>
+<p>No presence:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="n">example</span><span class="o">.</span><span class="n">Msg</span><span class="p">()</span>
+<span class="k">if</span> <span class="n">m</span><span class="o">.</span><span class="n">foo</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+  <span class="c1"># &quot;Clear&quot; the field:</span>
+  <span class="n">m</span><span class="o">.</span><span class="n">foo</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">else</span><span class="p">:</span>
+  <span class="c1"># Default value: field may not have been present.</span>
+  <span class="n">m</span><span class="o">.</span><span class="n">foo</span> <span class="o">=</span> <span class="mi">1</span>
+</pre></div>
+</div>
+<p>Explicit presence:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="n">example</span><span class="o">.</span><span class="n">Msg</span><span class="p">()</span>
+<span class="k">if</span> <span class="n">m</span><span class="o">.</span><span class="n">HasField</span><span class="p">(</span><span class="s1">&#39;foo&#39;</span><span class="p">):</span>
+  <span class="c1"># Clear the field:</span>
+  <span class="n">m</span><span class="o">.</span><span class="n">ClearField</span><span class="p">(</span><span class="s1">&#39;foo&#39;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+  <span class="c1"># Field is not present, so set it.</span>
+  <span class="n">m</span><span class="o">.</span><span class="n">foo</span> <span class="o">=</span> <span class="mi">1</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="ruby-example">
+<h4>Ruby example<a class="headerlink" href="#ruby-example" title="永久链接至标题">¶</a></h4>
+<p>No presence:</p>
+<div class="highlight-ruby notranslate"><div class="highlight"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="no">Msg</span><span class="o">.</span><span class="n">new</span>
+<span class="k">if</span> <span class="n">m</span><span class="o">.</span><span class="n">foo</span> <span class="o">!=</span> <span class="mi">0</span>
+  <span class="c1"># &quot;Clear&quot; the field:</span>
+  <span class="n">m</span><span class="o">.</span><span class="n">foo</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">else</span>
+  <span class="c1"># Default value: field may not have been present.</span>
+  <span class="n">m</span><span class="o">.</span><span class="n">foo</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="k">end</span>
+</pre></div>
+</div>
+<p>Explicit presence:</p>
+<div class="highlight-ruby notranslate"><div class="highlight"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="no">Msg</span><span class="o">.</span><span class="n">new</span>
+<span class="k">if</span> <span class="n">m</span><span class="o">.</span><span class="n">has_foo?</span>
+  <span class="c1"># Clear the field:</span>
+  <span class="n">m</span><span class="o">.</span><span class="n">clear_foo</span>
+<span class="k">else</span>
+  <span class="c1"># Field is not present, so set it.</span>
+  <span class="n">m</span><span class="o">.</span><span class="n">foo</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="k">end</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="javascript-example">
+<h4>Javascript example<a class="headerlink" href="#javascript-example" title="永久链接至标题">¶</a></h4>
+<p>No presence:</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">m</span> <span class="o">=</span> <span class="ow">new</span> <span class="nx">Msg</span><span class="p">();</span>
+<span class="k">if</span> <span class="p">(</span><span class="nx">m</span><span class="p">.</span><span class="nx">getFoo</span><span class="p">()</span> <span class="o">!=</span> <span class="mf">0</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// &quot;Clear&quot; the field:</span>
+  <span class="nx">m</span><span class="p">.</span><span class="nx">setFoo</span><span class="p">(</span><span class="mf">0</span><span class="p">);</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+  <span class="c1">// Default value: field may not have been present.</span>
+  <span class="nx">m</span><span class="p">.</span><span class="nx">setFoo</span><span class="p">(</span><span class="mf">1</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Explicit presence:</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">m</span> <span class="o">=</span> <span class="ow">new</span> <span class="nx">Msg</span><span class="p">();</span>
+<span class="k">if</span> <span class="p">(</span><span class="nx">m</span><span class="p">.</span><span class="nx">hasFoo</span><span class="p">())</span> <span class="p">{</span>
+  <span class="c1">// Clear the field:</span>
+  <span class="nx">m</span><span class="p">.</span><span class="nx">clearFoo</span><span class="p">()</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+  <span class="c1">// Field is not present, so set it.</span>
+  <span class="nx">m</span><span class="p">.</span><span class="nx">setFoo</span><span class="p">(</span><span class="mf">1</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="objective-c-example">
+<h4>Objective C example<a class="headerlink" href="#objective-c-example" title="永久链接至标题">¶</a></h4>
+<p>No presence:</p>
+<div class="highlight-Objective-C notranslate"><div class="highlight"><pre><span></span><span class="n">Msg</span><span class="w"> </span><span class="o">*</span><span class="n">m</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[[</span><span class="n">Msg</span><span class="w"> </span><span class="n">alloc</span><span class="p">]</span><span class="w"> </span><span class="n">init</span><span class="p">];</span><span class="w"></span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">m</span><span class="p">.</span><span class="n">foo</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="c1">// &quot;Clear&quot; the field:</span>
+<span class="w">  </span><span class="n">m</span><span class="p">.</span><span class="n">foo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="c1">// Default value: field may not have been present.</span>
+<span class="w">  </span><span class="n">m</span><span class="p">.</span><span class="n">foo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<p>Explicit presence:</p>
+<div class="highlight-Objective-C notranslate"><div class="highlight"><pre><span></span><span class="n">Msg</span><span class="w"> </span><span class="o">*</span><span class="n">m</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[[</span><span class="n">Msg</span><span class="w"> </span><span class="n">alloc</span><span class="p">]</span><span class="w"> </span><span class="n">init</span><span class="p">];</span><span class="w"></span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">m</span><span class="p">.</span><span class="n">hasFoo</span><span class="p">())</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="c1">// Clear the field:</span>
+<span class="w">  </span><span class="p">[</span><span class="n">m</span><span class="w"> </span><span class="n">clearFoo</span><span class="p">];</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="c1">// Field is not present, so set it.</span>
+<span class="w">  </span><span class="p">[</span><span class="n">m</span><span class="w"> </span><span class="nl">setFoo</span><span class="p">:</span><span class="mi">1</span><span class="p">];</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+              </div>
+              
+        
+            <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="index.html" title="上一页 页">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">上一页</p>
+            <p class="prev-next-title">开发者指南</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="implementing_proto3_presence.html" title="下一页 页">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">下一页</p>
+        <p class="prev-next-title">How To Implement Field Presence for Proto3</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By xinetzone<br/>
+        
+            &copy; Copyright 2021, xinetzone.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>
