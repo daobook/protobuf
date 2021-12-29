@@ -1,0 +1,121 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2021, xinetzone
+# This file is distributed under the same license as the protobuf package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: protobuf \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-12-29 12:54+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.0\n"
+
+#: ../../api/python/google/protobuf/message_factory.md:3
+msgid "google.protobuf.message_factory"
+msgstr ""
+
+#: google.protobuf.message_factory:1 of
+msgid "Provides a factory class for generating dynamic messages."
+msgstr ""
+
+#: google.protobuf.message_factory:3 of
+msgid ""
+"The easiest way to use this class is if you have access to the "
+"FileDescriptor protos containing the messages you want to create you can "
+"just do the following:"
+msgstr ""
+
+#: google.protobuf.message_factory:6 of
+msgid ""
+"message_classes = "
+"message_factory.GetMessages(iterable_of_file_descriptors) "
+"my_proto_instance = message_classes['some.proto.package.MessageName']()"
+msgstr ""
+
+#: google.protobuf.message_factory.GetMessages:1 of
+msgid "Builds a dictionary of all the messages available in a set of files."
+msgstr ""
+
+#: google.protobuf.message_factory.GetMessages:4
+#: google.protobuf.message_factory.MessageFactory.CreatePrototype:8
+#: google.protobuf.message_factory.MessageFactory.GetMessages:7
+#: google.protobuf.message_factory.MessageFactory.GetPrototype:7 of
+msgid "Args:"
+msgstr ""
+
+#: google.protobuf.message_factory.GetMessages:4 of
+msgid "file_protos: Iterable of FileDescriptorProto to build messages out of."
+msgstr ""
+
+#: google.protobuf.message_factory.GetMessages:8
+#: google.protobuf.message_factory.MessageFactory.CreatePrototype:10
+#: google.protobuf.message_factory.MessageFactory.GetMessages:11
+#: google.protobuf.message_factory.MessageFactory.GetPrototype:9 of
+msgid "Returns:"
+msgstr ""
+
+#: google.protobuf.message_factory.GetMessages:7
+#: google.protobuf.message_factory.MessageFactory.GetMessages:10 of
+msgid ""
+"A dictionary mapping proto names to the message classes. This will "
+"include any dependent messages as well as any messages defined in the "
+"same file as a specified message."
+msgstr ""
+
+#: google.protobuf.message_factory.MessageFactory:1 of
+msgid "Factory for creating Proto2 messages from descriptors in a pool."
+msgstr ""
+
+#: google.protobuf.message_factory.MessageFactory.CreatePrototype:1 of
+msgid "Builds a proto2 message class based on the passed in descriptor."
+msgstr ""
+
+#: google.protobuf.message_factory.MessageFactory.CreatePrototype:3 of
+msgid ""
+"Don't call this function directly, it always creates a new class. Call "
+"GetPrototype() instead. This method is meant to be overridden in "
+"subblasses to perform additional operations on the newly constructed "
+"class."
+msgstr ""
+
+#: google.protobuf.message_factory.MessageFactory.CreatePrototype:8
+#: google.protobuf.message_factory.MessageFactory.GetPrototype:7 of
+msgid "descriptor: The descriptor to build from."
+msgstr ""
+
+#: google.protobuf.message_factory.MessageFactory.CreatePrototype:11
+#: google.protobuf.message_factory.MessageFactory.GetPrototype:10 of
+msgid "A class describing the passed in descriptor."
+msgstr ""
+
+#: google.protobuf.message_factory.MessageFactory.GetMessages:1 of
+msgid "Gets all the messages from a specified file."
+msgstr ""
+
+#: google.protobuf.message_factory.MessageFactory.GetMessages:3 of
+msgid ""
+"This will find and resolve dependencies, failing if the descriptor pool "
+"cannot satisfy them."
+msgstr ""
+
+#: google.protobuf.message_factory.MessageFactory.GetMessages:7 of
+msgid "files: The file names to extract messages from."
+msgstr ""
+
+#: google.protobuf.message_factory.MessageFactory.GetPrototype:1 of
+msgid "Obtains a proto2 message class based on the passed in descriptor."
+msgstr ""
+
+#: google.protobuf.message_factory.MessageFactory.GetPrototype:3 of
+msgid ""
+"Passing a descriptor with a fully qualified name matching a previous "
+"invocation will cause the same class to be returned."
+msgstr ""
+

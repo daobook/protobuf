@@ -1,0 +1,218 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2021, xinetzone
+# This file is distributed under the same license as the protobuf package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: protobuf \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-12-29 12:54+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.0\n"
+
+#: ../../api/python/google/protobuf/symbol_database.md:3
+msgid "google.protobuf.symbol_database"
+msgstr ""
+
+#: google.protobuf.symbol_database:1 of
+msgid "A database of Python protocol buffer generated symbols."
+msgstr ""
+
+#: google.protobuf.symbol_database:3 of
+msgid ""
+"SymbolDatabase is the MessageFactory for messages generated at compile "
+"time, and makes it easy to create new instances of a registered type, "
+"given only the type's protocol buffer symbol name."
+msgstr ""
+
+#: google.protobuf.symbol_database:7 of
+msgid "Example usage::"
+msgstr ""
+
+#: google.protobuf.symbol_database.Default:1 of
+msgid "Returns the default SymbolDatabase."
+msgstr ""
+
+#: google.protobuf.symbol_database.SymbolDatabase:1 of
+msgid "A database of Python generated symbols."
+msgstr ""
+
+#: google.protobuf.message_factory.MessageFactory.CreatePrototype:1 of
+msgid "Builds a proto2 message class based on the passed in descriptor."
+msgstr ""
+
+#: google.protobuf.message_factory.MessageFactory.CreatePrototype:3 of
+msgid ""
+"Don't call this function directly, it always creates a new class. Call "
+"GetPrototype() instead. This method is meant to be overridden in "
+"subblasses to perform additional operations on the newly constructed "
+"class."
+msgstr ""
+
+#: google.protobuf.message_factory.MessageFactory.CreatePrototype:8
+#: google.protobuf.message_factory.MessageFactory.GetPrototype:7
+#: google.protobuf.symbol_database.SymbolDatabase.GetMessages:9
+#: google.protobuf.symbol_database.SymbolDatabase.GetSymbol:7
+#: google.protobuf.symbol_database.SymbolDatabase.RegisterEnumDescriptor:4
+#: google.protobuf.symbol_database.SymbolDatabase.RegisterFileDescriptor:3
+#: google.protobuf.symbol_database.SymbolDatabase.RegisterMessage:7
+#: google.protobuf.symbol_database.SymbolDatabase.RegisterMessageDescriptor:3
+#: google.protobuf.symbol_database.SymbolDatabase.RegisterServiceDescriptor:4
+#: of
+msgid "Args:"
+msgstr ""
+
+#: google.protobuf.message_factory.MessageFactory.CreatePrototype:8
+#: google.protobuf.message_factory.MessageFactory.GetPrototype:7 of
+msgid "descriptor: The descriptor to build from."
+msgstr ""
+
+#: google.protobuf.message_factory.MessageFactory.CreatePrototype:10
+#: google.protobuf.message_factory.MessageFactory.GetPrototype:9
+#: google.protobuf.symbol_database.SymbolDatabase.GetMessages:12
+#: google.protobuf.symbol_database.SymbolDatabase.GetSymbol:10
+#: google.protobuf.symbol_database.SymbolDatabase.RegisterEnumDescriptor:6
+#: google.protobuf.symbol_database.SymbolDatabase.RegisterMessage:9 of
+msgid "Returns:"
+msgstr ""
+
+#: google.protobuf.message_factory.MessageFactory.CreatePrototype:11
+#: google.protobuf.message_factory.MessageFactory.GetPrototype:10 of
+msgid "A class describing the passed in descriptor."
+msgstr ""
+
+#: google.protobuf.symbol_database.SymbolDatabase.GetMessages:1 of
+msgid "Gets all registered messages from a specified file."
+msgstr ""
+
+#: google.protobuf.symbol_database.SymbolDatabase.GetMessages:3 of
+msgid ""
+"Only messages already created and registered will be returned; (this is "
+"the case for imported _pb2 modules) But unlike MessageFactory, this "
+"version also returns already defined nested messages, but does not "
+"register any message extensions."
+msgstr ""
+
+#: google.protobuf.symbol_database.SymbolDatabase.GetMessages:9 of
+msgid "files (list[str]): The file names to extract messages from."
+msgstr ""
+
+#: google.protobuf.symbol_database.SymbolDatabase.GetMessages:12 of
+msgid "A dictionary mapping proto names to the message classes."
+msgstr ""
+
+#: google.protobuf.symbol_database.SymbolDatabase.GetMessages:14
+#: google.protobuf.symbol_database.SymbolDatabase.GetSymbol:12 of
+msgid "Raises:"
+msgstr ""
+
+#: google.protobuf.symbol_database.SymbolDatabase.GetMessages:15 of
+msgid "KeyError: if a file could not be found."
+msgstr ""
+
+#: google.protobuf.message_factory.MessageFactory.GetPrototype:1 of
+msgid "Obtains a proto2 message class based on the passed in descriptor."
+msgstr ""
+
+#: google.protobuf.message_factory.MessageFactory.GetPrototype:3 of
+msgid ""
+"Passing a descriptor with a fully qualified name matching a previous "
+"invocation will cause the same class to be returned."
+msgstr ""
+
+#: google.protobuf.symbol_database.SymbolDatabase.GetSymbol:1 of
+msgid "Tries to find a symbol in the local database."
+msgstr ""
+
+#: google.protobuf.symbol_database.SymbolDatabase.GetSymbol:3 of
+msgid ""
+"Currently, this method only returns message.Message instances, however, "
+"if may be extended in future to support other symbol types."
+msgstr ""
+
+#: google.protobuf.symbol_database.SymbolDatabase.GetSymbol:7 of
+msgid "symbol (str): a protocol buffer symbol."
+msgstr ""
+
+#: google.protobuf.symbol_database.SymbolDatabase.GetSymbol:10 of
+msgid "A Python class corresponding to the symbol."
+msgstr ""
+
+#: google.protobuf.symbol_database.SymbolDatabase.GetSymbol:13 of
+msgid "KeyError: if the symbol could not be found."
+msgstr ""
+
+#: google.protobuf.symbol_database.SymbolDatabase.RegisterEnumDescriptor:1 of
+msgid "Registers the given enum descriptor in the local database."
+msgstr ""
+
+#: google.protobuf.symbol_database.SymbolDatabase.RegisterEnumDescriptor:4 of
+msgid "enum_descriptor (EnumDescriptor): The enum descriptor to register."
+msgstr ""
+
+#: google.protobuf.symbol_database.SymbolDatabase.RegisterEnumDescriptor:7 of
+msgid "EnumDescriptor: The provided descriptor."
+msgstr ""
+
+#: google.protobuf.symbol_database.SymbolDatabase.RegisterFileDescriptor:1 of
+msgid "Registers the given file descriptor in the local database."
+msgstr ""
+
+#: google.protobuf.symbol_database.SymbolDatabase.RegisterFileDescriptor:4 of
+msgid "file_descriptor (FileDescriptor): The file descriptor to register."
+msgstr ""
+
+#: google.protobuf.symbol_database.SymbolDatabase.RegisterMessage:1 of
+msgid "Registers the given message type in the local database."
+msgstr ""
+
+#: google.protobuf.symbol_database.SymbolDatabase.RegisterMessage:3 of
+msgid ""
+"Calls to GetSymbol() and GetMessages() will return messages registered "
+"here."
+msgstr ""
+
+#: google.protobuf.symbol_database.SymbolDatabase.RegisterMessage:7 of
+msgid "message: A :class:`google.protobuf.message.Message` subclass (or"
+msgstr ""
+
+#: google.protobuf.symbol_database.SymbolDatabase.RegisterMessage:7 of
+msgid "instance); its descriptor will be registered."
+msgstr ""
+
+#: google.protobuf.symbol_database.SymbolDatabase.RegisterMessage:10 of
+msgid "The provided message."
+msgstr ""
+
+#: google.protobuf.symbol_database.SymbolDatabase.RegisterMessageDescriptor:1
+#: of
+msgid "Registers the given message descriptor in the local database."
+msgstr ""
+
+#: google.protobuf.symbol_database.SymbolDatabase.RegisterMessageDescriptor:4
+#: of
+msgid "message_descriptor (Descriptor): the message descriptor to add."
+msgstr ""
+
+#: google.protobuf.symbol_database.SymbolDatabase.RegisterServiceDescriptor:1
+#: of
+msgid "Registers the given service descriptor in the local database."
+msgstr ""
+
+#: google.protobuf.symbol_database.SymbolDatabase.RegisterServiceDescriptor:4
+#: of
+msgid "service_descriptor (ServiceDescriptor): the service descriptor to"
+msgstr ""
+
+#: google.protobuf.symbol_database.SymbolDatabase.RegisterServiceDescriptor:5
+#: of
+msgid "register."
+msgstr ""
+

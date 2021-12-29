@@ -1,0 +1,145 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2021, xinetzone
+# This file is distributed under the same license as the protobuf package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: protobuf \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-12-29 12:54+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.0\n"
+
+#: ../../api/python/google/protobuf/descriptor_database.md:3
+msgid "google.protobuf.descriptor_database"
+msgstr ""
+
+#: google.protobuf.descriptor_database:1 of
+msgid "Provides a container for DescriptorProtos."
+msgstr ""
+
+#: google.protobuf.descriptor_database.DescriptorDatabase:1 of
+msgid "A container accepting FileDescriptorProtos and maps DescriptorProtos."
+msgstr ""
+
+#: google.protobuf.descriptor_database.DescriptorDatabase.Add:1 of
+msgid "Adds the FileDescriptorProto and its types to this database."
+msgstr ""
+
+#: google.protobuf.descriptor_database.DescriptorDatabase.Add:3
+#: google.protobuf.descriptor_database.DescriptorDatabase.FindFileByName:8
+#: google.protobuf.descriptor_database.DescriptorDatabase.FindFileContainingSymbol:14
+#: of
+msgid "Args:"
+msgstr ""
+
+#: google.protobuf.descriptor_database.DescriptorDatabase.Add:4 of
+msgid "file_desc_proto: The FileDescriptorProto to add."
+msgstr ""
+
+#: google.protobuf.descriptor_database.DescriptorDatabase.Add:7
+#: google.protobuf.descriptor_database.DescriptorDatabase.FindFileByName:13
+#: google.protobuf.descriptor_database.DescriptorDatabase.FindFileContainingSymbol:19
+#: of
+msgid "Raises:"
+msgstr ""
+
+#: google.protobuf.descriptor_database.DescriptorDatabase.Add:7 of
+msgid "DescriptorDatabaseConflictingDefinitionError: if an attempt is made to"
+msgstr ""
+
+#: google.protobuf.descriptor_database.DescriptorDatabase.Add:7 of
+msgid ""
+"add a proto with the same name but different definition than an existing "
+"proto in the database."
+msgstr ""
+
+#: google.protobuf.descriptor_database.DescriptorDatabase.FindFileByName:1 of
+msgid "Finds the file descriptor proto by file name."
+msgstr ""
+
+#: google.protobuf.descriptor_database.DescriptorDatabase.FindFileByName:3 of
+msgid ""
+"Typically the file name is a relative path ending to a .proto file. The "
+"proto with the given name will have to have been added to this database "
+"using the Add method or else an error will be raised."
+msgstr ""
+
+#: google.protobuf.descriptor_database.DescriptorDatabase.FindFileByName:8 of
+msgid "name: The file name to find."
+msgstr ""
+
+#: google.protobuf.descriptor_database.DescriptorDatabase.FindFileByName:11
+#: google.protobuf.descriptor_database.DescriptorDatabase.FindFileContainingSymbol:17
+#: of
+msgid "Returns:"
+msgstr ""
+
+#: google.protobuf.descriptor_database.DescriptorDatabase.FindFileByName:11 of
+msgid "The file descriptor proto matching the name."
+msgstr ""
+
+#: google.protobuf.descriptor_database.DescriptorDatabase.FindFileByName:14 of
+msgid "KeyError if no file by the given name was added."
+msgstr ""
+
+#: google.protobuf.descriptor_database.DescriptorDatabase.FindFileContainingSymbol:1
+#: of
+msgid "Finds the file descriptor proto containing the specified symbol."
+msgstr ""
+
+#: google.protobuf.descriptor_database.DescriptorDatabase.FindFileContainingSymbol:3
+#: of
+msgid ""
+"The symbol should be a fully qualified name including the file "
+"descriptor's package and any containing messages. Some examples:"
+msgstr ""
+
+#: google.protobuf.descriptor_database.DescriptorDatabase.FindFileContainingSymbol:6
+#: of
+msgid ""
+"'some.package.name.Message' 'some.package.name.Message.NestedEnum' "
+"'some.package.name.Message.some_field'"
+msgstr ""
+
+#: google.protobuf.descriptor_database.DescriptorDatabase.FindFileContainingSymbol:10
+#: of
+msgid ""
+"The file descriptor proto containing the specified symbol must be added "
+"to this database using the Add method or else an error will be raised."
+msgstr ""
+
+#: google.protobuf.descriptor_database.DescriptorDatabase.FindFileContainingSymbol:14
+#: of
+msgid "symbol: The fully qualified symbol name."
+msgstr ""
+
+#: google.protobuf.descriptor_database.DescriptorDatabase.FindFileContainingSymbol:17
+#: of
+msgid "The file descriptor proto containing the symbol."
+msgstr ""
+
+#: google.protobuf.descriptor_database.DescriptorDatabase.FindFileContainingSymbol:20
+#: of
+msgid "KeyError if no file contains the specified symbol."
+msgstr ""
+
+#: google.protobuf.descriptor_database.DescriptorDatabaseConflictingDefinitionError:1
+#: of
+msgid "Raised when a proto is added with the same name & different descriptor."
+msgstr ""
+
+#: google.protobuf.descriptor_database.DescriptorDatabaseConflictingDefinitionError.with_traceback:1
+#: google.protobuf.descriptor_database.Error.with_traceback:1 of
+msgid ""
+"Exception.with_traceback(tb) -- set self.__traceback__ to tb and return "
+"self."
+msgstr ""
+

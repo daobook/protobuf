@@ -1,0 +1,195 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2021, xinetzone
+# This file is distributed under the same license as the protobuf package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: protobuf \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-12-29 12:54+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.0\n"
+
+#: ../../api/python/google/protobuf/json_format.md:3
+msgid "google.protobuf.json_format"
+msgstr ""
+
+#: google.protobuf.json_format:1 of
+msgid "Contains routines for printing protocol messages in JSON format."
+msgstr ""
+
+#: google.protobuf.json_format:3 of
+msgid "Simple usage example:"
+msgstr ""
+
+#: google.protobuf.json_format:5 of
+msgid ""
+"# Create a proto object and serialize it to a json format string. message"
+" = my_proto_pb2.MyMessage(foo='bar') json_string = "
+"json_format.MessageToJson(message)"
+msgstr ""
+
+#: google.protobuf.json_format:9 of
+msgid ""
+"# Parse a json format string to proto object. message = "
+"json_format.Parse(json_string, my_proto_pb2.MyMessage())"
+msgstr ""
+
+#: google.protobuf.json_format.Error:1 of
+msgid "Top-level module error for json_format."
+msgstr ""
+
+#: google.protobuf.json_format.Error.with_traceback:1
+#: google.protobuf.json_format.ParseError.with_traceback:1
+#: google.protobuf.json_format.SerializeToJsonError.with_traceback:1 of
+msgid ""
+"Exception.with_traceback(tb) -- set self.__traceback__ to tb and return "
+"self."
+msgstr ""
+
+#: google.protobuf.json_format.MessageToDict:1 of
+msgid "Converts protobuf message to a dictionary."
+msgstr ""
+
+#: google.protobuf.json_format.MessageToDict:3 of
+msgid "When the dictionary is encoded to JSON, it conforms to proto3 JSON spec."
+msgstr ""
+
+#: google.protobuf.json_format.MessageToDict:17
+#: google.protobuf.json_format.MessageToJson:18
+#: google.protobuf.json_format.Parse:8 google.protobuf.json_format.ParseDict:8
+#: of
+msgid "Args:"
+msgstr ""
+
+#: google.protobuf.json_format.MessageToDict:6
+#: google.protobuf.json_format.MessageToJson:4 of
+msgid ""
+"message: The protocol buffers message instance to serialize. "
+"including_default_value_fields: If True, singular primitive fields,"
+msgstr ""
+
+#: google.protobuf.json_format.MessageToDict:8
+#: google.protobuf.json_format.MessageToJson:6 of
+msgid ""
+"repeated fields, and map fields will always be serialized.  If False, "
+"only serialize non-empty fields.  Singular message fields and oneof "
+"fields are not affected by this option."
+msgstr ""
+
+#: google.protobuf.json_format.MessageToDict:12
+#: google.protobuf.json_format.MessageToJson:10 of
+msgid "preserving_proto_field_name: If True, use the original proto field"
+msgstr ""
+
+#: google.protobuf.json_format.MessageToDict:12
+#: google.protobuf.json_format.MessageToJson:10 of
+msgid ""
+"names as defined in the .proto file. If False, convert the field names to"
+" lowerCamelCase."
+msgstr ""
+
+#: google.protobuf.json_format.MessageToDict:14 of
+msgid ""
+"use_integers_for_enums: If true, print integers instead of enum names. "
+"descriptor_pool: A Descriptor Pool for resolving types. If None use the"
+msgstr ""
+
+#: google.protobuf.json_format.MessageToDict:16
+#: google.protobuf.json_format.MessageToJson:17
+#: google.protobuf.json_format.Parse:8 google.protobuf.json_format.ParseDict:8
+#: of
+msgid "default."
+msgstr ""
+
+#: google.protobuf.json_format.MessageToDict:17
+#: google.protobuf.json_format.MessageToJson:18 of
+msgid "float_precision: If set, use this to specify float field valid digits."
+msgstr ""
+
+#: google.protobuf.json_format.MessageToDict:19
+#: google.protobuf.json_format.MessageToJson:20
+#: google.protobuf.json_format.Parse:11
+#: google.protobuf.json_format.ParseDict:10 of
+msgid "Returns:"
+msgstr ""
+
+#: google.protobuf.json_format.MessageToDict:20 of
+msgid "A dict representation of the protocol buffer message."
+msgstr ""
+
+#: google.protobuf.json_format.MessageToJson:1 of
+msgid "Converts protobuf message to JSON format."
+msgstr ""
+
+#: google.protobuf.json_format.MessageToJson:12 of
+msgid "indent: The JSON object will be pretty-printed with this indent level."
+msgstr ""
+
+#: google.protobuf.json_format.MessageToJson:13 of
+msgid "An indent level of 0 or negative will only insert newlines."
+msgstr ""
+
+#: google.protobuf.json_format.MessageToJson:14 of
+msgid ""
+"sort_keys: If True, then the output will be sorted by field names. "
+"use_integers_for_enums: If true, print integers instead of enum names. "
+"descriptor_pool: A Descriptor Pool for resolving types. If None use the"
+msgstr ""
+
+#: google.protobuf.json_format.MessageToJson:21 of
+msgid "A string containing the JSON formatted protocol buffer message."
+msgstr ""
+
+#: google.protobuf.json_format.Parse:1 of
+msgid "Parses a JSON representation of a protocol message into a message."
+msgstr ""
+
+#: google.protobuf.json_format.Parse:4 of
+msgid ""
+"text: Message JSON representation. message: A protocol buffer message to "
+"merge into. ignore_unknown_fields: If True, do not raise errors for "
+"unknown fields. descriptor_pool: A Descriptor Pool for resolving types. "
+"If None use the"
+msgstr ""
+
+#: google.protobuf.json_format.Parse:11
+#: google.protobuf.json_format.ParseDict:11 of
+msgid "The same message passed as argument."
+msgstr ""
+
+#: google.protobuf.json_format.Parse:13 of
+msgid "Raises::"
+msgstr ""
+
+#: google.protobuf.json_format.Parse:14 of
+msgid "ParseError: On JSON parsing problems."
+msgstr ""
+
+#: google.protobuf.json_format.ParseDict:1 of
+msgid "Parses a JSON dictionary representation into a message."
+msgstr ""
+
+#: google.protobuf.json_format.ParseDict:4 of
+msgid ""
+"js_dict: Dict representation of a JSON message. message: A protocol "
+"buffer message to merge into. ignore_unknown_fields: If True, do not "
+"raise errors for unknown fields. descriptor_pool: A Descriptor Pool for "
+"resolving types. If None use the"
+msgstr ""
+
+#: google.protobuf.json_format.ParseError:1 of
+msgid "Thrown in case of parsing error."
+msgstr ""
+
+#: google.protobuf.json_format.SerializeToJsonError:1 of
+msgid "Thrown if serialization to JSON fails."
+msgstr ""
+

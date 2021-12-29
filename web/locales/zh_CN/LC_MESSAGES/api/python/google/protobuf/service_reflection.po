@@ -1,0 +1,69 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2021, xinetzone
+# This file is distributed under the same license as the protobuf package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: protobuf \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-12-29 12:54+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.0\n"
+
+#: ../../api/python/google/protobuf/service_reflection.md:3
+msgid "google.protobuf.service_reflection"
+msgstr ""
+
+#: google.protobuf.service_reflection:1 of
+msgid ""
+"Contains metaclasses used to create protocol service and service stub "
+"classes from ServiceDescriptor objects at runtime."
+msgstr ""
+
+#: google.protobuf.service_reflection:4 of
+msgid ""
+"The GeneratedServiceType and GeneratedServiceStubType metaclasses are "
+"used to inject all useful functionality into the classes output by the "
+"protocol compiler at compile-time."
+msgstr ""
+
+#: google.protobuf.service_reflection.GeneratedServiceStubType:1 of
+msgid "Metaclass for service stubs created at runtime from ServiceDescriptors."
+msgstr ""
+
+#: google.protobuf.service_reflection.GeneratedServiceStubType:3 of
+msgid ""
+"This class has similar responsibilities as GeneratedServiceType, except "
+"that it creates the service stub classes."
+msgstr ""
+
+#: google.protobuf.service_reflection.GeneratedServiceStubType.mro:1
+#: google.protobuf.service_reflection.GeneratedServiceType.mro:1 of
+msgid "Return a type's method resolution order."
+msgstr ""
+
+#: google.protobuf.service_reflection.GeneratedServiceType:1 of
+msgid "Metaclass for service classes created at runtime from ServiceDescriptors."
+msgstr ""
+
+#: google.protobuf.service_reflection.GeneratedServiceType:3 of
+msgid ""
+"Implementations for all methods described in the Service class are added "
+"here by this class. We also create properties to allow getting/setting "
+"all fields in the protocol message."
+msgstr ""
+
+#: google.protobuf.service_reflection.GeneratedServiceType:7 of
+msgid ""
+"The protocol compiler currently uses this metaclass to create protocol "
+"service classes at runtime. Clients can also manually create their own "
+"classes at runtime, as in this example::"
+msgstr ""
+

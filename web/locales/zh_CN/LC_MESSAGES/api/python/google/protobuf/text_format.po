@@ -1,0 +1,227 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2021, xinetzone
+# This file is distributed under the same license as the protobuf package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: protobuf \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-12-29 12:54+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.0\n"
+
+#: ../../api/python/google/protobuf/text_format.md:3
+msgid "google.protobuf.text_format"
+msgstr ""
+
+#: google.protobuf.text_format:1 of
+msgid "Contains routines for printing protocol messages in text format."
+msgstr ""
+
+#: google.protobuf.text_format:3 of
+msgid "Simple usage example::"
+msgstr ""
+
+#: google.protobuf.text_format.Merge:1 google.protobuf.text_format.Parse:1 of
+msgid "Parses a text representation of a protocol message into a message."
+msgstr ""
+
+#: google.protobuf.text_format.Merge:3 of
+msgid ""
+"Like Parse(), but allows repeated values for a non-repeated field, and "
+"uses the last one. This means any non-repeated, top-level fields "
+"specified in text replace those in the message."
+msgstr ""
+
+#: google.protobuf.text_format.Merge:16
+#: google.protobuf.text_format.MessageToString:38
+#: google.protobuf.text_format.Parse:37 of
+msgid "Args:"
+msgstr ""
+
+#: google.protobuf.text_format.Merge:8 google.protobuf.text_format.Parse:29 of
+msgid ""
+"text (str): Message text representation. message (Message): A protocol "
+"buffer message to merge into. allow_unknown_extension: if True, skip over"
+" missing extensions and keep"
+msgstr ""
+
+#: google.protobuf.text_format.Merge:11 google.protobuf.text_format.Parse:32 of
+msgid "parsing"
+msgstr ""
+
+#: google.protobuf.text_format.Merge:12 google.protobuf.text_format.Parse:33 of
+msgid ""
+"allow_field_number: if True, both field number and field name are "
+"allowed. descriptor_pool (DescriptorPool): Descriptor pool used to "
+"resolve Any types. allow_unknown_field: if True, skip over unknown field "
+"and keep"
+msgstr ""
+
+#: google.protobuf.text_format.Merge:15 google.protobuf.text_format.Parse:36 of
+msgid ""
+"parsing. Avoid to use this option if possible. It may hide some errors "
+"(e.g. spelling error on field name)"
+msgstr ""
+
+#: google.protobuf.text_format.Merge:19
+#: google.protobuf.text_format.MessageToString:40
+#: google.protobuf.text_format.Parse:40 of
+msgid "Returns:"
+msgstr ""
+
+#: google.protobuf.text_format.Merge:19 google.protobuf.text_format.Parse:40 of
+msgid "Message: The same message passed as argument."
+msgstr ""
+
+#: google.protobuf.text_format.Merge:21 google.protobuf.text_format.Parse:42 of
+msgid "Raises:"
+msgstr ""
+
+#: google.protobuf.text_format.Merge:22 google.protobuf.text_format.Parse:43 of
+msgid "ParseError: On text parsing problems."
+msgstr ""
+
+#: google.protobuf.text_format.MessageToBytes:1 of
+msgid "Convert protobuf message to encoded text format.  See MessageToString."
+msgstr ""
+
+#: google.protobuf.text_format.MessageToString:1 of
+msgid "Convert protobuf message to text format."
+msgstr ""
+
+#: google.protobuf.text_format.MessageToString:3 of
+msgid ""
+"Double values can be formatted compactly with 15 digits of precision "
+"(which is the most that IEEE 754 \"double\" can guarantee) using "
+"double_format='.15g'. To ensure that converting to text and back to a "
+"proto will result in an identical value, double_format='.17g' should be "
+"used."
+msgstr ""
+
+#: google.protobuf.text_format.MessageToString:9 of
+msgid ""
+"message: The protocol buffers message. as_utf8: Return unescaped Unicode "
+"for non-ASCII characters."
+msgstr ""
+
+#: google.protobuf.text_format.MessageToString:11 of
+msgid ""
+"In Python 3 actual Unicode characters may appear as is in strings. In "
+"Python 2 the return value will be valid UTF-8 rather than only ASCII."
+msgstr ""
+
+#: google.protobuf.text_format.MessageToString:13 of
+msgid ""
+"as_one_line: Don't introduce newlines between fields. "
+"use_short_repeated_primitives: Use short repeated format for primitives. "
+"pointy_brackets: If True, use angle brackets instead of curly braces for"
+msgstr ""
+
+#: google.protobuf.text_format.MessageToString:16 of
+msgid "nesting."
+msgstr ""
+
+#: google.protobuf.text_format.MessageToString:20 of
+msgid "use_index_order: If True, fields of a proto message will be printed using"
+msgstr ""
+
+#: google.protobuf.text_format.MessageToString:18 of
+msgid ""
+"the order defined in source code instead of the field number, extensions "
+"will be printed at the end of the message and their relative order is "
+"determined by the extension number. By default, use the field number "
+"order."
+msgstr ""
+
+#: google.protobuf.text_format.MessageToString:24 of
+msgid "float_format (str): If set, use this to specify float field formatting"
+msgstr ""
+
+#: google.protobuf.text_format.MessageToString:23 of
+msgid ""
+"(per the \"Format Specification Mini-Language\"); otherwise, shortest "
+"float that has same value in wire will be printed. Also affect double "
+"field if double_format is not set but float_format is set."
+msgstr ""
+
+#: google.protobuf.text_format.MessageToString:27 of
+msgid "double_format (str): If set, use this to specify double field formatting"
+msgstr ""
+
+#: google.protobuf.text_format.MessageToString:27 of
+msgid ""
+"(per the \"Format Specification Mini-Language\"); if it is not set but "
+"float_format is set, use float_format. Otherwise, use ``str()``"
+msgstr ""
+
+#: google.protobuf.text_format.MessageToString:29 of
+msgid ""
+"use_field_number: If True, print field numbers instead of names. "
+"descriptor_pool (DescriptorPool): Descriptor pool used to resolve Any "
+"types. indent (int): The initial indent level, in terms of spaces, for "
+"pretty"
+msgstr ""
+
+#: google.protobuf.text_format.MessageToString:32 of
+msgid "print."
+msgstr ""
+
+#: google.protobuf.text_format.MessageToString:34 of
+msgid ""
+"message_formatter (function(message, indent, as_one_line) -> "
+"unicode|None):"
+msgstr ""
+
+#: google.protobuf.text_format.MessageToString:34 of
+msgid ""
+"Custom formatter for selected sub-messages (usually based on message "
+"type). Use to pretty print parts of the protobuf for easier diffing."
+msgstr ""
+
+#: google.protobuf.text_format.MessageToString:36 of
+msgid ""
+"print_unknown_fields: If True, unknown fields will be printed. "
+"force_colon: If set, a colon will be added after the field name even if "
+"the"
+msgstr ""
+
+#: google.protobuf.text_format.MessageToString:38 of
+msgid "field is a proto message."
+msgstr ""
+
+#: google.protobuf.text_format.MessageToString:41 of
+msgid "str: A string of the text formatted protocol buffer message."
+msgstr ""
+
+#: google.protobuf.text_format.Parse:3 of
+msgid ""
+"NOTE: for historical reasons this function does not clear the input "
+"message. This is different from what the binary msg.ParseFrom(...) does. "
+"If text contains a field already set in message, the value is appended if"
+" the field is repeated. Otherwise, an error is raised."
+msgstr ""
+
+#: google.protobuf.text_format.Parse:8 of
+msgid "Example::"
+msgstr ""
+
+#: google.protobuf.text_format.Parse:26 of
+msgid "Caller is responsible for clearing the message as needed."
+msgstr ""
+
+#: google.protobuf.text_format.PrintField:1 of
+msgid "Print a single field name/value pair."
+msgstr ""
+
+#: google.protobuf.text_format.PrintFieldValue:1 of
+msgid "Print a single field value (not including name)."
+msgstr ""
+

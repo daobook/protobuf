@@ -40,6 +40,7 @@ extensions = [
     "sphinx.ext.intersphinx",
     # "sphinx_thebe",
     "sphinx_copybutton",
+    "sphinx.ext.autosummary",
     # "sphinxcontrib.mermaid",
     # "sphinx_panels",
     # "sphinx_inline_tabs",

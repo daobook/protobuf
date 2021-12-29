@@ -1,0 +1,833 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2021, xinetzone
+# This file is distributed under the same license as the protobuf package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: protobuf \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-12-29 12:54+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.0\n"
+
+#: ../../api/python/google/protobuf/descriptor.md:3
+msgid "google.protobuf.descriptor"
+msgstr ""
+
+#: google.protobuf.descriptor:1 of
+msgid ""
+"Descriptors essentially contain exactly the information found in a .proto"
+" file, in types that make this information accessible in Python."
+msgstr ""
+
+#: google.protobuf.descriptor.Descriptor:1 of
+msgid "Descriptor for a protocol message type."
+msgstr ""
+
+#: google.protobuf.descriptor.Descriptor:42
+#: google.protobuf.descriptor.DescriptorBase:12
+#: google.protobuf.descriptor.EnumDescriptor:21
+#: google.protobuf.descriptor.EnumValueDescriptor:13
+#: google.protobuf.descriptor.FieldDescriptor:48
+#: google.protobuf.descriptor.FileDescriptor:29
+#: google.protobuf.descriptor.MethodDescriptor:15
+#: google.protobuf.descriptor.OneofDescriptor:13
+#: google.protobuf.descriptor.ServiceDescriptor:16 of
+msgid "Attributes:"
+msgstr ""
+
+#: google.protobuf.descriptor.Descriptor:4 of
+msgid ""
+"name (str): Name of this protocol message type. full_name (str): Fully-"
+"qualified name of this protocol message type,"
+msgstr ""
+
+#: google.protobuf.descriptor.Descriptor:6 of
+msgid ""
+"which will include protocol \"package\" name and the name of any "
+"enclosing types."
+msgstr ""
+
+#: google.protobuf.descriptor.Descriptor:8 of
+msgid "containing_type (Descriptor): Reference to the descriptor of the type"
+msgstr ""
+
+#: google.protobuf.descriptor.Descriptor:9 of
+msgid "containing us, or None if this is top-level."
+msgstr ""
+
+#: google.protobuf.descriptor.Descriptor:10 of
+msgid "fields (list[FieldDescriptor]): Field descriptors for all fields in"
+msgstr ""
+
+#: google.protobuf.descriptor.Descriptor:11 of
+msgid "this type."
+msgstr ""
+
+#: google.protobuf.descriptor.Descriptor:13 of
+msgid "fields_by_number (dict(int, FieldDescriptor)): Same"
+msgstr ""
+
+#: google.protobuf.descriptor.Descriptor:13 of
+msgid ""
+":class:`FieldDescriptor` objects as in :attr:`fields`, but indexed by "
+"\"number\" attribute in each FieldDescriptor."
+msgstr ""
+
+#: google.protobuf.descriptor.Descriptor:16 of
+msgid "fields_by_name (dict(str, FieldDescriptor)): Same"
+msgstr ""
+
+#: google.protobuf.descriptor.Descriptor:16 of
+msgid ""
+":class:`FieldDescriptor` objects as in :attr:`fields`, but indexed by "
+"\"name\" attribute in each :class:`FieldDescriptor`."
+msgstr ""
+
+#: google.protobuf.descriptor.Descriptor:18 of
+msgid "nested_types (list[Descriptor]): Descriptor references"
+msgstr ""
+
+#: google.protobuf.descriptor.Descriptor:19 of
+msgid "for all protocol message types nested within this one."
+msgstr ""
+
+#: google.protobuf.descriptor.Descriptor:21 of
+msgid "nested_types_by_name (dict(str, Descriptor)): Same Descriptor"
+msgstr ""
+
+#: google.protobuf.descriptor.Descriptor:21 of
+msgid ""
+"objects as in :attr:`nested_types`, but indexed by \"name\" attribute in "
+"each Descriptor."
+msgstr ""
+
+#: google.protobuf.descriptor.Descriptor:23 of
+msgid "enum_types (list[EnumDescriptor]): :class:`EnumDescriptor` references"
+msgstr ""
+
+#: google.protobuf.descriptor.Descriptor:24 of
+msgid "for all enums contained within this type."
+msgstr ""
+
+#: google.protobuf.descriptor.Descriptor:26 of
+msgid "enum_types_by_name (dict(str, EnumDescriptor)): Same"
+msgstr ""
+
+#: google.protobuf.descriptor.Descriptor:26 of
+msgid ""
+":class:`EnumDescriptor` objects as in :attr:`enum_types`, but indexed by "
+"\"name\" attribute in each EnumDescriptor."
+msgstr ""
+
+#: google.protobuf.descriptor.Descriptor:28 of
+msgid "enum_values_by_name (dict(str, EnumValueDescriptor)): Dict mapping"
+msgstr ""
+
+#: google.protobuf.descriptor.Descriptor:29 of
+msgid "from enum value name to :class:`EnumValueDescriptor` for that value."
+msgstr ""
+
+#: google.protobuf.descriptor.Descriptor:30 of
+msgid "extensions (list[FieldDescriptor]): All extensions defined directly"
+msgstr ""
+
+#: google.protobuf.descriptor.Descriptor:31 of
+msgid "within this message type (NOT within a nested type)."
+msgstr ""
+
+#: google.protobuf.descriptor.Descriptor:33 of
+msgid "extensions_by_name (dict(str, FieldDescriptor)): Same FieldDescriptor"
+msgstr ""
+
+#: google.protobuf.descriptor.Descriptor:33 of
+msgid ""
+"objects as :attr:`extensions`, but indexed by \"name\" attribute of each "
+"FieldDescriptor."
+msgstr ""
+
+#: google.protobuf.descriptor.Descriptor:35 of
+msgid ""
+"is_extendable (bool):  Does this type define any extension ranges? oneofs"
+" (list[OneofDescriptor]): The list of descriptors for oneof fields"
+msgstr ""
+
+#: google.protobuf.descriptor.Descriptor:37 of
+msgid "in this message."
+msgstr ""
+
+#: google.protobuf.descriptor.Descriptor:38 of
+msgid "oneofs_by_name (dict(str, OneofDescriptor)): Same objects as in"
+msgstr ""
+
+#: google.protobuf.descriptor.Descriptor:39 of
+msgid ":attr:`oneofs`, but indexed by \"name\" attribute."
+msgstr ""
+
+#: google.protobuf.descriptor.Descriptor:40
+#: google.protobuf.descriptor.FieldDescriptor:47 of
+msgid "file (FileDescriptor): Reference to file descriptor."
+msgstr ""
+
+#: google.protobuf.descriptor.Descriptor.CopyToProto:1 of
+msgid "Copies this to a descriptor_pb2.DescriptorProto."
+msgstr ""
+
+#: google.protobuf.descriptor.Descriptor.CopyToProto:3
+#: google.protobuf.descriptor.Descriptor.EnumValueName:7
+#: google.protobuf.descriptor.EnumDescriptor.CopyToProto:3
+#: google.protobuf.descriptor.FieldDescriptor.ProtoTypeToCppProtoType:7
+#: google.protobuf.descriptor.FileDescriptor.CopyToProto:3
+#: google.protobuf.descriptor.MakeDescriptor:12
+#: google.protobuf.descriptor.MethodDescriptor.CopyToProto:4
+#: google.protobuf.descriptor.ServiceDescriptor.CopyToProto:3
+#: google.protobuf.descriptor.ServiceDescriptor.FindMethodByName:3 of
+msgid "Args:"
+msgstr ""
+
+#: google.protobuf.descriptor.Descriptor.CopyToProto:4 of
+msgid "proto: An empty descriptor_pb2.DescriptorProto."
+msgstr ""
+
+#: google.protobuf.descriptor.Descriptor.EnumValueName:1 of
+msgid "Returns the string name of an enum value."
+msgstr ""
+
+#: google.protobuf.descriptor.Descriptor.EnumValueName:3 of
+msgid "This is just a small helper method to simplify a common operation."
+msgstr ""
+
+#: google.protobuf.descriptor.Descriptor.EnumValueName:6 of
+msgid "enum: string name of the Enum. value: int, value of the enum."
+msgstr ""
+
+#: google.protobuf.descriptor.Descriptor.EnumValueName:10
+#: google.protobuf.descriptor.FieldDescriptor.ProtoTypeToCppProtoType:9
+#: google.protobuf.descriptor.FieldDescriptor.camelcase_name:3
+#: google.protobuf.descriptor.MakeDescriptor:14
+#: google.protobuf.descriptor.ServiceDescriptor.FindMethodByName:6 of
+msgid "Returns:"
+msgstr ""
+
+#: google.protobuf.descriptor.Descriptor.EnumValueName:10 of
+msgid "string name of the enum value."
+msgstr ""
+
+#: google.protobuf.descriptor.Descriptor.EnumValueName:13
+#: google.protobuf.descriptor.FieldDescriptor.ProtoTypeToCppProtoType:11
+#: google.protobuf.descriptor.MethodDescriptor.CopyToProto:7 of
+msgid "Raises:"
+msgstr ""
+
+#: google.protobuf.descriptor.Descriptor.EnumValueName:13 of
+msgid "KeyError if either the Enum doesn't exist or the value is not a valid"
+msgstr ""
+
+#: google.protobuf.descriptor.Descriptor.EnumValueName:14 of
+msgid "value for the enum."
+msgstr ""
+
+#: google.protobuf.descriptor.DescriptorBase.GetOptions:1 of
+msgid "Retrieves descriptor options."
+msgstr ""
+
+#: google.protobuf.descriptor.DescriptorBase.GetOptions:3 of
+msgid ""
+"This method returns the options set or creates the default options for "
+"the descriptor."
+msgstr ""
+
+#: google.protobuf.descriptor.Descriptor.fields_by_camelcase_name:1 of
+msgid ""
+"Same FieldDescriptor objects as in :attr:`fields`, but indexed by "
+":attr:`FieldDescriptor.camelcase_name`."
+msgstr ""
+
+#: google.protobuf.descriptor.DescriptorBase:1 of
+msgid "Descriptors base class."
+msgstr ""
+
+#: google.protobuf.descriptor.DescriptorBase:3 of
+msgid ""
+"This class is the base of all descriptor classes. It provides common "
+"options related functionality."
+msgstr ""
+
+#: google.protobuf.descriptor.DescriptorBase:12 of
+msgid "has_options:  True if the descriptor has non-default options.  Usually it"
+msgstr ""
+
+#: google.protobuf.descriptor.DescriptorBase:8 of
+msgid ""
+"is not necessary to read this -- just call GetOptions() which will "
+"happily return the default instance.  However, it's sometimes useful for "
+"efficiency, and also useful inside the protobuf implementation to avoid "
+"some bootstrapping issues."
+msgstr ""
+
+#: google.protobuf.descriptor.DescriptorMetaclass.mro:1 of
+msgid "Return a type's method resolution order."
+msgstr ""
+
+#: google.protobuf.descriptor.EnumDescriptor:1 of
+msgid "Descriptor for an enum defined in a .proto file."
+msgstr ""
+
+#: google.protobuf.descriptor.EnumDescriptor:4 of
+msgid ""
+"name (str): Name of the enum type. full_name (str): Full name of the "
+"type, including package name"
+msgstr ""
+
+#: google.protobuf.descriptor.EnumDescriptor:6 of
+msgid "and any enclosing type(s)."
+msgstr ""
+
+#: google.protobuf.descriptor.EnumDescriptor:8 of
+msgid "values (list[EnumValueDescriptors]): List of the values"
+msgstr ""
+
+#: google.protobuf.descriptor.EnumDescriptor:9 of
+msgid "in this enum."
+msgstr ""
+
+#: google.protobuf.descriptor.EnumDescriptor:10 of
+msgid "values_by_name (dict(str, EnumValueDescriptor)): Same as :attr:`values`,"
+msgstr ""
+
+#: google.protobuf.descriptor.EnumDescriptor:11 of
+msgid "but indexed by the \"name\" field of each EnumValueDescriptor."
+msgstr ""
+
+#: google.protobuf.descriptor.EnumDescriptor:12 of
+msgid "values_by_number (dict(int, EnumValueDescriptor)): Same as :attr:`values`,"
+msgstr ""
+
+#: google.protobuf.descriptor.EnumDescriptor:13 of
+msgid "but indexed by the \"number\" field of each EnumValueDescriptor."
+msgstr ""
+
+#: google.protobuf.descriptor.EnumDescriptor:16 of
+msgid "containing_type (Descriptor): Descriptor of the immediate containing"
+msgstr ""
+
+#: google.protobuf.descriptor.EnumDescriptor:15 of
+msgid ""
+"type of this enum, or None if this is an enum defined at the top level in"
+" a .proto file.  Set by Descriptor's constructor if we're passed into "
+"one."
+msgstr ""
+
+#: google.protobuf.descriptor.EnumDescriptor:18 of
+msgid ""
+"file (FileDescriptor): Reference to file descriptor. options "
+"(descriptor_pb2.EnumOptions): Enum options message or"
+msgstr ""
+
+#: google.protobuf.descriptor.EnumDescriptor:20 of
+msgid "None to use default enum options."
+msgstr ""
+
+#: google.protobuf.descriptor.EnumDescriptor.CopyToProto:1 of
+msgid "Copies this to a descriptor_pb2.EnumDescriptorProto."
+msgstr ""
+
+#: google.protobuf.descriptor.EnumDescriptor.CopyToProto:4 of
+msgid "proto (descriptor_pb2.EnumDescriptorProto): An empty descriptor proto."
+msgstr ""
+
+#: google.protobuf.descriptor.EnumValueDescriptor:1 of
+msgid "Descriptor for a single value within an enum."
+msgstr ""
+
+#: google.protobuf.descriptor.EnumValueDescriptor:4 of
+msgid ""
+"name (str): Name of this value. index (int): Dense, 0-indexed index "
+"giving the order that this"
+msgstr ""
+
+#: google.protobuf.descriptor.EnumValueDescriptor:6 of
+msgid "value appears textually within its enum in the .proto file."
+msgstr ""
+
+#: google.protobuf.descriptor.EnumValueDescriptor:7 of
+msgid ""
+"number (int): Actual number assigned to this enum value. type "
+"(EnumDescriptor): :class:`EnumDescriptor` to which this value"
+msgstr ""
+
+#: google.protobuf.descriptor.EnumValueDescriptor:9 of
+msgid ""
+"belongs.  Set by :class:`EnumDescriptor`'s constructor if we're passed "
+"into one."
+msgstr ""
+
+#: google.protobuf.descriptor.EnumValueDescriptor:13 of
+msgid "options (descriptor_pb2.EnumValueOptions): Enum value options message or"
+msgstr ""
+
+#: google.protobuf.descriptor.EnumValueDescriptor:12 of
+msgid "None to use default enum value options options."
+msgstr ""
+
+#: google.protobuf.descriptor.Error:1 of
+msgid "Base error for this module."
+msgstr ""
+
+#: google.protobuf.descriptor.Error.with_traceback:1
+#: google.protobuf.descriptor.TypeTransformationError.with_traceback:1 of
+msgid ""
+"Exception.with_traceback(tb) -- set self.__traceback__ to tb and return "
+"self."
+msgstr ""
+
+#: google.protobuf.descriptor.FieldDescriptor:1 of
+msgid "Descriptor for a single field in a .proto file."
+msgstr ""
+
+#: google.protobuf.descriptor.FieldDescriptor:4 of
+msgid ""
+"name (str): Name of this field, exactly as it appears in .proto. "
+"full_name (str): Name of this field, including containing scope.  This is"
+msgstr ""
+
+#: google.protobuf.descriptor.FieldDescriptor:6 of
+msgid "particularly relevant for extensions."
+msgstr ""
+
+#: google.protobuf.descriptor.FieldDescriptor:7 of
+msgid "index (int): Dense, 0-indexed index giving the order that this"
+msgstr ""
+
+#: google.protobuf.descriptor.FieldDescriptor:8 of
+msgid "field textually appears within its message in the .proto file."
+msgstr ""
+
+#: google.protobuf.descriptor.FieldDescriptor:9 of
+msgid "number (int): Tag number declared for this field in the .proto file."
+msgstr ""
+
+#: google.protobuf.descriptor.FieldDescriptor:11 of
+msgid ""
+"type (int): (One of the TYPE_* constants below) Declared type. cpp_type "
+"(int): (One of the CPPTYPE_* constants below) C++ type used to"
+msgstr ""
+
+#: google.protobuf.descriptor.FieldDescriptor:13 of
+msgid "represent this field."
+msgstr ""
+
+#: google.protobuf.descriptor.FieldDescriptor:15 of
+msgid "label (int): (One of the LABEL_* constants below) Tells whether this"
+msgstr ""
+
+#: google.protobuf.descriptor.FieldDescriptor:16 of
+msgid "field is optional, required, or repeated."
+msgstr ""
+
+#: google.protobuf.descriptor.FieldDescriptor:17 of
+msgid "has_default_value (bool): True if this field has a default value defined,"
+msgstr ""
+
+#: google.protobuf.descriptor.FieldDescriptor:18 of
+msgid "otherwise false."
+msgstr ""
+
+#: google.protobuf.descriptor.FieldDescriptor:22 of
+msgid "default_value (Varies): Default value of this field.  Only"
+msgstr ""
+
+#: google.protobuf.descriptor.FieldDescriptor:20 of
+msgid ""
+"meaningful for non-repeated scalar fields.  Repeated fields should always"
+" set this to [], and non-repeated composite fields should always set this"
+" to None."
+msgstr ""
+
+#: google.protobuf.descriptor.FieldDescriptor:29 of
+msgid "containing_type (Descriptor): Descriptor of the protocol message"
+msgstr ""
+
+#: google.protobuf.descriptor.FieldDescriptor:25 of
+msgid ""
+"type that contains this field.  Set by the Descriptor constructor if "
+"we're passed into one. Somewhat confusingly, for extension fields, this "
+"is the descriptor of the EXTENDED message, not the descriptor of the "
+"message containing this field.  (See is_extension and extension_scope "
+"below)."
+msgstr ""
+
+#: google.protobuf.descriptor.FieldDescriptor:31 of
+msgid "message_type (Descriptor): If a composite field, a descriptor"
+msgstr ""
+
+#: google.protobuf.descriptor.FieldDescriptor:32 of
+msgid "of the message type contained in this field.  Otherwise, this is None."
+msgstr ""
+
+#: google.protobuf.descriptor.FieldDescriptor:34 of
+msgid "enum_type (EnumDescriptor): If this field contains an enum, a"
+msgstr ""
+
+#: google.protobuf.descriptor.FieldDescriptor:34 of
+msgid "descriptor of that enum.  Otherwise, this is None."
+msgstr ""
+
+#: google.protobuf.descriptor.FieldDescriptor:36 of
+msgid ""
+"is_extension: True iff this describes an extension field. extension_scope"
+" (Descriptor): Only meaningful if is_extension is True."
+msgstr ""
+
+#: google.protobuf.descriptor.FieldDescriptor:38 of
+msgid ""
+"Gives the message that immediately contains this extension field. Will be"
+" None iff we're a top-level (file-level) extension field."
+msgstr ""
+
+#: google.protobuf.descriptor.FieldDescriptor:42 of
+msgid "options (descriptor_pb2.FieldOptions): Protocol message field options or"
+msgstr ""
+
+#: google.protobuf.descriptor.FieldDescriptor:42 of
+msgid "None to use default field options."
+msgstr ""
+
+#: google.protobuf.descriptor.FieldDescriptor:45 of
+msgid "containing_oneof (OneofDescriptor): If the field is a member of a oneof"
+msgstr ""
+
+#: google.protobuf.descriptor.FieldDescriptor:45 of
+msgid "union, contains its descriptor. Otherwise, None."
+msgstr ""
+
+#: google.protobuf.descriptor.FieldDescriptor.ProtoTypeToCppProtoType:1 of
+msgid "Converts from a Python proto type to a C++ Proto Type."
+msgstr ""
+
+#: google.protobuf.descriptor.FieldDescriptor.ProtoTypeToCppProtoType:3 of
+msgid ""
+"The Python ProtocolBuffer classes specify both the 'Python' datatype and "
+"the 'C++' datatype - and they're not the same. This helper method should "
+"translate from one to another."
+msgstr ""
+
+#: google.protobuf.descriptor.FieldDescriptor.ProtoTypeToCppProtoType:8 of
+msgid "proto_type: the Python proto type (descriptor.FieldDescriptor.TYPE_*)"
+msgstr ""
+
+#: google.protobuf.descriptor.FieldDescriptor.ProtoTypeToCppProtoType:10 of
+msgid "int: descriptor.FieldDescriptor.CPPTYPE_*, the C++ type."
+msgstr ""
+
+#: google.protobuf.descriptor.FieldDescriptor.ProtoTypeToCppProtoType:12 of
+msgid "TypeTransformationError: when the Python proto type isn't known."
+msgstr ""
+
+#: google.protobuf.descriptor.FieldDescriptor.camelcase_name:1 of
+msgid "Camelcase name of this field."
+msgstr ""
+
+#: google.protobuf.descriptor.FieldDescriptor.camelcase_name:4 of
+msgid "str: the name in CamelCase."
+msgstr ""
+
+#: google.protobuf.descriptor.FileDescriptor:1 of
+msgid "Descriptor for a file. Mimics the descriptor_pb2.FileDescriptorProto."
+msgstr ""
+
+#: google.protobuf.descriptor.FileDescriptor:3 of
+msgid ""
+"Note that :attr:`enum_types_by_name`, :attr:`extensions_by_name`, and "
+":attr:`dependencies` fields are only set by the "
+":py:mod:`google.protobuf.message_factory` module, and not by the "
+"generated proto code."
+msgstr ""
+
+#: google.protobuf.descriptor.FileDescriptor:9 of
+msgid ""
+"name (str): Name of file, relative to root of source tree. package (str):"
+" Name of the package syntax (str): string indicating syntax of the file "
+"(can be \"proto2\" or"
+msgstr ""
+
+#: google.protobuf.descriptor.FileDescriptor:12 of
+msgid "\"proto3\")"
+msgstr ""
+
+#: google.protobuf.descriptor.FileDescriptor:13 of
+msgid "serialized_pb (bytes): Byte string of serialized"
+msgstr ""
+
+#: google.protobuf.descriptor.FileDescriptor:14 of
+msgid ":class:`descriptor_pb2.FileDescriptorProto`."
+msgstr ""
+
+#: google.protobuf.descriptor.FileDescriptor:15 of
+msgid "dependencies (list[FileDescriptor]): List of other :class:`FileDescriptor`"
+msgstr ""
+
+#: google.protobuf.descriptor.FileDescriptor:16 of
+msgid "objects this :class:`FileDescriptor` depends on."
+msgstr ""
+
+#: google.protobuf.descriptor.FileDescriptor:17 of
+msgid "public_dependencies (list[FileDescriptor]): A subset of"
+msgstr ""
+
+#: google.protobuf.descriptor.FileDescriptor:18 of
+msgid ":attr:`dependencies`, which were declared as \"public\"."
+msgstr ""
+
+#: google.protobuf.descriptor.FileDescriptor:19 of
+msgid "message_types_by_name (dict(str, Descriptor)): Mapping from message names"
+msgstr ""
+
+#: google.protobuf.descriptor.FileDescriptor:20 of
+msgid "to their :class:`Descriptor`."
+msgstr ""
+
+#: google.protobuf.descriptor.FileDescriptor:21 of
+msgid "enum_types_by_name (dict(str, EnumDescriptor)): Mapping from enum names to"
+msgstr ""
+
+#: google.protobuf.descriptor.FileDescriptor:22 of
+msgid "their :class:`EnumDescriptor`."
+msgstr ""
+
+#: google.protobuf.descriptor.FileDescriptor:23 of
+msgid "extensions_by_name (dict(str, FieldDescriptor)): Mapping from extension"
+msgstr ""
+
+#: google.protobuf.descriptor.FileDescriptor:24 of
+msgid "names declared at file scope to their :class:`FieldDescriptor`."
+msgstr ""
+
+#: google.protobuf.descriptor.FileDescriptor:25 of
+msgid "services_by_name (dict(str, ServiceDescriptor)): Mapping from services'"
+msgstr ""
+
+#: google.protobuf.descriptor.FileDescriptor:26 of
+msgid "names to their :class:`ServiceDescriptor`."
+msgstr ""
+
+#: google.protobuf.descriptor.FileDescriptor:29 of
+msgid "pool (DescriptorPool): The pool this descriptor belongs to.  When not"
+msgstr ""
+
+#: google.protobuf.descriptor.FileDescriptor:28 of
+msgid "passed to the constructor, the global default pool is used."
+msgstr ""
+
+#: google.protobuf.descriptor.FileDescriptor.CopyToProto:1 of
+msgid "Copies this to a descriptor_pb2.FileDescriptorProto."
+msgstr ""
+
+#: google.protobuf.descriptor.FileDescriptor.CopyToProto:4 of
+msgid "proto: An empty descriptor_pb2.FileDescriptorProto."
+msgstr ""
+
+#: google.protobuf.descriptor.MakeDescriptor:1 of
+msgid "Make a protobuf Descriptor given a DescriptorProto protobuf."
+msgstr ""
+
+#: google.protobuf.descriptor.MakeDescriptor:3 of
+msgid ""
+"Handles nested descriptors. Note that this is limited to the scope of "
+"defining a message inside of another message. Composite fields can "
+"currently only be resolved if the message is defined in the same scope as"
+" the field."
+msgstr ""
+
+#: google.protobuf.descriptor.MakeDescriptor:8 of
+msgid ""
+"desc_proto: The descriptor_pb2.DescriptorProto protobuf message. package:"
+" Optional package name for the new message Descriptor (string). "
+"build_file_if_cpp: Update the C++ descriptor pool if api matches."
+msgstr ""
+
+#: google.protobuf.descriptor.MakeDescriptor:11 of
+msgid "Set to False on recursion, so no duplicates are created."
+msgstr ""
+
+#: google.protobuf.descriptor.MakeDescriptor:12 of
+msgid ""
+"syntax: The syntax/semantics that should be used.  Set to \"proto3\" to "
+"get"
+msgstr ""
+
+#: google.protobuf.descriptor.MakeDescriptor:13 of
+msgid "proto3 field presence semantics."
+msgstr ""
+
+#: google.protobuf.descriptor.MakeDescriptor:15 of
+msgid "A Descriptor for protobuf messages."
+msgstr ""
+
+#: google.protobuf.descriptor.MethodDescriptor:1 of
+msgid "Descriptor for a method in a service."
+msgstr ""
+
+#: google.protobuf.descriptor.MethodDescriptor:4 of
+msgid ""
+"name (str): Name of the method within the service. full_name (str): Full "
+"name of method. index (int): 0-indexed index of the method inside the "
+"service. containing_service (ServiceDescriptor): The service that "
+"contains this"
+msgstr ""
+
+#: google.protobuf.descriptor.MethodDescriptor:8 of
+msgid "method."
+msgstr ""
+
+#: google.protobuf.descriptor.MethodDescriptor:9 of
+msgid "input_type (Descriptor): The descriptor of the message that this method"
+msgstr ""
+
+#: google.protobuf.descriptor.MethodDescriptor:10 of
+msgid "accepts."
+msgstr ""
+
+#: google.protobuf.descriptor.MethodDescriptor:11 of
+msgid "output_type (Descriptor): The descriptor of the message that this method"
+msgstr ""
+
+#: google.protobuf.descriptor.MethodDescriptor:12 of
+msgid "returns."
+msgstr ""
+
+#: google.protobuf.descriptor.MethodDescriptor:15 of
+msgid "options (descriptor_pb2.MethodOptions or None): Method options message, or"
+msgstr ""
+
+#: google.protobuf.descriptor.MethodDescriptor:14 of
+msgid "None to use default method options."
+msgstr ""
+
+#: google.protobuf.descriptor.MethodDescriptor.CopyToProto:1 of
+msgid "Copies this to a descriptor_pb2.MethodDescriptorProto."
+msgstr ""
+
+#: google.protobuf.descriptor.MethodDescriptor.CopyToProto:4 of
+msgid "proto (descriptor_pb2.MethodDescriptorProto): An empty descriptor proto."
+msgstr ""
+
+#: google.protobuf.descriptor.MethodDescriptor.CopyToProto:7 of
+msgid "Error: If self couldn't be serialized, due to too few constructor"
+msgstr ""
+
+#: google.protobuf.descriptor.MethodDescriptor.CopyToProto:8 of
+msgid "arguments."
+msgstr ""
+
+#: google.protobuf.descriptor.OneofDescriptor:1 of
+msgid "Descriptor for a oneof field."
+msgstr ""
+
+#: google.protobuf.descriptor.OneofDescriptor:4 of
+msgid ""
+"name (str): Name of the oneof field. full_name (str): Full name of the "
+"oneof field, including package name. index (int): 0-based index giving "
+"the order of the oneof field inside"
+msgstr ""
+
+#: google.protobuf.descriptor.OneofDescriptor:7 of
+msgid "its containing type."
+msgstr ""
+
+#: google.protobuf.descriptor.OneofDescriptor:9 of
+msgid "containing_type (Descriptor): :class:`Descriptor` of the protocol message"
+msgstr ""
+
+#: google.protobuf.descriptor.OneofDescriptor:9 of
+msgid ""
+"type that contains this field.  Set by the :class:`Descriptor` "
+"constructor if we're passed into one."
+msgstr ""
+
+#: google.protobuf.descriptor.OneofDescriptor:13 of
+msgid "fields (list[FieldDescriptor]): The list of field descriptors this"
+msgstr ""
+
+#: google.protobuf.descriptor.OneofDescriptor:12 of
+msgid "oneof can contain."
+msgstr ""
+
+#: google.protobuf.descriptor.ServiceDescriptor:1 of
+msgid "Descriptor for a service."
+msgstr ""
+
+#: google.protobuf.descriptor.ServiceDescriptor:4 of
+msgid ""
+"name (str): Name of the service. full_name (str): Full name of the "
+"service, including package name. index (int): 0-indexed index giving the "
+"order that this services"
+msgstr ""
+
+#: google.protobuf.descriptor.ServiceDescriptor:7 of
+msgid "definition appears within the .proto file."
+msgstr ""
+
+#: google.protobuf.descriptor.ServiceDescriptor:8 of
+msgid "methods (list[MethodDescriptor]): List of methods provided by this"
+msgstr ""
+
+#: google.protobuf.descriptor.ServiceDescriptor:9 of
+msgid "service."
+msgstr ""
+
+#: google.protobuf.descriptor.ServiceDescriptor:11 of
+msgid "methods_by_name (dict(str, MethodDescriptor)): Same"
+msgstr ""
+
+#: google.protobuf.descriptor.ServiceDescriptor:11 of
+msgid ""
+":class:`MethodDescriptor` objects as in :attr:`methods_by_name`, but "
+"indexed by \"name\" attribute in each :class:`MethodDescriptor`."
+msgstr ""
+
+#: google.protobuf.descriptor.ServiceDescriptor:13 of
+msgid "options (descriptor_pb2.ServiceOptions): Service options message or"
+msgstr ""
+
+#: google.protobuf.descriptor.ServiceDescriptor:14 of
+msgid "None to use default service options."
+msgstr ""
+
+#: google.protobuf.descriptor.ServiceDescriptor:15 of
+msgid "file (FileDescriptor): Reference to file info."
+msgstr ""
+
+#: google.protobuf.descriptor.ServiceDescriptor.CopyToProto:1 of
+msgid "Copies this to a descriptor_pb2.ServiceDescriptorProto."
+msgstr ""
+
+#: google.protobuf.descriptor.ServiceDescriptor.CopyToProto:4 of
+msgid "proto (descriptor_pb2.ServiceDescriptorProto): An empty descriptor proto."
+msgstr ""
+
+#: google.protobuf.descriptor.ServiceDescriptor.FindMethodByName:1 of
+msgid "Searches for the specified method, and returns its descriptor."
+msgstr ""
+
+#: google.protobuf.descriptor.ServiceDescriptor.FindMethodByName:4 of
+msgid "name (str): Name of the method."
+msgstr ""
+
+#: google.protobuf.descriptor.ServiceDescriptor.FindMethodByName:6 of
+msgid ""
+"MethodDescriptor or None: the descriptor for the requested method, if "
+"found."
+msgstr ""
+
+#: google.protobuf.descriptor.TypeTransformationError:1 of
+msgid "Error transforming between python proto type and corresponding C++ type."
+msgstr ""
+

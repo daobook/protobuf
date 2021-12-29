@@ -1,0 +1,282 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2021, xinetzone
+# This file is distributed under the same license as the protobuf package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: protobuf \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-12-29 12:54+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.0\n"
+
+#: ../../api/python/google/protobuf/service.md:3
+msgid "google.protobuf.service"
+msgstr ""
+
+#: google.protobuf.service:1 of
+msgid "DEPRECATED:  Declares the RPC service interfaces."
+msgstr ""
+
+#: google.protobuf.service:3 of
+msgid ""
+"This module declares the abstract interfaces underlying proto2 RPC "
+"services.  These are intended to be independent of any particular RPC "
+"implementation, so that proto2 services can be used on top of a variety "
+"of implementations.  Starting with version 2.3.0, RPC implementations "
+"should not try to build on these, but should instead provide code "
+"generator plugins which generate code specific to the particular RPC "
+"implementation.  This way the generated code can be more appropriate for "
+"the implementation in use and can avoid unnecessary layers of "
+"indirection."
+msgstr ""
+
+#: google.protobuf.service.RpcChannel:1 of
+msgid "Abstract interface for an RPC channel."
+msgstr ""
+
+#: google.protobuf.service.RpcChannel:3 of
+msgid ""
+"An RpcChannel represents a communication line to a service which can be "
+"used to call that service's methods.  The service may be running on "
+"another machine. Normally, you should not use an RpcChannel directly, but"
+" instead construct a stub {@link Service} wrapping it.  Example:"
+msgstr ""
+
+#: google.protobuf.service.RpcChannel:13
+#: google.protobuf.service.Service.GetRequestClass:10 of
+msgid "Example:"
+msgstr ""
+
+#: google.protobuf.service.RpcChannel:9 of
+msgid ""
+"RpcChannel channel = rpcImpl.Channel(\"remotehost.example.com:1234\") "
+"RpcController controller = rpcImpl.Controller() MyService service = "
+"MyService_Stub(channel) service.MyMethod(controller, request, callback)"
+msgstr ""
+
+#: google.protobuf.service.RpcChannel.CallMethod:1 of
+msgid "Calls the method identified by the descriptor."
+msgstr ""
+
+#: google.protobuf.service.RpcChannel.CallMethod:3 of
+msgid ""
+"Call the given method of the remote service.  The signature of this "
+"procedure looks the same as Service.CallMethod(), but the requirements "
+"are less strict in one important way:  the request object doesn't have to"
+" be of any specific class as long as its descriptor is method.input_type."
+msgstr ""
+
+#: google.protobuf.service.RpcController:1 of
+msgid "An RpcController mediates a single method call."
+msgstr ""
+
+#: google.protobuf.service.RpcController:3 of
+msgid ""
+"The primary purpose of the controller is to provide a way to manipulate "
+"settings specific to the RPC implementation and to find out about RPC-"
+"level errors. The methods provided by the RpcController interface are "
+"intended to be a \"least common denominator\" set of features which we "
+"expect all implementations to support.  Specific implementations may "
+"provide more advanced features (e.g. deadline propagation)."
+msgstr ""
+
+#: google.protobuf.service.RpcController.ErrorText:1 of
+msgid "If Failed is true, returns a human-readable description of the error."
+msgstr ""
+
+#: google.protobuf.service.RpcController.Failed:1 of
+msgid "Returns true if the call failed."
+msgstr ""
+
+#: google.protobuf.service.RpcController.Failed:3 of
+msgid ""
+"After a call has finished, returns true if the call failed.  The possible"
+" reasons for failure depend on the RPC implementation.  Failed() must not"
+" be called before a call has finished.  If Failed() returns true, the "
+"contents of the response message are undefined."
+msgstr ""
+
+#: google.protobuf.service.RpcController.IsCanceled:1 of
+msgid "Checks if the client cancelled the RPC."
+msgstr ""
+
+#: google.protobuf.service.RpcController.IsCanceled:3 of
+msgid ""
+"If true, indicates that the client canceled the RPC, so the server may as"
+" well give up on replying to it.  The server should still call the final "
+"\"done\" callback."
+msgstr ""
+
+#: google.protobuf.service.RpcController.NotifyOnCancel:1 of
+msgid "Sets a callback to invoke on cancel."
+msgstr ""
+
+#: google.protobuf.service.RpcController.NotifyOnCancel:3 of
+msgid ""
+"Asks that the given callback be called when the RPC is canceled.  The "
+"callback will always be called exactly once.  If the RPC completes "
+"without being canceled, the callback will be called after completion.  If"
+" the RPC has already been canceled when NotifyOnCancel() is called, the "
+"callback will be called immediately."
+msgstr ""
+
+#: google.protobuf.service.RpcController.NotifyOnCancel:9 of
+msgid "NotifyOnCancel() must be called no more than once per request."
+msgstr ""
+
+#: google.protobuf.service.RpcController.Reset:1 of
+msgid "Resets the RpcController to its initial state."
+msgstr ""
+
+#: google.protobuf.service.RpcController.Reset:3 of
+msgid ""
+"After the RpcController has been reset, it may be reused in a new call. "
+"Must not be called while an RPC is in progress."
+msgstr ""
+
+#: google.protobuf.service.RpcController.SetFailed:1 of
+msgid "Sets a failure reason."
+msgstr ""
+
+#: google.protobuf.service.RpcController.SetFailed:3 of
+msgid ""
+"Causes Failed() to return true on the client side.  \"reason\" will be "
+"incorporated into the message returned by ErrorText().  If you find you "
+"need to return machine-readable information about failures, you should "
+"incorporate it into your response protocol buffer and should NOT call "
+"SetFailed()."
+msgstr ""
+
+#: google.protobuf.service.RpcController.StartCancel:1 of
+msgid "Initiate cancellation."
+msgstr ""
+
+#: google.protobuf.service.RpcController.StartCancel:3 of
+msgid ""
+"Advises the RPC system that the caller desires that the RPC call be "
+"canceled.  The RPC system may cancel it immediately, may wait awhile and "
+"then cancel it, or may not even cancel the call at all.  If the call is "
+"canceled, the \"done\" callback will still be called and the "
+"RpcController will indicate that the call failed at that time."
+msgstr ""
+
+#: google.protobuf.service.RpcException:1 of
+msgid "Exception raised on failed blocking RPC method call."
+msgstr ""
+
+#: google.protobuf.service.RpcException.with_traceback:1 of
+msgid ""
+"Exception.with_traceback(tb) -- set self.__traceback__ to tb and return "
+"self."
+msgstr ""
+
+#: google.protobuf.service.Service:1 of
+msgid "Abstract base interface for protocol-buffer-based RPC services."
+msgstr ""
+
+#: google.protobuf.service.Service:3 of
+msgid ""
+"Services themselves are abstract classes (implemented either by servers "
+"or as stubs), but they subclass this base interface. The methods of this "
+"interface can be used to call the methods of the service without knowing "
+"its exact type at compile time (analogous to the Message interface)."
+msgstr ""
+
+#: google.protobuf.service.Service.CallMethod:1 of
+msgid "Calls a method of the service specified by method_descriptor."
+msgstr ""
+
+#: google.protobuf.service.Service.CallMethod:3 of
+msgid ""
+"If \"done\" is None then the call is blocking and the response message "
+"will be returned directly.  Otherwise the call is asynchronous and "
+"\"done\" will later be called with the response value."
+msgstr ""
+
+#: google.protobuf.service.Service.CallMethod:7 of
+msgid "In the blocking case, RpcException will be raised on error."
+msgstr ""
+
+#: google.protobuf.service.Service.CallMethod:9 of
+msgid "Preconditions:"
+msgstr ""
+
+#: google.protobuf.service.Service.CallMethod:11 of
+msgid "method_descriptor.service == GetDescriptor"
+msgstr ""
+
+#: google.protobuf.service.Service.CallMethod:12 of
+msgid ""
+"request is of the exact same classes as returned by "
+"GetRequestClass(method)."
+msgstr ""
+
+#: google.protobuf.service.Service.CallMethod:14 of
+msgid "After the call has started, the request must not be modified."
+msgstr ""
+
+#: google.protobuf.service.Service.CallMethod:15 of
+msgid ""
+"\"rpc_controller\" is of the correct type for the RPC implementation "
+"being used by this Service.  For stubs, the \"correct type\" depends on "
+"the RpcChannel which the stub is using."
+msgstr ""
+
+#: google.protobuf.service.Service.CallMethod:19 of
+msgid "Postconditions:"
+msgstr ""
+
+#: google.protobuf.service.Service.CallMethod:21 of
+msgid ""
+"\"done\" will be called when the method is complete.  This may be before "
+"CallMethod() returns or it may be at some point in the future."
+msgstr ""
+
+#: google.protobuf.service.Service.CallMethod:23 of
+msgid ""
+"If the RPC failed, the response value passed to \"done\" will be None. "
+"Further details about the failure can be found by querying the "
+"RpcController."
+msgstr ""
+
+#: google.protobuf.service.Service.GetDescriptor:1 of
+msgid "Retrieves this service's descriptor."
+msgstr ""
+
+#: google.protobuf.service.Service.GetRequestClass:1 of
+msgid "Returns the class of the request message for the specified method."
+msgstr ""
+
+#: google.protobuf.service.Service.GetRequestClass:3 of
+msgid ""
+"CallMethod() requires that the request is of a particular subclass of "
+"Message. GetRequestClass() gets the default instance of this required "
+"type."
+msgstr ""
+
+#: google.protobuf.service.Service.GetRequestClass:8 of
+msgid ""
+"method = service.GetDescriptor().FindMethodByName(\"Foo\") request = "
+"stub.GetRequestClass(method)() request.ParseFromString(input) "
+"service.CallMethod(method, request, callback)"
+msgstr ""
+
+#: google.protobuf.service.Service.GetResponseClass:1 of
+msgid "Returns the class of the response message for the specified method."
+msgstr ""
+
+#: google.protobuf.service.Service.GetResponseClass:3 of
+msgid ""
+"This method isn't really needed, as the RpcChannel's CallMethod "
+"constructs the response protocol message. It's provided anyway in case it"
+" is useful for the caller to know the response type in advance."
+msgstr ""
+

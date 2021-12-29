@@ -1,0 +1,170 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2021, xinetzone
+# This file is distributed under the same license as the protobuf package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: protobuf \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-12-29 12:54+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.0\n"
+
+#: ../../api/python/google/protobuf/internal/containers.md:3
+msgid "google.protobuf.internal.containers"
+msgstr ""
+
+#: google.protobuf.internal.containers:1 of
+msgid "Contains container classes to represent different protocol buffer types."
+msgstr ""
+
+#: google.protobuf.internal.containers:3 of
+msgid ""
+"This file defines container classes which represent categories of "
+"protocol buffer field types which need extra maintenance. Currently these"
+" categories are:"
+msgstr ""
+
+#: google.protobuf.internal.containers:7 of
+msgid ""
+"Repeated scalar fields - These are all repeated fields which aren't "
+"composite (e.g. they are of simple types like int32, string, etc)."
+msgstr ""
+
+#: google.protobuf.internal.containers:9 of
+msgid ""
+"Repeated composite fields - Repeated fields which are composite. This "
+"includes groups and nested messages."
+msgstr ""
+
+#: google.protobuf.internal.containers.BaseContainer:1 of
+msgid "Base container class."
+msgstr ""
+
+#: google.protobuf.internal.containers.MessageMap:1 of
+msgid "Simple, type-checked, dict-like container for with submessage values."
+msgstr ""
+
+#: google.protobuf.internal.containers.MessageMap.get_or_create:1 of
+msgid "get_or_create() is an alias for getitem (ie. map[key])."
+msgstr ""
+
+#: google.protobuf.internal.containers.MessageMap.get_or_create:4 of
+msgid "Args:"
+msgstr ""
+
+#: google.protobuf.internal.containers.MessageMap.get_or_create:4 of
+msgid "key: The key to get or create in the map."
+msgstr ""
+
+#: google.protobuf.internal.containers.MessageMap.get_or_create:6 of
+msgid ""
+"This is useful in cases where you want to be explicit that the call is "
+"mutating the map.  This can avoid lint errors for statements like this "
+"that otherwise would appear to be pointless statements:"
+msgstr ""
+
+#: google.protobuf.internal.containers.MessageMap.get_or_create:10 of
+msgid "msg.my_map[key]"
+msgstr ""
+
+#: collections.abc.MutableMapping.pop:1 of
+msgid "If key is not found, d is returned if given, otherwise KeyError is raised."
+msgstr ""
+
+#: collections.abc.MutableMapping.popitem:1 of
+msgid "as a 2-tuple; but raise KeyError if D is empty."
+msgstr ""
+
+#: collections.abc.MutableMapping.update:1 of
+msgid ""
+"If E present and has a .keys() method, does:     for k in E: D[k] = E[k] "
+"If E present and lacks .keys() method, does:     for (k, v) in E: D[k] = "
+"v In either case, this is followed by: for k, v in F.items(): D[k] = v"
+msgstr ""
+
+#: google.protobuf.internal.containers.RepeatedCompositeFieldContainer:1 of
+msgid "Simple, list-like container for holding repeated composite fields."
+msgstr ""
+
+#: google.protobuf.internal.containers.RepeatedCompositeFieldContainer.MergeFrom:1
+#: of
+msgid ""
+"Appends the contents of another repeated field of the same type to this "
+"one, copying each individual message."
+msgstr ""
+
+#: google.protobuf.internal.containers.RepeatedCompositeFieldContainer.add:1 of
+msgid ""
+"Adds a new element at the end of the list and returns it. Keyword "
+"arguments may be used to initialize the element."
+msgstr ""
+
+#: google.protobuf.internal.containers.RepeatedCompositeFieldContainer.append:1
+#: of
+msgid "Appends one element by copying the message."
+msgstr ""
+
+#: google.protobuf.internal.containers.RepeatedCompositeFieldContainer.extend:1
+#: of
+msgid "Extends by appending the given sequence of elements of the same type"
+msgstr ""
+
+#: google.protobuf.internal.containers.RepeatedCompositeFieldContainer.extend:3
+#: of
+msgid "as this one, copying each individual message."
+msgstr ""
+
+#: google.protobuf.internal.containers.RepeatedCompositeFieldContainer.insert:1
+#: of
+msgid "Inserts the item at the specified position by copying."
+msgstr ""
+
+#: google.protobuf.internal.containers.RepeatedCompositeFieldContainer.pop:1
+#: google.protobuf.internal.containers.RepeatedScalarFieldContainer.pop:1 of
+msgid "Removes and returns an item at a given index. Similar to list.pop()."
+msgstr ""
+
+#: google.protobuf.internal.containers.RepeatedCompositeFieldContainer.remove:1
+#: google.protobuf.internal.containers.RepeatedScalarFieldContainer.remove:1 of
+msgid "Removes an item from the list. Similar to list.remove()."
+msgstr ""
+
+#: google.protobuf.internal.containers.RepeatedScalarFieldContainer:1 of
+msgid "Simple, type-checked, list-like container for holding repeated scalars."
+msgstr ""
+
+#: google.protobuf.internal.containers.RepeatedScalarFieldContainer.MergeFrom:1
+#: of
+msgid ""
+"Appends the contents of another repeated field of the same type to this "
+"one. We do not check the types of the individual fields."
+msgstr ""
+
+#: google.protobuf.internal.containers.RepeatedScalarFieldContainer.append:1 of
+msgid "Appends an item to the list. Similar to list.append()."
+msgstr ""
+
+#: google.protobuf.internal.containers.RepeatedScalarFieldContainer.extend:1 of
+msgid "Extends by appending the given iterable. Similar to list.extend()."
+msgstr ""
+
+#: google.protobuf.internal.containers.RepeatedScalarFieldContainer.insert:1 of
+msgid "Inserts the item at the specified position. Similar to list.insert()."
+msgstr ""
+
+#: google.protobuf.internal.containers.ScalarMap:1 of
+msgid "Simple, type-checked, dict-like container for holding repeated scalars."
+msgstr ""
+
+#: google.protobuf.internal.containers.UnknownFieldSet:1 of
+msgid "UnknownField container"
+msgstr ""
+

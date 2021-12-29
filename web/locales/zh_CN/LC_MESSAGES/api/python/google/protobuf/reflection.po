@@ -1,0 +1,94 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2021, xinetzone
+# This file is distributed under the same license as the protobuf package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: protobuf \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-12-29 12:54+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.0\n"
+
+#: ../../api/python/google/protobuf/reflection.md:3
+msgid "google.protobuf.reflection"
+msgstr ""
+
+#: google.protobuf.reflection:1 of
+msgid ""
+"Contains a metaclass and helper functions used to create protocol message"
+" classes from Descriptor objects at runtime."
+msgstr ""
+
+#: google.protobuf.reflection:4 of
+msgid ""
+"Recall that a metaclass is the \"type\" of a class. (A class is to a "
+"metaclass what an instance is to a class.)"
+msgstr ""
+
+#: google.protobuf.reflection:7 of
+msgid ""
+"In this case, we use the GeneratedProtocolMessageType metaclass to inject"
+" all the useful functionality into the classes output by the protocol "
+"compiler at compile-time."
+msgstr ""
+
+#: google.protobuf.reflection:11 of
+msgid ""
+"The upshot of all this is that the real implementation details for ALL "
+"pure-Python protocol buffers are *here in this file*."
+msgstr ""
+
+#: google.protobuf.reflection.MakeClass:1 of
+msgid "Construct a class object for a protobuf described by descriptor."
+msgstr ""
+
+#: google.protobuf.reflection.MakeClass:3 of
+msgid "DEPRECATED: use MessageFactory.GetPrototype() instead."
+msgstr ""
+
+#: google.protobuf.reflection.MakeClass:5
+#: google.protobuf.reflection.ParseMessage:8 of
+msgid "Args:"
+msgstr ""
+
+#: google.protobuf.reflection.MakeClass:6 of
+msgid "descriptor: A descriptor.Descriptor object describing the protobuf."
+msgstr ""
+
+#: google.protobuf.reflection.MakeClass:7
+#: google.protobuf.reflection.ParseMessage:10 of
+msgid "Returns:"
+msgstr ""
+
+#: google.protobuf.reflection.MakeClass:8 of
+msgid "The Message class object described by the descriptor."
+msgstr ""
+
+#: google.protobuf.reflection.ParseMessage:1 of
+msgid "Generate a new Message instance from this Descriptor and a byte string."
+msgstr ""
+
+#: google.protobuf.reflection.ParseMessage:3 of
+msgid ""
+"DEPRECATED: ParseMessage is deprecated because it is using MakeClass(). "
+"Please use MessageFactory.GetPrototype() instead."
+msgstr ""
+
+#: google.protobuf.reflection.ParseMessage:7 of
+msgid ""
+"descriptor: Protobuf Descriptor object byte_str: Serialized protocol "
+"buffer byte string"
+msgstr ""
+
+#: google.protobuf.reflection.ParseMessage:11 of
+msgid "Newly created protobuf Message object."
+msgstr ""
+
