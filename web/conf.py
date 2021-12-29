@@ -36,6 +36,7 @@ release = '0.1'
 extensions = [
     "sphinx_book_theme",
     "myst_nb",
+    # "myst_parser",
     "sphinx.ext.extlinks",
     "sphinx.ext.intersphinx",
     # "sphinx_thebe",
