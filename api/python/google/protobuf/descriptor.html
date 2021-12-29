@@ -1,0 +1,1145 @@
+
+<!DOCTYPE html>
+
+<html lang="zh_CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>google.protobuf.descriptor &#8212; protobuf 0.1 文档</title>
+    
+  <link href="../../../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/default.css" />
+    
+  <link rel="preload" as="script" href="../../../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
+    <script src="../../../../_static/jquery.js"></script>
+    <script src="../../../../_static/underscore.js"></script>
+    <script src="../../../../_static/doctools.js"></script>
+    <script src="../../../../_static/togglebutton.js"></script>
+    <script src="../../../../_static/clipboard.min.js"></script>
+    <script src="../../../../_static/copybutton.js"></script>
+    <script src="../../../../_static/translations.js"></script>
+    <script src="../../../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <link rel="index" title="索引" href="../../../../genindex.html" />
+    <link rel="search" title="搜索" href="../../../../search.html" />
+    <link rel="next" title="google.protobuf.descriptor_database" href="descriptor_database.html" />
+    <link rel="prev" title="Python API 参考" href="../../index.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="zh_CN">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../../../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">protobuf 0.1 文档</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../README.html">
+   Protocol Buffers - 谷歌的数据交换格式
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../src/README.html">
+   安装
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../../../docs/index.html">
+   开发者指南
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../docs/field_presence.html">
+     应用说明：Field 存在
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../docs/implementing_proto3_presence.html">
+     How To Implement Field Presence for Proto3
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../docs/jvm_aot.html">
+     Ahead Of Time (AOT) compilation for the Java Virtual Machine (JVM)”
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../docs/options.html">
+     Protobuf Global Extension Registry
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../docs/performance.html">
+     Protobuf Performance
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../docs/third_party.html">
+     Third-Party Add-ons for Protocol Buffers
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../python/README.html">
+   Python API
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../examples/README.html">
+   代码样例
+  </a>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="../../index.html">
+   Python API 参考
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     google.protobuf.descriptor
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="descriptor_database.html">
+     google.protobuf.descriptor_database
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="descriptor_pool.html">
+     google.protobuf.descriptor_pool
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="internal/containers.html">
+     google.protobuf.internal.containers
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="json_format.html">
+     google.protobuf.json_format
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="message.html">
+     google.protobuf.message
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="message_factory.html">
+     google.protobuf.message_factory
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="proto_builder.html">
+     google.protobuf.proto_builder
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="reflection.html">
+     google.protobuf.reflection
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="service.html">
+     google.protobuf.service
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="service_reflection.html">
+     google.protobuf.service_reflection
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="symbol_database.html">
+     google.protobuf.symbol_database
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="text_encoding.html">
+     google.protobuf.text_encoding
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="text_format.html">
+     google.protobuf.text_format
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../cmake/README.html">
+   CMake
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../java/README.html">
+   java
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../objectivec/README.html">
+   objectivec
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../csharp/README.html">
+   csharp
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../js/README.html">
+   JavaScript
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../ruby/README.html">
+   ruby
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../php/README.html">
+   PHP
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  <div>
+版权所有 © 2021 <a href="https://xinetzone.github.io/">xinetzone</a></div>
+<div>由 <a href="https://ebp.jupyterbook.org/">EBP</a> 提供技术支持</div>
+
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../../../_sources/api/python/google/protobuf/descriptor.md.txt"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/daobook/protobuf"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/daobook/protobuf/issues/new?title=Issue%20on%20page%20%2Fapi/python/google/protobuf/descriptor.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/daobook/protobuf/edit/xin/api/python/google/protobuf/descriptor.md"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="module-google.protobuf.descriptor">
+<span id="google-protobuf-descriptor"></span><h1>google.protobuf.descriptor<a class="headerlink" href="#module-google.protobuf.descriptor" title="永久链接至标题">¶</a></h1>
+<p>Descriptors essentially contain exactly the information found in a .proto
+file, in types that make this information accessible in Python.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="google.protobuf.descriptor.Descriptor">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">google.protobuf.descriptor.</span></span><span class="sig-name descname"><span class="pre">Descriptor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">full_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">containing_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fields</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nested_types</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">enum_types</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extensions</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">serialized_options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_extendable</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extension_ranges</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">oneofs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">serialized_start</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">serialized_end</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">syntax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">create_key</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#google.protobuf.descriptor.Descriptor" title="永久链接至目标">¶</a></dt>
+<dd><p>Descriptor for a protocol message type.</p>
+<dl>
+<dt>Attributes:</dt><dd><p>name (str): Name of this protocol message type.
+full_name (str): Fully-qualified name of this protocol message type,</p>
+<blockquote>
+<div><p>which will include protocol “package” name and the name of any
+enclosing types.</p>
+</div></blockquote>
+<dl class="simple">
+<dt>containing_type (Descriptor): Reference to the descriptor of the type</dt><dd><p>containing us, or None if this is top-level.</p>
+</dd>
+<dt>fields (list[FieldDescriptor]): Field descriptors for all fields in</dt><dd><p>this type.</p>
+</dd>
+<dt>fields_by_number (dict(int, FieldDescriptor)): Same</dt><dd><p><a class="reference internal" href="#google.protobuf.descriptor.FieldDescriptor" title="google.protobuf.descriptor.FieldDescriptor"><code class="xref py py-class docutils literal notranslate"><span class="pre">FieldDescriptor</span></code></a> objects as in <code class="xref py py-attr docutils literal notranslate"><span class="pre">fields</span></code>, but indexed
+by “number” attribute in each FieldDescriptor.</p>
+</dd>
+<dt>fields_by_name (dict(str, FieldDescriptor)): Same</dt><dd><p><a class="reference internal" href="#google.protobuf.descriptor.FieldDescriptor" title="google.protobuf.descriptor.FieldDescriptor"><code class="xref py py-class docutils literal notranslate"><span class="pre">FieldDescriptor</span></code></a> objects as in <code class="xref py py-attr docutils literal notranslate"><span class="pre">fields</span></code>, but indexed by
+“name” attribute in each <a class="reference internal" href="#google.protobuf.descriptor.FieldDescriptor" title="google.protobuf.descriptor.FieldDescriptor"><code class="xref py py-class docutils literal notranslate"><span class="pre">FieldDescriptor</span></code></a>.</p>
+</dd>
+<dt>nested_types (list[Descriptor]): Descriptor references</dt><dd><p>for all protocol message types nested within this one.</p>
+</dd>
+<dt>nested_types_by_name (dict(str, Descriptor)): Same Descriptor</dt><dd><p>objects as in <code class="xref py py-attr docutils literal notranslate"><span class="pre">nested_types</span></code>, but indexed by “name” attribute
+in each Descriptor.</p>
+</dd>
+<dt>enum_types (list[EnumDescriptor]): <a class="reference internal" href="#google.protobuf.descriptor.EnumDescriptor" title="google.protobuf.descriptor.EnumDescriptor"><code class="xref py py-class docutils literal notranslate"><span class="pre">EnumDescriptor</span></code></a> references</dt><dd><p>for all enums contained within this type.</p>
+</dd>
+<dt>enum_types_by_name (dict(str, EnumDescriptor)): Same</dt><dd><p><a class="reference internal" href="#google.protobuf.descriptor.EnumDescriptor" title="google.protobuf.descriptor.EnumDescriptor"><code class="xref py py-class docutils literal notranslate"><span class="pre">EnumDescriptor</span></code></a> objects as in <code class="xref py py-attr docutils literal notranslate"><span class="pre">enum_types</span></code>, but
+indexed by “name” attribute in each EnumDescriptor.</p>
+</dd>
+<dt>enum_values_by_name (dict(str, EnumValueDescriptor)): Dict mapping</dt><dd><p>from enum value name to <a class="reference internal" href="#google.protobuf.descriptor.EnumValueDescriptor" title="google.protobuf.descriptor.EnumValueDescriptor"><code class="xref py py-class docutils literal notranslate"><span class="pre">EnumValueDescriptor</span></code></a> for that value.</p>
+</dd>
+<dt>extensions (list[FieldDescriptor]): All extensions defined directly</dt><dd><p>within this message type (NOT within a nested type).</p>
+</dd>
+<dt>extensions_by_name (dict(str, FieldDescriptor)): Same FieldDescriptor</dt><dd><p>objects as <code class="xref py py-attr docutils literal notranslate"><span class="pre">extensions</span></code>, but indexed by “name” attribute of each
+FieldDescriptor.</p>
+</dd>
+</dl>
+<p>is_extendable (bool):  Does this type define any extension ranges?
+oneofs (list[OneofDescriptor]): The list of descriptors for oneof fields</p>
+<blockquote>
+<div><p>in this message.</p>
+</div></blockquote>
+<dl class="simple">
+<dt>oneofs_by_name (dict(str, OneofDescriptor)): Same objects as in</dt><dd><p><code class="xref py py-attr docutils literal notranslate"><span class="pre">oneofs</span></code>, but indexed by “name” attribute.</p>
+</dd>
+</dl>
+<p>file (FileDescriptor): Reference to file descriptor.</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="google.protobuf.descriptor.Descriptor.CopyToProto">
+<span class="sig-name descname"><span class="pre">CopyToProto</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">proto</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#google.protobuf.descriptor.Descriptor.CopyToProto" title="永久链接至目标">¶</a></dt>
+<dd><p>Copies this to a descriptor_pb2.DescriptorProto.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>proto: An empty descriptor_pb2.DescriptorProto.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="google.protobuf.descriptor.Descriptor.EnumValueName">
+<span class="sig-name descname"><span class="pre">EnumValueName</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">enum</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#google.protobuf.descriptor.Descriptor.EnumValueName" title="永久链接至目标">¶</a></dt>
+<dd><p>Returns the string name of an enum value.</p>
+<p>This is just a small helper method to simplify a common operation.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>enum: string name of the Enum.
+value: int, value of the enum.</p>
+</dd>
+<dt>Returns:</dt><dd><p>string name of the enum value.</p>
+</dd>
+<dt>Raises:</dt><dd><dl class="simple">
+<dt>KeyError if either the Enum doesn’t exist or the value is not a valid</dt><dd><p>value for the enum.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="google.protobuf.descriptor.Descriptor.GetOptions">
+<span class="sig-name descname"><span class="pre">GetOptions</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#google.protobuf.descriptor.Descriptor.GetOptions" title="永久链接至目标">¶</a></dt>
+<dd><p>Retrieves descriptor options.</p>
+<p>This method returns the options set or creates the default options for the
+descriptor.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="google.protobuf.descriptor.Descriptor.fields_by_camelcase_name">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">fields_by_camelcase_name</span></span><a class="headerlink" href="#google.protobuf.descriptor.Descriptor.fields_by_camelcase_name" title="永久链接至目标">¶</a></dt>
+<dd><p>Same FieldDescriptor objects as in <code class="xref py py-attr docutils literal notranslate"><span class="pre">fields</span></code>, but indexed by
+<a class="reference internal" href="#google.protobuf.descriptor.FieldDescriptor.camelcase_name" title="google.protobuf.descriptor.FieldDescriptor.camelcase_name"><code class="xref py py-attr docutils literal notranslate"><span class="pre">FieldDescriptor.camelcase_name</span></code></a>.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="google.protobuf.descriptor.DescriptorBase">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">google.protobuf.descriptor.</span></span><span class="sig-name descname"><span class="pre">DescriptorBase</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">options</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">serialized_options</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options_class_name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#google.protobuf.descriptor.DescriptorBase" title="永久链接至目标">¶</a></dt>
+<dd><p>Descriptors base class.</p>
+<p>This class is the base of all descriptor classes. It provides common options
+related functionality.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><dl class="simple">
+<dt>has_options:  True if the descriptor has non-default options.  Usually it</dt><dd><p>is not necessary to read this – just call GetOptions() which will
+happily return the default instance.  However, it’s sometimes useful
+for efficiency, and also useful inside the protobuf implementation to
+avoid some bootstrapping issues.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="google.protobuf.descriptor.DescriptorBase.GetOptions">
+<span class="sig-name descname"><span class="pre">GetOptions</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#google.protobuf.descriptor.DescriptorBase.GetOptions" title="永久链接至目标">¶</a></dt>
+<dd><p>Retrieves descriptor options.</p>
+<p>This method returns the options set or creates the default options for the
+descriptor.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="google.protobuf.descriptor.DescriptorMetaclass">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">google.protobuf.descriptor.</span></span><span class="sig-name descname"><span class="pre">DescriptorMetaclass</span></span><a class="headerlink" href="#google.protobuf.descriptor.DescriptorMetaclass" title="永久链接至目标">¶</a></dt>
+<dd><dl class="py method">
+<dt class="sig sig-object py" id="google.protobuf.descriptor.DescriptorMetaclass.mro">
+<span class="sig-name descname"><span class="pre">mro</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#google.protobuf.descriptor.DescriptorMetaclass.mro" title="永久链接至目标">¶</a></dt>
+<dd><p>Return a type’s method resolution order.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="google.protobuf.descriptor.EnumDescriptor">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">google.protobuf.descriptor.</span></span><span class="sig-name descname"><span class="pre">EnumDescriptor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">full_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">values</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">containing_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">serialized_options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">serialized_start</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">serialized_end</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">create_key</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#google.protobuf.descriptor.EnumDescriptor" title="永久链接至目标">¶</a></dt>
+<dd><p>Descriptor for an enum defined in a .proto file.</p>
+<dl>
+<dt>Attributes:</dt><dd><p>name (str): Name of the enum type.
+full_name (str): Full name of the type, including package name</p>
+<blockquote>
+<div><p>and any enclosing type(s).</p>
+</div></blockquote>
+<dl class="simple">
+<dt>values (list[EnumValueDescriptors]): List of the values</dt><dd><p>in this enum.</p>
+</dd>
+<dt>values_by_name (dict(str, EnumValueDescriptor)): Same as <code class="xref py py-attr docutils literal notranslate"><span class="pre">values</span></code>,</dt><dd><p>but indexed by the “name” field of each EnumValueDescriptor.</p>
+</dd>
+<dt>values_by_number (dict(int, EnumValueDescriptor)): Same as <code class="xref py py-attr docutils literal notranslate"><span class="pre">values</span></code>,</dt><dd><p>but indexed by the “number” field of each EnumValueDescriptor.</p>
+</dd>
+<dt>containing_type (Descriptor): Descriptor of the immediate containing</dt><dd><p>type of this enum, or None if this is an enum defined at the
+top level in a .proto file.  Set by Descriptor’s constructor
+if we’re passed into one.</p>
+</dd>
+</dl>
+<p>file (FileDescriptor): Reference to file descriptor.
+options (descriptor_pb2.EnumOptions): Enum options message or</p>
+<blockquote>
+<div><p>None to use default enum options.</p>
+</div></blockquote>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="google.protobuf.descriptor.EnumDescriptor.CopyToProto">
+<span class="sig-name descname"><span class="pre">CopyToProto</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">proto</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#google.protobuf.descriptor.EnumDescriptor.CopyToProto" title="永久链接至目标">¶</a></dt>
+<dd><p>Copies this to a descriptor_pb2.EnumDescriptorProto.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>proto (descriptor_pb2.EnumDescriptorProto): An empty descriptor proto.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="google.protobuf.descriptor.EnumDescriptor.GetOptions">
+<span class="sig-name descname"><span class="pre">GetOptions</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#google.protobuf.descriptor.EnumDescriptor.GetOptions" title="永久链接至目标">¶</a></dt>
+<dd><p>Retrieves descriptor options.</p>
+<p>This method returns the options set or creates the default options for the
+descriptor.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="google.protobuf.descriptor.EnumValueDescriptor">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">google.protobuf.descriptor.</span></span><span class="sig-name descname"><span class="pre">EnumValueDescriptor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">number</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">serialized_options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">create_key</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#google.protobuf.descriptor.EnumValueDescriptor" title="永久链接至目标">¶</a></dt>
+<dd><p>Descriptor for a single value within an enum.</p>
+<dl>
+<dt>Attributes:</dt><dd><p>name (str): Name of this value.
+index (int): Dense, 0-indexed index giving the order that this</p>
+<blockquote>
+<div><p>value appears textually within its enum in the .proto file.</p>
+</div></blockquote>
+<p>number (int): Actual number assigned to this enum value.
+type (EnumDescriptor): <a class="reference internal" href="#google.protobuf.descriptor.EnumDescriptor" title="google.protobuf.descriptor.EnumDescriptor"><code class="xref py py-class docutils literal notranslate"><span class="pre">EnumDescriptor</span></code></a> to which this value</p>
+<blockquote>
+<div><p>belongs.  Set by <a class="reference internal" href="#google.protobuf.descriptor.EnumDescriptor" title="google.protobuf.descriptor.EnumDescriptor"><code class="xref py py-class docutils literal notranslate"><span class="pre">EnumDescriptor</span></code></a>’s constructor if we’re
+passed into one.</p>
+</div></blockquote>
+<dl class="simple">
+<dt>options (descriptor_pb2.EnumValueOptions): Enum value options message or</dt><dd><p>None to use default enum value options options.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="google.protobuf.descriptor.EnumValueDescriptor.GetOptions">
+<span class="sig-name descname"><span class="pre">GetOptions</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#google.protobuf.descriptor.EnumValueDescriptor.GetOptions" title="永久链接至目标">¶</a></dt>
+<dd><p>Retrieves descriptor options.</p>
+<p>This method returns the options set or creates the default options for the
+descriptor.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="google.protobuf.descriptor.Error">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">google.protobuf.descriptor.</span></span><span class="sig-name descname"><span class="pre">Error</span></span><a class="headerlink" href="#google.protobuf.descriptor.Error" title="永久链接至目标">¶</a></dt>
+<dd><p>Base error for this module.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="google.protobuf.descriptor.Error.args">
+<span class="sig-name descname"><span class="pre">args</span></span><a class="headerlink" href="#google.protobuf.descriptor.Error.args" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="google.protobuf.descriptor.Error.with_traceback">
+<span class="sig-name descname"><span class="pre">with_traceback</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#google.protobuf.descriptor.Error.with_traceback" title="永久链接至目标">¶</a></dt>
+<dd><p>Exception.with_traceback(tb) –
+set self.__traceback__ to tb and return self.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="google.protobuf.descriptor.FieldDescriptor">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">google.protobuf.descriptor.</span></span><span class="sig-name descname"><span class="pre">FieldDescriptor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">full_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">number</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cpp_type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default_value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">message_type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">enum_type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">containing_type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_extension</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extension_scope</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">serialized_options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">has_default_value</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">containing_oneof</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">json_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">create_key</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#google.protobuf.descriptor.FieldDescriptor" title="永久链接至目标">¶</a></dt>
+<dd><p>Descriptor for a single field in a .proto file.</p>
+<dl>
+<dt>Attributes:</dt><dd><p>name (str): Name of this field, exactly as it appears in .proto.
+full_name (str): Name of this field, including containing scope.  This is</p>
+<blockquote>
+<div><p>particularly relevant for extensions.</p>
+</div></blockquote>
+<dl class="simple">
+<dt>index (int): Dense, 0-indexed index giving the order that this</dt><dd><p>field textually appears within its message in the .proto file.</p>
+</dd>
+</dl>
+<p>number (int): Tag number declared for this field in the .proto file.</p>
+<p>type (int): (One of the TYPE_* constants below) Declared type.
+cpp_type (int): (One of the CPPTYPE_* constants below) C++ type used to</p>
+<blockquote>
+<div><p>represent this field.</p>
+</div></blockquote>
+<dl class="simple">
+<dt>label (int): (One of the LABEL_* constants below) Tells whether this</dt><dd><p>field is optional, required, or repeated.</p>
+</dd>
+<dt>has_default_value (bool): True if this field has a default value defined,</dt><dd><p>otherwise false.</p>
+</dd>
+<dt>default_value (Varies): Default value of this field.  Only</dt><dd><p>meaningful for non-repeated scalar fields.  Repeated fields
+should always set this to [], and non-repeated composite
+fields should always set this to None.</p>
+</dd>
+<dt>containing_type (Descriptor): Descriptor of the protocol message</dt><dd><p>type that contains this field.  Set by the Descriptor constructor
+if we’re passed into one.
+Somewhat confusingly, for extension fields, this is the
+descriptor of the EXTENDED message, not the descriptor
+of the message containing this field.  (See is_extension and
+extension_scope below).</p>
+</dd>
+<dt>message_type (Descriptor): If a composite field, a descriptor</dt><dd><p>of the message type contained in this field.  Otherwise, this is None.</p>
+</dd>
+<dt>enum_type (EnumDescriptor): If this field contains an enum, a</dt><dd><p>descriptor of that enum.  Otherwise, this is None.</p>
+</dd>
+</dl>
+<p>is_extension: True iff this describes an extension field.
+extension_scope (Descriptor): Only meaningful if is_extension is True.</p>
+<blockquote>
+<div><p>Gives the message that immediately contains this extension field.
+Will be None iff we’re a top-level (file-level) extension field.</p>
+</div></blockquote>
+<dl class="simple">
+<dt>options (descriptor_pb2.FieldOptions): Protocol message field options or</dt><dd><p>None to use default field options.</p>
+</dd>
+<dt>containing_oneof (OneofDescriptor): If the field is a member of a oneof</dt><dd><p>union, contains its descriptor. Otherwise, None.</p>
+</dd>
+</dl>
+<p>file (FileDescriptor): Reference to file descriptor.</p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="google.protobuf.descriptor.FieldDescriptor.CPPTYPE_BOOL">
+<span class="sig-name descname"><span class="pre">CPPTYPE_BOOL</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">7</span></em><a class="headerlink" href="#google.protobuf.descriptor.FieldDescriptor.CPPTYPE_BOOL" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="google.protobuf.descriptor.FieldDescriptor.CPPTYPE_DOUBLE">
+<span class="sig-name descname"><span class="pre">CPPTYPE_DOUBLE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">5</span></em><a class="headerlink" href="#google.protobuf.descriptor.FieldDescriptor.CPPTYPE_DOUBLE" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="google.protobuf.descriptor.FieldDescriptor.CPPTYPE_ENUM">
+<span class="sig-name descname"><span class="pre">CPPTYPE_ENUM</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">8</span></em><a class="headerlink" href="#google.protobuf.descriptor.FieldDescriptor.CPPTYPE_ENUM" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="google.protobuf.descriptor.FieldDescriptor.CPPTYPE_FLOAT">
+<span class="sig-name descname"><span class="pre">CPPTYPE_FLOAT</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">6</span></em><a class="headerlink" href="#google.protobuf.descriptor.FieldDescriptor.CPPTYPE_FLOAT" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="google.protobuf.descriptor.FieldDescriptor.CPPTYPE_INT32">
+<span class="sig-name descname"><span class="pre">CPPTYPE_INT32</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="headerlink" href="#google.protobuf.descriptor.FieldDescriptor.CPPTYPE_INT32" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="google.protobuf.descriptor.FieldDescriptor.CPPTYPE_INT64">
+<span class="sig-name descname"><span class="pre">CPPTYPE_INT64</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">2</span></em><a class="headerlink" href="#google.protobuf.descriptor.FieldDescriptor.CPPTYPE_INT64" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="google.protobuf.descriptor.FieldDescriptor.CPPTYPE_MESSAGE">
+<span class="sig-name descname"><span class="pre">CPPTYPE_MESSAGE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">10</span></em><a class="headerlink" href="#google.protobuf.descriptor.FieldDescriptor.CPPTYPE_MESSAGE" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="google.protobuf.descriptor.FieldDescriptor.CPPTYPE_STRING">
+<span class="sig-name descname"><span class="pre">CPPTYPE_STRING</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">9</span></em><a class="headerlink" href="#google.protobuf.descriptor.FieldDescriptor.CPPTYPE_STRING" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="google.protobuf.descriptor.FieldDescriptor.CPPTYPE_UINT32">
+<span class="sig-name descname"><span class="pre">CPPTYPE_UINT32</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">3</span></em><a class="headerlink" href="#google.protobuf.descriptor.FieldDescriptor.CPPTYPE_UINT32" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="google.protobuf.descriptor.FieldDescriptor.CPPTYPE_UINT64">
+<span class="sig-name descname"><span class="pre">CPPTYPE_UINT64</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">4</span></em><a class="headerlink" href="#google.protobuf.descriptor.FieldDescriptor.CPPTYPE_UINT64" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="google.protobuf.descriptor.FieldDescriptor.FIRST_RESERVED_FIELD_NUMBER">
+<span class="sig-name descname"><span class="pre">FIRST_RESERVED_FIELD_NUMBER</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">19000</span></em><a class="headerlink" href="#google.protobuf.descriptor.FieldDescriptor.FIRST_RESERVED_FIELD_NUMBER" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="google.protobuf.descriptor.FieldDescriptor.GetOptions">
+<span class="sig-name descname"><span class="pre">GetOptions</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#google.protobuf.descriptor.FieldDescriptor.GetOptions" title="永久链接至目标">¶</a></dt>
+<dd><p>Retrieves descriptor options.</p>
+<p>This method returns the options set or creates the default options for the
+descriptor.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="google.protobuf.descriptor.FieldDescriptor.LABEL_OPTIONAL">
+<span class="sig-name descname"><span class="pre">LABEL_OPTIONAL</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="headerlink" href="#google.protobuf.descriptor.FieldDescriptor.LABEL_OPTIONAL" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="google.protobuf.descriptor.FieldDescriptor.LABEL_REPEATED">
+<span class="sig-name descname"><span class="pre">LABEL_REPEATED</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">3</span></em><a class="headerlink" href="#google.protobuf.descriptor.FieldDescriptor.LABEL_REPEATED" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="google.protobuf.descriptor.FieldDescriptor.LABEL_REQUIRED">
+<span class="sig-name descname"><span class="pre">LABEL_REQUIRED</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">2</span></em><a class="headerlink" href="#google.protobuf.descriptor.FieldDescriptor.LABEL_REQUIRED" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="google.protobuf.descriptor.FieldDescriptor.LAST_RESERVED_FIELD_NUMBER">
+<span class="sig-name descname"><span class="pre">LAST_RESERVED_FIELD_NUMBER</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">19999</span></em><a class="headerlink" href="#google.protobuf.descriptor.FieldDescriptor.LAST_RESERVED_FIELD_NUMBER" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="google.protobuf.descriptor.FieldDescriptor.MAX_CPPTYPE">
+<span class="sig-name descname"><span class="pre">MAX_CPPTYPE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">10</span></em><a class="headerlink" href="#google.protobuf.descriptor.FieldDescriptor.MAX_CPPTYPE" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="google.protobuf.descriptor.FieldDescriptor.MAX_FIELD_NUMBER">
+<span class="sig-name descname"><span class="pre">MAX_FIELD_NUMBER</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">536870911</span></em><a class="headerlink" href="#google.protobuf.descriptor.FieldDescriptor.MAX_FIELD_NUMBER" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="google.protobuf.descriptor.FieldDescriptor.MAX_LABEL">
+<span class="sig-name descname"><span class="pre">MAX_LABEL</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">3</span></em><a class="headerlink" href="#google.protobuf.descriptor.FieldDescriptor.MAX_LABEL" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="google.protobuf.descriptor.FieldDescriptor.MAX_TYPE">
+<span class="sig-name descname"><span class="pre">MAX_TYPE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">18</span></em><a class="headerlink" href="#google.protobuf.descriptor.FieldDescriptor.MAX_TYPE" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="google.protobuf.descriptor.FieldDescriptor.ProtoTypeToCppProtoType">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ProtoTypeToCppProtoType</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">proto_type</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#google.protobuf.descriptor.FieldDescriptor.ProtoTypeToCppProtoType" title="永久链接至目标">¶</a></dt>
+<dd><p>Converts from a Python proto type to a C++ Proto Type.</p>
+<p>The Python ProtocolBuffer classes specify both the ‘Python’ datatype and the
+‘C++’ datatype - and they’re not the same. This helper method should
+translate from one to another.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>proto_type: the Python proto type (descriptor.FieldDescriptor.TYPE_*)</p>
+</dd>
+<dt>Returns:</dt><dd><p>int: descriptor.FieldDescriptor.CPPTYPE_*, the C++ type.</p>
+</dd>
+<dt>Raises:</dt><dd><p>TypeTransformationError: when the Python proto type isn’t known.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="google.protobuf.descriptor.FieldDescriptor.TYPE_BOOL">
+<span class="sig-name descname"><span class="pre">TYPE_BOOL</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">8</span></em><a class="headerlink" href="#google.protobuf.descriptor.FieldDescriptor.TYPE_BOOL" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="google.protobuf.descriptor.FieldDescriptor.TYPE_BYTES">
+<span class="sig-name descname"><span class="pre">TYPE_BYTES</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">12</span></em><a class="headerlink" href="#google.protobuf.descriptor.FieldDescriptor.TYPE_BYTES" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="google.protobuf.descriptor.FieldDescriptor.TYPE_DOUBLE">
+<span class="sig-name descname"><span class="pre">TYPE_DOUBLE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="headerlink" href="#google.protobuf.descriptor.FieldDescriptor.TYPE_DOUBLE" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="google.protobuf.descriptor.FieldDescriptor.TYPE_ENUM">
+<span class="sig-name descname"><span class="pre">TYPE_ENUM</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">14</span></em><a class="headerlink" href="#google.protobuf.descriptor.FieldDescriptor.TYPE_ENUM" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="google.protobuf.descriptor.FieldDescriptor.TYPE_FIXED32">
+<span class="sig-name descname"><span class="pre">TYPE_FIXED32</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">7</span></em><a class="headerlink" href="#google.protobuf.descriptor.FieldDescriptor.TYPE_FIXED32" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="google.protobuf.descriptor.FieldDescriptor.TYPE_FIXED64">
+<span class="sig-name descname"><span class="pre">TYPE_FIXED64</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">6</span></em><a class="headerlink" href="#google.protobuf.descriptor.FieldDescriptor.TYPE_FIXED64" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="google.protobuf.descriptor.FieldDescriptor.TYPE_FLOAT">
+<span class="sig-name descname"><span class="pre">TYPE_FLOAT</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">2</span></em><a class="headerlink" href="#google.protobuf.descriptor.FieldDescriptor.TYPE_FLOAT" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="google.protobuf.descriptor.FieldDescriptor.TYPE_GROUP">
+<span class="sig-name descname"><span class="pre">TYPE_GROUP</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">10</span></em><a class="headerlink" href="#google.protobuf.descriptor.FieldDescriptor.TYPE_GROUP" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="google.protobuf.descriptor.FieldDescriptor.TYPE_INT32">
+<span class="sig-name descname"><span class="pre">TYPE_INT32</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">5</span></em><a class="headerlink" href="#google.protobuf.descriptor.FieldDescriptor.TYPE_INT32" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="google.protobuf.descriptor.FieldDescriptor.TYPE_INT64">
+<span class="sig-name descname"><span class="pre">TYPE_INT64</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">3</span></em><a class="headerlink" href="#google.protobuf.descriptor.FieldDescriptor.TYPE_INT64" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="google.protobuf.descriptor.FieldDescriptor.TYPE_MESSAGE">
+<span class="sig-name descname"><span class="pre">TYPE_MESSAGE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">11</span></em><a class="headerlink" href="#google.protobuf.descriptor.FieldDescriptor.TYPE_MESSAGE" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="google.protobuf.descriptor.FieldDescriptor.TYPE_SFIXED32">
+<span class="sig-name descname"><span class="pre">TYPE_SFIXED32</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">15</span></em><a class="headerlink" href="#google.protobuf.descriptor.FieldDescriptor.TYPE_SFIXED32" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="google.protobuf.descriptor.FieldDescriptor.TYPE_SFIXED64">
+<span class="sig-name descname"><span class="pre">TYPE_SFIXED64</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">16</span></em><a class="headerlink" href="#google.protobuf.descriptor.FieldDescriptor.TYPE_SFIXED64" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="google.protobuf.descriptor.FieldDescriptor.TYPE_SINT32">
+<span class="sig-name descname"><span class="pre">TYPE_SINT32</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">17</span></em><a class="headerlink" href="#google.protobuf.descriptor.FieldDescriptor.TYPE_SINT32" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="google.protobuf.descriptor.FieldDescriptor.TYPE_SINT64">
+<span class="sig-name descname"><span class="pre">TYPE_SINT64</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">18</span></em><a class="headerlink" href="#google.protobuf.descriptor.FieldDescriptor.TYPE_SINT64" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="google.protobuf.descriptor.FieldDescriptor.TYPE_STRING">
+<span class="sig-name descname"><span class="pre">TYPE_STRING</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">9</span></em><a class="headerlink" href="#google.protobuf.descriptor.FieldDescriptor.TYPE_STRING" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="google.protobuf.descriptor.FieldDescriptor.TYPE_UINT32">
+<span class="sig-name descname"><span class="pre">TYPE_UINT32</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">13</span></em><a class="headerlink" href="#google.protobuf.descriptor.FieldDescriptor.TYPE_UINT32" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="google.protobuf.descriptor.FieldDescriptor.TYPE_UINT64">
+<span class="sig-name descname"><span class="pre">TYPE_UINT64</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">4</span></em><a class="headerlink" href="#google.protobuf.descriptor.FieldDescriptor.TYPE_UINT64" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="google.protobuf.descriptor.FieldDescriptor.camelcase_name">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">camelcase_name</span></span><a class="headerlink" href="#google.protobuf.descriptor.FieldDescriptor.camelcase_name" title="永久链接至目标">¶</a></dt>
+<dd><p>Camelcase name of this field.</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>str: the name in CamelCase.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="google.protobuf.descriptor.FileDescriptor">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">google.protobuf.descriptor.</span></span><span class="sig-name descname"><span class="pre">FileDescriptor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">package</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">serialized_options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">serialized_pb</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dependencies</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">public_dependencies</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">syntax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pool</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">create_key</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#google.protobuf.descriptor.FileDescriptor" title="永久链接至目标">¶</a></dt>
+<dd><p>Descriptor for a file. Mimics the descriptor_pb2.FileDescriptorProto.</p>
+<p>Note that <code class="xref py py-attr docutils literal notranslate"><span class="pre">enum_types_by_name</span></code>, <code class="xref py py-attr docutils literal notranslate"><span class="pre">extensions_by_name</span></code>, and
+<code class="xref py py-attr docutils literal notranslate"><span class="pre">dependencies</span></code> fields are only set by the
+<a class="reference internal" href="message_factory.html#module-google.protobuf.message_factory" title="google.protobuf.message_factory"><code class="xref py py-mod docutils literal notranslate"><span class="pre">google.protobuf.message_factory</span></code></a> module, and not by the generated
+proto code.</p>
+<dl>
+<dt>Attributes:</dt><dd><p>name (str): Name of file, relative to root of source tree.
+package (str): Name of the package
+syntax (str): string indicating syntax of the file (can be “proto2” or</p>
+<blockquote>
+<div><p>“proto3”)</p>
+</div></blockquote>
+<dl class="simple">
+<dt>serialized_pb (bytes): Byte string of serialized</dt><dd><p><code class="xref py py-class docutils literal notranslate"><span class="pre">descriptor_pb2.FileDescriptorProto</span></code>.</p>
+</dd>
+<dt>dependencies (list[FileDescriptor]): List of other <a class="reference internal" href="#google.protobuf.descriptor.FileDescriptor" title="google.protobuf.descriptor.FileDescriptor"><code class="xref py py-class docutils literal notranslate"><span class="pre">FileDescriptor</span></code></a></dt><dd><p>objects this <a class="reference internal" href="#google.protobuf.descriptor.FileDescriptor" title="google.protobuf.descriptor.FileDescriptor"><code class="xref py py-class docutils literal notranslate"><span class="pre">FileDescriptor</span></code></a> depends on.</p>
+</dd>
+<dt>public_dependencies (list[FileDescriptor]): A subset of</dt><dd><p><code class="xref py py-attr docutils literal notranslate"><span class="pre">dependencies</span></code>, which were declared as “public”.</p>
+</dd>
+<dt>message_types_by_name (dict(str, Descriptor)): Mapping from message names</dt><dd><p>to their <a class="reference internal" href="#google.protobuf.descriptor.Descriptor" title="google.protobuf.descriptor.Descriptor"><code class="xref py py-class docutils literal notranslate"><span class="pre">Descriptor</span></code></a>.</p>
+</dd>
+<dt>enum_types_by_name (dict(str, EnumDescriptor)): Mapping from enum names to</dt><dd><p>their <a class="reference internal" href="#google.protobuf.descriptor.EnumDescriptor" title="google.protobuf.descriptor.EnumDescriptor"><code class="xref py py-class docutils literal notranslate"><span class="pre">EnumDescriptor</span></code></a>.</p>
+</dd>
+<dt>extensions_by_name (dict(str, FieldDescriptor)): Mapping from extension</dt><dd><p>names declared at file scope to their <a class="reference internal" href="#google.protobuf.descriptor.FieldDescriptor" title="google.protobuf.descriptor.FieldDescriptor"><code class="xref py py-class docutils literal notranslate"><span class="pre">FieldDescriptor</span></code></a>.</p>
+</dd>
+<dt>services_by_name (dict(str, ServiceDescriptor)): Mapping from services’</dt><dd><p>names to their <a class="reference internal" href="#google.protobuf.descriptor.ServiceDescriptor" title="google.protobuf.descriptor.ServiceDescriptor"><code class="xref py py-class docutils literal notranslate"><span class="pre">ServiceDescriptor</span></code></a>.</p>
+</dd>
+<dt>pool (DescriptorPool): The pool this descriptor belongs to.  When not</dt><dd><p>passed to the constructor, the global default pool is used.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="google.protobuf.descriptor.FileDescriptor.CopyToProto">
+<span class="sig-name descname"><span class="pre">CopyToProto</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">proto</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#google.protobuf.descriptor.FileDescriptor.CopyToProto" title="永久链接至目标">¶</a></dt>
+<dd><p>Copies this to a descriptor_pb2.FileDescriptorProto.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>proto: An empty descriptor_pb2.FileDescriptorProto.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="google.protobuf.descriptor.FileDescriptor.GetOptions">
+<span class="sig-name descname"><span class="pre">GetOptions</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#google.protobuf.descriptor.FileDescriptor.GetOptions" title="永久链接至目标">¶</a></dt>
+<dd><p>Retrieves descriptor options.</p>
+<p>This method returns the options set or creates the default options for the
+descriptor.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="google.protobuf.descriptor.MakeDescriptor">
+<span class="sig-prename descclassname"><span class="pre">google.protobuf.descriptor.</span></span><span class="sig-name descname"><span class="pre">MakeDescriptor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">desc_proto</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">package</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">build_file_if_cpp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">syntax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#google.protobuf.descriptor.MakeDescriptor" title="永久链接至目标">¶</a></dt>
+<dd><p>Make a protobuf Descriptor given a DescriptorProto protobuf.</p>
+<p>Handles nested descriptors. Note that this is limited to the scope of defining
+a message inside of another message. Composite fields can currently only be
+resolved if the message is defined in the same scope as the field.</p>
+<dl>
+<dt>Args:</dt><dd><p>desc_proto: The descriptor_pb2.DescriptorProto protobuf message.
+package: Optional package name for the new message Descriptor (string).
+build_file_if_cpp: Update the C++ descriptor pool if api matches.</p>
+<blockquote>
+<div><p>Set to False on recursion, so no duplicates are created.</p>
+</div></blockquote>
+<dl class="simple">
+<dt>syntax: The syntax/semantics that should be used.  Set to “proto3” to get</dt><dd><p>proto3 field presence semantics.</p>
+</dd>
+</dl>
+</dd>
+<dt>Returns:</dt><dd><p>A Descriptor for protobuf messages.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="google.protobuf.descriptor.MethodDescriptor">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">google.protobuf.descriptor.</span></span><span class="sig-name descname"><span class="pre">MethodDescriptor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">full_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">containing_service</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">input_type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">serialized_options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">create_key</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#google.protobuf.descriptor.MethodDescriptor" title="永久链接至目标">¶</a></dt>
+<dd><p>Descriptor for a method in a service.</p>
+<dl>
+<dt>Attributes:</dt><dd><p>name (str): Name of the method within the service.
+full_name (str): Full name of method.
+index (int): 0-indexed index of the method inside the service.
+containing_service (ServiceDescriptor): The service that contains this</p>
+<blockquote>
+<div><p>method.</p>
+</div></blockquote>
+<dl class="simple">
+<dt>input_type (Descriptor): The descriptor of the message that this method</dt><dd><p>accepts.</p>
+</dd>
+<dt>output_type (Descriptor): The descriptor of the message that this method</dt><dd><p>returns.</p>
+</dd>
+<dt>options (descriptor_pb2.MethodOptions or None): Method options message, or</dt><dd><p>None to use default method options.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="google.protobuf.descriptor.MethodDescriptor.CopyToProto">
+<span class="sig-name descname"><span class="pre">CopyToProto</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">proto</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#google.protobuf.descriptor.MethodDescriptor.CopyToProto" title="永久链接至目标">¶</a></dt>
+<dd><p>Copies this to a descriptor_pb2.MethodDescriptorProto.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>proto (descriptor_pb2.MethodDescriptorProto): An empty descriptor proto.</p>
+</dd>
+<dt>Raises:</dt><dd><dl class="simple">
+<dt>Error: If self couldn’t be serialized, due to too few constructor</dt><dd><p>arguments.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="google.protobuf.descriptor.MethodDescriptor.GetOptions">
+<span class="sig-name descname"><span class="pre">GetOptions</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#google.protobuf.descriptor.MethodDescriptor.GetOptions" title="永久链接至目标">¶</a></dt>
+<dd><p>Retrieves descriptor options.</p>
+<p>This method returns the options set or creates the default options for the
+descriptor.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="google.protobuf.descriptor.OneofDescriptor">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">google.protobuf.descriptor.</span></span><span class="sig-name descname"><span class="pre">OneofDescriptor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">full_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">containing_type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fields</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">serialized_options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">create_key</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#google.protobuf.descriptor.OneofDescriptor" title="永久链接至目标">¶</a></dt>
+<dd><p>Descriptor for a oneof field.</p>
+<dl>
+<dt>Attributes:</dt><dd><p>name (str): Name of the oneof field.
+full_name (str): Full name of the oneof field, including package name.
+index (int): 0-based index giving the order of the oneof field inside</p>
+<blockquote>
+<div><p>its containing type.</p>
+</div></blockquote>
+<dl class="simple">
+<dt>containing_type (Descriptor): <a class="reference internal" href="#google.protobuf.descriptor.Descriptor" title="google.protobuf.descriptor.Descriptor"><code class="xref py py-class docutils literal notranslate"><span class="pre">Descriptor</span></code></a> of the protocol message</dt><dd><p>type that contains this field.  Set by the <a class="reference internal" href="#google.protobuf.descriptor.Descriptor" title="google.protobuf.descriptor.Descriptor"><code class="xref py py-class docutils literal notranslate"><span class="pre">Descriptor</span></code></a> constructor
+if we’re passed into one.</p>
+</dd>
+<dt>fields (list[FieldDescriptor]): The list of field descriptors this</dt><dd><p>oneof can contain.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="google.protobuf.descriptor.OneofDescriptor.GetOptions">
+<span class="sig-name descname"><span class="pre">GetOptions</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#google.protobuf.descriptor.OneofDescriptor.GetOptions" title="永久链接至目标">¶</a></dt>
+<dd><p>Retrieves descriptor options.</p>
+<p>This method returns the options set or creates the default options for the
+descriptor.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="google.protobuf.descriptor.ServiceDescriptor">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">google.protobuf.descriptor.</span></span><span class="sig-name descname"><span class="pre">ServiceDescriptor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">full_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">methods</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">serialized_options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">serialized_start</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">serialized_end</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">create_key</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#google.protobuf.descriptor.ServiceDescriptor" title="永久链接至目标">¶</a></dt>
+<dd><p>Descriptor for a service.</p>
+<dl>
+<dt>Attributes:</dt><dd><p>name (str): Name of the service.
+full_name (str): Full name of the service, including package name.
+index (int): 0-indexed index giving the order that this services</p>
+<blockquote>
+<div><p>definition appears within the .proto file.</p>
+</div></blockquote>
+<dl class="simple">
+<dt>methods (list[MethodDescriptor]): List of methods provided by this</dt><dd><p>service.</p>
+</dd>
+<dt>methods_by_name (dict(str, MethodDescriptor)): Same</dt><dd><p><a class="reference internal" href="#google.protobuf.descriptor.MethodDescriptor" title="google.protobuf.descriptor.MethodDescriptor"><code class="xref py py-class docutils literal notranslate"><span class="pre">MethodDescriptor</span></code></a> objects as in <code class="xref py py-attr docutils literal notranslate"><span class="pre">methods_by_name</span></code>, but
+indexed by “name” attribute in each <a class="reference internal" href="#google.protobuf.descriptor.MethodDescriptor" title="google.protobuf.descriptor.MethodDescriptor"><code class="xref py py-class docutils literal notranslate"><span class="pre">MethodDescriptor</span></code></a>.</p>
+</dd>
+<dt>options (descriptor_pb2.ServiceOptions): Service options message or</dt><dd><p>None to use default service options.</p>
+</dd>
+</dl>
+<p>file (FileDescriptor): Reference to file info.</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="google.protobuf.descriptor.ServiceDescriptor.CopyToProto">
+<span class="sig-name descname"><span class="pre">CopyToProto</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">proto</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#google.protobuf.descriptor.ServiceDescriptor.CopyToProto" title="永久链接至目标">¶</a></dt>
+<dd><p>Copies this to a descriptor_pb2.ServiceDescriptorProto.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>proto (descriptor_pb2.ServiceDescriptorProto): An empty descriptor proto.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="google.protobuf.descriptor.ServiceDescriptor.FindMethodByName">
+<span class="sig-name descname"><span class="pre">FindMethodByName</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#google.protobuf.descriptor.ServiceDescriptor.FindMethodByName" title="永久链接至目标">¶</a></dt>
+<dd><p>Searches for the specified method, and returns its descriptor.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>name (str): Name of the method.</p>
+</dd>
+<dt>Returns:</dt><dd><p>MethodDescriptor or None: the descriptor for the requested method, if
+found.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="google.protobuf.descriptor.ServiceDescriptor.GetOptions">
+<span class="sig-name descname"><span class="pre">GetOptions</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#google.protobuf.descriptor.ServiceDescriptor.GetOptions" title="永久链接至目标">¶</a></dt>
+<dd><p>Retrieves descriptor options.</p>
+<p>This method returns the options set or creates the default options for the
+descriptor.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="google.protobuf.descriptor.TypeTransformationError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">google.protobuf.descriptor.</span></span><span class="sig-name descname"><span class="pre">TypeTransformationError</span></span><a class="headerlink" href="#google.protobuf.descriptor.TypeTransformationError" title="永久链接至目标">¶</a></dt>
+<dd><p>Error transforming between python proto type and corresponding C++ type.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="google.protobuf.descriptor.TypeTransformationError.args">
+<span class="sig-name descname"><span class="pre">args</span></span><a class="headerlink" href="#google.protobuf.descriptor.TypeTransformationError.args" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="google.protobuf.descriptor.TypeTransformationError.with_traceback">
+<span class="sig-name descname"><span class="pre">with_traceback</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#google.protobuf.descriptor.TypeTransformationError.with_traceback" title="永久链接至目标">¶</a></dt>
+<dd><p>Exception.with_traceback(tb) –
+set self.__traceback__ to tb and return self.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+              </div>
+              
+        
+            <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="../../index.html" title="上一页 页">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">上一页</p>
+            <p class="prev-next-title">Python API 参考</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="descriptor_database.html" title="下一页 页">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">下一页</p>
+        <p class="prev-next-title">google.protobuf.descriptor_database</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By xinetzone<br/>
+        
+            &copy; Copyright 2021, xinetzone.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

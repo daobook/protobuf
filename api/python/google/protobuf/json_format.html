@@ -1,0 +1,564 @@
+
+<!DOCTYPE html>
+
+<html lang="zh_CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>google.protobuf.json_format &#8212; protobuf 0.1 文档</title>
+    
+  <link href="../../../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/default.css" />
+    
+  <link rel="preload" as="script" href="../../../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
+    <script src="../../../../_static/jquery.js"></script>
+    <script src="../../../../_static/underscore.js"></script>
+    <script src="../../../../_static/doctools.js"></script>
+    <script src="../../../../_static/togglebutton.js"></script>
+    <script src="../../../../_static/clipboard.min.js"></script>
+    <script src="../../../../_static/copybutton.js"></script>
+    <script src="../../../../_static/translations.js"></script>
+    <script src="../../../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <link rel="index" title="索引" href="../../../../genindex.html" />
+    <link rel="search" title="搜索" href="../../../../search.html" />
+    <link rel="next" title="google.protobuf.message" href="message.html" />
+    <link rel="prev" title="google.protobuf.internal.containers" href="internal/containers.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="zh_CN">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../../../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">protobuf 0.1 文档</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../README.html">
+   Protocol Buffers - 谷歌的数据交换格式
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../src/README.html">
+   安装
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../../../docs/index.html">
+   开发者指南
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../docs/field_presence.html">
+     应用说明：Field 存在
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../docs/implementing_proto3_presence.html">
+     How To Implement Field Presence for Proto3
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../docs/jvm_aot.html">
+     Ahead Of Time (AOT) compilation for the Java Virtual Machine (JVM)”
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../docs/options.html">
+     Protobuf Global Extension Registry
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../docs/performance.html">
+     Protobuf Performance
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../docs/third_party.html">
+     Third-Party Add-ons for Protocol Buffers
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../python/README.html">
+   Python API
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../examples/README.html">
+   代码样例
+  </a>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="../../index.html">
+   Python API 参考
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="descriptor.html">
+     google.protobuf.descriptor
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="descriptor_database.html">
+     google.protobuf.descriptor_database
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="descriptor_pool.html">
+     google.protobuf.descriptor_pool
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="internal/containers.html">
+     google.protobuf.internal.containers
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     google.protobuf.json_format
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="message.html">
+     google.protobuf.message
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="message_factory.html">
+     google.protobuf.message_factory
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="proto_builder.html">
+     google.protobuf.proto_builder
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="reflection.html">
+     google.protobuf.reflection
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="service.html">
+     google.protobuf.service
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="service_reflection.html">
+     google.protobuf.service_reflection
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="symbol_database.html">
+     google.protobuf.symbol_database
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="text_encoding.html">
+     google.protobuf.text_encoding
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="text_format.html">
+     google.protobuf.text_format
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../cmake/README.html">
+   CMake
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../java/README.html">
+   java
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../objectivec/README.html">
+   objectivec
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../csharp/README.html">
+   csharp
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../js/README.html">
+   JavaScript
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../ruby/README.html">
+   ruby
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../php/README.html">
+   PHP
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  <div>
+版权所有 © 2021 <a href="https://xinetzone.github.io/">xinetzone</a></div>
+<div>由 <a href="https://ebp.jupyterbook.org/">EBP</a> 提供技术支持</div>
+
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../../../_sources/api/python/google/protobuf/json_format.md.txt"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/daobook/protobuf"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/daobook/protobuf/issues/new?title=Issue%20on%20page%20%2Fapi/python/google/protobuf/json_format.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/daobook/protobuf/edit/xin/api/python/google/protobuf/json_format.md"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="module-google.protobuf.json_format">
+<span id="google-protobuf-json-format"></span><h1>google.protobuf.json_format<a class="headerlink" href="#module-google.protobuf.json_format" title="永久链接至标题">¶</a></h1>
+<p>Contains routines for printing protocol messages in JSON format.</p>
+<p>Simple usage example:</p>
+<blockquote>
+<div><p># Create a proto object and serialize it to a json format string.
+message = my_proto_pb2.MyMessage(foo=’bar’)
+json_string = json_format.MessageToJson(message)</p>
+<p># Parse a json format string to proto object.
+message = json_format.Parse(json_string, my_proto_pb2.MyMessage())</p>
+</div></blockquote>
+<dl class="py exception">
+<dt class="sig sig-object py" id="google.protobuf.json_format.Error">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">google.protobuf.json_format.</span></span><span class="sig-name descname"><span class="pre">Error</span></span><a class="headerlink" href="#google.protobuf.json_format.Error" title="永久链接至目标">¶</a></dt>
+<dd><p>Top-level module error for json_format.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="google.protobuf.json_format.Error.args">
+<span class="sig-name descname"><span class="pre">args</span></span><a class="headerlink" href="#google.protobuf.json_format.Error.args" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="google.protobuf.json_format.Error.with_traceback">
+<span class="sig-name descname"><span class="pre">with_traceback</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#google.protobuf.json_format.Error.with_traceback" title="永久链接至目标">¶</a></dt>
+<dd><p>Exception.with_traceback(tb) –
+set self.__traceback__ to tb and return self.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="google.protobuf.json_format.MessageToDict">
+<span class="sig-prename descclassname"><span class="pre">google.protobuf.json_format.</span></span><span class="sig-name descname"><span class="pre">MessageToDict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">including_default_value_fields</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">preserving_proto_field_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_integers_for_enums</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">descriptor_pool</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">float_precision</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#google.protobuf.json_format.MessageToDict" title="永久链接至目标">¶</a></dt>
+<dd><p>Converts protobuf message to a dictionary.</p>
+<p>When the dictionary is encoded to JSON, it conforms to proto3 JSON spec.</p>
+<dl>
+<dt>Args:</dt><dd><p>message: The protocol buffers message instance to serialize.
+including_default_value_fields: If True, singular primitive fields,</p>
+<blockquote>
+<div><p>repeated fields, and map fields will always be serialized.  If
+False, only serialize non-empty fields.  Singular message fields
+and oneof fields are not affected by this option.</p>
+</div></blockquote>
+<dl class="simple">
+<dt>preserving_proto_field_name: If True, use the original proto field</dt><dd><p>names as defined in the .proto file. If False, convert the field
+names to lowerCamelCase.</p>
+</dd>
+</dl>
+<p>use_integers_for_enums: If true, print integers instead of enum names.
+descriptor_pool: A Descriptor Pool for resolving types. If None use the</p>
+<blockquote>
+<div><p>default.</p>
+</div></blockquote>
+<p>float_precision: If set, use this to specify float field valid digits.</p>
+</dd>
+<dt>Returns:</dt><dd><p>A dict representation of the protocol buffer message.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="google.protobuf.json_format.MessageToJson">
+<span class="sig-prename descclassname"><span class="pre">google.protobuf.json_format.</span></span><span class="sig-name descname"><span class="pre">MessageToJson</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">including_default_value_fields</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">preserving_proto_field_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">indent</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sort_keys</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_integers_for_enums</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">descriptor_pool</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">float_precision</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#google.protobuf.json_format.MessageToJson" title="永久链接至目标">¶</a></dt>
+<dd><p>Converts protobuf message to JSON format.</p>
+<dl>
+<dt>Args:</dt><dd><p>message: The protocol buffers message instance to serialize.
+including_default_value_fields: If True, singular primitive fields,</p>
+<blockquote>
+<div><p>repeated fields, and map fields will always be serialized.  If
+False, only serialize non-empty fields.  Singular message fields
+and oneof fields are not affected by this option.</p>
+</div></blockquote>
+<dl class="simple">
+<dt>preserving_proto_field_name: If True, use the original proto field</dt><dd><p>names as defined in the .proto file. If False, convert the field
+names to lowerCamelCase.</p>
+</dd>
+<dt>indent: The JSON object will be pretty-printed with this indent level.</dt><dd><p>An indent level of 0 or negative will only insert newlines.</p>
+</dd>
+</dl>
+<p>sort_keys: If True, then the output will be sorted by field names.
+use_integers_for_enums: If true, print integers instead of enum names.
+descriptor_pool: A Descriptor Pool for resolving types. If None use the</p>
+<blockquote>
+<div><p>default.</p>
+</div></blockquote>
+<p>float_precision: If set, use this to specify float field valid digits.</p>
+</dd>
+<dt>Returns:</dt><dd><p>A string containing the JSON formatted protocol buffer message.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="google.protobuf.json_format.Parse">
+<span class="sig-prename descclassname"><span class="pre">google.protobuf.json_format.</span></span><span class="sig-name descname"><span class="pre">Parse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">message</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ignore_unknown_fields</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">descriptor_pool</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#google.protobuf.json_format.Parse" title="永久链接至目标">¶</a></dt>
+<dd><p>Parses a JSON representation of a protocol message into a message.</p>
+<dl>
+<dt>Args:</dt><dd><p>text: Message JSON representation.
+message: A protocol buffer message to merge into.
+ignore_unknown_fields: If True, do not raise errors for unknown fields.
+descriptor_pool: A Descriptor Pool for resolving types. If None use the</p>
+<blockquote>
+<div><p>default.</p>
+</div></blockquote>
+</dd>
+<dt>Returns:</dt><dd><p>The same message passed as argument.</p>
+</dd>
+<dt>Raises::</dt><dd><p>ParseError: On JSON parsing problems.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="google.protobuf.json_format.ParseDict">
+<span class="sig-prename descclassname"><span class="pre">google.protobuf.json_format.</span></span><span class="sig-name descname"><span class="pre">ParseDict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">js_dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">message</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ignore_unknown_fields</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">descriptor_pool</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#google.protobuf.json_format.ParseDict" title="永久链接至目标">¶</a></dt>
+<dd><p>Parses a JSON dictionary representation into a message.</p>
+<dl>
+<dt>Args:</dt><dd><p>js_dict: Dict representation of a JSON message.
+message: A protocol buffer message to merge into.
+ignore_unknown_fields: If True, do not raise errors for unknown fields.
+descriptor_pool: A Descriptor Pool for resolving types. If None use the</p>
+<blockquote>
+<div><p>default.</p>
+</div></blockquote>
+</dd>
+<dt>Returns:</dt><dd><p>The same message passed as argument.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="google.protobuf.json_format.ParseError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">google.protobuf.json_format.</span></span><span class="sig-name descname"><span class="pre">ParseError</span></span><a class="headerlink" href="#google.protobuf.json_format.ParseError" title="永久链接至目标">¶</a></dt>
+<dd><p>Thrown in case of parsing error.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="google.protobuf.json_format.ParseError.args">
+<span class="sig-name descname"><span class="pre">args</span></span><a class="headerlink" href="#google.protobuf.json_format.ParseError.args" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="google.protobuf.json_format.ParseError.with_traceback">
+<span class="sig-name descname"><span class="pre">with_traceback</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#google.protobuf.json_format.ParseError.with_traceback" title="永久链接至目标">¶</a></dt>
+<dd><p>Exception.with_traceback(tb) –
+set self.__traceback__ to tb and return self.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="google.protobuf.json_format.SerializeToJsonError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">google.protobuf.json_format.</span></span><span class="sig-name descname"><span class="pre">SerializeToJsonError</span></span><a class="headerlink" href="#google.protobuf.json_format.SerializeToJsonError" title="永久链接至目标">¶</a></dt>
+<dd><p>Thrown if serialization to JSON fails.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="google.protobuf.json_format.SerializeToJsonError.args">
+<span class="sig-name descname"><span class="pre">args</span></span><a class="headerlink" href="#google.protobuf.json_format.SerializeToJsonError.args" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="google.protobuf.json_format.SerializeToJsonError.with_traceback">
+<span class="sig-name descname"><span class="pre">with_traceback</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#google.protobuf.json_format.SerializeToJsonError.with_traceback" title="永久链接至目标">¶</a></dt>
+<dd><p>Exception.with_traceback(tb) –
+set self.__traceback__ to tb and return self.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+              </div>
+              
+        
+            <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="internal/containers.html" title="上一页 页">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">上一页</p>
+            <p class="prev-next-title">google.protobuf.internal.containers</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="message.html" title="下一页 页">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">下一页</p>
+        <p class="prev-next-title">google.protobuf.message</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By xinetzone<br/>
+        
+            &copy; Copyright 2021, xinetzone.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

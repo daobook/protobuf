@@ -8,6 +8,7 @@ src/README
 docs/index
 python/README
 examples/README
+api/python/index
 cmake/README
 java/README
 objectivec/README

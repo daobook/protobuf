@@ -1,0 +1,728 @@
+
+<!DOCTYPE html>
+
+<html lang="zh_CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>google.protobuf.message &#8212; protobuf 0.1 文档</title>
+    
+  <link href="../../../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/default.css" />
+    
+  <link rel="preload" as="script" href="../../../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
+    <script src="../../../../_static/jquery.js"></script>
+    <script src="../../../../_static/underscore.js"></script>
+    <script src="../../../../_static/doctools.js"></script>
+    <script src="../../../../_static/togglebutton.js"></script>
+    <script src="../../../../_static/clipboard.min.js"></script>
+    <script src="../../../../_static/copybutton.js"></script>
+    <script src="../../../../_static/translations.js"></script>
+    <script src="../../../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <link rel="index" title="索引" href="../../../../genindex.html" />
+    <link rel="search" title="搜索" href="../../../../search.html" />
+    <link rel="next" title="google.protobuf.message_factory" href="message_factory.html" />
+    <link rel="prev" title="google.protobuf.json_format" href="json_format.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="zh_CN">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../../../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">protobuf 0.1 文档</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../README.html">
+   Protocol Buffers - 谷歌的数据交换格式
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../src/README.html">
+   安装
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../../../docs/index.html">
+   开发者指南
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../docs/field_presence.html">
+     应用说明：Field 存在
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../docs/implementing_proto3_presence.html">
+     How To Implement Field Presence for Proto3
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../docs/jvm_aot.html">
+     Ahead Of Time (AOT) compilation for the Java Virtual Machine (JVM)”
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../docs/options.html">
+     Protobuf Global Extension Registry
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../docs/performance.html">
+     Protobuf Performance
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../docs/third_party.html">
+     Third-Party Add-ons for Protocol Buffers
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../python/README.html">
+   Python API
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../examples/README.html">
+   代码样例
+  </a>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="../../index.html">
+   Python API 参考
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="descriptor.html">
+     google.protobuf.descriptor
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="descriptor_database.html">
+     google.protobuf.descriptor_database
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="descriptor_pool.html">
+     google.protobuf.descriptor_pool
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="internal/containers.html">
+     google.protobuf.internal.containers
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="json_format.html">
+     google.protobuf.json_format
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     google.protobuf.message
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="message_factory.html">
+     google.protobuf.message_factory
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="proto_builder.html">
+     google.protobuf.proto_builder
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="reflection.html">
+     google.protobuf.reflection
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="service.html">
+     google.protobuf.service
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="service_reflection.html">
+     google.protobuf.service_reflection
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="symbol_database.html">
+     google.protobuf.symbol_database
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="text_encoding.html">
+     google.protobuf.text_encoding
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="text_format.html">
+     google.protobuf.text_format
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../cmake/README.html">
+   CMake
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../java/README.html">
+   java
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../objectivec/README.html">
+   objectivec
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../csharp/README.html">
+   csharp
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../js/README.html">
+   JavaScript
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../ruby/README.html">
+   ruby
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../php/README.html">
+   PHP
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  <div>
+版权所有 © 2021 <a href="https://xinetzone.github.io/">xinetzone</a></div>
+<div>由 <a href="https://ebp.jupyterbook.org/">EBP</a> 提供技术支持</div>
+
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../../../_sources/api/python/google/protobuf/message.md.txt"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/daobook/protobuf"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/daobook/protobuf/issues/new?title=Issue%20on%20page%20%2Fapi/python/google/protobuf/message.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/daobook/protobuf/edit/xin/api/python/google/protobuf/message.md"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="module-google.protobuf.message">
+<span id="google-protobuf-message"></span><h1>google.protobuf.message<a class="headerlink" href="#module-google.protobuf.message" title="永久链接至标题">¶</a></h1>
+<p>包含一个协议消息的抽象基类。</p>
+<dl class="py exception">
+<dt class="sig sig-object py" id="google.protobuf.message.DecodeError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">google.protobuf.message.</span></span><span class="sig-name descname"><span class="pre">DecodeError</span></span><a class="headerlink" href="#google.protobuf.message.DecodeError" title="永久链接至目标">¶</a></dt>
+<dd><p>Exception raised when deserializing messages.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="google.protobuf.message.DecodeError.args">
+<span class="sig-name descname"><span class="pre">args</span></span><a class="headerlink" href="#google.protobuf.message.DecodeError.args" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="google.protobuf.message.DecodeError.with_traceback">
+<span class="sig-name descname"><span class="pre">with_traceback</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#google.protobuf.message.DecodeError.with_traceback" title="永久链接至目标">¶</a></dt>
+<dd><p>Exception.with_traceback(tb) –
+set self.__traceback__ to tb and return self.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="google.protobuf.message.EncodeError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">google.protobuf.message.</span></span><span class="sig-name descname"><span class="pre">EncodeError</span></span><a class="headerlink" href="#google.protobuf.message.EncodeError" title="永久链接至目标">¶</a></dt>
+<dd><p>Exception raised when serializing messages.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="google.protobuf.message.EncodeError.args">
+<span class="sig-name descname"><span class="pre">args</span></span><a class="headerlink" href="#google.protobuf.message.EncodeError.args" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="google.protobuf.message.EncodeError.with_traceback">
+<span class="sig-name descname"><span class="pre">with_traceback</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#google.protobuf.message.EncodeError.with_traceback" title="永久链接至目标">¶</a></dt>
+<dd><p>Exception.with_traceback(tb) –
+set self.__traceback__ to tb and return self.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="google.protobuf.message.Error">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">google.protobuf.message.</span></span><span class="sig-name descname"><span class="pre">Error</span></span><a class="headerlink" href="#google.protobuf.message.Error" title="永久链接至目标">¶</a></dt>
+<dd><p>Base error type for this module.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="google.protobuf.message.Error.args">
+<span class="sig-name descname"><span class="pre">args</span></span><a class="headerlink" href="#google.protobuf.message.Error.args" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="google.protobuf.message.Error.with_traceback">
+<span class="sig-name descname"><span class="pre">with_traceback</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#google.protobuf.message.Error.with_traceback" title="永久链接至目标">¶</a></dt>
+<dd><p>Exception.with_traceback(tb) –
+set self.__traceback__ to tb and return self.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="google.protobuf.message.Message">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">google.protobuf.message.</span></span><span class="sig-name descname"><span class="pre">Message</span></span><a class="headerlink" href="#google.protobuf.message.Message" title="永久链接至目标">¶</a></dt>
+<dd><p>Abstract base class for protocol messages.</p>
+<p>Protocol message classes are almost always generated by the protocol
+compiler.  These generated types subclass Message and implement the methods
+shown below.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="google.protobuf.message.Message.ByteSize">
+<span class="sig-name descname"><span class="pre">ByteSize</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#google.protobuf.message.Message.ByteSize" title="永久链接至目标">¶</a></dt>
+<dd><p>Returns the serialized size of this message.</p>
+<p>Recursively calls ByteSize() on all contained messages.</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>int: The number of bytes required to serialize this message.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="google.protobuf.message.Message.Clear">
+<span class="sig-name descname"><span class="pre">Clear</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#google.protobuf.message.Message.Clear" title="永久链接至目标">¶</a></dt>
+<dd><p>Clears all data that was set in the message.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="google.protobuf.message.Message.ClearExtension">
+<span class="sig-name descname"><span class="pre">ClearExtension</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">extension_handle</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#google.protobuf.message.Message.ClearExtension" title="永久链接至目标">¶</a></dt>
+<dd><p>Clears the contents of a given extension.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>extension_handle: The handle for the extension to clear.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="google.protobuf.message.Message.ClearField">
+<span class="sig-name descname"><span class="pre">ClearField</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">field_name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#google.protobuf.message.Message.ClearField" title="永久链接至目标">¶</a></dt>
+<dd><p>Clears the contents of a given field.</p>
+<p>Inside a oneof group, clears the field set. If the name neither refers to a
+defined field or oneof group, <code class="xref py py-exc docutils literal notranslate"><span class="pre">ValueError</span></code> is raised.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>field_name (str): The name of the field to check for presence.</p>
+</dd>
+<dt>Raises:</dt><dd><p>ValueError: if the <cite>field_name</cite> is not a member of this message.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="google.protobuf.message.Message.CopyFrom">
+<span class="sig-name descname"><span class="pre">CopyFrom</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other_msg</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#google.protobuf.message.Message.CopyFrom" title="永久链接至目标">¶</a></dt>
+<dd><p>Copies the content of the specified message into the current message.</p>
+<p>The method clears the current message and then merges the specified
+message using MergeFrom.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>other_msg (Message): A message to copy into the current one.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="google.protobuf.message.Message.DESCRIPTOR">
+<span class="sig-name descname"><span class="pre">DESCRIPTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#google.protobuf.message.Message.DESCRIPTOR" title="永久链接至目标">¶</a></dt>
+<dd><p>The <a class="reference internal" href="descriptor.html#google.protobuf.descriptor.Descriptor" title="google.protobuf.descriptor.Descriptor"><code class="xref py py-class docutils literal notranslate"><span class="pre">google.protobuf.descriptor.Descriptor</span></code></a> for this message type.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="google.protobuf.message.Message.DiscardUnknownFields">
+<span class="sig-name descname"><span class="pre">DiscardUnknownFields</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#google.protobuf.message.Message.DiscardUnknownFields" title="永久链接至目标">¶</a></dt>
+<dd><p>Clears all fields in the <code class="xref py py-class docutils literal notranslate"><span class="pre">UnknownFieldSet</span></code>.</p>
+<p>This operation is recursive for nested message.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="google.protobuf.message.Message.FromString">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">FromString</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#google.protobuf.message.Message.FromString" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="google.protobuf.message.Message.HasExtension">
+<span class="sig-name descname"><span class="pre">HasExtension</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">extension_handle</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#google.protobuf.message.Message.HasExtension" title="永久链接至目标">¶</a></dt>
+<dd><p>Checks if a certain extension is present for this message.</p>
+<p>Extensions are retrieved using the <code class="xref py py-attr docutils literal notranslate"><span class="pre">Extensions</span></code> mapping (if present).</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>extension_handle: The handle for the extension to check.</p>
+</dd>
+<dt>Returns:</dt><dd><p>bool: Whether the extension is present for this message.</p>
+</dd>
+<dt>Raises:</dt><dd><dl class="simple">
+<dt>KeyError: if the extension is repeated. Similar to repeated fields,</dt><dd><p>there is no separate notion of presence: a “not present” repeated
+extension is an empty list.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="google.protobuf.message.Message.HasField">
+<span class="sig-name descname"><span class="pre">HasField</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">field_name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#google.protobuf.message.Message.HasField" title="永久链接至目标">¶</a></dt>
+<dd><p>Checks if a certain field is set for the message.</p>
+<p>For a oneof group, checks if any field inside is set. Note that if the
+field_name is not defined in the message descriptor, <code class="xref py py-exc docutils literal notranslate"><span class="pre">ValueError</span></code> will
+be raised.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>field_name (str): The name of the field to check for presence.</p>
+</dd>
+<dt>Returns:</dt><dd><p>bool: Whether a value has been set for the named field.</p>
+</dd>
+<dt>Raises:</dt><dd><p>ValueError: if the <cite>field_name</cite> is not a member of this message.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="google.protobuf.message.Message.IsInitialized">
+<span class="sig-name descname"><span class="pre">IsInitialized</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#google.protobuf.message.Message.IsInitialized" title="永久链接至目标">¶</a></dt>
+<dd><p>Checks if the message is initialized.</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>bool: The method returns True if the message is initialized (i.e. all of
+its required fields are set).</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="google.protobuf.message.Message.ListFields">
+<span class="sig-name descname"><span class="pre">ListFields</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#google.protobuf.message.Message.ListFields" title="永久链接至目标">¶</a></dt>
+<dd><p>Returns a list of (FieldDescriptor, value) tuples for present fields.</p>
+<p>A message field is non-empty if HasField() would return true. A singular
+primitive field is non-empty if HasField() would return true in proto2 or it
+is non zero in proto3. A repeated field is non-empty if it contains at least
+one element. The fields are ordered by field number.</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>list[tuple(FieldDescriptor, value)]: field descriptors and values
+for all fields in the message which are not empty. The values vary by
+field type.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="google.protobuf.message.Message.MergeFrom">
+<span class="sig-name descname"><span class="pre">MergeFrom</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other_msg</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#google.protobuf.message.Message.MergeFrom" title="永久链接至目标">¶</a></dt>
+<dd><p>Merges the contents of the specified message into current message.</p>
+<p>This method merges the contents of the specified message into the current
+message. Singular fields that are set in the specified message overwrite
+the corresponding fields in the current message. Repeated fields are
+appended. Singular sub-messages and groups are recursively merged.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>other_msg (Message): A message to merge into the current message.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="google.protobuf.message.Message.MergeFromString">
+<span class="sig-name descname"><span class="pre">MergeFromString</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">serialized</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#google.protobuf.message.Message.MergeFromString" title="永久链接至目标">¶</a></dt>
+<dd><p>Merges serialized protocol buffer data into this message.</p>
+<p>When we find a field in <cite>serialized</cite> that is already present
+in this message:</p>
+<ul class="simple">
+<li><p>If it’s a “repeated” field, we append to the end of our list.</p></li>
+<li><p>Else, if it’s a scalar, we overwrite our field.</p></li>
+<li><p>Else, (it’s a nonrepeated composite), we recursively merge
+into the existing composite.</p></li>
+</ul>
+<dl class="simple">
+<dt>Args:</dt><dd><dl class="simple">
+<dt>serialized (bytes): Any object that allows us to call</dt><dd><p><code class="docutils literal notranslate"><span class="pre">memoryview(serialized)</span></code> to access a string of bytes using the
+buffer interface.</p>
+</dd>
+</dl>
+</dd>
+<dt>Returns:</dt><dd><p>int: The number of bytes read from <cite>serialized</cite>.
+For non-group messages, this will always be <cite>len(serialized)</cite>,
+but for messages which are actually groups, this will
+generally be less than <cite>len(serialized)</cite>, since we must
+stop when we reach an <code class="docutils literal notranslate"><span class="pre">END_GROUP</span></code> tag.  Note that if
+we <em>do</em> stop because of an <code class="docutils literal notranslate"><span class="pre">END_GROUP</span></code> tag, the number
+of bytes returned does not include the bytes
+for the <code class="docutils literal notranslate"><span class="pre">END_GROUP</span></code> tag information.</p>
+</dd>
+<dt>Raises:</dt><dd><p>DecodeError: if the input cannot be parsed.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="google.protobuf.message.Message.ParseFromString">
+<span class="sig-name descname"><span class="pre">ParseFromString</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">serialized</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#google.protobuf.message.Message.ParseFromString" title="永久链接至目标">¶</a></dt>
+<dd><p>Parse serialized protocol buffer data into this message.</p>
+<p>Like <a class="reference internal" href="#google.protobuf.message.Message.MergeFromString" title="google.protobuf.message.Message.MergeFromString"><code class="xref py py-func docutils literal notranslate"><span class="pre">MergeFromString()</span></code></a>, except we clear the object first.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="google.protobuf.message.Message.RegisterExtension">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">RegisterExtension</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">extension_handle</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#google.protobuf.message.Message.RegisterExtension" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="google.protobuf.message.Message.SerializePartialToString">
+<span class="sig-name descname"><span class="pre">SerializePartialToString</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#google.protobuf.message.Message.SerializePartialToString" title="永久链接至目标">¶</a></dt>
+<dd><p>Serializes the protocol message to a binary string.</p>
+<p>This method is similar to SerializeToString but doesn’t check if the
+message is initialized.</p>
+<dl class="simple">
+<dt>Keyword Args:</dt><dd><dl class="simple">
+<dt>deterministic (bool): If true, requests deterministic serialization</dt><dd><p>of the protobuf, with predictable ordering of map keys.</p>
+</dd>
+</dl>
+</dd>
+<dt>Returns:</dt><dd><p>bytes: A serialized representation of the partial message.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="google.protobuf.message.Message.SerializeToString">
+<span class="sig-name descname"><span class="pre">SerializeToString</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#google.protobuf.message.Message.SerializeToString" title="永久链接至目标">¶</a></dt>
+<dd><p>Serializes the protocol message to a binary string.</p>
+<dl class="simple">
+<dt>Keyword Args:</dt><dd><dl class="simple">
+<dt>deterministic (bool): If true, requests deterministic serialization</dt><dd><p>of the protobuf, with predictable ordering of map keys.</p>
+</dd>
+</dl>
+</dd>
+<dt>Returns:</dt><dd><p>A binary string representation of the message if all of the required
+fields in the message are set (i.e. the message is initialized).</p>
+</dd>
+<dt>Raises:</dt><dd><p>EncodeError: if the message isn’t initialized (see <a class="reference internal" href="#google.protobuf.message.Message.IsInitialized" title="google.protobuf.message.Message.IsInitialized"><code class="xref py py-func docutils literal notranslate"><span class="pre">IsInitialized()</span></code></a>).</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="google.protobuf.message.Message.SetInParent">
+<span class="sig-name descname"><span class="pre">SetInParent</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#google.protobuf.message.Message.SetInParent" title="永久链接至目标">¶</a></dt>
+<dd><p>Mark this as present in the parent.</p>
+<p>This normally happens automatically when you assign a field of a
+sub-message, but sometimes you want to make the sub-message
+present while keeping it empty.  If you find yourself using this,
+you may want to reconsider your design.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="google.protobuf.message.Message.UnknownFields">
+<span class="sig-name descname"><span class="pre">UnknownFields</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#google.protobuf.message.Message.UnknownFields" title="永久链接至目标">¶</a></dt>
+<dd><p>Returns the UnknownFieldSet.</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>UnknownFieldSet: The unknown fields stored in this message.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="google.protobuf.message.Message.WhichOneof">
+<span class="sig-name descname"><span class="pre">WhichOneof</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">oneof_group</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#google.protobuf.message.Message.WhichOneof" title="永久链接至目标">¶</a></dt>
+<dd><p>Returns the name of the field that is set inside a oneof group.</p>
+<p>If no field is set, returns None.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>oneof_group (str): the name of the oneof group to check.</p>
+</dd>
+<dt>Returns:</dt><dd><p>str or None: The name of the group that is set, or None.</p>
+</dd>
+<dt>Raises:</dt><dd><p>ValueError: no group with the given name exists</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+              </div>
+              
+        
+            <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="json_format.html" title="上一页 页">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">上一页</p>
+            <p class="prev-next-title">google.protobuf.json_format</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="message_factory.html" title="下一页 页">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">下一页</p>
+        <p class="prev-next-title">google.protobuf.message_factory</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By xinetzone<br/>
+        
+            &copy; Copyright 2021, xinetzone.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

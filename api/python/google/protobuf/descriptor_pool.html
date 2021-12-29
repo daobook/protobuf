@@ -1,0 +1,644 @@
+
+<!DOCTYPE html>
+
+<html lang="zh_CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>google.protobuf.descriptor_pool &#8212; protobuf 0.1 文档</title>
+    
+  <link href="../../../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/default.css" />
+    
+  <link rel="preload" as="script" href="../../../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
+    <script src="../../../../_static/jquery.js"></script>
+    <script src="../../../../_static/underscore.js"></script>
+    <script src="../../../../_static/doctools.js"></script>
+    <script src="../../../../_static/togglebutton.js"></script>
+    <script src="../../../../_static/clipboard.min.js"></script>
+    <script src="../../../../_static/copybutton.js"></script>
+    <script src="../../../../_static/translations.js"></script>
+    <script src="../../../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <link rel="index" title="索引" href="../../../../genindex.html" />
+    <link rel="search" title="搜索" href="../../../../search.html" />
+    <link rel="next" title="google.protobuf.internal.containers" href="internal/containers.html" />
+    <link rel="prev" title="google.protobuf.descriptor_database" href="descriptor_database.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="zh_CN">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../../../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">protobuf 0.1 文档</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../README.html">
+   Protocol Buffers - 谷歌的数据交换格式
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../src/README.html">
+   安装
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../../../docs/index.html">
+   开发者指南
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../docs/field_presence.html">
+     应用说明：Field 存在
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../docs/implementing_proto3_presence.html">
+     How To Implement Field Presence for Proto3
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../docs/jvm_aot.html">
+     Ahead Of Time (AOT) compilation for the Java Virtual Machine (JVM)”
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../docs/options.html">
+     Protobuf Global Extension Registry
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../docs/performance.html">
+     Protobuf Performance
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../docs/third_party.html">
+     Third-Party Add-ons for Protocol Buffers
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../python/README.html">
+   Python API
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../examples/README.html">
+   代码样例
+  </a>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="../../index.html">
+   Python API 参考
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="descriptor.html">
+     google.protobuf.descriptor
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="descriptor_database.html">
+     google.protobuf.descriptor_database
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     google.protobuf.descriptor_pool
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="internal/containers.html">
+     google.protobuf.internal.containers
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="json_format.html">
+     google.protobuf.json_format
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="message.html">
+     google.protobuf.message
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="message_factory.html">
+     google.protobuf.message_factory
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="proto_builder.html">
+     google.protobuf.proto_builder
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="reflection.html">
+     google.protobuf.reflection
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="service.html">
+     google.protobuf.service
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="service_reflection.html">
+     google.protobuf.service_reflection
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="symbol_database.html">
+     google.protobuf.symbol_database
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="text_encoding.html">
+     google.protobuf.text_encoding
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="text_format.html">
+     google.protobuf.text_format
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../cmake/README.html">
+   CMake
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../java/README.html">
+   java
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../objectivec/README.html">
+   objectivec
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../csharp/README.html">
+   csharp
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../js/README.html">
+   JavaScript
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../ruby/README.html">
+   ruby
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../php/README.html">
+   PHP
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  <div>
+版权所有 © 2021 <a href="https://xinetzone.github.io/">xinetzone</a></div>
+<div>由 <a href="https://ebp.jupyterbook.org/">EBP</a> 提供技术支持</div>
+
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../../../_sources/api/python/google/protobuf/descriptor_pool.md.txt"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/daobook/protobuf"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/daobook/protobuf/issues/new?title=Issue%20on%20page%20%2Fapi/python/google/protobuf/descriptor_pool.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/daobook/protobuf/edit/xin/api/python/google/protobuf/descriptor_pool.md"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="module-google.protobuf.descriptor_pool">
+<span id="google-protobuf-descriptor-pool"></span><h1>google.protobuf.descriptor_pool<a class="headerlink" href="#module-google.protobuf.descriptor_pool" title="永久链接至标题">¶</a></h1>
+<p>Provides DescriptorPool to use as a container for proto2 descriptors.</p>
+<p>The DescriptorPool is used in conjection with a DescriptorDatabase to maintain
+a collection of protocol buffer descriptors for use when dynamically creating
+message types at runtime.</p>
+<p>For most applications protocol buffers should be used via modules generated by
+the protocol buffer compiler tool. This should only be used when the type of
+protocol buffers used in an application or library cannot be predetermined.</p>
+<p>Below is a straightforward example on how to use this class:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pool</span> <span class="o">=</span> <span class="n">DescriptorPool</span><span class="p">()</span>
+<span class="n">file_descriptor_protos</span> <span class="o">=</span> <span class="p">[</span> <span class="o">...</span> <span class="p">]</span>
+<span class="k">for</span> <span class="n">file_descriptor_proto</span> <span class="ow">in</span> <span class="n">file_descriptor_protos</span><span class="p">:</span>
+  <span class="n">pool</span><span class="o">.</span><span class="n">Add</span><span class="p">(</span><span class="n">file_descriptor_proto</span><span class="p">)</span>
+<span class="n">my_message_descriptor</span> <span class="o">=</span> <span class="n">pool</span><span class="o">.</span><span class="n">FindMessageTypeByName</span><span class="p">(</span><span class="s1">&#39;some.package.MessageType&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The message descriptor can be used in conjunction with the message_factory
+module in order to create a protocol buffer class that can be encoded and
+decoded.</p>
+<p>If you want to get a Python class for the specified proto, use the
+helper functions inside google.protobuf.message_factory
+directly instead of this class.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="google.protobuf.descriptor_pool.Default">
+<span class="sig-prename descclassname"><span class="pre">google.protobuf.descriptor_pool.</span></span><span class="sig-name descname"><span class="pre">Default</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#google.protobuf.descriptor_pool.Default" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="google.protobuf.descriptor_pool.DescriptorPool">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">google.protobuf.descriptor_pool.</span></span><span class="sig-name descname"><span class="pre">DescriptorPool</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">descriptor_db</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#google.protobuf.descriptor_pool.DescriptorPool" title="永久链接至目标">¶</a></dt>
+<dd><p>A collection of protobufs dynamically constructed by descriptor protos.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="google.protobuf.descriptor_pool.DescriptorPool.Add">
+<span class="sig-name descname"><span class="pre">Add</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_desc_proto</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#google.protobuf.descriptor_pool.DescriptorPool.Add" title="永久链接至目标">¶</a></dt>
+<dd><p>Adds the FileDescriptorProto and its types to this pool.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>file_desc_proto (FileDescriptorProto): The file descriptor to add.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="google.protobuf.descriptor_pool.DescriptorPool.AddDescriptor">
+<span class="sig-name descname"><span class="pre">AddDescriptor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#google.protobuf.descriptor_pool.DescriptorPool.AddDescriptor" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="google.protobuf.descriptor_pool.DescriptorPool.AddEnumDescriptor">
+<span class="sig-name descname"><span class="pre">AddEnumDescriptor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#google.protobuf.descriptor_pool.DescriptorPool.AddEnumDescriptor" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="google.protobuf.descriptor_pool.DescriptorPool.AddExtensionDescriptor">
+<span class="sig-name descname"><span class="pre">AddExtensionDescriptor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#google.protobuf.descriptor_pool.DescriptorPool.AddExtensionDescriptor" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="google.protobuf.descriptor_pool.DescriptorPool.AddFileDescriptor">
+<span class="sig-name descname"><span class="pre">AddFileDescriptor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#google.protobuf.descriptor_pool.DescriptorPool.AddFileDescriptor" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="google.protobuf.descriptor_pool.DescriptorPool.AddSerializedFile">
+<span class="sig-name descname"><span class="pre">AddSerializedFile</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">serialized_file_desc_proto</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#google.protobuf.descriptor_pool.DescriptorPool.AddSerializedFile" title="永久链接至目标">¶</a></dt>
+<dd><p>Adds the FileDescriptorProto and its types to this pool.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><dl class="simple">
+<dt>serialized_file_desc_proto (bytes): A bytes string, serialization of the</dt><dd><p><code class="xref py py-class docutils literal notranslate"><span class="pre">FileDescriptorProto</span></code> to add.</p>
+</dd>
+</dl>
+</dd>
+<dt>Returns:</dt><dd><p>FileDescriptor: Descriptor for the added file.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="google.protobuf.descriptor_pool.DescriptorPool.AddServiceDescriptor">
+<span class="sig-name descname"><span class="pre">AddServiceDescriptor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#google.protobuf.descriptor_pool.DescriptorPool.AddServiceDescriptor" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="google.protobuf.descriptor_pool.DescriptorPool.FindAllExtensions">
+<span class="sig-name descname"><span class="pre">FindAllExtensions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message_descriptor</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#google.protobuf.descriptor_pool.DescriptorPool.FindAllExtensions" title="永久链接至目标">¶</a></dt>
+<dd><p>Gets all the known extensions of a given message.</p>
+<p>Extensions have to be registered to this pool by build related
+<a class="reference internal" href="#google.protobuf.descriptor_pool.DescriptorPool.Add" title="google.protobuf.descriptor_pool.DescriptorPool.Add"><code class="xref py py-func docutils literal notranslate"><span class="pre">Add()</span></code></a> or <a class="reference internal" href="#google.protobuf.descriptor_pool.DescriptorPool.AddExtensionDescriptor" title="google.protobuf.descriptor_pool.DescriptorPool.AddExtensionDescriptor"><code class="xref py py-func docutils literal notranslate"><span class="pre">AddExtensionDescriptor()</span></code></a>.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>message_descriptor (Descriptor): Descriptor of the extended message.</p>
+</dd>
+<dt>Returns:</dt><dd><p>list[FieldDescriptor]: Field descriptors describing the extensions.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="google.protobuf.descriptor_pool.DescriptorPool.FindEnumTypeByName">
+<span class="sig-name descname"><span class="pre">FindEnumTypeByName</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">full_name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#google.protobuf.descriptor_pool.DescriptorPool.FindEnumTypeByName" title="永久链接至目标">¶</a></dt>
+<dd><p>Loads the named enum descriptor from the pool.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>full_name (str): The full name of the enum descriptor to load.</p>
+</dd>
+<dt>Returns:</dt><dd><p>EnumDescriptor: The enum descriptor for the named type.</p>
+</dd>
+<dt>Raises:</dt><dd><p>KeyError: if the enum cannot be found in the pool.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="google.protobuf.descriptor_pool.DescriptorPool.FindExtensionByName">
+<span class="sig-name descname"><span class="pre">FindExtensionByName</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">full_name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#google.protobuf.descriptor_pool.DescriptorPool.FindExtensionByName" title="永久链接至目标">¶</a></dt>
+<dd><p>Loads the named extension descriptor from the pool.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>full_name (str): The full name of the extension descriptor to load.</p>
+</dd>
+<dt>Returns:</dt><dd><p>FieldDescriptor: The field descriptor for the named extension.</p>
+</dd>
+<dt>Raises:</dt><dd><p>KeyError: if the extension cannot be found in the pool.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="google.protobuf.descriptor_pool.DescriptorPool.FindExtensionByNumber">
+<span class="sig-name descname"><span class="pre">FindExtensionByNumber</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message_descriptor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">number</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#google.protobuf.descriptor_pool.DescriptorPool.FindExtensionByNumber" title="永久链接至目标">¶</a></dt>
+<dd><p>Gets the extension of the specified message with the specified number.</p>
+<p>Extensions have to be registered to this pool by calling <a class="reference internal" href="#google.protobuf.descriptor_pool.DescriptorPool.Add" title="google.protobuf.descriptor_pool.DescriptorPool.Add"><code class="xref py py-func docutils literal notranslate"><span class="pre">Add()</span></code></a> or
+<a class="reference internal" href="#google.protobuf.descriptor_pool.DescriptorPool.AddExtensionDescriptor" title="google.protobuf.descriptor_pool.DescriptorPool.AddExtensionDescriptor"><code class="xref py py-func docutils literal notranslate"><span class="pre">AddExtensionDescriptor()</span></code></a>.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>message_descriptor (Descriptor): descriptor of the extended message.
+number (int): Number of the extension field.</p>
+</dd>
+<dt>Returns:</dt><dd><p>FieldDescriptor: The descriptor for the extension.</p>
+</dd>
+<dt>Raises:</dt><dd><dl class="simple">
+<dt>KeyError: when no extension with the given number is known for the</dt><dd><p>specified message.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="google.protobuf.descriptor_pool.DescriptorPool.FindFieldByName">
+<span class="sig-name descname"><span class="pre">FindFieldByName</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">full_name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#google.protobuf.descriptor_pool.DescriptorPool.FindFieldByName" title="永久链接至目标">¶</a></dt>
+<dd><p>Loads the named field descriptor from the pool.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>full_name (str): The full name of the field descriptor to load.</p>
+</dd>
+<dt>Returns:</dt><dd><p>FieldDescriptor: The field descriptor for the named field.</p>
+</dd>
+<dt>Raises:</dt><dd><p>KeyError: if the field cannot be found in the pool.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="google.protobuf.descriptor_pool.DescriptorPool.FindFileByName">
+<span class="sig-name descname"><span class="pre">FindFileByName</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#google.protobuf.descriptor_pool.DescriptorPool.FindFileByName" title="永久链接至目标">¶</a></dt>
+<dd><p>Gets a FileDescriptor by file name.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>file_name (str): The path to the file to get a descriptor for.</p>
+</dd>
+<dt>Returns:</dt><dd><p>FileDescriptor: The descriptor for the named file.</p>
+</dd>
+<dt>Raises:</dt><dd><p>KeyError: if the file cannot be found in the pool.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="google.protobuf.descriptor_pool.DescriptorPool.FindFileContainingSymbol">
+<span class="sig-name descname"><span class="pre">FindFileContainingSymbol</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">symbol</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#google.protobuf.descriptor_pool.DescriptorPool.FindFileContainingSymbol" title="永久链接至目标">¶</a></dt>
+<dd><p>Gets the FileDescriptor for the file containing the specified symbol.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>symbol (str): The name of the symbol to search for.</p>
+</dd>
+<dt>Returns:</dt><dd><p>FileDescriptor: Descriptor for the file that contains the specified
+symbol.</p>
+</dd>
+<dt>Raises:</dt><dd><p>KeyError: if the file cannot be found in the pool.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="google.protobuf.descriptor_pool.DescriptorPool.FindMessageTypeByName">
+<span class="sig-name descname"><span class="pre">FindMessageTypeByName</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">full_name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#google.protobuf.descriptor_pool.DescriptorPool.FindMessageTypeByName" title="永久链接至目标">¶</a></dt>
+<dd><p>Loads the named descriptor from the pool.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>full_name (str): The full name of the descriptor to load.</p>
+</dd>
+<dt>Returns:</dt><dd><p>Descriptor: The descriptor for the named type.</p>
+</dd>
+<dt>Raises:</dt><dd><p>KeyError: if the message cannot be found in the pool.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="google.protobuf.descriptor_pool.DescriptorPool.FindMethodByName">
+<span class="sig-name descname"><span class="pre">FindMethodByName</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">full_name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#google.protobuf.descriptor_pool.DescriptorPool.FindMethodByName" title="永久链接至目标">¶</a></dt>
+<dd><p>Loads the named service method descriptor from the pool.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>full_name (str): The full name of the method descriptor to load.</p>
+</dd>
+<dt>Returns:</dt><dd><p>MethodDescriptor: The method descriptor for the service method.</p>
+</dd>
+<dt>Raises:</dt><dd><p>KeyError: if the method cannot be found in the pool.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="google.protobuf.descriptor_pool.DescriptorPool.FindOneofByName">
+<span class="sig-name descname"><span class="pre">FindOneofByName</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">full_name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#google.protobuf.descriptor_pool.DescriptorPool.FindOneofByName" title="永久链接至目标">¶</a></dt>
+<dd><p>Loads the named oneof descriptor from the pool.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>full_name (str): The full name of the oneof descriptor to load.</p>
+</dd>
+<dt>Returns:</dt><dd><p>OneofDescriptor: The oneof descriptor for the named oneof.</p>
+</dd>
+<dt>Raises:</dt><dd><p>KeyError: if the oneof cannot be found in the pool.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="google.protobuf.descriptor_pool.DescriptorPool.FindServiceByName">
+<span class="sig-name descname"><span class="pre">FindServiceByName</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">full_name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#google.protobuf.descriptor_pool.DescriptorPool.FindServiceByName" title="永久链接至目标">¶</a></dt>
+<dd><p>Loads the named service descriptor from the pool.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>full_name (str): The full name of the service descriptor to load.</p>
+</dd>
+<dt>Returns:</dt><dd><p>ServiceDescriptor: The service descriptor for the named service.</p>
+</dd>
+<dt>Raises:</dt><dd><p>KeyError: if the service cannot be found in the pool.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+              </div>
+              
+        
+            <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="descriptor_database.html" title="上一页 页">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">上一页</p>
+            <p class="prev-next-title">google.protobuf.descriptor_database</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="internal/containers.html" title="下一页 页">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">下一页</p>
+        <p class="prev-next-title">google.protobuf.internal.containers</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By xinetzone<br/>
+        
+            &copy; Copyright 2021, xinetzone.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

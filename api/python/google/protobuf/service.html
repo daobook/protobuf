@@ -1,0 +1,603 @@
+
+<!DOCTYPE html>
+
+<html lang="zh_CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>google.protobuf.service &#8212; protobuf 0.1 文档</title>
+    
+  <link href="../../../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/default.css" />
+    
+  <link rel="preload" as="script" href="../../../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
+    <script src="../../../../_static/jquery.js"></script>
+    <script src="../../../../_static/underscore.js"></script>
+    <script src="../../../../_static/doctools.js"></script>
+    <script src="../../../../_static/togglebutton.js"></script>
+    <script src="../../../../_static/clipboard.min.js"></script>
+    <script src="../../../../_static/copybutton.js"></script>
+    <script src="../../../../_static/translations.js"></script>
+    <script src="../../../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <link rel="index" title="索引" href="../../../../genindex.html" />
+    <link rel="search" title="搜索" href="../../../../search.html" />
+    <link rel="next" title="google.protobuf.service_reflection" href="service_reflection.html" />
+    <link rel="prev" title="google.protobuf.reflection" href="reflection.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="zh_CN">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../../../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">protobuf 0.1 文档</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../README.html">
+   Protocol Buffers - 谷歌的数据交换格式
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../src/README.html">
+   安装
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../../../docs/index.html">
+   开发者指南
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../docs/field_presence.html">
+     应用说明：Field 存在
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../docs/implementing_proto3_presence.html">
+     How To Implement Field Presence for Proto3
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../docs/jvm_aot.html">
+     Ahead Of Time (AOT) compilation for the Java Virtual Machine (JVM)”
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../docs/options.html">
+     Protobuf Global Extension Registry
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../docs/performance.html">
+     Protobuf Performance
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../docs/third_party.html">
+     Third-Party Add-ons for Protocol Buffers
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../python/README.html">
+   Python API
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../examples/README.html">
+   代码样例
+  </a>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="../../index.html">
+   Python API 参考
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="descriptor.html">
+     google.protobuf.descriptor
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="descriptor_database.html">
+     google.protobuf.descriptor_database
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="descriptor_pool.html">
+     google.protobuf.descriptor_pool
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="internal/containers.html">
+     google.protobuf.internal.containers
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="json_format.html">
+     google.protobuf.json_format
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="message.html">
+     google.protobuf.message
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="message_factory.html">
+     google.protobuf.message_factory
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="proto_builder.html">
+     google.protobuf.proto_builder
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="reflection.html">
+     google.protobuf.reflection
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     google.protobuf.service
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="service_reflection.html">
+     google.protobuf.service_reflection
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="symbol_database.html">
+     google.protobuf.symbol_database
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="text_encoding.html">
+     google.protobuf.text_encoding
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="text_format.html">
+     google.protobuf.text_format
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../cmake/README.html">
+   CMake
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../java/README.html">
+   java
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../objectivec/README.html">
+   objectivec
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../csharp/README.html">
+   csharp
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../js/README.html">
+   JavaScript
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../ruby/README.html">
+   ruby
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../php/README.html">
+   PHP
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  <div>
+版权所有 © 2021 <a href="https://xinetzone.github.io/">xinetzone</a></div>
+<div>由 <a href="https://ebp.jupyterbook.org/">EBP</a> 提供技术支持</div>
+
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../../../_sources/api/python/google/protobuf/service.md.txt"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/daobook/protobuf"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/daobook/protobuf/issues/new?title=Issue%20on%20page%20%2Fapi/python/google/protobuf/service.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/daobook/protobuf/edit/xin/api/python/google/protobuf/service.md"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="module-google.protobuf.service">
+<span id="google-protobuf-service"></span><h1>google.protobuf.service<a class="headerlink" href="#module-google.protobuf.service" title="永久链接至标题">¶</a></h1>
+<p>DEPRECATED:  Declares the RPC service interfaces.</p>
+<p>This module declares the abstract interfaces underlying proto2 RPC
+services.  These are intended to be independent of any particular RPC
+implementation, so that proto2 services can be used on top of a variety
+of implementations.  Starting with version 2.3.0, RPC implementations should
+not try to build on these, but should instead provide code generator plugins
+which generate code specific to the particular RPC implementation.  This way
+the generated code can be more appropriate for the implementation in use
+and can avoid unnecessary layers of indirection.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="google.protobuf.service.RpcChannel">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">google.protobuf.service.</span></span><span class="sig-name descname"><span class="pre">RpcChannel</span></span><a class="headerlink" href="#google.protobuf.service.RpcChannel" title="永久链接至目标">¶</a></dt>
+<dd><p>Abstract interface for an RPC channel.</p>
+<p>An RpcChannel represents a communication line to a service which can be used
+to call that service’s methods.  The service may be running on another
+machine. Normally, you should not use an RpcChannel directly, but instead
+construct a stub <a class="reference external" href="mailto:{&#37;&#52;&#48;link">{<span>&#64;</span>link</a> Service} wrapping it.  Example:</p>
+<dl class="simple">
+<dt>Example:</dt><dd><p>RpcChannel channel = rpcImpl.Channel(“remotehost.example.com:1234”)
+RpcController controller = rpcImpl.Controller()
+MyService service = MyService_Stub(channel)
+service.MyMethod(controller, request, callback)</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="google.protobuf.service.RpcChannel.CallMethod">
+<span class="sig-name descname"><span class="pre">CallMethod</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">method_descriptor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rpc_controller</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">response_class</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">done</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#google.protobuf.service.RpcChannel.CallMethod" title="永久链接至目标">¶</a></dt>
+<dd><p>Calls the method identified by the descriptor.</p>
+<p>Call the given method of the remote service.  The signature of this
+procedure looks the same as Service.CallMethod(), but the requirements
+are less strict in one important way:  the request object doesn’t have to
+be of any specific class as long as its descriptor is method.input_type.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="google.protobuf.service.RpcController">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">google.protobuf.service.</span></span><span class="sig-name descname"><span class="pre">RpcController</span></span><a class="headerlink" href="#google.protobuf.service.RpcController" title="永久链接至目标">¶</a></dt>
+<dd><p>An RpcController mediates a single method call.</p>
+<p>The primary purpose of the controller is to provide a way to manipulate
+settings specific to the RPC implementation and to find out about RPC-level
+errors. The methods provided by the RpcController interface are intended
+to be a “least common denominator” set of features which we expect all
+implementations to support.  Specific implementations may provide more
+advanced features (e.g. deadline propagation).</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="google.protobuf.service.RpcController.ErrorText">
+<span class="sig-name descname"><span class="pre">ErrorText</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#google.protobuf.service.RpcController.ErrorText" title="永久链接至目标">¶</a></dt>
+<dd><p>If Failed is true, returns a human-readable description of the error.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="google.protobuf.service.RpcController.Failed">
+<span class="sig-name descname"><span class="pre">Failed</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#google.protobuf.service.RpcController.Failed" title="永久链接至目标">¶</a></dt>
+<dd><p>Returns true if the call failed.</p>
+<p>After a call has finished, returns true if the call failed.  The possible
+reasons for failure depend on the RPC implementation.  Failed() must not
+be called before a call has finished.  If Failed() returns true, the
+contents of the response message are undefined.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="google.protobuf.service.RpcController.IsCanceled">
+<span class="sig-name descname"><span class="pre">IsCanceled</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#google.protobuf.service.RpcController.IsCanceled" title="永久链接至目标">¶</a></dt>
+<dd><p>Checks if the client cancelled the RPC.</p>
+<p>If true, indicates that the client canceled the RPC, so the server may
+as well give up on replying to it.  The server should still call the
+final “done” callback.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="google.protobuf.service.RpcController.NotifyOnCancel">
+<span class="sig-name descname"><span class="pre">NotifyOnCancel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">callback</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#google.protobuf.service.RpcController.NotifyOnCancel" title="永久链接至目标">¶</a></dt>
+<dd><p>Sets a callback to invoke on cancel.</p>
+<p>Asks that the given callback be called when the RPC is canceled.  The
+callback will always be called exactly once.  If the RPC completes without
+being canceled, the callback will be called after completion.  If the RPC
+has already been canceled when NotifyOnCancel() is called, the callback
+will be called immediately.</p>
+<p>NotifyOnCancel() must be called no more than once per request.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="google.protobuf.service.RpcController.Reset">
+<span class="sig-name descname"><span class="pre">Reset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#google.protobuf.service.RpcController.Reset" title="永久链接至目标">¶</a></dt>
+<dd><p>Resets the RpcController to its initial state.</p>
+<p>After the RpcController has been reset, it may be reused in
+a new call. Must not be called while an RPC is in progress.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="google.protobuf.service.RpcController.SetFailed">
+<span class="sig-name descname"><span class="pre">SetFailed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">reason</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#google.protobuf.service.RpcController.SetFailed" title="永久链接至目标">¶</a></dt>
+<dd><p>Sets a failure reason.</p>
+<p>Causes Failed() to return true on the client side.  “reason” will be
+incorporated into the message returned by ErrorText().  If you find
+you need to return machine-readable information about failures, you
+should incorporate it into your response protocol buffer and should
+NOT call SetFailed().</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="google.protobuf.service.RpcController.StartCancel">
+<span class="sig-name descname"><span class="pre">StartCancel</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#google.protobuf.service.RpcController.StartCancel" title="永久链接至目标">¶</a></dt>
+<dd><p>Initiate cancellation.</p>
+<p>Advises the RPC system that the caller desires that the RPC call be
+canceled.  The RPC system may cancel it immediately, may wait awhile and
+then cancel it, or may not even cancel the call at all.  If the call is
+canceled, the “done” callback will still be called and the RpcController
+will indicate that the call failed at that time.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="google.protobuf.service.RpcException">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">google.protobuf.service.</span></span><span class="sig-name descname"><span class="pre">RpcException</span></span><a class="headerlink" href="#google.protobuf.service.RpcException" title="永久链接至目标">¶</a></dt>
+<dd><p>Exception raised on failed blocking RPC method call.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="google.protobuf.service.RpcException.args">
+<span class="sig-name descname"><span class="pre">args</span></span><a class="headerlink" href="#google.protobuf.service.RpcException.args" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="google.protobuf.service.RpcException.with_traceback">
+<span class="sig-name descname"><span class="pre">with_traceback</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#google.protobuf.service.RpcException.with_traceback" title="永久链接至目标">¶</a></dt>
+<dd><p>Exception.with_traceback(tb) –
+set self.__traceback__ to tb and return self.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="google.protobuf.service.Service">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">google.protobuf.service.</span></span><span class="sig-name descname"><span class="pre">Service</span></span><a class="headerlink" href="#google.protobuf.service.Service" title="永久链接至目标">¶</a></dt>
+<dd><p>Abstract base interface for protocol-buffer-based RPC services.</p>
+<p>Services themselves are abstract classes (implemented either by servers or as
+stubs), but they subclass this base interface. The methods of this
+interface can be used to call the methods of the service without knowing
+its exact type at compile time (analogous to the Message interface).</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="google.protobuf.service.Service.CallMethod">
+<span class="sig-name descname"><span class="pre">CallMethod</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">method_descriptor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rpc_controller</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">done</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#google.protobuf.service.Service.CallMethod" title="永久链接至目标">¶</a></dt>
+<dd><p>Calls a method of the service specified by method_descriptor.</p>
+<p>If “done” is None then the call is blocking and the response
+message will be returned directly.  Otherwise the call is asynchronous
+and “done” will later be called with the response value.</p>
+<p>In the blocking case, RpcException will be raised on error.</p>
+<p>Preconditions:</p>
+<ul class="simple">
+<li><p>method_descriptor.service == GetDescriptor</p></li>
+<li><p>request is of the exact same classes as returned by
+GetRequestClass(method).</p></li>
+<li><p>After the call has started, the request must not be modified.</p></li>
+<li><p>“rpc_controller” is of the correct type for the RPC implementation being
+used by this Service.  For stubs, the “correct type” depends on the
+RpcChannel which the stub is using.</p></li>
+</ul>
+<p>Postconditions:</p>
+<ul class="simple">
+<li><p>“done” will be called when the method is complete.  This may be
+before CallMethod() returns or it may be at some point in the future.</p></li>
+<li><p>If the RPC failed, the response value passed to “done” will be None.
+Further details about the failure can be found by querying the
+RpcController.</p></li>
+</ul>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="google.protobuf.service.Service.GetDescriptor">
+<span class="sig-name descname"><span class="pre">GetDescriptor</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#google.protobuf.service.Service.GetDescriptor" title="永久链接至目标">¶</a></dt>
+<dd><p>Retrieves this service’s descriptor.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="google.protobuf.service.Service.GetRequestClass">
+<span class="sig-name descname"><span class="pre">GetRequestClass</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">method_descriptor</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#google.protobuf.service.Service.GetRequestClass" title="永久链接至目标">¶</a></dt>
+<dd><p>Returns the class of the request message for the specified method.</p>
+<p>CallMethod() requires that the request is of a particular subclass of
+Message. GetRequestClass() gets the default instance of this required
+type.</p>
+<dl class="simple">
+<dt>Example:</dt><dd><p>method = service.GetDescriptor().FindMethodByName(“Foo”)
+request = stub.GetRequestClass(method)()
+request.ParseFromString(input)
+service.CallMethod(method, request, callback)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="google.protobuf.service.Service.GetResponseClass">
+<span class="sig-name descname"><span class="pre">GetResponseClass</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">method_descriptor</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#google.protobuf.service.Service.GetResponseClass" title="永久链接至目标">¶</a></dt>
+<dd><p>Returns the class of the response message for the specified method.</p>
+<p>This method isn’t really needed, as the RpcChannel’s CallMethod constructs
+the response protocol message. It’s provided anyway in case it is useful
+for the caller to know the response type in advance.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+              </div>
+              
+        
+            <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="reflection.html" title="上一页 页">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">上一页</p>
+            <p class="prev-next-title">google.protobuf.reflection</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="service_reflection.html" title="下一页 页">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">下一页</p>
+        <p class="prev-next-title">google.protobuf.service_reflection</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By xinetzone<br/>
+        
+            &copy; Copyright 2021, xinetzone.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>
