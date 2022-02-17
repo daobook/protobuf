@@ -40,14 +40,11 @@ if len(sys.argv) > 2:
 
 def RewriteTextFile(filename, line_rewriter):
   lines = open(filename, 'r').readlines()
-  updated_lines = []
-  for line in lines:
-    updated_lines.append(line_rewriter(line))
+  updated_lines = [line_rewriter(line) for line in lines]
   if lines == updated_lines:
     print('%s was not updated. Please double check.' % filename)
-  f = open(filename, 'w')
-  f.write(''.join(updated_lines))
-  f.close()
+  with open(filename, 'w') as f:
+    f.write(''.join(updated_lines))
 
 
 def ReplaceVersion(line):

@@ -29,25 +29,27 @@
 # OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 """Encoding related utilities."""
+
 import re
 
-_cescape_chr_to_symbol_map = {}
-_cescape_chr_to_symbol_map[9] = r'\t'  # optional escape
-_cescape_chr_to_symbol_map[10] = r'\n'  # optional escape
-_cescape_chr_to_symbol_map[13] = r'\r'  # optional escape
-_cescape_chr_to_symbol_map[34] = r'\"'  # necessary escape
-_cescape_chr_to_symbol_map[39] = r"\'"  # optional escape
-_cescape_chr_to_symbol_map[92] = r'\\'  # necessary escape
-
+_cescape_chr_to_symbol_map = {
+    9: '\\t',
+    10: '\\n',
+    13: '\\r',
+    34: '\\"',
+    39: "\'",
+    92: '\\\\',
+}
 # Lookup table for unicode
-_cescape_unicode_to_str = [chr(i) for i in range(0, 256)]
+_cescape_unicode_to_str = [chr(i) for i in range(256)]
 for byte, string in _cescape_chr_to_symbol_map.items():
   _cescape_unicode_to_str[byte] = string
 
 # Lookup table for non-utf8, with necessary escapes at (o >= 127 or o < 32)
-_cescape_byte_to_str = ([r'\%03o' % i for i in range(0, 32)] +
-                        [chr(i) for i in range(32, 127)] +
-                        [r'\%03o' % i for i in range(127, 256)])
+_cescape_byte_to_str = (
+    [r'\%03o' % i for i in range(32)] + [chr(i) for i in range(32, 127)]) + [
+        r'\%03o' % i for i in range(127, 256)
+    ]
 for byte, string in _cescape_chr_to_symbol_map.items():
   _cescape_byte_to_str[byte] = string
 del byte, string
@@ -96,9 +98,7 @@ def CUnescape(text):
   def ReplaceHex(m):
     # Only replace the match if the number of leading back slashes is odd. i.e.
     # the slash itself is not escaped.
-    if len(m.group(1)) & 1:
-      return m.group(1) + 'x0' + m.group(2)
-    return m.group(0)
+    return f'{m.group(1)}x0{m.group(2)}' if len(m.group(1)) & 1 else m.group(0)
 
   # This is required because the 'string_escape' encoding doesn't
   # allow single-digit hex escapes (like '\xf').

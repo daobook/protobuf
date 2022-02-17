@@ -44,23 +44,24 @@ def run_one_test(filename):
   data = open(filename, "rb").read()
   benchmark_dataset = benchmarks_pb2.BenchmarkDataset()
   benchmark_dataset.ParseFromString(data)
-  total_bytes = 0
-  for payload in benchmark_dataset.payload:
-    total_bytes += len(payload)
+  total_bytes = sum(len(payload) for payload in benchmark_dataset.payload)
   benchmark_util = Benchmark(full_iteration=len(benchmark_dataset.payload),
                              module="py_benchmark",
                              setup_method="init",
                              total_bytes=total_bytes)
-  result={}
-  result["filename"] =  filename
-  result["message_name"] =  benchmark_dataset.message_name
-  result["benchmarks"] = {}
+  result = {
+      'filename': filename,
+      'message_name': benchmark_dataset.message_name,
+      'benchmarks': {},
+  }
   benchmark_util.set_test_method("parse_from_benchmark")
-  result["benchmarks"][args.behavior_prefix + "_parse_from_benchmark"] = \
-    benchmark_util.run_benchmark(setup_method_args='"%s"' % (filename))
+  result["benchmarks"][
+      f'{args.behavior_prefix}_parse_from_benchmark'] = benchmark_util.run_benchmark(
+          setup_method_args='"%s"' % (filename))
   benchmark_util.set_test_method("serialize_to_benchmark")
-  result["benchmarks"][args.behavior_prefix + "_serialize_to_benchmark"] = \
-    benchmark_util.run_benchmark(setup_method_args='"%s"' % (filename))
+  result["benchmarks"][
+      f'{args.behavior_prefix}_serialize_to_benchmark'] = benchmark_util.run_benchmark(
+          setup_method_args='"%s"' % (filename))
   return result
 
 
@@ -142,20 +143,18 @@ class Benchmark:
 
 
 if __name__ == "__main__":
-  results = []
-  for file in args.data_files:
-    results.append(run_one_test(file))
-
+  results = [run_one_test(file) for file in args.data_files]
   if args.json != "no":
     print(json.dumps(results))
   else:
     for result in results:
       print("Message %s of dataset file %s" % \
           (result["message_name"], result["filename"]))
-      print("Average throughput for parse_from_benchmark: %.2f MB/s" % \
-          (result["benchmarks"][ \
-                      args.behavior_prefix + "_parse_from_benchmark"]))
-      print("Average throughput for serialize_to_benchmark: %.2f MB/s" % \
-          (result["benchmarks"][ \
-                      args.behavior_prefix + "_serialize_to_benchmark"]))
+      print(
+          ("Average throughput for parse_from_benchmark: %.2f MB/s" %
+           result["benchmarks"][f'{args.behavior_prefix}_parse_from_benchmark']
+           ))
+      print(("Average throughput for serialize_to_benchmark: %.2f MB/s" %
+             result["benchmarks"]
+             [f'{args.behavior_prefix}_serialize_to_benchmark']))
       print("")

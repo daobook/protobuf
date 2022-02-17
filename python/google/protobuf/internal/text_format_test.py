@@ -839,13 +839,13 @@ class TextFormatParserTests(TextFormatBase):
 
     SLASH = '\\'
     self.assertEqual('\x0fb', message.repeated_string[0])
-    self.assertEqual(SLASH + 'xf' + SLASH + 'x62', message.repeated_string[1])
+    self.assertEqual(f'{SLASH}xf{SLASH}x62', message.repeated_string[1])
     self.assertEqual(SLASH + '\x0f' + SLASH + 'b', message.repeated_string[2])
     self.assertEqual(SLASH + SLASH + 'xf' + SLASH + SLASH + 'x62',
                      message.repeated_string[3])
     self.assertEqual(SLASH + SLASH + '\x0f' + SLASH + SLASH + 'b',
                      message.repeated_string[4])
-    self.assertEqual(SLASH + 'x20', message.repeated_string[5])
+    self.assertEqual(f'{SLASH}x20', message.repeated_string[5])
 
   def testParseOneof(self, message_module):
     m = message_module.TestAllTypes()
@@ -1267,7 +1267,7 @@ class OnlyWorksWithProto2RightNowTests(TextFormatBase):
     message = map_unittest_pb2.TestMap()
     for letter in string.ascii_uppercase[13:26]:
       message.map_string_string[letter] = 'dummy'
-    for letter in reversed(string.ascii_uppercase[0:13]):
+    for letter in reversed(string.ascii_uppercase[:13]):
       message.map_string_string[letter] = 'dummy'
     golden = ''.join(('map_string_string {\n  key: "%c"\n  value: "dummy"\n}\n'
                       % (letter,) for letter in string.ascii_uppercase))

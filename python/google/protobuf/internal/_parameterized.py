@@ -289,15 +289,14 @@ def _ParameterDecorator(naming_type, testcases):
     A function for modifying the decorated object.
   """
   def _Apply(obj):
-    if isinstance(obj, type):
-      _ModifyClass(
-          obj,
-          list(testcases) if not isinstance(testcases, collections_abc.Sequence)
-          else testcases,
-          naming_type)
-      return obj
-    else:
+    if not isinstance(obj, type):
       return _ParameterizedTestIter(obj, testcases, naming_type)
+    _ModifyClass(
+        obj,
+        list(testcases) if not isinstance(testcases, collections_abc.Sequence)
+        else testcases,
+        naming_type)
+    return obj
 
   if _IsSingletonList(testcases):
     assert _NonStringIterable(testcases[0]), (

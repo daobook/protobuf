@@ -34,16 +34,12 @@ Example:
 """)
   exit(1)
 
-RC_VERSION = -1
-if len(sys.argv) > 2:
-  RC_VERSION = int(sys.argv[2])
+RC_VERSION = int(sys.argv[2]) if len(sys.argv) > 2 else -1
 
 
 def Find(elem, tagname):
-  for child in elem.childNodes:
-    if child.nodeName == tagname:
-      return child
-  return None
+  return next(
+      (child for child in elem.childNodes if child.nodeName == tagname), None)
 
 
 def FindAndClone(elem, tagname):
@@ -69,24 +65,20 @@ def RewriteXml(filename, rewriter, add_xml_prefix=True):
   # will remove the default XML version and replace it with our custom one when
   # whever necessary.
   content = document.toxml().replace('<?xml version="1.0" ?>', '')
-  file_handle = open(filename, 'wb')
-  if add_xml_prefix:
-    file_handle.write(b'<?xml version="1.0" encoding="UTF-8"?>\n')
-  file_handle.write(content.encode('utf-8'))
-  file_handle.write(b'\n')
-  file_handle.close()
+  with open(filename, 'wb') as file_handle:
+    if add_xml_prefix:
+      file_handle.write(b'<?xml version="1.0" encoding="UTF-8"?>\n')
+    file_handle.write(content.encode('utf-8'))
+    file_handle.write(b'\n')
 
 
 def RewriteTextFile(filename, line_rewriter):
   lines = open(filename, 'r').readlines()
-  updated_lines = []
-  for line in lines:
-    updated_lines.append(line_rewriter(line))
+  updated_lines = [line_rewriter(line) for line in lines]
   if lines == updated_lines:
     print('%s was not updated. Please double check.' % filename)
-  f = open(filename, 'w')
-  f.write(''.join(updated_lines))
-  f.close()
+  with open(filename, 'w') as f:
+    f.write(''.join(updated_lines))
 
 
 def UpdateConfigure():

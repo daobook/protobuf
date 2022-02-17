@@ -149,7 +149,7 @@ class MacroCollection(object):
     Raises:
       PDDMError if there are any issues.
     """
-    self._macros = dict()
+    self._macros = {}
     if a_file:
       self.ParseInput(a_file)
 
@@ -277,10 +277,8 @@ class MacroCollection(object):
     return self._Expand(match, [], macro_ref_str)
 
   def _FormatStack(self, macro_ref_stack):
-    result = ''
-    for _, macro_ref in reversed(macro_ref_stack):
-      result += '\n...while expanding "%s".' % macro_ref
-    return result
+    return ''.join('\n...while expanding "%s".' % macro_ref
+                   for _, macro_ref in reversed(macro_ref_stack))
 
   def _Expand(self, macro_ref_match, macro_stack, macro_ref_str=None):
     if macro_ref_str is None:
@@ -322,22 +320,15 @@ class MacroCollection(object):
 
     def _lookupArg(match):
       val = args[match.group('name')]
-      opt = match.group('option')
-      if opt:
+      if opt := match.group('option'):
         if opt == 'S':  # Spaces for the length
           return ' ' * len(val)
         elif opt == 'l':  # Lowercase first character
-          if val:
-            return val[0].lower() + val[1:]
-          else:
-            return val
+          return val[0].lower() + val[1:] if val else val
         elif opt == 'L':  # All Lowercase
           return val.lower()
         elif opt == 'u':  # Uppercase first character
-          if val:
-            return val[0].upper() + val[1:]
-          else:
-            return val
+          return val[0].upper() + val[1:] if val else val
         elif opt == 'U':  # All Uppercase
           return val.upper()
         else:
@@ -427,9 +418,7 @@ class SourceFile(object):
 
     @property
     def first_line(self):
-      if not self._lines:
-        return ''
-      return self._lines[0]
+      return '' if not self._lines else self._lines[0]
 
     @property
     def text(self):
@@ -605,16 +594,10 @@ class SourceFile(object):
   def ProcessContent(self, strip_expansion=False):
     """Processes the file contents."""
     self._ParseFile()
-    if strip_expansion:
-      # Without a collection the expansions become blank, removing them.
-      collection = None
-    else:
-      collection = MacroCollection()
+    collection = None if strip_expansion else MacroCollection()
     for section in self._sections:
       section.BindMacroCollection(collection)
-    result = ''
-    for section in self._sections:
-      result += section.text
+    result = ''.join(section.text for section in self._sections)
     self._processed_content = result
 
   @property

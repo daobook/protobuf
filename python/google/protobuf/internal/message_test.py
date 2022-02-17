@@ -530,9 +530,7 @@ class MessageTest(unittest.TestCase):
   def testRepeatedScalarIterable(self, message_module):
     msg = message_module.TestAllTypes()
     msg.repeated_int32.extend([1, 2, 3])
-    add = 0
-    for item in msg.repeated_int32:
-      add += item
+    add = sum(msg.repeated_int32)
     self.assertEqual(add, 6)
 
   def testRepeatedNestedFieldIteration(self, message_module):
@@ -998,10 +996,9 @@ class MessageTest(unittest.TestCase):
     """This didn't use to work in the v2 C++ implementation."""
     m = message_module.TestAllTypes()
     with self.assertRaises(NameError) as _:
-      m.repeated_int32.extend(a for i in range(10))  # pylint: disable=undefined-variable
+      m.repeated_int32.extend(a for _ in range(10))
     with self.assertRaises(NameError) as _:
-      m.repeated_nested_enum.extend(
-          a for i in range(10))  # pylint: disable=undefined-variable
+      m.repeated_nested_enum.extend(a for _ in range(10))
 
   FALSY_VALUES = [None, False, 0, 0.0, b'', u'', bytearray(), [], {}, set()]
 

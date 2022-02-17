@@ -681,9 +681,7 @@ class JsonFormatTest(JsonFormatBase):
         string_value='foo')
     message.Clear()
     message.value.Pack(test_message)
-    self.assertEqual(
-        json_format.MessageToJson(message, False)[0:68],
-        '{\n'
+    self.assertEqual(json_format.MessageToJson(message, False)[:68], '{\n'
         '  "value": {\n'
         '    "@type": "type.googleapis.com/proto3.TestMessage"')
 
@@ -874,9 +872,9 @@ class JsonFormatTest(JsonFormatBase):
     # lose precision
     value_list = [0x00, 0xD8, 0x6E, 0x00]
     msg2 = json_format_proto3_pb2.TestMessage()
-    for a in range(0, 256):
+    for a in range(256):
       value_list[3] = a
-      for b in range(0, 256):
+      for b in range(256):
         value_list[0] = b
         byte_array = bytearray(value_list)
         message.float_value = struct.unpack('<f', byte_array)[0]

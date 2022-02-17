@@ -185,10 +185,7 @@ class _Printer(object):
     self.preserving_proto_field_name = preserving_proto_field_name
     self.use_integers_for_enums = use_integers_for_enums
     self.descriptor_pool = descriptor_pool
-    if float_precision:
-      self.float_format = '.{}g'.format(float_precision)
-    else:
-      self.float_format = None
+    self.float_format = '.{}g'.format(float_precision) if float_precision else None
 
   def ToJsonString(self, message, indent, sort_keys):
     js = self._MessageToJsonObject(message)
@@ -211,20 +208,14 @@ class _Printer(object):
 
     try:
       for field, value in fields:
-        if self.preserving_proto_field_name:
-          name = field.name
-        else:
-          name = field.json_name
+        name = field.name if self.preserving_proto_field_name else field.json_name
         if _IsMapEntry(field):
           # Convert a map field.
           v_field = field.message_type.fields_by_name['value']
           js_map = {}
           for key in value:
             if isinstance(key, bool):
-              if key:
-                recorded_key = 'true'
-              else:
-                recorded_key = 'false'
+              recorded_key = 'true' if key else 'false'
             else:
               recorded_key = str(key)
             js_map[recorded_key] = self._FieldToJsonObject(
@@ -249,10 +240,7 @@ class _Printer(object):
                field.cpp_type == descriptor.FieldDescriptor.CPPTYPE_MESSAGE) or
               field.containing_oneof):
             continue
-          if self.preserving_proto_field_name:
-            name = field.name
-          else:
-            name = field.json_name
+          name = field.name if self.preserving_proto_field_name else field.json_name
           if name in js:
             # Skip the field which has been serialized already.
             continue
@@ -281,11 +269,10 @@ class _Printer(object):
       enum_value = field.enum_type.values_by_number.get(value, None)
       if enum_value is not None:
         return enum_value.name
-      else:
-        if field.file.syntax == 'proto3':
-          return value
-        raise SerializeToJsonError('Enum field contains an integer value '
-                                   'which can not mapped to an enum value.')
+      if field.file.syntax == 'proto3':
+        return value
+      raise SerializeToJsonError('Enum field contains an integer value '
+                                 'which can not mapped to an enum value.')
     elif field.cpp_type == descriptor.FieldDescriptor.CPPTYPE_STRING:
       if field.type == descriptor.FieldDescriptor.TYPE_BYTES:
         # Use base64 Data encoding for bytes
@@ -298,10 +285,7 @@ class _Printer(object):
       return str(value)
     elif field.cpp_type in _FLOAT_TYPES:
       if math.isinf(value):
-        if value < 0.0:
-          return _NEG_INFINITY
-        else:
-          return _INFINITY
+        return _NEG_INFINITY if value < 0.0 else _INFINITY
       if math.isnan(value):
         return _NAN
       if field.cpp_type == descriptor.FieldDescriptor.CPPTYPE_FLOAT:
@@ -363,10 +347,7 @@ class _Printer(object):
   def _StructMessageToJsonObject(self, message):
     """Converts Struct message according to Proto3 JSON Specification."""
     fields = message.fields
-    ret = {}
-    for key in fields:
-      ret[key] = self._ValueMessageToJsonObject(fields[key])
-    return ret
+    return {key: self._ValueMessageToJsonObject(fields[key]) for key in fields}
 
   def _WrapperMessageToJsonObject(self, message):
     return self._FieldToJsonObject(
@@ -487,11 +468,10 @@ class _Parser(object):
     """
     names = []
     message_descriptor = message.DESCRIPTOR
-    fields_by_json_name = dict((f.json_name, f)
-                               for f in message_descriptor.fields)
+    fields_by_json_name = {f.json_name: f for f in message_descriptor.fields}
     for name in js:
       try:
-        field = fields_by_json_name.get(name, None)
+        field = fields_by_json_name.get(name)
         if not field:
           field = message_descriptor.fields_by_name.get(name, None)
         if not field and _VALID_EXTENSION_NAME.match(name):
@@ -553,9 +533,9 @@ class _Parser(object):
           if not isinstance(value, list):
             raise ParseError('repeated field {0} must be in [] which is '
                              '{1}.'.format(name, value))
-          if field.cpp_type == descriptor.FieldDescriptor.CPPTYPE_MESSAGE:
             # Repeated message field.
-            for item in value:
+          for item in value:
+            if field.cpp_type == descriptor.FieldDescriptor.CPPTYPE_MESSAGE:
               sub_message = getattr(message, field.name).add()
               # None is a null_value in Value.
               if (item is None and
@@ -563,12 +543,10 @@ class _Parser(object):
                 raise ParseError('null is not allowed to be used as an element'
                                  ' in a repeated field.')
               self.ConvertMessage(item, sub_message)
-          else:
-            # Repeated scalar field.
-            for item in value:
-              if item is None:
-                raise ParseError('null is not allowed to be used as an element'
-                                 ' in a repeated field.')
+            elif item is None:
+              raise ParseError('null is not allowed to be used as an element'
+                               ' in a repeated field.')
+            else:
               getattr(message, field.name).append(
                   _ConvertScalarFieldValue(item, field))
         elif field.cpp_type == descriptor.FieldDescriptor.CPPTYPE_MESSAGE:
@@ -578,19 +556,16 @@ class _Parser(object):
             sub_message = getattr(message, field.name)
           sub_message.SetInParent()
           self.ConvertMessage(value, sub_message)
+        elif field.is_extension:
+          message.Extensions[field] = _ConvertScalarFieldValue(value, field)
         else:
-          if field.is_extension:
-            message.Extensions[field] = _ConvertScalarFieldValue(value, field)
-          else:
-            setattr(message, field.name, _ConvertScalarFieldValue(value, field))
+          setattr(message, field.name, _ConvertScalarFieldValue(value, field))
       except ParseError as e:
         if field and field.containing_oneof is None:
           raise ParseError('Failed to parse {0} field: {1}.'.format(name, e))
         else:
           raise ParseError(str(e))
-      except ValueError as e:
-        raise ParseError('Failed to parse {0} field: {1}.'.format(name, e))
-      except TypeError as e:
+      except (ValueError, TypeError) as e:
         raise ParseError('Failed to parse {0} field: {1}.'.format(name, e))
 
   def _ConvertAnyMessage(self, value, message):
@@ -720,10 +695,7 @@ def _ConvertScalarFieldValue(value, field, require_str=False):
     return _ConvertBool(value, require_str)
   elif field.cpp_type == descriptor.FieldDescriptor.CPPTYPE_STRING:
     if field.type == descriptor.FieldDescriptor.TYPE_BYTES:
-      if isinstance(value, str):
-        encoded = value.encode('utf-8')
-      else:
-        encoded = value
+      encoded = value.encode('utf-8') if isinstance(value, str) else value
       # Add extra padding '='
       padded_value = encoded + b'=' * (4 - len(encoded) % 4)
       return base64.urlsafe_b64decode(padded_value)
@@ -743,12 +715,12 @@ def _ConvertScalarFieldValue(value, field, require_str=False):
       except ValueError:
         raise ParseError('Invalid enum value {0} for enum type {1}.'.format(
             value, field.enum_type.full_name))
-      if enum_value is None:
-        if field.file.syntax == 'proto3':
-          # Proto3 accepts unknown enums.
-          return number
-        raise ParseError('Invalid enum value {0} for enum type {1}.'.format(
-            value, field.enum_type.full_name))
+    if enum_value is None:
+      if field.file.syntax == 'proto3':
+        # Proto3 accepts unknown enums.
+        return number
+      raise ParseError('Invalid enum value {0} for enum type {1}.'.format(
+          value, field.enum_type.full_name))
     return enum_value.number
 
 
