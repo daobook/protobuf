@@ -126,9 +126,8 @@ class TypeChecker(object):
       raise TypeError(message)
     # Some field types(float, double and bool) accept other types, must
     # convert to the correct type in such cases.
-    if self._acceptable_types:
-      if self._acceptable_types[0] in (bool, float):
-        return self._acceptable_types[0](proposed_value)
+    if self._acceptable_types and self._acceptable_types[0] in (bool, float):
+      return self._acceptable_types[0](proposed_value)
     return proposed_value
 
 

@@ -394,9 +394,8 @@ class _Printer(object):
     """Serializes if message is a google.protobuf.Any field."""
     if '/' not in message.type_url:
       return False
-    packed_message = _BuildMessageFromTypeName(message.TypeName(),
-                                               self.descriptor_pool)
-    if packed_message:
+    if packed_message := _BuildMessageFromTypeName(message.TypeName(),
+                                                   self.descriptor_pool):
       packed_message.MergeFromString(message.value)
       colon = ':' if self.force_colon else ''
       self.out.write('%s[%s]%s ' % (self.indent * ' ', message.type_url, colon))
@@ -517,21 +516,20 @@ class _Printer(object):
     out.write(' ' * self.indent)
     if self.use_field_number:
       out.write(str(field.number))
-    else:
-      if field.is_extension:
-        out.write('[')
-        if (field.containing_type.GetOptions().message_set_wire_format and
-            field.type == descriptor.FieldDescriptor.TYPE_MESSAGE and
-            field.label == descriptor.FieldDescriptor.LABEL_OPTIONAL):
-          out.write(field.message_type.full_name)
-        else:
-          out.write(field.full_name)
-        out.write(']')
-      elif field.type == descriptor.FieldDescriptor.TYPE_GROUP:
-        # For groups, use the capitalized name.
-        out.write(field.message_type.name)
+    elif field.is_extension:
+      out.write('[')
+      if (field.containing_type.GetOptions().message_set_wire_format and
+          field.type == descriptor.FieldDescriptor.TYPE_MESSAGE and
+          field.label == descriptor.FieldDescriptor.LABEL_OPTIONAL):
+        out.write(field.message_type.full_name)
       else:
-          out.write(field.name)
+        out.write(field.full_name)
+      out.write(']')
+    elif field.type == descriptor.FieldDescriptor.TYPE_GROUP:
+      # For groups, use the capitalized name.
+      out.write(field.message_type.name)
+    else:
+      out.write(field.name)
 
     if (self.force_colon or
         field.cpp_type != descriptor.FieldDescriptor.CPPTYPE_MESSAGE):
@@ -617,11 +615,10 @@ class _Printer(object):
     elif field.cpp_type == descriptor.FieldDescriptor.CPPTYPE_FLOAT:
       if self.float_format is not None:
         out.write('{1:{0}}'.format(self.float_format, value))
+      elif math.isnan(value):
+        out.write(str(value))
       else:
-        if math.isnan(value):
-          out.write(str(value))
-        else:
-          out.write(str(type_checkers.ToShortestFloat(value)))
+        out.write(str(type_checkers.ToShortestFloat(value)))
     elif (field.cpp_type == descriptor.FieldDescriptor.CPPTYPE_DOUBLE and
           self.double_format is not None):
       out.write('{1:{0}}'.format(self.double_format, value))
@@ -1025,14 +1022,12 @@ class _Parser(object):
               'Message type "%s" should not have multiple "%s" extensions.' %
               (message.DESCRIPTOR.full_name, field.full_name))
         sub_message = message.Extensions[field]
-      else:
-        # Also apply _allow_multiple_scalars to message field.
-        # TODO(jieluo): Change to _allow_singular_overwrites.
-        if (not self._allow_multiple_scalars and
+      elif (not self._allow_multiple_scalars and
             message.HasField(field.name)):
-          raise tokenizer.ParseErrorPreviousToken(
-              'Message type "%s" should not have multiple "%s" fields.' %
-              (message.DESCRIPTOR.full_name, field.name))
+        raise tokenizer.ParseErrorPreviousToken(
+            'Message type "%s" should not have multiple "%s" fields.' %
+            (message.DESCRIPTOR.full_name, field.name))
+      else:
         sub_message = getattr(message, field.name)
       sub_message.SetInParent()
 
@@ -1103,32 +1098,31 @@ class _Parser(object):
         message.Extensions[field].append(value)
       else:
         getattr(message, field.name).append(value)
-    else:
-      if field.is_extension:
-        if (not self._allow_multiple_scalars and
-            not self._IsProto3Syntax(message) and
-            message.HasExtension(field)):
-          raise tokenizer.ParseErrorPreviousToken(
-              'Message type "%s" should not have multiple "%s" extensions.' %
-              (message.DESCRIPTOR.full_name, field.full_name))
-        else:
-          message.Extensions[field] = value
+    elif field.is_extension:
+      if (not self._allow_multiple_scalars and
+          not self._IsProto3Syntax(message) and
+          message.HasExtension(field)):
+        raise tokenizer.ParseErrorPreviousToken(
+            'Message type "%s" should not have multiple "%s" extensions.' %
+            (message.DESCRIPTOR.full_name, field.full_name))
       else:
-        duplicate_error = False
-        if not self._allow_multiple_scalars:
-          if self._IsProto3Syntax(message):
-            # Proto3 doesn't represent presence so we try best effort to check
-            # multiple scalars by compare to default values.
-            duplicate_error = bool(getattr(message, field.name))
-          else:
-            duplicate_error = message.HasField(field.name)
-
-        if duplicate_error:
-          raise tokenizer.ParseErrorPreviousToken(
-              'Message type "%s" should not have multiple "%s" fields.' %
-              (message.DESCRIPTOR.full_name, field.name))
+        message.Extensions[field] = value
+    else:
+      duplicate_error = False
+      if not self._allow_multiple_scalars:
+        if self._IsProto3Syntax(message):
+          # Proto3 doesn't represent presence so we try best effort to check
+          # multiple scalars by compare to default values.
+          duplicate_error = bool(getattr(message, field.name))
         else:
-          setattr(message, field.name, value)
+          duplicate_error = message.HasField(field.name)
+
+      if duplicate_error:
+        raise tokenizer.ParseErrorPreviousToken(
+            'Message type "%s" should not have multiple "%s" fields.' %
+            (message.DESCRIPTOR.full_name, field.name))
+      else:
+        setattr(message, field.name, value)
 
 
 def _SkipFieldContents(tokenizer):
@@ -1211,7 +1205,7 @@ def _SkipFieldValue(tokenizer):
   if (not tokenizer.TryConsumeIdentifier() and
       not _TryConsumeInt64(tokenizer) and not _TryConsumeUint64(tokenizer) and
       not tokenizer.TryConsumeFloat()):
-    raise ParseError('Invalid field value: ' + tokenizer.token)
+    raise ParseError(f'Invalid field value: {tokenizer.token}')
 
 
 class Tokenizer(object):
@@ -1693,11 +1687,10 @@ def _ParseAbstractInteger(text):
   """
   # Do the actual parsing. Exception handling is propagated to caller.
   orig_text = text
-  c_octal_match = re.match(r'(-?)0(\d+)$', text)
-  if c_octal_match:
+  if c_octal_match := re.match(r'(-?)0(\d+)$', text):
     # Python 3 no longer supports 0755 octal syntax without the 'o', so
     # we always use the '0o' prefix for multi-digit numbers starting with 0.
-    text = c_octal_match.group(1) + '0o' + c_octal_match.group(2)
+    text = f'{c_octal_match.group(1)}0o{c_octal_match.group(2)}'
   try:
     return int(text, 0)
   except ValueError:
@@ -1722,10 +1715,7 @@ def ParseFloat(text):
   except ValueError:
     # Check alternative spellings.
     if _FLOAT_INFINITY.match(text):
-      if text[0] == '-':
-        return float('-inf')
-      else:
-        return float('inf')
+      return float('-inf') if text[0] == '-' else float('inf')
     elif _FLOAT_NAN.match(text):
       return float('nan')
     else:
@@ -1783,11 +1773,9 @@ def ParseEnum(field, value):
                        (enum_descriptor.full_name, value))
   else:
     # Numeric value.
-    if hasattr(field.file, 'syntax'):
-      # Attribute is checked for compatibility.
-      if field.file.syntax == 'proto3':
-        # Proto3 accept numeric unknown enums.
-        return number
+    if hasattr(field.file, 'syntax') and field.file.syntax == 'proto3':
+      # Proto3 accept numeric unknown enums.
+      return number
     enum_value = enum_descriptor.values_by_number.get(number, None)
     if enum_value is None:
       raise ValueError('Enum type "%s" has no value with number %d.' %

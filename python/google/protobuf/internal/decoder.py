@@ -314,7 +314,7 @@ def _FloatDecoder():
     # To avoid that, we parse it specially.
     if (float_bytes[3:4] in b'\x7F\xFF' and float_bytes[2:3] >= b'\x80'):
       # If at least one significand bit is set...
-      if float_bytes[0:3] != b'\x00\x00\x80':
+      if float_bytes[:3] != b'\x00\x00\x80':
         return (math.nan, new_pos)
       # If sign bit is set...
       if float_bytes[3:4] == b'\xFF':
@@ -356,9 +356,8 @@ def _DoubleDecoder():
     # If this value has all its exponent bits set and at least one significand
     # bit set, it's not a number.  In Python 2.4, struct.unpack will treat it
     # as inf or -inf.  To avoid that, we treat it specially.
-    if ((double_bytes[7:8] in b'\x7F\xFF')
-        and (double_bytes[6:7] >= b'\xF0')
-        and (double_bytes[0:7] != b'\x00\x00\x00\x00\x00\x00\xF0')):
+    if (double_bytes[7:8] in b'\x7F\xFF' and double_bytes[6:7] >= b'\xF0'
+        and double_bytes[:7] != b'\x00\x00\x00\x00\x00\x00\xF0'):
       return (math.nan, new_pos)
 
     # Note that we expect someone up-stack to catch struct.error and convert
@@ -1021,7 +1020,7 @@ def _FieldSkipper():
     """
 
     # The wire type is always in the first byte since varints are little-endian.
-    wire_type = ord(tag_bytes[0:1]) & wiretype_mask
+    wire_type = ord(tag_bytes[:1]) & wiretype_mask
     return WIRETYPE_TO_SKIPPER[wire_type](buffer, pos, end)
 
   return SkipField

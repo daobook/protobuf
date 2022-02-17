@@ -1165,7 +1165,7 @@ class Proto2ReflectionTest(unittest.TestCase):
     # clearing the message (which can happen in the more complex C++
     # implementation which has parallel message lists).
     proto = unittest_pb2.TestRequiredForeign()
-    for i in range(10):
+    for _ in range(10):
       proto.repeated_message.add()
     proto2 = unittest_pb2.TestRequiredForeign()
     proto.CopyFrom(proto2)
@@ -1219,7 +1219,7 @@ class Proto2ReflectionTest(unittest.TestCase):
     self.assertEqual([5, 25, 20, 15, 30], proto.repeated_int32[:])
 
     # Test slice assignment with an iterator
-    proto.repeated_int32[1:4] = (i for i in range(3))
+    proto.repeated_int32[1:4] = iter(range(3))
     self.assertEqual([5, 0, 1, 2, 30], proto.repeated_int32)
 
     # Test slice assignment.
@@ -1227,9 +1227,7 @@ class Proto2ReflectionTest(unittest.TestCase):
     self.assertEqual([5, 35, 40, 45, 30], proto.repeated_int32)
 
     # Test that we can use the field as an iterator.
-    result = []
-    for i in proto.repeated_int32:
-      result.append(i)
+    result = list(proto.repeated_int32)
     self.assertEqual([5, 35, 40, 45, 30], result)
 
     # Test single deletion.
@@ -1374,9 +1372,7 @@ class Proto2ReflectionTest(unittest.TestCase):
         [m0], proto.repeated_nested_message[:1])
 
     # Test that we can use the field as an iterator.
-    result = []
-    for i in proto.repeated_nested_message:
-      result.append(i)
+    result = list(proto.repeated_nested_message)
     self.assertListsEqual([m0, m1, m2, m3, m4], result)
 
     # Test single deletion.
@@ -3115,8 +3111,6 @@ class SerializationTest(unittest.TestCase):
     except TypeError:
       pass  # The cpp implementation cannot mix fields from other messages.
       # This test exercises a specific check that avoids a crash.
-    else:
-      pass  # The python implementation allows fields from other messages.
       # This is useless, but works.
 
   def testInitKwargs(self):

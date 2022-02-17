@@ -140,8 +140,9 @@ class RepeatedScalarFieldContainer(BaseContainer):
         return
       raise
 
-    new_values = [self._type_checker.CheckValue(elem) for elem in elem_seq_iter]
-    if new_values:
+    if new_values := [
+        self._type_checker.CheckValue(elem) for elem in elem_seq_iter
+    ]:
       self._values.extend(new_values)
     self._message_listener.Modified()
 
@@ -179,9 +180,7 @@ class RepeatedScalarFieldContainer(BaseContainer):
 
   def __setslice__(self, start, stop, values):
     """Sets the subset of items from between the specified indices."""
-    new_values = []
-    for value in values:
-      new_values.append(self._type_checker.CheckValue(value))
+    new_values = [self._type_checker.CheckValue(value) for value in values]
     self._values[start:stop] = new_values
     self._message_listener.Modified()
 
@@ -362,10 +361,7 @@ class ScalarMap(collections.abc.MutableMapping):
   # will make the default implementation (from our base class) always insert
   # the key.
   def get(self, key, default=None):
-    if key in self:
-      return self[key]
-    else:
-      return default
+    return self[key] if key in self else default
 
   def __setitem__(self, key, value):
     checked_key = self._key_checker.CheckValue(key)
@@ -463,10 +459,7 @@ class MessageMap(collections.abc.MutableMapping):
   # will make the default implementation (from our base class) always insert
   # the key.
   def get(self, key, default=None):
-    if key in self:
-      return self[key]
-    else:
-      return default
+    return self[key] if key in self else default
 
   def __contains__(self, item):
     item = self._key_checker.CheckValue(item)

@@ -173,10 +173,7 @@ class GeneratedProtocolMessageType(type):
     """
     descriptor = dictionary[GeneratedProtocolMessageType._DESCRIPTOR_KEY]
 
-    # If this is an _existing_ class looked up via `_concrete_class` in the
-    # __new__ method above, then we don't need to re-initialize anything.
-    existing_class = getattr(descriptor, '_concrete_class', None)
-    if existing_class:
+    if existing_class := getattr(descriptor, '_concrete_class', None):
       assert existing_class is cls, (
           'Duplicate `GeneratedProtocolMessageType` created for descriptor %r'
           % (descriptor.full_name))
@@ -605,7 +602,7 @@ def _AddPropertiesForField(field, cls):
   # handle specially here.
   assert _FieldDescriptor.MAX_CPPTYPE == 10
 
-  constant_name = field.name.upper() + '_FIELD_NUMBER'
+  constant_name = f'{field.name.upper()}_FIELD_NUMBER'
   setattr(cls, constant_name, field.number)
 
   if field.label == _FieldDescriptor.LABEL_REPEATED:
@@ -775,7 +772,7 @@ def _AddPropertiesForExtensions(descriptor, cls):
   """Adds properties for all fields in this protocol message type."""
   extensions = descriptor.extensions_by_name
   for extension_name, extension_field in extensions.items():
-    constant_name = extension_name.upper() + '_FIELD_NUMBER'
+    constant_name = f'{extension_name.upper()}_FIELD_NUMBER'
     setattr(cls, constant_name, extension_field.number)
 
   # TODO(amauryfa): Migrate all users of these attributes to functions like
@@ -862,11 +859,10 @@ def _AddHasFieldMethod(message_descriptor, cls):
       except KeyError:
         return False
     else:
-      if field.cpp_type == _FieldDescriptor.CPPTYPE_MESSAGE:
-        value = self._fields.get(field)
-        return value is not None and value._is_present_in_parent
-      else:
+      if field.cpp_type != _FieldDescriptor.CPPTYPE_MESSAGE:
         return field in self._fields
+      value = self._fields.get(field)
+      return value is not None and value._is_present_in_parent
 
   cls.HasField = HasField
 
@@ -928,11 +924,10 @@ def _AddHasExtensionMethod(cls):
     if extension_handle.label == _FieldDescriptor.LABEL_REPEATED:
       raise KeyError('"%s" is repeated.' % extension_handle.full_name)
 
-    if extension_handle.cpp_type == _FieldDescriptor.CPPTYPE_MESSAGE:
-      value = self._fields.get(extension_handle)
-      return value is not None and value._is_present_in_parent
-    else:
+    if extension_handle.cpp_type != _FieldDescriptor.CPPTYPE_MESSAGE:
       return extension_handle in self._fields
+    value = self._fields.get(extension_handle)
+    return value is not None and value._is_present_in_parent
   cls.HasExtension = HasExtension
 
 def _InternalUnpackAny(msg):
@@ -994,12 +989,8 @@ def _AddEqualsMethod(message_descriptor, cls):
     if not self.ListFields() == other.ListFields():
       return False
 
-    # TODO(jieluo): Fix UnknownFieldSet to consider MessageSet extensions,
-    # then use it for the comparison.
-    unknown_fields = list(self._unknown_fields)
-    unknown_fields.sort()
-    other_unknown_fields = list(other._unknown_fields)
-    other_unknown_fields.sort()
+    unknown_fields = sorted(self._unknown_fields)
+    other_unknown_fields = sorted(other._unknown_fields)
     return unknown_fields == other_unknown_fields
 
   cls.__eq__ = __eq__
@@ -1255,19 +1246,13 @@ def _AddIsInitializedMethod(message_descriptor, cls):
       the top-level message, e.g. "foo.bar[5].baz".
     """
 
-    errors = []  # simplify things
-
-    for field in required_fields:
-      if not self.HasField(field.name):
-        errors.append(field.name)
+    errors = [
+        field.name for field in required_fields if not self.HasField(field.name)
+    ]
 
     for field, value in self.ListFields():
       if field.cpp_type == _FieldDescriptor.CPPTYPE_MESSAGE:
-        if field.is_extension:
-          name = '(%s)' % field.full_name
-        else:
-          name = field.name
-
+        name = '(%s)' % field.full_name if field.is_extension else field.name
         if _IsMapField(field):
           if _IsMessageMapField(field):
             for key in value:
@@ -1275,9 +1260,6 @@ def _AddIsInitializedMethod(message_descriptor, cls):
               prefix = '%s[%s].' % (name, key)
               sub_errors = element.FindInitializationErrors()
               errors += [prefix + error for error in sub_errors]
-          else:
-            # ScalarMaps can't have any initialization errors.
-            pass
         elif field.label == _FieldDescriptor.LABEL_REPEATED:
           for i in range(len(value)):
             element = value[i]
@@ -1285,7 +1267,7 @@ def _AddIsInitializedMethod(message_descriptor, cls):
             sub_errors = element.FindInitializationErrors()
             errors += [prefix + error for error in sub_errors]
         else:
-          prefix = name + '.'
+          prefix = f'{name}.'
           sub_errors = value.FindInitializationErrors()
           errors += [prefix + error for error in sub_errors]
 
@@ -1299,7 +1281,7 @@ def _FullyQualifiedClassName(klass):
   name = getattr(klass, '__qualname__', klass.__name__)
   if module in (None, 'builtins', '__builtin__'):
     return name
-  return module + '.' + name
+  return f'{module}.{name}'
 
 
 def _AddMergeFromMethod(cls):
@@ -1319,22 +1301,15 @@ def _AddMergeFromMethod(cls):
     fields = self._fields
 
     for field, value in msg._fields.items():
-      if field.label == LABEL_REPEATED:
+      if (field.label != LABEL_REPEATED and field.cpp_type == CPPTYPE_MESSAGE
+          and value._is_present_in_parent or field.label == LABEL_REPEATED):
         field_value = fields.get(field)
         if field_value is None:
           # Construct a new object to represent this field.
           field_value = field._default_constructor(self)
           fields[field] = field_value
         field_value.MergeFrom(value)
-      elif field.cpp_type == CPPTYPE_MESSAGE:
-        if value._is_present_in_parent:
-          field_value = fields.get(field)
-          if field_value is None:
-            # Construct a new object to represent this field.
-            field_value = field._default_constructor(self)
-            fields[field] = field_value
-          field_value.MergeFrom(value)
-      else:
+      elif field.cpp_type != CPPTYPE_MESSAGE:
         self._fields[field] = value
         if field.containing_oneof:
           self._UpdateOneofState(field)
